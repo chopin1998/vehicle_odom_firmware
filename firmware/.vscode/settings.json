@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "usb_device.h": "c",
+        "usbd_def.h": "c",
+        "usbd_conf.h": "c",
+        "stm32f3xx.h": "c",
+        "stm32f3xx_hal.h": "c",
+        "usbd_core.h": "c"
+    },
+    "C_Cpp.intelliSenseEngineFallback": "Enabled",
+    "python.autoComplete.extraPaths": [
+        "/opt/ros/foxy/lib/python3.8/site-packages"
+    ]
+}

@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../scripts"
+		}
+	],
+	"settings": {
+		"python.autoComplete.extraPaths": [
+			"/opt/ros/foxy/lib/python3.8/site-packages"
+		],
+		"files.associations": {
+			"libjpeg.h": "c",
+			"cstdint": "cpp",
+			"dac.h": "c",
+			"main.h": "c"
+		}
+	}
+}

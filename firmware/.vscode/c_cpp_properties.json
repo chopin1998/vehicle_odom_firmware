@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "name": "stm32",
+            "defines": [
+                "STM32F730xx",
+                "ARM_MATH_CM7",
+                "USE_HAL_DRIVER",
+                "DUSE_FULL_LL_DRIVER"],
+            "includePath": [
+                "${workspaceFolder}/Core/Inc/",
+                "${workspaceFolder}/Drivers/CMSIS/DSP/Include/",
+                "${workspaceFolder}/Drivers/STM32F7xx_HAL_Driver/Inc/",
+                "${workspaceFolder}/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy",
+                "${workspaceFolder}/Drivers/CMSIS/Device/ST/STM32F7xx/Include",
+                "${workspaceFolder}/Drivers/CMSIS/Include",
+                "${workspaceFolder}/Middlewares/ST/STM32_USB_Device_Library/Core/Inc",
+                "${workspaceFolder}/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc",
+                "${workspaceFolder}/USB_DEVICE/App",
+                "${workspaceFolder}/USB_DEVICE/Target/"
+            ],
+            "compilerPath": "/opt/gcc-arm-none-eabi-8-2018-q4-major/bin/arm-none-eabi-gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}
