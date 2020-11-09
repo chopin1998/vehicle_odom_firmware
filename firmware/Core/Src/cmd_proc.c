@@ -6,6 +6,9 @@
 #include "i2c.h"
 
 #include "adns3080.h"
+#include "motion_fx.h"
+#include "lsm9ds1_reg.h"
+#include "imu.h"
 
 void cmd_proc(uint8_t *cmd, int len)
 {
@@ -31,31 +34,29 @@ void cmd_proc(uint8_t *cmd, int len)
     }
     else if (!strncmp(cmd, "test", 4))
     {
+        // buf_len = MotionFX_GetLibVersion(buf);
+        // CDC_Transmit_FS(buf, buf_len);
+        // CDC_Transmit_FS("\n", 1);
 
-        buf_len = snprintf(buf, 32, "before: 0x%d | ", HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR25));
-        CDC_Transmit_FS(buf, buf_len);
+        // MFX_input_t raw;
+        // MFX_output_t out;
+        // // imu_getdata(&raw);
 
-        HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR0, 0x5a5a);
-
-        buf_len = snprintf(buf, 32, "after: 0x%d \n", HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR25));
-        CDC_Transmit_FS(buf, buf_len);
-
-        // HAL_NVIC_SystemReset();
+        // float dt = 0.01;
+        // MotionFX_propagate(&out, &raw, &dt);
     }
     else if (!strncmp(cmd, "imu", 3))
     {
-        HAL_StatusTypeDef hal_rev;
-        hal_rev = HAL_I2C_Mem_Read(&hi2c1, 0xD5, 0xf, I2C_MEMADD_SIZE_8BIT, rx_reg, 1, 100);
-        
-        uint32_t errno = HAL_I2C_GetError(&hi2c1);
-        buf_len = snprintf(buf, 64, "rev: %d, errno: %d,imu: 0x%02x\n", hal_rev, errno, rx_reg[0]);
-        CDC_Transmit_FS(buf, buf_len);
-
-        hal_rev = HAL_I2C_Mem_Read(&hi2c1, 0x39, 0xf, I2C_MEMADD_SIZE_8BIT, rx_reg, 1, 100);
-        
-        errno = HAL_I2C_GetError(&hi2c1);
-        buf_len = snprintf(buf, 64, "rev: %d, errno: %d,imu: 0x%02x\n", hal_rev, errno, rx_reg[0]);
-        CDC_Transmit_FS(buf, buf_len);
+        lsm9ds1_id_t whoami;
+        lsm9ds1_dev_id_get(&dev_mag, &dev_imu, &whoami);
+        if (whoami.imu != LSM9DS1_IMU_ID || whoami.mag != LSM9DS1_MAG_ID)
+        {
+            CDC_Transmit_FS("dev not mount\n", 14);
+        }
+        else
+        {
+            CDC_Transmit_FS("match\n", 6);
+        }
     }
     else if (!strncmp(cmd, "scan", 4))
     {

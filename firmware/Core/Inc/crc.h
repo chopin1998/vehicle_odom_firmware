@@ -1,9 +1,8 @@
-/* USER CODE BEGIN Header */
 /**
- ******************************************************************************
-  * File Name          : libjpeg.c
+  ******************************************************************************
+  * File Name          : CRC.h
   * Description        : This file provides code for the configuration
-  *                      of the libjpeg instances.
+  *                      of the CRC instances.
   ******************************************************************************
   * @attention
   *
@@ -17,36 +16,36 @@
   *
   ******************************************************************************
   */
-/* USER CODE END Header */
+/* Define to prevent recursive inclusion -------------------------------------*/
+#ifndef __crc_H
+#define __crc_H
+#ifdef __cplusplus
+ extern "C" {
+#endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "libjpeg.h"
+#include "main.h"
 
-/* USER CODE BEGIN 0 */
-/* USER CODE END 0 */
+/* USER CODE BEGIN Includes */
 
-/* USER CODE BEGIN 1 */
-/* USER CODE END 1 */
+/* USER CODE END Includes */
 
-/* Global variables ---------------------------------------------------------*/
+extern CRC_HandleTypeDef hcrc;
 
-/* USER CODE BEGIN 2 */
-/* USER CODE END 2 */
+/* USER CODE BEGIN Private defines */
 
-/* LIBJPEG init function */
-void MX_LIBJPEG_Init(void)
-{
-/***************************************/
-   /**
-  */
+/* USER CODE END Private defines */
 
-  /* USER CODE BEGIN 3 */
-  /* USER CODE END 3 */
+void MX_CRC_Init(void);
 
+/* USER CODE BEGIN Prototypes */
+
+/* USER CODE END Prototypes */
+
+#ifdef __cplusplus
 }
-
-/* USER CODE BEGIN 4 */
-/* USER CODE END 4 */
+#endif
+#endif /*__ crc_H */
 
 /**
   * @}

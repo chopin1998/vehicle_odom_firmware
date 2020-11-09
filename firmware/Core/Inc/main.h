@@ -78,10 +78,14 @@ void Error_Handler(void);
 #define SPI2_RST_GPIO_Port GPIOC
 #define SPI3_RST_Pin GPIO_PIN_14
 #define SPI3_RST_GPIO_Port GPIOA
+#define IMU_INT1_Pin GPIO_PIN_3
+#define IMU_INT1_GPIO_Port GPIOB
+#define IMU_INT1_EXTI_IRQn EXTI3_IRQn
 #define IMU_INT2_Pin GPIO_PIN_4
 #define IMU_INT2_GPIO_Port GPIOB
 #define IMU_INT3_Pin GPIO_PIN_5
 #define IMU_INT3_GPIO_Port GPIOB
+#define IMU_INT3_EXTI_IRQn EXTI9_5_IRQn
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

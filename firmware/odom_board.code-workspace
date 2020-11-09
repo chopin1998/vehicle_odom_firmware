@@ -15,7 +15,15 @@
 			"libjpeg.h": "c",
 			"cstdint": "cpp",
 			"dac.h": "c",
-			"main.h": "c"
-		}
+			"main.h": "c",
+			"motion_fx.h": "c",
+			"lsm9ds1_reg.h": "c",
+			"array": "c",
+			"string": "c",
+			"string_view": "c"
+		},
+		"python.analysis.extraPaths": [
+			"/opt/ros/foxy/lib/python3.8/site-packages"
+		]
 	}
 }

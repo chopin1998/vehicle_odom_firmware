@@ -89,6 +89,18 @@ void HardFault_Handler(void)
   while (1)
   {
     /* USER CODE BEGIN W1_HardFault_IRQn 0 */
+
+    LL_DAC_ConvertData12RightAligned(DAC1, LL_DAC_CHANNEL_2, 0);
+    for (uint8_t i=0; i<16; i++)
+    {
+      HAL_GPIO_TogglePin(LED_0_GPIO_Port, LED_0_Pin);
+      for (unsigned int i=0; i<16777216; i++)
+      {
+
+      }
+    }
+
+    return;
     /* USER CODE END W1_HardFault_IRQn 0 */
   }
 }
@@ -183,7 +195,7 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
-  static int led_val=2800, led_dir=0;
+  static int led_val = 2800, led_dir = 0;
 
   if (led_dir == 0)
   {
@@ -215,6 +227,39 @@ void SysTick_Handler(void)
 /* For the available peripheral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32f7xx.s).                    */
 /******************************************************************************/
+
+/**
+  * @brief This function handles EXTI line3 interrupt.
+  */
+void EXTI3_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI3_IRQn 0 */
+
+  imu_xl_gy_drdy();
+
+  /* USER CODE END EXTI3_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_3);
+  /* USER CODE BEGIN EXTI3_IRQn 1 */
+
+  /* USER CODE END EXTI3_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI line[9:5] interrupts.
+  */
+void EXTI9_5_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI9_5_IRQn 0 */
+
+  HAL_GPIO_TogglePin(LED_0_GPIO_Port, LED_0_Pin);
+  imu_mag_drdy();
+
+  /* USER CODE END EXTI9_5_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5);
+  /* USER CODE BEGIN EXTI9_5_IRQn 1 */
+
+  /* USER CODE END EXTI9_5_IRQn 1 */
+}
 
 /**
   * @brief This function handles USB On The Go FS global interrupt.

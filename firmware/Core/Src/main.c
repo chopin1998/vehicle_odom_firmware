@@ -19,9 +19,9 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "crc.h"
 #include "dac.h"
 #include "i2c.h"
-#include "libjpeg.h"
 #include "rtc.h"
 #include "spi.h"
 #include "usb_device.h"
@@ -30,6 +30,9 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "adns3080.h"
+#include "lsm9ds1_reg.h"
+#include "motion_fx.h"
+#include "MadgwickAHRS.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -100,8 +103,8 @@ int main(void)
   MX_DAC_Init();
   MX_I2C1_Init();
   MX_SPI3_Init();
-  MX_LIBJPEG_Init();
   MX_RTC_Init();
+  MX_CRC_Init();
   /* USER CODE BEGIN 2 */
 
   LL_DAC_Enable(DAC, LL_DAC_CHANNEL_2);
@@ -112,11 +115,17 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  uint8_t buf[64];
+  uint8_t buf[256];
   int len;
 
   adns3080_init();
 
+  imu_init();
+
+  uint32_t last_tick = HAL_GetTick(), curr_tick;
+  float dt;
+  MFX_input_t raw;
+  // MFX_output_t out;
   for (;;)
   {
     /* USER CODE END WHILE */
@@ -126,6 +135,36 @@ int main(void)
     if (1)
     {
       cdc_rx_tick();
+    }
+
+    // if (is_imu_xl_gy_drdy())
+    if (0)
+    {
+      // imu_getdata(&raw);
+
+      // curr_tick = HAL_GetTick();
+      // dt = (curr_tick - last_tick)/1000.0;
+      // last_tick = curr_tick;
+      dt = 0.01;
+
+      if (0)
+      {
+        len = snprintf(buf, 256, "%4.2f %4.2f %4.2f | %4.2f %4.2f %4.2f | %4.1f %4.1f %4.1f\n", raw.acc[0], raw.acc[1], raw.acc[2], raw.gyro[0], raw.gyro[1], raw.gyro[2], raw.mag[0], raw.mag[1], raw.mag[2]);
+        CDC_Transmit_FS(buf, len);
+      }
+
+      // MotionFX_propagate(&out, &raw, &dt);
+    }
+
+    if (is_imu_xl_gy_drdy())
+    {
+      imu_getdata(&raw);
+      MadgwickAHRSupdate(raw.acc[0], raw.acc[1], raw.acc[2], raw.gyro[0], raw.gyro[1], raw.gyro[2], raw.mag[0], raw.mag[1], raw.mag[2]);
+
+      len = snprintf(buf, 128, "%4.3f %4.3f %4.3f %4.3f\n", q0, q1, q2, q3);
+      CDC_Transmit_FS(buf, len);
+
+      HAL_GPIO_TogglePin(LED_0_GPIO_Port, LED_0_Pin);
     }
 
     HAL_PWR_EnterSLEEPMode(PWR_LOWPOWERREGULATOR_ON, PWR_SLEEPENTRY_WFI);
