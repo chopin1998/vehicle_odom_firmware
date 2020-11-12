@@ -32,7 +32,9 @@
 #include "adns3080.h"
 #include "lsm9ds1_reg.h"
 #include "motion_fx.h"
-#include "MadgwickAHRS.h"
+// #include "MadgwickAHRS.h"
+#include "MahonyAHRS.h"
+#include "imu.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -125,7 +127,7 @@ int main(void)
   uint32_t last_tick = HAL_GetTick(), curr_tick;
   float dt;
   MFX_input_t raw;
-  // MFX_output_t out;
+  MFX_output_t out;
   for (;;)
   {
     /* USER CODE END WHILE */
@@ -137,35 +139,38 @@ int main(void)
       cdc_rx_tick();
     }
 
-    // if (is_imu_xl_gy_drdy())
-    if (0)
+    if (is_imu_xl_gy_drdy())
+    // if (0)
     {
-      // imu_getdata(&raw);
+      imu_getdata(&raw);
 
       // curr_tick = HAL_GetTick();
       // dt = (curr_tick - last_tick)/1000.0;
       // last_tick = curr_tick;
       dt = 0.01;
 
-      if (0)
+      if (1)
       {
         len = snprintf(buf, 256, "%4.2f %4.2f %4.2f | %4.2f %4.2f %4.2f | %4.1f %4.1f %4.1f\n", raw.acc[0], raw.acc[1], raw.acc[2], raw.gyro[0], raw.gyro[1], raw.gyro[2], raw.mag[0], raw.mag[1], raw.mag[2]);
         CDC_Transmit_FS(buf, len);
       }
 
-      // MotionFX_propagate(&out, &raw, &dt);
+      MotionFX_propagate(&out, &raw, &dt);
     }
 
-    if (is_imu_xl_gy_drdy())
-    {
-      imu_getdata(&raw);
-      MadgwickAHRSupdate(raw.acc[0], raw.acc[1], raw.acc[2], raw.gyro[0], raw.gyro[1], raw.gyro[2], raw.mag[0], raw.mag[1], raw.mag[2]);
+    // if (is_imu_xl_gy_drdy())
+    // {
+    //   imu_getdata(&raw);
+    //   // MadgwickAHRSupdate(raw.gyro[0], raw.gyro[1], raw.gyro[2], raw.acc[0], raw.acc[1], raw.acc[2], -raw.mag[0], raw.mag[1], raw.mag[2]);
+    //   // MahonyAHRSupdate(raw.gyro[0], raw.gyro[1], raw.gyro[2], raw.acc[0], raw.acc[1], raw.acc[2], -raw.mag[0], raw.mag[1], raw.mag[2]);
 
-      len = snprintf(buf, 128, "%4.3f %4.3f %4.3f %4.3f\n", q0, q1, q2, q3);
-      CDC_Transmit_FS(buf, len);
+    //   // len = snprintf(buf, 128, "%4.3f %4.3f %4.3f %4.3f\n", q0, q1, q2, q3);
+    //   len = snprintf(buf, 256, "%4.2f %4.2f %4.2f | %4.2f %4.2f %4.2f | %4.1f %4.1f %4.1f\n", raw.acc[0], raw.acc[1], raw.acc[2], raw.gyro[0], raw.gyro[1], raw.gyro[2], raw.mag[0], raw.mag[1], raw.mag[2]);
 
-      HAL_GPIO_TogglePin(LED_0_GPIO_Port, LED_0_Pin);
-    }
+    //   CDC_Transmit_FS(buf, len);
+
+    //   HAL_GPIO_TogglePin(LED_0_GPIO_Port, LED_0_Pin);
+    // }
 
     HAL_PWR_EnterSLEEPMode(PWR_LOWPOWERREGULATOR_ON, PWR_SLEEPENTRY_WFI);
   }
@@ -189,7 +194,7 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI | RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
@@ -210,8 +215,7 @@ void SystemClock_Config(void)
   }
   /** Initializes the CPU, AHB and APB buses clocks
   */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
@@ -221,8 +225,7 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_RTC|RCC_PERIPHCLK_I2C1
-                              |RCC_PERIPHCLK_CLK48;
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_RTC | RCC_PERIPHCLK_I2C1 | RCC_PERIPHCLK_CLK48;
   PeriphClkInitStruct.RTCClockSelection = RCC_RTCCLKSOURCE_LSI;
   PeriphClkInitStruct.I2c1ClockSelection = RCC_I2C1CLKSOURCE_PCLK1;
   PeriphClkInitStruct.Clk48ClockSelection = RCC_CLK48SOURCE_PLL;
@@ -248,7 +251,7 @@ void Error_Handler(void)
   /* USER CODE END Error_Handler_Debug */
 }
 
-#ifdef  USE_FULL_ASSERT
+#ifdef USE_FULL_ASSERT
 /**
   * @brief  Reports the name of the source file and the source line number
   *         where the assert_param error has occurred.

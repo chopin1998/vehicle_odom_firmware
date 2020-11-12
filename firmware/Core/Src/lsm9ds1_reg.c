@@ -104,19 +104,19 @@ float_t lsm9ds1_from_fs16g_to_mg(int16_t lsb)
   return ((float_t)lsb *0.732f);
 }
 
-float_t lsm9ds1_from_fs245dps_to_mdps(int16_t lsb)
+float_t lsm9ds1_from_fs245dps_to_radps(int16_t lsb)
 {
-  return ((float_t)lsb *8.75f);
+  return ((float_t)lsb *8.75f/0.01745329251994/1000);
 }
 
-float_t lsm9ds1_from_fs500dps_to_mdps(int16_t lsb)
+float_t lsm9ds1_from_fs500dps_to_radps(int16_t lsb)
 {
-  return ((float_t)lsb *17.50f);
+  return ((float_t)lsb *17.50f*0.01745329251994/1000);
 }
 
-float_t lsm9ds1_from_fs2000dps_to_mdps(int16_t lsb)
+float_t lsm9ds1_from_fs2000dps_to_radps(int16_t lsb)
 {
-  return ((float_t)lsb *70.0f);
+  return ((float_t)lsb *70.0f*0.01745329251994/1000);
 }
 
 float_t lsm9ds1_from_fs4gauss_to_mG(int16_t lsb)

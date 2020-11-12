@@ -88,7 +88,7 @@ Core/Src/rtc.c \
 Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rtc.c \
 Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rtc_ex.c \
 Core/Src/crc.c \
-Core/Src/MadgwickAHRS.c \
+Core/SRc/MahonyAHRS.c \
 Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_crc.c \
 Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_crc_ex.c
 

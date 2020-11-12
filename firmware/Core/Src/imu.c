@@ -44,22 +44,22 @@ uint32_t imu_init(void)
     lsm9ds1_id_t whoami;
     uint32_t rev = 0;
 
-    // if (0)
-    // {
-    //     MotionFX_initialize();
+    if (1)
+    {
+        MotionFX_initialize();
 
-    //     MFX_knobs_t knobs;
-    //     MotionFX_getKnobs(&knobs);
-    //     // tunning parameters
-    //     knobs.LMode = 1;
-    //     knobs.modx = 1;
-    //     knobs.output_type = MFX_ENGINE_OUTPUT_ENU;
-    //     // tunning parameters
-    //     MotionFX_setKnobs(&knobs);
+        MFX_knobs_t knobs;
+        MotionFX_getKnobs(&knobs);
+        // tunning parameters
+        knobs.LMode = 1;
+        knobs.modx = 1;
+        knobs.output_type = MFX_ENGINE_OUTPUT_ENU;
+        // tunning parameters
+        MotionFX_setKnobs(&knobs);
 
-    //     MotionFX_enable_6X(MFX_ENGINE_DISABLE);
-    //     MotionFX_enable_9X(MFX_ENGINE_ENABLE);
-    // }
+        MotionFX_enable_6X(MFX_ENGINE_DISABLE);
+        MotionFX_enable_9X(MFX_ENGINE_ENABLE);
+    }
 
     dev_imu.handle = NULL;
     dev_imu.read_reg = _read_imu_reg;
@@ -107,7 +107,7 @@ uint32_t imu_init(void)
     // lsm9ds1_imu_data_rate_set(&dev_imu, LSM9DS1_IMU_59Hz5);
     lsm9ds1_imu_data_rate_set(&dev_imu, LSM9DS1_IMU_119Hz);
     // lsm9ds1_mag_data_rate_set(&dev_mag, LSM9DS1_MAG_UHP_10Hz);
-    lsm9ds1_mag_data_rate_set(&dev_mag, LSM9DS1_MAG_UHP_40Hz);
+    lsm9ds1_mag_data_rate_set(&dev_mag, LSM9DS1_MAG_UHP_80Hz);
 
     lsm9ds1_pin_int1_route_t int1_reg;
     int1_reg.int1_ig_xl = 1;
@@ -181,9 +181,9 @@ void imu_dump(void)
         accel_mg[1] = lsm9ds1_from_fs4g_to_mg(data_raw_acceleration.i16bit[1]);
         accel_mg[2] = lsm9ds1_from_fs4g_to_mg(data_raw_acceleration.i16bit[2]);
 
-        gyro_rate_mdps[0] = lsm9ds1_from_fs2000dps_to_mdps(data_raw_angular_rate.i16bit[0]);
-        gyro_rate_mdps[1] = lsm9ds1_from_fs2000dps_to_mdps(data_raw_angular_rate.i16bit[1]);
-        gyro_rate_mdps[2] = lsm9ds1_from_fs2000dps_to_mdps(data_raw_angular_rate.i16bit[2]);
+        gyro_rate_mdps[0] = lsm9ds1_from_fs2000dps_to_radps(data_raw_angular_rate.i16bit[0]);
+        gyro_rate_mdps[1] = lsm9ds1_from_fs2000dps_to_radps(data_raw_angular_rate.i16bit[1]);
+        gyro_rate_mdps[2] = lsm9ds1_from_fs2000dps_to_radps(data_raw_angular_rate.i16bit[2]);
 
         buf_len = snprintf(buf, 256, "[accel]%4.2f\t%4.2f\t%4.2f | [gyro]%4.2f\t%4.2f\t%4.2f\r\n", accel_mg[0], accel_mg[1], accel_mg[2], gyro_rate_mdps[0], gyro_rate_mdps[1], gyro_rate_mdps[2]);
         CDC_Transmit_FS(buf, buf_len);
@@ -212,38 +212,20 @@ void imu_getdata(MFX_input_t *input)
     axis3bit16_t data_raw_angular_rate;
     axis3bit16_t data_raw_magnetic_field;
 
-    // float accel_mg[3], gyro_rate_mdps[3], mag_mgauss[3];
+    lsm9ds1_acceleration_raw_get(&dev_imu, data_raw_acceleration.u8bit);
+    lsm9ds1_angular_rate_raw_get(&dev_imu, data_raw_angular_rate.u8bit);
 
-    // MFX_input_t input;
-    // MFX_output_t output;
+    input->acc[0] = lsm9ds1_from_fs4g_to_mg(data_raw_acceleration.i16bit[0]);
+    input->acc[1] = lsm9ds1_from_fs4g_to_mg(data_raw_acceleration.i16bit[1]);
+    input->acc[2] = lsm9ds1_from_fs4g_to_mg(data_raw_acceleration.i16bit[2]);
 
-    // lsm9ds1_dev_status_get(&dev_mag, &dev_imu, &sreg);
+    input->gyro[0] = lsm9ds1_from_fs2000dps_to_radps(data_raw_angular_rate.i16bit[0]);
+    input->gyro[1] = lsm9ds1_from_fs2000dps_to_radps(data_raw_angular_rate.i16bit[1]);
+    input->gyro[2] = lsm9ds1_from_fs2000dps_to_radps(data_raw_angular_rate.i16bit[2]);
 
-    // if (sreg.status_imu.xlda && sreg.status_imu.gda)
-    {
-        // memset(data_raw_acceleration.u8bit, 0x00, 3 * sizeof(int16_t));
-        // memset(data_raw_angular_rate.u8bit, 0x00, 3 * sizeof(int16_t));
+    lsm9ds1_magnetic_raw_get(&dev_mag, data_raw_magnetic_field.u8bit);
 
-        lsm9ds1_acceleration_raw_get(&dev_imu, data_raw_acceleration.u8bit);
-        lsm9ds1_angular_rate_raw_get(&dev_imu, data_raw_angular_rate.u8bit);
-
-        input->acc[0] = lsm9ds1_from_fs4g_to_mg(data_raw_acceleration.i16bit[0]);
-        input->acc[1] = lsm9ds1_from_fs4g_to_mg(data_raw_acceleration.i16bit[1]);
-        input->acc[2] = lsm9ds1_from_fs4g_to_mg(data_raw_acceleration.i16bit[2]);
-
-        input->gyro[0] = lsm9ds1_from_fs2000dps_to_mdps(data_raw_angular_rate.i16bit[0]);
-        input->gyro[1] = lsm9ds1_from_fs2000dps_to_mdps(data_raw_angular_rate.i16bit[1]);
-        input->gyro[2] = lsm9ds1_from_fs2000dps_to_mdps(data_raw_angular_rate.i16bit[2]);
-    }
-
-    // if (sreg.status_mag.zyxda)
-    {
-        // memset(data_raw_magnetic_field.u8bit, 0x00, 3 * sizeof(int16_t));
-
-        lsm9ds1_magnetic_raw_get(&dev_mag, data_raw_magnetic_field.u8bit);
-
-        input->mag[0] = lsm9ds1_from_fs16gauss_to_mG(data_raw_magnetic_field.i16bit[0]);
-        input->mag[1] = lsm9ds1_from_fs16gauss_to_mG(data_raw_magnetic_field.i16bit[1]);
-        input->mag[2] = lsm9ds1_from_fs16gauss_to_mG(data_raw_magnetic_field.i16bit[2]);
-    }
+    input->mag[0] = lsm9ds1_from_fs16gauss_to_mG(data_raw_magnetic_field.i16bit[0]);
+    input->mag[1] = lsm9ds1_from_fs16gauss_to_mG(data_raw_magnetic_field.i16bit[1]);
+    input->mag[2] = lsm9ds1_from_fs16gauss_to_mG(data_raw_magnetic_field.i16bit[2]);
 }
