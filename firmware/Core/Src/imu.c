@@ -1,5 +1,6 @@
 #include "imu.h"
 #include "usbd_cdc_if.h"
+#include "motion_ec.h"
 
 stmdev_ctx_t dev_imu, dev_mag;
 
@@ -39,27 +40,26 @@ int32_t _read_mag_reg(void *h, uint8_t reg, uint8_t *bufp, uint16_t len)
     return rev;
 }
 
+char MotionFX_LoadMagCalFromNVM(unsigned short int dataSize, unsigned int *data)
+{
+    return (char)1;
+}
+
+/**
+ * @brief  Save calibration parameter to memory
+ * @param  dataSize length ot the data
+ * @param  data pointer to the data
+ * @retval (1) fail, (0) success
+ */
+char MotionFX_SaveMagCalInNVM(unsigned short int dataSize, unsigned int *data)
+{
+    return (char)1;
+}
+
 uint32_t imu_init(void)
 {
     lsm9ds1_id_t whoami;
     uint32_t rev = 0;
-
-    if (1)
-    {
-        MotionFX_initialize();
-
-        MFX_knobs_t knobs;
-        MotionFX_getKnobs(&knobs);
-        // tunning parameters
-        knobs.LMode = 1;
-        knobs.modx = 1;
-        knobs.output_type = MFX_ENGINE_OUTPUT_ENU;
-        // tunning parameters
-        MotionFX_setKnobs(&knobs);
-
-        MotionFX_enable_6X(MFX_ENGINE_DISABLE);
-        MotionFX_enable_9X(MFX_ENGINE_ENABLE);
-    }
 
     dev_imu.handle = NULL;
     dev_imu.read_reg = _read_imu_reg;
@@ -107,16 +107,99 @@ uint32_t imu_init(void)
     // lsm9ds1_imu_data_rate_set(&dev_imu, LSM9DS1_IMU_59Hz5);
     lsm9ds1_imu_data_rate_set(&dev_imu, LSM9DS1_IMU_119Hz);
     // lsm9ds1_mag_data_rate_set(&dev_mag, LSM9DS1_MAG_UHP_10Hz);
-    lsm9ds1_mag_data_rate_set(&dev_mag, LSM9DS1_MAG_UHP_80Hz);
+    lsm9ds1_mag_data_rate_set(&dev_mag, LSM9DS1_MAG_UHP_40Hz);
 
     lsm9ds1_pin_int1_route_t int1_reg;
     int1_reg.int1_ig_xl = 1;
     int1_reg.int1_drdy_xl = 1;
     lsm9ds1_pin_int1_route_set(&dev_imu, int1_reg);
 
-    // lsm9ds1_pin_int2_route_t int2_reg;
-    // int2_reg.int2_drdy_g = 1;
-    // lsm9ds1_pin_int2_route_set(&dev_imu, int2_reg);
+    lsm9ds1_pin_int2_route_t int2_reg;
+    int2_reg.int2_drdy_g = 1;
+    lsm9ds1_pin_int2_route_set(&dev_imu, int2_reg);
+
+    float hz = 119;
+    MotionEC_Initialize(&hz);
+
+    // if (0)
+    // {
+    //     MotionFX_initialize();
+
+    //     MFX_knobs_t knobs;
+    //     MotionFX_getKnobs(&knobs);
+    //     // tunning parameters
+    //     knobs.LMode = 1;
+    //     knobs.modx = 1;
+    //     knobs.output_type = MFX_ENGINE_OUTPUT_ENU;
+    //     knobs.acc_orientation[0] = 'n';
+    //     knobs.acc_orientation[1] = 'e';
+    //     knobs.acc_orientation[2] = 'u';
+
+    //     knobs.gyro_orientation[0] = 'n';
+    //     knobs.gyro_orientation[1] = 'e';
+    //     knobs.gyro_orientation[2] = 'u';
+
+    //     knobs.mag_orientation[0] = 's';
+    //     knobs.mag_orientation[1] = 'e';
+    //     knobs.mag_orientation[2] = 'u';
+
+    //     knobs.output_type = MFX_ENGINE_OUTPUT_ENU;
+
+        
+    //     // tunning parameters
+    //     MotionFX_setKnobs(&knobs);
+
+    //     // MotionFX_enable_6X(MFX_ENGINE_DISABLE);
+    //     MotionFX_enable_9X(MFX_ENGINE_ENABLE);
+    // }
+
+    // if (0)
+    // {
+    //     MFX_MagCal_output_t magcal_out;
+    //     MFX_MagCal_input_t magcal_in;
+    //     MotionFX_MagCal_init(25, 1);
+    //     uint8_t buf[64];
+    //     int len;
+    //     CDC_Transmit_FS("mag cal..\n", 10);
+    //     for (;;)
+    //     {
+    //         lsm9ds1_status_t status;
+    //         axis3bit16_t data_raw_mag;
+    //         // lsm9ds1_dev_status_get(&dev_mag, &dev_imu, &status);
+    //         // if (status.status_mag.zyxda)
+    //         while (!is_imu_xl_gy_drdy())
+    //         {
+    //         }
+
+    //         lsm9ds1_acceleration_raw_get(&dev_imu, data_raw_mag.u8bit);
+    //         lsm9ds1_angular_rate_raw_get(&dev_imu, data_raw_mag.u8bit);
+    //         lsm9ds1_magnetic_raw_get(&dev_imu, data_raw_mag.u8bit);
+
+    //         lsm9ds1_dev_status_get(&dev_mag, &dev_imu, &status);
+    //         if (status.status_mag.zyxda)
+    //         {
+    //             // lsm9ds1_magnetic_raw_get(&dev_imu, data_raw_mag.u8bit);
+    //             len = snprintf(buf, 64, "%d, %d, %d\n", data_raw_mag.i16bit[0], data_raw_mag.i16bit[1], data_raw_mag.i16bit[2]);
+    //             CDC_Transmit_FS(buf, len);
+    //         }
+    //         else
+    //         {
+    //             continue;
+    //         }
+
+    //         magcal_in.mag[0] = lsm9ds1_from_fs16gauss_to_mG(data_raw_mag.i16bit[0]);
+    //         magcal_in.mag[1] = lsm9ds1_from_fs16gauss_to_mG(data_raw_mag.i16bit[1]);
+    //         magcal_in.mag[2] = lsm9ds1_from_fs16gauss_to_mG(data_raw_mag.i16bit[2]);
+    //         magcal_in.time_stamp = 25;
+
+    //         MotionFX_MagCal_run(&magcal_in);
+
+    //         MotionFX_MagCal_getParams(&magcal_out);
+
+    //         len = snprintf(buf, 64, "cal_q -> %d\n", magcal_out.cal_quality);
+    //         CDC_Transmit_FS(buf, len);
+    //     }
+    // }
 }
 
 void imu_xl_gy_drdy(void)
@@ -181,9 +264,9 @@ void imu_dump(void)
         accel_mg[1] = lsm9ds1_from_fs4g_to_mg(data_raw_acceleration.i16bit[1]);
         accel_mg[2] = lsm9ds1_from_fs4g_to_mg(data_raw_acceleration.i16bit[2]);
 
-        gyro_rate_mdps[0] = lsm9ds1_from_fs2000dps_to_radps(data_raw_angular_rate.i16bit[0]);
-        gyro_rate_mdps[1] = lsm9ds1_from_fs2000dps_to_radps(data_raw_angular_rate.i16bit[1]);
-        gyro_rate_mdps[2] = lsm9ds1_from_fs2000dps_to_radps(data_raw_angular_rate.i16bit[2]);
+        gyro_rate_mdps[0] = lsm9ds1_from_fs2000dps_to_mdps(data_raw_angular_rate.i16bit[0])/1000;
+        gyro_rate_mdps[1] = lsm9ds1_from_fs2000dps_to_mdps(data_raw_angular_rate.i16bit[1])/1000;
+        gyro_rate_mdps[2] = lsm9ds1_from_fs2000dps_to_mdps(data_raw_angular_rate.i16bit[2])/1000;
 
         buf_len = snprintf(buf, 256, "[accel]%4.2f\t%4.2f\t%4.2f | [gyro]%4.2f\t%4.2f\t%4.2f\r\n", accel_mg[0], accel_mg[1], accel_mg[2], gyro_rate_mdps[0], gyro_rate_mdps[1], gyro_rate_mdps[2]);
         CDC_Transmit_FS(buf, buf_len);
@@ -204,7 +287,7 @@ void imu_dump(void)
     }
 }
 
-void imu_getdata(MFX_input_t *input)
+void imu_getdata(imu_data_t *input)
 {
     lsm9ds1_status_t sreg;
 

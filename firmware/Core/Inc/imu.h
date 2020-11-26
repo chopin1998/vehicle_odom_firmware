@@ -5,13 +5,19 @@
 #include "i2c.h"
 
 #include "lsm9ds1_reg.h"
-#include "motion_fx.h"
+// #include "motion_fx.h"
 
 typedef union
 {
     int16_t i16bit[3];
     uint8_t u8bit[6];
 } axis3bit16_t;
+
+typedef struct {
+    float acc[3];
+    float gyro[3];
+    float mag[3];
+} imu_data_t;
 
 extern stmdev_ctx_t dev_imu, dev_mag;
 
@@ -24,6 +30,6 @@ uint8_t is_imu_mag_drdy(void);
 
 uint32_t imu_init(void);
 
-void imu_getdata(MFX_input_t *input);
+void imu_getdata(imu_data_t *);
 
 #endif

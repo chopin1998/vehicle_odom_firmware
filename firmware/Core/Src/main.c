@@ -21,20 +21,21 @@
 #include "main.h"
 #include "crc.h"
 #include "dac.h"
-#include "i2c.h"
+#include "dma.h"
 #include "rtc.h"
 #include "spi.h"
-#include "usb_device.h"
+#include "usart.h"
+#include "usbd_cdc_if.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "adns3080.h"
-#include "lsm9ds1_reg.h"
-#include "motion_fx.h"
+#include "ser_imu.h"
+// #include "lsm9ds1_reg.h"
 // #include "MadgwickAHRS.h"
-#include "MahonyAHRS.h"
-#include "imu.h"
+// #include "MahonyAHRS.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -100,13 +101,13 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_SPI2_Init();
   MX_USB_DEVICE_Init();
   MX_DAC_Init();
-  MX_I2C1_Init();
-  MX_SPI3_Init();
   MX_RTC_Init();
   MX_CRC_Init();
+  MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
 
   LL_DAC_Enable(DAC, LL_DAC_CHANNEL_2);
@@ -121,13 +122,9 @@ int main(void)
   int len;
 
   adns3080_init();
-
-  imu_init();
-
-  uint32_t last_tick = HAL_GetTick(), curr_tick;
-  float dt;
-  MFX_input_t raw;
-  MFX_output_t out;
+  ser_imu_enable();
+  odom.mode = MODE_IDLE;
+  
   for (;;)
   {
     /* USER CODE END WHILE */
@@ -139,38 +136,38 @@ int main(void)
       cdc_rx_tick();
     }
 
-    if (is_imu_xl_gy_drdy())
-    // if (0)
+    switch (odom.mode)
     {
-      imu_getdata(&raw);
+      case MODE_ODOM:
 
-      // curr_tick = HAL_GetTick();
-      // dt = (curr_tick - last_tick)/1000.0;
-      // last_tick = curr_tick;
-      dt = 0.01;
+        if (ser_imu_frame_flag)
+        {
+          ser_imu_frame_flag = 0;
+          HAL_GPIO_TogglePin(LED_0_GPIO_Port, LED_0_Pin);
 
-      if (1)
-      {
-        len = snprintf(buf, 256, "%4.2f %4.2f %4.2f | %4.2f %4.2f %4.2f | %4.1f %4.1f %4.1f\n", raw.acc[0], raw.acc[1], raw.acc[2], raw.gyro[0], raw.gyro[1], raw.gyro[2], raw.mag[0], raw.mag[1], raw.mag[2]);
+          motion_t m;
+          adns3080_motion(&m);
+
+          // uint8_t euler[6];
+          ser_imu_get(buf);
+
+          len = snprintf(buf+6, 128, "|0x%02x,%d,%d,%u,%u,%u,%u\n", m.motion, m.dx, m.dy, m.squal, m.shutter_upper, m.shutter_lower, m.max_pixel);
+
+          CDC_Transmit_FS(buf, len+6);
+        }
+
+      break;
+      case MODE_IDLE:
+
+        break;
+      default:
+
+        len = snprintf(buf, 64, "invalid odom mode: %d\n", odom.mode);
         CDC_Transmit_FS(buf, len);
-      }
+        odom.mode = MODE_IDLE;
 
-      MotionFX_propagate(&out, &raw, &dt);
+      break;
     }
-
-    // if (is_imu_xl_gy_drdy())
-    // {
-    //   imu_getdata(&raw);
-    //   // MadgwickAHRSupdate(raw.gyro[0], raw.gyro[1], raw.gyro[2], raw.acc[0], raw.acc[1], raw.acc[2], -raw.mag[0], raw.mag[1], raw.mag[2]);
-    //   // MahonyAHRSupdate(raw.gyro[0], raw.gyro[1], raw.gyro[2], raw.acc[0], raw.acc[1], raw.acc[2], -raw.mag[0], raw.mag[1], raw.mag[2]);
-
-    //   // len = snprintf(buf, 128, "%4.3f %4.3f %4.3f %4.3f\n", q0, q1, q2, q3);
-    //   len = snprintf(buf, 256, "%4.2f %4.2f %4.2f | %4.2f %4.2f %4.2f | %4.1f %4.1f %4.1f\n", raw.acc[0], raw.acc[1], raw.acc[2], raw.gyro[0], raw.gyro[1], raw.gyro[2], raw.mag[0], raw.mag[1], raw.mag[2]);
-
-    //   CDC_Transmit_FS(buf, len);
-
-    //   HAL_GPIO_TogglePin(LED_0_GPIO_Port, LED_0_Pin);
-    // }
 
     HAL_PWR_EnterSLEEPMode(PWR_LOWPOWERREGULATOR_ON, PWR_SLEEPENTRY_WFI);
   }
@@ -194,7 +191,7 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI | RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
@@ -215,7 +212,8 @@ void SystemClock_Config(void)
   }
   /** Initializes the CPU, AHB and APB buses clocks
   */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
@@ -225,9 +223,10 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_RTC | RCC_PERIPHCLK_I2C1 | RCC_PERIPHCLK_CLK48;
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_RTC|RCC_PERIPHCLK_USART3
+                              |RCC_PERIPHCLK_CLK48;
   PeriphClkInitStruct.RTCClockSelection = RCC_RTCCLKSOURCE_LSI;
-  PeriphClkInitStruct.I2c1ClockSelection = RCC_I2C1CLKSOURCE_PCLK1;
+  PeriphClkInitStruct.Usart3ClockSelection = RCC_USART3CLKSOURCE_PCLK1;
   PeriphClkInitStruct.Clk48ClockSelection = RCC_CLK48SOURCE_PLL;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {
@@ -251,7 +250,7 @@ void Error_Handler(void)
   /* USER CODE END Error_Handler_Debug */
 }
 
-#ifdef USE_FULL_ASSERT
+#ifdef  USE_FULL_ASSERT
 /**
   * @brief  Reports the name of the source file and the source line number
   *         where the assert_param error has occurred.

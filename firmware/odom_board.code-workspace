@@ -20,7 +20,9 @@
 			"lsm9ds1_reg.h": "c",
 			"array": "c",
 			"string": "c",
-			"string_view": "c"
+			"string_view": "c",
+			"imu.h": "c",
+			"motion_ec.h": "c"
 		},
 		"python.analysis.extraPaths": [
 			"/opt/ros/foxy/lib/python3.8/site-packages"

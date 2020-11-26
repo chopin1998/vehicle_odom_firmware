@@ -66,8 +66,8 @@
 #define USBD_VID     0x1209
 #define USBD_LANGID_STRING     1033
 #define USBD_MANUFACTURER_STRING     "tensor-robotics"
-#define USBD_PID_FS     0x0002
-#define USBD_PRODUCT_STRING_FS     "OpticalFlow_IMU"
+#define USBD_PID_FS     0x0010
+#define USBD_PRODUCT_STRING_FS     "IMU_OPTICALFLOW"
 #define USBD_CONFIGURATION_STRING_FS     "CDC Config"
 #define USBD_INTERFACE_STRING_FS     "CDC Interface"
 
