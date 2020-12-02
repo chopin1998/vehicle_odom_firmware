@@ -1,0 +1,379 @@
+ARM GAS  /tmp/cctBzL7W.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"stm32f7xx_hal_crc.c"
+  13              		.text
+  14              		.section	.text.CRC_Handle_8,"ax",%progbits
+  15              		.align	1
+  16              		.arch armv7e-m
+  17              		.syntax unified
+  18              		.thumb
+  19              		.thumb_func
+  20              		.fpu fpv5-sp-d16
+  22              	CRC_Handle_8:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  26 0002 9608     		lsrs	r6, r2, #2
+  27 0004 0B46     		mov	r3, r1
+  28 0006 0568     		ldr	r5, [r0]
+  29 0008 01EB8607 		add	r7, r1, r6, lsl #2
+  30              	.L2:
+  31 000c BB42     		cmp	r3, r7
+  32 000e 08D1     		bne	.L3
+  33 0010 12F00302 		ands	r2, r2, #3
+  34 0014 1ED0     		beq	.L5
+  35 0016 012A     		cmp	r2, #1
+  36 0018 14D1     		bne	.L6
+  37 001a 11F82630 		ldrb	r3, [r1, r6, lsl #2]	@ zero_extendqisi2
+  38              	.L9:
+  39 001e 2B70     		strb	r3, [r5]
+  40 0020 18E0     		b	.L5
+  41              	.L3:
+  42 0022 5C78     		ldrb	r4, [r3, #1]	@ zero_extendqisi2
+  43 0024 0433     		adds	r3, r3, #4
+  44 0026 13F804CC 		ldrb	ip, [r3, #-4]	@ zero_extendqisi2
+  45 002a 2404     		lsls	r4, r4, #16
+  46 002c 44EA0C64 		orr	r4, r4, ip, lsl #24
+  47 0030 13F801CC 		ldrb	ip, [r3, #-1]	@ zero_extendqisi2
+  48 0034 44EA0C04 		orr	r4, r4, ip
+  49 0038 13F802CC 		ldrb	ip, [r3, #-2]	@ zero_extendqisi2
+  50 003c 44EA0C24 		orr	r4, r4, ip, lsl #8
+  51 0040 2C60     		str	r4, [r5]
+  52 0042 E3E7     		b	.L2
+  53              	.L6:
+  54 0044 022A     		cmp	r2, #2
+  55 0046 08D1     		bne	.L8
+  56 0048 11F82620 		ldrb	r2, [r1, r6, lsl #2]	@ zero_extendqisi2
+  57 004c 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+  58 004e 43EA0223 		orr	r3, r3, r2, lsl #8
+ARM GAS  /tmp/cctBzL7W.s 			page 2
+
+
+  59 0052 2B80     		strh	r3, [r5]	@ movhi
+  60              	.L5:
+  61 0054 0368     		ldr	r3, [r0]
+  62 0056 1868     		ldr	r0, [r3]
+  63 0058 F0BD     		pop	{r4, r5, r6, r7, pc}
+  64              	.L8:
+  65 005a 5A78     		ldrb	r2, [r3, #1]	@ zero_extendqisi2
+  66 005c 11F82610 		ldrb	r1, [r1, r6, lsl #2]	@ zero_extendqisi2
+  67 0060 42EA0122 		orr	r2, r2, r1, lsl #8
+  68 0064 2A80     		strh	r2, [r5]	@ movhi
+  69 0066 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+  70 0068 D9E7     		b	.L9
+  72              		.section	.text.CRC_Handle_16,"ax",%progbits
+  73              		.align	1
+  74              		.syntax unified
+  75              		.thumb
+  76              		.thumb_func
+  77              		.fpu fpv5-sp-d16
+  79              	CRC_Handle_16:
+  80              		@ args = 0, pretend = 0, frame = 0
+  81              		@ frame_needed = 0, uses_anonymous_args = 0
+  82 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  83 0002 0068     		ldr	r0, [r0]
+  84 0004 5508     		lsrs	r5, r2, #1
+  85 0006 0023     		movs	r3, #0
+  86 0008 8E1C     		adds	r6, r1, #2
+  87              	.L11:
+  88 000a 9D42     		cmp	r5, r3
+  89 000c 06D1     		bne	.L12
+  90 000e D307     		lsls	r3, r2, #31
+  91 0010 02D5     		bpl	.L13
+  92 0012 31F82530 		ldrh	r3, [r1, r5, lsl #2]
+  93 0016 0380     		strh	r3, [r0]	@ movhi
+  94              	.L13:
+  95 0018 0068     		ldr	r0, [r0]
+  96 001a F0BD     		pop	{r4, r5, r6, r7, pc}
+  97              	.L12:
+  98 001c 31F82370 		ldrh	r7, [r1, r3, lsl #2]
+  99 0020 36F82340 		ldrh	r4, [r6, r3, lsl #2]
+ 100 0024 0133     		adds	r3, r3, #1
+ 101 0026 44EA0744 		orr	r4, r4, r7, lsl #16
+ 102 002a 0460     		str	r4, [r0]
+ 103 002c EDE7     		b	.L11
+ 105              		.section	.text.HAL_CRC_MspInit,"ax",%progbits
+ 106              		.align	1
+ 107              		.weak	HAL_CRC_MspInit
+ 108              		.syntax unified
+ 109              		.thumb
+ 110              		.thumb_func
+ 111              		.fpu fpv5-sp-d16
+ 113              	HAL_CRC_MspInit:
+ 114              		@ args = 0, pretend = 0, frame = 0
+ 115              		@ frame_needed = 0, uses_anonymous_args = 0
+ 116              		@ link register save eliminated.
+ 117 0000 7047     		bx	lr
+ 119              		.section	.text.HAL_CRC_Init,"ax",%progbits
+ 120              		.align	1
+ARM GAS  /tmp/cctBzL7W.s 			page 3
+
+
+ 121              		.global	HAL_CRC_Init
+ 122              		.syntax unified
+ 123              		.thumb
+ 124              		.thumb_func
+ 125              		.fpu fpv5-sp-d16
+ 127              	HAL_CRC_Init:
+ 128              		@ args = 0, pretend = 0, frame = 0
+ 129              		@ frame_needed = 0, uses_anonymous_args = 0
+ 130 0000 10B5     		push	{r4, lr}
+ 131 0002 0446     		mov	r4, r0
+ 132 0004 08B9     		cbnz	r0, .L19
+ 133              	.L24:
+ 134 0006 0120     		movs	r0, #1
+ 135              	.L20:
+ 136 0008 10BD     		pop	{r4, pc}
+ 137              	.L19:
+ 138 000a 437F     		ldrb	r3, [r0, #29]	@ zero_extendqisi2
+ 139 000c 03F0FF02 		and	r2, r3, #255
+ 140 0010 13B9     		cbnz	r3, .L21
+ 141 0012 0277     		strb	r2, [r0, #28]
+ 142 0014 FFF7FEFF 		bl	HAL_CRC_MspInit
+ 143              	.L21:
+ 144 0018 0223     		movs	r3, #2
+ 145 001a 6377     		strb	r3, [r4, #29]
+ 146 001c 2379     		ldrb	r3, [r4, #4]	@ zero_extendqisi2
+ 147 001e E3B9     		cbnz	r3, .L22
+ 148 0020 2368     		ldr	r3, [r4]
+ 149 0022 134A     		ldr	r2, .L28
+ 150 0024 5A61     		str	r2, [r3, #20]
+ 151 0026 9A68     		ldr	r2, [r3, #8]
+ 152 0028 22F01802 		bic	r2, r2, #24
+ 153 002c 9A60     		str	r2, [r3, #8]
+ 154              	.L23:
+ 155 002e 6279     		ldrb	r2, [r4, #5]	@ zero_extendqisi2
+ 156 0030 2368     		ldr	r3, [r4]
+ 157 0032 D2B9     		cbnz	r2, .L25
+ 158 0034 4FF0FF32 		mov	r2, #-1
+ 159              	.L27:
+ 160 0038 1A61     		str	r2, [r3, #16]
+ 161 003a 0020     		movs	r0, #0
+ 162 003c 9A68     		ldr	r2, [r3, #8]
+ 163 003e 6169     		ldr	r1, [r4, #20]
+ 164 0040 22F06002 		bic	r2, r2, #96
+ 165 0044 0A43     		orrs	r2, r2, r1
+ 166 0046 A169     		ldr	r1, [r4, #24]
+ 167 0048 9A60     		str	r2, [r3, #8]
+ 168 004a 9A68     		ldr	r2, [r3, #8]
+ 169 004c 22F08002 		bic	r2, r2, #128
+ 170 0050 0A43     		orrs	r2, r2, r1
+ 171 0052 9A60     		str	r2, [r3, #8]
+ 172 0054 0123     		movs	r3, #1
+ 173 0056 6377     		strb	r3, [r4, #29]
+ 174 0058 D6E7     		b	.L20
+ 175              	.L22:
+ 176 005a D4E90212 		ldrd	r1, r2, [r4, #8]
+ 177 005e 2046     		mov	r0, r4
+ 178 0060 FFF7FEFF 		bl	HAL_CRCEx_Polynomial_Set
+ARM GAS  /tmp/cctBzL7W.s 			page 4
+
+
+ 179 0064 0028     		cmp	r0, #0
+ 180 0066 E2D0     		beq	.L23
+ 181 0068 CDE7     		b	.L24
+ 182              	.L25:
+ 183 006a 2269     		ldr	r2, [r4, #16]
+ 184 006c E4E7     		b	.L27
+ 185              	.L29:
+ 186 006e 00BF     		.align	2
+ 187              	.L28:
+ 188 0070 B71DC104 		.word	79764919
+ 190              		.section	.text.HAL_CRC_MspDeInit,"ax",%progbits
+ 191              		.align	1
+ 192              		.weak	HAL_CRC_MspDeInit
+ 193              		.syntax unified
+ 194              		.thumb
+ 195              		.thumb_func
+ 196              		.fpu fpv5-sp-d16
+ 198              	HAL_CRC_MspDeInit:
+ 199              		@ args = 0, pretend = 0, frame = 0
+ 200              		@ frame_needed = 0, uses_anonymous_args = 0
+ 201              		@ link register save eliminated.
+ 202 0000 7047     		bx	lr
+ 204              		.section	.text.HAL_CRC_DeInit,"ax",%progbits
+ 205              		.align	1
+ 206              		.global	HAL_CRC_DeInit
+ 207              		.syntax unified
+ 208              		.thumb
+ 209              		.thumb_func
+ 210              		.fpu fpv5-sp-d16
+ 212              	HAL_CRC_DeInit:
+ 213              		@ args = 0, pretend = 0, frame = 0
+ 214              		@ frame_needed = 0, uses_anonymous_args = 0
+ 215 0000 38B5     		push	{r3, r4, r5, lr}
+ 216 0002 0546     		mov	r5, r0
+ 217 0004 98B1     		cbz	r0, .L33
+ 218 0006 447F     		ldrb	r4, [r0, #29]	@ zero_extendqisi2
+ 219 0008 E4B2     		uxtb	r4, r4
+ 220 000a 022C     		cmp	r4, #2
+ 221 000c 0DD0     		beq	.L34
+ 222 000e 0223     		movs	r3, #2
+ 223 0010 0024     		movs	r4, #0
+ 224 0012 4377     		strb	r3, [r0, #29]
+ 225 0014 0368     		ldr	r3, [r0]
+ 226 0016 9A68     		ldr	r2, [r3, #8]
+ 227 0018 42F00102 		orr	r2, r2, #1
+ 228 001c 9A60     		str	r2, [r3, #8]
+ 229 001e 1A79     		ldrb	r2, [r3, #4]	@ zero_extendqisi2
+ 230 0020 1C71     		strb	r4, [r3, #4]
+ 231 0022 FFF7FEFF 		bl	HAL_CRC_MspDeInit
+ 232 0026 6C77     		strb	r4, [r5, #29]
+ 233 0028 2C77     		strb	r4, [r5, #28]
+ 234              	.L34:
+ 235 002a 2046     		mov	r0, r4
+ 236 002c 00E0     		b	.L32
+ 237              	.L33:
+ 238 002e 0120     		movs	r0, #1
+ 239              	.L32:
+ARM GAS  /tmp/cctBzL7W.s 			page 5
+
+
+ 240 0030 38BD     		pop	{r3, r4, r5, pc}
+ 242              		.section	.text.HAL_CRC_Accumulate,"ax",%progbits
+ 243              		.align	1
+ 244              		.global	HAL_CRC_Accumulate
+ 245              		.syntax unified
+ 246              		.thumb
+ 247              		.thumb_func
+ 248              		.fpu fpv5-sp-d16
+ 250              	HAL_CRC_Accumulate:
+ 251              		@ args = 0, pretend = 0, frame = 0
+ 252              		@ frame_needed = 0, uses_anonymous_args = 0
+ 253 0000 70B5     		push	{r4, r5, r6, lr}
+ 254 0002 0226     		movs	r6, #2
+ 255 0004 0446     		mov	r4, r0
+ 256 0006 4677     		strb	r6, [r0, #29]
+ 257 0008 066A     		ldr	r6, [r0, #32]
+ 258 000a 022E     		cmp	r6, #2
+ 259 000c 15D0     		beq	.L36
+ 260 000e 032E     		cmp	r6, #3
+ 261 0010 05D0     		beq	.L37
+ 262 0012 012E     		cmp	r6, #1
+ 263 0014 0ED0     		beq	.L38
+ 264 0016 0020     		movs	r0, #0
+ 265              	.L39:
+ 266 0018 0123     		movs	r3, #1
+ 267 001a 6377     		strb	r3, [r4, #29]
+ 268 001c 70BD     		pop	{r4, r5, r6, pc}
+ 269              	.L37:
+ 270 001e 01EB8205 		add	r5, r1, r2, lsl #2
+ 271 0022 0368     		ldr	r3, [r0]
+ 272              	.L40:
+ 273 0024 A942     		cmp	r1, r5
+ 274 0026 01D1     		bne	.L41
+ 275 0028 1868     		ldr	r0, [r3]
+ 276 002a F5E7     		b	.L39
+ 277              	.L41:
+ 278 002c 51F8042B 		ldr	r2, [r1], #4
+ 279 0030 1A60     		str	r2, [r3]
+ 280 0032 F7E7     		b	.L40
+ 281              	.L38:
+ 282 0034 FFF7FEFF 		bl	CRC_Handle_8
+ 283 0038 EEE7     		b	.L39
+ 284              	.L36:
+ 285 003a FFF7FEFF 		bl	CRC_Handle_16
+ 286 003e EBE7     		b	.L39
+ 288              		.section	.text.HAL_CRC_Calculate,"ax",%progbits
+ 289              		.align	1
+ 290              		.global	HAL_CRC_Calculate
+ 291              		.syntax unified
+ 292              		.thumb
+ 293              		.thumb_func
+ 294              		.fpu fpv5-sp-d16
+ 296              	HAL_CRC_Calculate:
+ 297              		@ args = 0, pretend = 0, frame = 0
+ 298              		@ frame_needed = 0, uses_anonymous_args = 0
+ 299 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 300 0002 0225     		movs	r5, #2
+ARM GAS  /tmp/cctBzL7W.s 			page 6
+
+
+ 301 0004 0446     		mov	r4, r0
+ 302 0006 4577     		strb	r5, [r0, #29]
+ 303 0008 0568     		ldr	r5, [r0]
+ 304 000a AF68     		ldr	r7, [r5, #8]
+ 305 000c 47F00107 		orr	r7, r7, #1
+ 306 0010 AF60     		str	r7, [r5, #8]
+ 307 0012 076A     		ldr	r7, [r0, #32]
+ 308 0014 022F     		cmp	r7, #2
+ 309 0016 14D0     		beq	.L43
+ 310 0018 032F     		cmp	r7, #3
+ 311 001a 05D0     		beq	.L44
+ 312 001c 012F     		cmp	r7, #1
+ 313 001e 0DD0     		beq	.L45
+ 314 0020 0020     		movs	r0, #0
+ 315              	.L46:
+ 316 0022 0123     		movs	r3, #1
+ 317 0024 6377     		strb	r3, [r4, #29]
+ 318 0026 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 319              	.L44:
+ 320 0028 01EB8206 		add	r6, r1, r2, lsl #2
+ 321              	.L47:
+ 322 002c B142     		cmp	r1, r6
+ 323 002e 01D1     		bne	.L48
+ 324 0030 2868     		ldr	r0, [r5]
+ 325 0032 F6E7     		b	.L46
+ 326              	.L48:
+ 327 0034 51F8043B 		ldr	r3, [r1], #4
+ 328 0038 2B60     		str	r3, [r5]
+ 329 003a F7E7     		b	.L47
+ 330              	.L45:
+ 331 003c FFF7FEFF 		bl	CRC_Handle_8
+ 332 0040 EFE7     		b	.L46
+ 333              	.L43:
+ 334 0042 FFF7FEFF 		bl	CRC_Handle_16
+ 335 0046 ECE7     		b	.L46
+ 337              		.section	.text.HAL_CRC_GetState,"ax",%progbits
+ 338              		.align	1
+ 339              		.global	HAL_CRC_GetState
+ 340              		.syntax unified
+ 341              		.thumb
+ 342              		.thumb_func
+ 343              		.fpu fpv5-sp-d16
+ 345              	HAL_CRC_GetState:
+ 346              		@ args = 0, pretend = 0, frame = 0
+ 347              		@ frame_needed = 0, uses_anonymous_args = 0
+ 348              		@ link register save eliminated.
+ 349 0000 407F     		ldrb	r0, [r0, #29]	@ zero_extendqisi2
+ 350 0002 7047     		bx	lr
+ 352              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
+ARM GAS  /tmp/cctBzL7W.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f7xx_hal_crc.c
+     /tmp/cctBzL7W.s:15     .text.CRC_Handle_8:0000000000000000 $t
+     /tmp/cctBzL7W.s:22     .text.CRC_Handle_8:0000000000000000 CRC_Handle_8
+     /tmp/cctBzL7W.s:73     .text.CRC_Handle_16:0000000000000000 $t
+     /tmp/cctBzL7W.s:79     .text.CRC_Handle_16:0000000000000000 CRC_Handle_16
+     /tmp/cctBzL7W.s:106    .text.HAL_CRC_MspInit:0000000000000000 $t
+     /tmp/cctBzL7W.s:113    .text.HAL_CRC_MspInit:0000000000000000 HAL_CRC_MspInit
+     /tmp/cctBzL7W.s:120    .text.HAL_CRC_Init:0000000000000000 $t
+     /tmp/cctBzL7W.s:127    .text.HAL_CRC_Init:0000000000000000 HAL_CRC_Init
+     /tmp/cctBzL7W.s:188    .text.HAL_CRC_Init:0000000000000070 $d
+     /tmp/cctBzL7W.s:191    .text.HAL_CRC_MspDeInit:0000000000000000 $t
+     /tmp/cctBzL7W.s:198    .text.HAL_CRC_MspDeInit:0000000000000000 HAL_CRC_MspDeInit
+     /tmp/cctBzL7W.s:205    .text.HAL_CRC_DeInit:0000000000000000 $t
+     /tmp/cctBzL7W.s:212    .text.HAL_CRC_DeInit:0000000000000000 HAL_CRC_DeInit
+     /tmp/cctBzL7W.s:243    .text.HAL_CRC_Accumulate:0000000000000000 $t
+     /tmp/cctBzL7W.s:250    .text.HAL_CRC_Accumulate:0000000000000000 HAL_CRC_Accumulate
+     /tmp/cctBzL7W.s:289    .text.HAL_CRC_Calculate:0000000000000000 $t
+     /tmp/cctBzL7W.s:296    .text.HAL_CRC_Calculate:0000000000000000 HAL_CRC_Calculate
+     /tmp/cctBzL7W.s:338    .text.HAL_CRC_GetState:0000000000000000 $t
+     /tmp/cctBzL7W.s:345    .text.HAL_CRC_GetState:0000000000000000 HAL_CRC_GetState
+
+UNDEFINED SYMBOLS
+HAL_CRCEx_Polynomial_Set

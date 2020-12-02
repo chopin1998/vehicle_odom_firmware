@@ -1,0 +1,2491 @@
+ARM GAS  /tmp/ccGHUpQA.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"stm32f7xx_ll_usb.c"
+  13              		.text
+  14              		.section	.text.USB_CoreReset,"ax",%progbits
+  15              		.align	1
+  16              		.arch armv7e-m
+  17              		.syntax unified
+  18              		.thumb
+  19              		.thumb_func
+  20              		.fpu fpv5-sp-d16
+  22              	USB_CoreReset:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25              		@ link register save eliminated.
+  26 0000 0A4B     		ldr	r3, .L16
+  27              	.L3:
+  28 0002 013B     		subs	r3, r3, #1
+  29 0004 0FD0     		beq	.L2
+  30 0006 0269     		ldr	r2, [r0, #16]
+  31 0008 002A     		cmp	r2, #0
+  32 000a FADA     		bge	.L3
+  33 000c 0369     		ldr	r3, [r0, #16]
+  34 000e 074A     		ldr	r2, .L16
+  35 0010 43F00103 		orr	r3, r3, #1
+  36 0014 0361     		str	r3, [r0, #16]
+  37              	.L4:
+  38 0016 013A     		subs	r2, r2, #1
+  39 0018 05D0     		beq	.L2
+  40 001a 0369     		ldr	r3, [r0, #16]
+  41 001c 13F00103 		ands	r3, r3, #1
+  42 0020 F9D1     		bne	.L4
+  43 0022 1846     		mov	r0, r3
+  44 0024 7047     		bx	lr
+  45              	.L2:
+  46 0026 0320     		movs	r0, #3
+  47 0028 7047     		bx	lr
+  48              	.L17:
+  49 002a 00BF     		.align	2
+  50              	.L16:
+  51 002c 410D0300 		.word	200001
+  53              		.section	.text.USB_CoreInit,"ax",%progbits
+  54              		.align	1
+  55              		.global	USB_CoreInit
+  56              		.syntax unified
+  57              		.thumb
+  58              		.thumb_func
+  59              		.fpu fpv5-sp-d16
+ARM GAS  /tmp/ccGHUpQA.s 			page 2
+
+
+  61              	USB_CoreInit:
+  62              		@ args = 56, pretend = 16, frame = 0
+  63              		@ frame_needed = 0, uses_anonymous_args = 0
+  64 0000 84B0     		sub	sp, sp, #16
+  65 0002 38B5     		push	{r3, r4, r5, lr}
+  66 0004 05AD     		add	r5, sp, #20
+  67 0006 0446     		mov	r4, r0
+  68 0008 85E80E00 		stm	r5, {r1, r2, r3}
+  69 000c 0A9B     		ldr	r3, [sp, #40]
+  70 000e 119D     		ldr	r5, [sp, #68]
+  71 0010 012B     		cmp	r3, #1
+  72 0012 29D1     		bne	.L19
+  73 0014 836B     		ldr	r3, [r0, #56]
+  74 0016 23F48033 		bic	r3, r3, #65536
+  75 001a 8363     		str	r3, [r0, #56]
+  76 001c C368     		ldr	r3, [r0, #12]
+  77 001e 23F48403 		bic	r3, r3, #4325376
+  78 0022 23F04003 		bic	r3, r3, #64
+  79 0026 C360     		str	r3, [r0, #12]
+  80 0028 C368     		ldr	r3, [r0, #12]
+  81 002a 43F01003 		orr	r3, r3, #16
+  82 002e C360     		str	r3, [r0, #12]
+  83 0030 C368     		ldr	r3, [r0, #12]
+  84 0032 23F44013 		bic	r3, r3, #3145728
+  85 0036 C360     		str	r3, [r0, #12]
+  86              	.L31:
+  87 0038 012D     		cmp	r5, #1
+  88 003a 03D1     		bne	.L26
+  89 003c E368     		ldr	r3, [r4, #12]
+  90 003e 43F48013 		orr	r3, r3, #1048576
+  91 0042 E360     		str	r3, [r4, #12]
+  92              	.L26:
+  93 0044 2046     		mov	r0, r4
+  94 0046 FFF7FEFF 		bl	USB_CoreReset
+  95              	.L21:
+  96 004a 089B     		ldr	r3, [sp, #32]
+  97 004c 012B     		cmp	r3, #1
+  98 004e 07D1     		bne	.L24
+  99 0050 A368     		ldr	r3, [r4, #8]
+ 100 0052 43F00603 		orr	r3, r3, #6
+ 101 0056 A360     		str	r3, [r4, #8]
+ 102 0058 A368     		ldr	r3, [r4, #8]
+ 103 005a 43F02003 		orr	r3, r3, #32
+ 104 005e A360     		str	r3, [r4, #8]
+ 105              	.L24:
+ 106 0060 BDE83840 		pop	{r3, r4, r5, lr}
+ 107 0064 04B0     		add	sp, sp, #16
+ 108 0066 7047     		bx	lr
+ 109              	.L19:
+ 110 0068 032B     		cmp	r3, #3
+ 111 006a 30D1     		bne	.L22
+ 112 006c 836B     		ldr	r3, [r0, #56]
+ 113 006e 23F48033 		bic	r3, r3, #65536
+ 114 0072 8363     		str	r3, [r0, #56]
+ 115 0074 C368     		ldr	r3, [r0, #12]
+ 116 0076 23F48403 		bic	r3, r3, #4325376
+ 117 007a 23F04003 		bic	r3, r3, #64
+ARM GAS  /tmp/ccGHUpQA.s 			page 3
+
+
+ 118 007e C360     		str	r3, [r0, #12]
+ 119 0080 C368     		ldr	r3, [r0, #12]
+ 120 0082 23F44013 		bic	r3, r3, #3145728
+ 121 0086 C360     		str	r3, [r0, #12]
+ 122 0088 C368     		ldr	r3, [r0, #12]
+ 123 008a 23F01003 		bic	r3, r3, #16
+ 124 008e C360     		str	r3, [r0, #12]
+ 125 0090 836B     		ldr	r3, [r0, #56]
+ 126 0092 43F40003 		orr	r3, r3, #8388608
+ 127 0096 8363     		str	r3, [r0, #56]
+ 128 0098 124B     		ldr	r3, .L32
+ 129 009a 9A69     		ldr	r2, [r3, #24]
+ 130 009c 42F00402 		orr	r2, r2, #4
+ 131 00a0 9A61     		str	r2, [r3, #24]
+ 132 00a2 114A     		ldr	r2, .L32+4
+ 133              	.L23:
+ 134 00a4 9969     		ldr	r1, [r3, #24]
+ 135 00a6 8907     		lsls	r1, r1, #30
+ 136 00a8 0DD5     		bpl	.L25
+ 137 00aa DA68     		ldr	r2, [r3, #12]
+ 138 00ac 0220     		movs	r0, #2
+ 139 00ae 42F47162 		orr	r2, r2, #3856
+ 140 00b2 42F00302 		orr	r2, r2, #3
+ 141 00b6 DA60     		str	r2, [r3, #12]
+ 142 00b8 1A68     		ldr	r2, [r3]
+ 143 00ba 42F00102 		orr	r2, r2, #1
+ 144 00be 1A60     		str	r2, [r3]
+ 145 00c0 FFF7FEFF 		bl	HAL_Delay
+ 146 00c4 B8E7     		b	.L31
+ 147              	.L25:
+ 148 00c6 013A     		subs	r2, r2, #1
+ 149 00c8 ECD1     		bne	.L23
+ 150 00ca 0120     		movs	r0, #1
+ 151 00cc C8E7     		b	.L24
+ 152              	.L22:
+ 153 00ce C368     		ldr	r3, [r0, #12]
+ 154 00d0 43F04003 		orr	r3, r3, #64
+ 155 00d4 C360     		str	r3, [r0, #12]
+ 156 00d6 FFF7FEFF 		bl	USB_CoreReset
+ 157 00da A36B     		ldr	r3, [r4, #56]
+ 158 00dc 43F48033 		orr	r3, r3, #65536
+ 159 00e0 A363     		str	r3, [r4, #56]
+ 160 00e2 B2E7     		b	.L21
+ 161              	.L33:
+ 162              		.align	2
+ 163              	.L32:
+ 164 00e4 007C0140 		.word	1073839104
+ 165 00e8 410D0300 		.word	200001
+ 167              		.section	.text.USB_SetTurnaroundTime,"ax",%progbits
+ 168              		.align	1
+ 169              		.global	USB_SetTurnaroundTime
+ 170              		.syntax unified
+ 171              		.thumb
+ 172              		.thumb_func
+ 173              		.fpu fpv5-sp-d16
+ 175              	USB_SetTurnaroundTime:
+ 176              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /tmp/ccGHUpQA.s 			page 4
+
+
+ 177              		@ frame_needed = 0, uses_anonymous_args = 0
+ 178              		@ link register save eliminated.
+ 179 0000 022A     		cmp	r2, #2
+ 180 0002 58D1     		bne	.L43
+ 181 0004 2E4B     		ldr	r3, .L46
+ 182 0006 2F4A     		ldr	r2, .L46+4
+ 183 0008 0B44     		add	r3, r3, r1
+ 184 000a 9342     		cmp	r3, r2
+ 185 000c 47D9     		bls	.L37
+ 186 000e 2E4B     		ldr	r3, .L46+8
+ 187 0010 2E4A     		ldr	r2, .L46+12
+ 188 0012 0B44     		add	r3, r3, r1
+ 189 0014 9342     		cmp	r3, r2
+ 190 0016 44D9     		bls	.L38
+ 191 0018 A1F57403 		sub	r3, r1, #15990784
+ 192 001c 2C4A     		ldr	r2, .L46+16
+ 193 001e A3F51053 		sub	r3, r3, #9216
+ 194 0022 9342     		cmp	r3, r2
+ 195 0024 3FD9     		bls	.L39
+ 196 0026 A1F18373 		sub	r3, r1, #17170432
+ 197 002a 02F5C332 		add	r2, r2, #99840
+ 198 002e A3F5E743 		sub	r3, r3, #29568
+ 199 0032 A032     		adds	r2, r2, #160
+ 200 0034 9342     		cmp	r3, r2
+ 201 0036 38D9     		bls	.L40
+ 202 0038 264B     		ldr	r3, .L46+20
+ 203 003a 274A     		ldr	r2, .L46+24
+ 204 003c 0B44     		add	r3, r3, r1
+ 205 003e 9342     		cmp	r3, r2
+ 206 0040 35D9     		bls	.L41
+ 207 0042 264B     		ldr	r3, .L46+28
+ 208 0044 02F59222 		add	r2, r2, #299008
+ 209 0048 0B44     		add	r3, r3, r1
+ 210 004a 02F57872 		add	r2, r2, #992
+ 211 004e 9342     		cmp	r3, r2
+ 212 0050 2FD9     		bls	.L42
+ 213 0052 234B     		ldr	r3, .L46+32
+ 214 0054 02F5C322 		add	r2, r2, #399360
+ 215 0058 0B44     		add	r3, r3, r1
+ 216 005a 02F52072 		add	r2, r2, #640
+ 217 005e 9342     		cmp	r3, r2
+ 218 0060 29D9     		bls	.L43
+ 219 0062 A1F1B773 		sub	r3, r1, #23986176
+ 220 0066 02F5B712 		add	r2, r2, #1499136
+ 221 006a A3F55853 		sub	r3, r3, #13824
+ 222 006e 02F55872 		add	r2, r2, #864
+ 223 0072 9342     		cmp	r3, r2
+ 224 0074 21D9     		bls	.L44
+ 225 0076 1B4B     		ldr	r3, .L46+36
+ 226 0078 02F51222 		add	r2, r2, #598016
+ 227 007c 0B44     		add	r3, r3, r1
+ 228 007e 02F5F862 		add	r2, r2, #1984
+ 229 0082 9342     		cmp	r3, r2
+ 230 0084 94BF     		ite	ls
+ 231 0086 0723     		movls	r3, #7
+ 232 0088 0623     		movhi	r3, #6
+ 233              	.L35:
+ARM GAS  /tmp/ccGHUpQA.s 			page 5
+
+
+ 234 008a C268     		ldr	r2, [r0, #12]
+ 235 008c 22F47052 		bic	r2, r2, #15360
+ 236 0090 C260     		str	r2, [r0, #12]
+ 237 0092 C268     		ldr	r2, [r0, #12]
+ 238 0094 42EA8323 		orr	r3, r2, r3, lsl #10
+ 239 0098 C360     		str	r3, [r0, #12]
+ 240 009a 0020     		movs	r0, #0
+ 241 009c 7047     		bx	lr
+ 242              	.L37:
+ 243 009e 0F23     		movs	r3, #15
+ 244 00a0 F3E7     		b	.L35
+ 245              	.L38:
+ 246 00a2 0E23     		movs	r3, #14
+ 247 00a4 F1E7     		b	.L35
+ 248              	.L39:
+ 249 00a6 0D23     		movs	r3, #13
+ 250 00a8 EFE7     		b	.L35
+ 251              	.L40:
+ 252 00aa 0C23     		movs	r3, #12
+ 253 00ac EDE7     		b	.L35
+ 254              	.L41:
+ 255 00ae 0B23     		movs	r3, #11
+ 256 00b0 EBE7     		b	.L35
+ 257              	.L42:
+ 258 00b2 0A23     		movs	r3, #10
+ 259 00b4 E9E7     		b	.L35
+ 260              	.L43:
+ 261 00b6 0923     		movs	r3, #9
+ 262 00b8 E7E7     		b	.L35
+ 263              	.L44:
+ 264 00ba 0823     		movs	r3, #8
+ 265 00bc E5E7     		b	.L35
+ 266              	.L47:
+ 267 00be 00BF     		.align	2
+ 268              	.L46:
+ 269 00c0 405327FF 		.word	-14200000
+ 270 00c4 FF340C00 		.word	799999
+ 271 00c8 401E1BFF 		.word	-15000000
+ 272 00cc 3F420F00 		.word	999999
+ 273 00d0 7F4F1200 		.word	1199999
+ 274 00d4 60B6E5FE 		.word	-18500000
+ 275 00d8 5FE31600 		.word	1499999
+ 276 00dc 00D3CEFE 		.word	-20000000
+ 277 00e0 C05BB3FE 		.word	-21800000
+ 278 00e4 E05459FE 		.word	-27700000
+ 280              		.section	.text.USB_EnableGlobalInt,"ax",%progbits
+ 281              		.align	1
+ 282              		.global	USB_EnableGlobalInt
+ 283              		.syntax unified
+ 284              		.thumb
+ 285              		.thumb_func
+ 286              		.fpu fpv5-sp-d16
+ 288              	USB_EnableGlobalInt:
+ 289              		@ args = 0, pretend = 0, frame = 0
+ 290              		@ frame_needed = 0, uses_anonymous_args = 0
+ 291              		@ link register save eliminated.
+ 292 0000 8368     		ldr	r3, [r0, #8]
+ARM GAS  /tmp/ccGHUpQA.s 			page 6
+
+
+ 293 0002 43F00103 		orr	r3, r3, #1
+ 294 0006 8360     		str	r3, [r0, #8]
+ 295 0008 0020     		movs	r0, #0
+ 296 000a 7047     		bx	lr
+ 298              		.section	.text.USB_DisableGlobalInt,"ax",%progbits
+ 299              		.align	1
+ 300              		.global	USB_DisableGlobalInt
+ 301              		.syntax unified
+ 302              		.thumb
+ 303              		.thumb_func
+ 304              		.fpu fpv5-sp-d16
+ 306              	USB_DisableGlobalInt:
+ 307              		@ args = 0, pretend = 0, frame = 0
+ 308              		@ frame_needed = 0, uses_anonymous_args = 0
+ 309              		@ link register save eliminated.
+ 310 0000 8368     		ldr	r3, [r0, #8]
+ 311 0002 23F00103 		bic	r3, r3, #1
+ 312 0006 8360     		str	r3, [r0, #8]
+ 313 0008 0020     		movs	r0, #0
+ 314 000a 7047     		bx	lr
+ 316              		.section	.text.USB_SetCurrentMode,"ax",%progbits
+ 317              		.align	1
+ 318              		.global	USB_SetCurrentMode
+ 319              		.syntax unified
+ 320              		.thumb
+ 321              		.thumb_func
+ 322              		.fpu fpv5-sp-d16
+ 324              	USB_SetCurrentMode:
+ 325              		@ args = 0, pretend = 0, frame = 0
+ 326              		@ frame_needed = 0, uses_anonymous_args = 0
+ 327 0000 08B5     		push	{r3, lr}
+ 328 0002 C368     		ldr	r3, [r0, #12]
+ 329 0004 0129     		cmp	r1, #1
+ 330 0006 23F0C043 		bic	r3, r3, #1610612736
+ 331 000a C360     		str	r3, [r0, #12]
+ 332 000c 08D1     		bne	.L51
+ 333 000e C368     		ldr	r3, [r0, #12]
+ 334 0010 43F00053 		orr	r3, r3, #536870912
+ 335              	.L55:
+ 336 0014 C360     		str	r3, [r0, #12]
+ 337 0016 3220     		movs	r0, #50
+ 338 0018 FFF7FEFF 		bl	HAL_Delay
+ 339 001c 0020     		movs	r0, #0
+ 340              	.L53:
+ 341 001e 08BD     		pop	{r3, pc}
+ 342              	.L51:
+ 343 0020 19B9     		cbnz	r1, .L54
+ 344 0022 C368     		ldr	r3, [r0, #12]
+ 345 0024 43F08043 		orr	r3, r3, #1073741824
+ 346 0028 F4E7     		b	.L55
+ 347              	.L54:
+ 348 002a 0120     		movs	r0, #1
+ 349 002c F7E7     		b	.L53
+ 351              		.section	.text.USB_FlushTxFifo,"ax",%progbits
+ 352              		.align	1
+ 353              		.global	USB_FlushTxFifo
+ 354              		.syntax unified
+ARM GAS  /tmp/ccGHUpQA.s 			page 7
+
+
+ 355              		.thumb
+ 356              		.thumb_func
+ 357              		.fpu fpv5-sp-d16
+ 359              	USB_FlushTxFifo:
+ 360              		@ args = 0, pretend = 0, frame = 0
+ 361              		@ frame_needed = 0, uses_anonymous_args = 0
+ 362              		@ link register save eliminated.
+ 363 0000 8901     		lsls	r1, r1, #6
+ 364 0002 074A     		ldr	r2, .L62
+ 365 0004 41F02001 		orr	r1, r1, #32
+ 366 0008 0161     		str	r1, [r0, #16]
+ 367              	.L58:
+ 368 000a 013A     		subs	r2, r2, #1
+ 369 000c 05D0     		beq	.L59
+ 370 000e 0369     		ldr	r3, [r0, #16]
+ 371 0010 13F02003 		ands	r3, r3, #32
+ 372 0014 F9D1     		bne	.L58
+ 373 0016 1846     		mov	r0, r3
+ 374 0018 7047     		bx	lr
+ 375              	.L59:
+ 376 001a 0320     		movs	r0, #3
+ 377 001c 7047     		bx	lr
+ 378              	.L63:
+ 379 001e 00BF     		.align	2
+ 380              	.L62:
+ 381 0020 410D0300 		.word	200001
+ 383              		.section	.text.USB_FlushRxFifo,"ax",%progbits
+ 384              		.align	1
+ 385              		.global	USB_FlushRxFifo
+ 386              		.syntax unified
+ 387              		.thumb
+ 388              		.thumb_func
+ 389              		.fpu fpv5-sp-d16
+ 391              	USB_FlushRxFifo:
+ 392              		@ args = 0, pretend = 0, frame = 0
+ 393              		@ frame_needed = 0, uses_anonymous_args = 0
+ 394              		@ link register save eliminated.
+ 395 0000 1023     		movs	r3, #16
+ 396 0002 064A     		ldr	r2, .L70
+ 397 0004 0361     		str	r3, [r0, #16]
+ 398              	.L66:
+ 399 0006 013A     		subs	r2, r2, #1
+ 400 0008 05D0     		beq	.L67
+ 401 000a 0369     		ldr	r3, [r0, #16]
+ 402 000c 13F01003 		ands	r3, r3, #16
+ 403 0010 F9D1     		bne	.L66
+ 404 0012 1846     		mov	r0, r3
+ 405 0014 7047     		bx	lr
+ 406              	.L67:
+ 407 0016 0320     		movs	r0, #3
+ 408 0018 7047     		bx	lr
+ 409              	.L71:
+ 410 001a 00BF     		.align	2
+ 411              	.L70:
+ 412 001c 410D0300 		.word	200001
+ 414              		.section	.text.USB_SetDevSpeed,"ax",%progbits
+ 415              		.align	1
+ARM GAS  /tmp/ccGHUpQA.s 			page 8
+
+
+ 416              		.global	USB_SetDevSpeed
+ 417              		.syntax unified
+ 418              		.thumb
+ 419              		.thumb_func
+ 420              		.fpu fpv5-sp-d16
+ 422              	USB_SetDevSpeed:
+ 423              		@ args = 0, pretend = 0, frame = 0
+ 424              		@ frame_needed = 0, uses_anonymous_args = 0
+ 425              		@ link register save eliminated.
+ 426 0000 D0F80038 		ldr	r3, [r0, #2048]
+ 427 0004 1943     		orrs	r1, r1, r3
+ 428 0006 C0F80018 		str	r1, [r0, #2048]
+ 429 000a 0020     		movs	r0, #0
+ 430 000c 7047     		bx	lr
+ 432              		.section	.text.USB_DevInit,"ax",%progbits
+ 433              		.align	1
+ 434              		.global	USB_DevInit
+ 435              		.syntax unified
+ 436              		.thumb
+ 437              		.thumb_func
+ 438              		.fpu fpv5-sp-d16
+ 440              	USB_DevInit:
+ 441              		@ args = 56, pretend = 16, frame = 0
+ 442              		@ frame_needed = 0, uses_anonymous_args = 0
+ 443 0000 84B0     		sub	sp, sp, #16
+ 444 0002 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 445 0006 0446     		mov	r4, r0
+ 446 0008 09A8     		add	r0, sp, #36
+ 447 000a 0E46     		mov	r6, r1
+ 448 000c 80E80E00 		stm	r0, {r1, r2, r3}
+ 449 0010 0023     		movs	r3, #0
+ 450 0012 0B9A     		ldr	r2, [sp, #44]
+ 451 0014 0E99     		ldr	r1, [sp, #56]
+ 452 0016 139D     		ldr	r5, [sp, #76]
+ 453 0018 1F46     		mov	r7, r3
+ 454              	.L74:
+ 455 001a 03F14000 		add	r0, r3, #64
+ 456 001e 0133     		adds	r3, r3, #1
+ 457 0020 04EB8000 		add	r0, r4, r0, lsl #2
+ 458 0024 0F2B     		cmp	r3, #15
+ 459 0026 4760     		str	r7, [r0, #4]
+ 460 0028 F7D1     		bne	.L74
+ 461 002a 04F50067 		add	r7, r4, #2048
+ 462 002e 002D     		cmp	r5, #0
+ 463 0030 6BD1     		bne	.L75
+ 464 0032 7B68     		ldr	r3, [r7, #4]
+ 465 0034 43F00203 		orr	r3, r3, #2
+ 466 0038 7B60     		str	r3, [r7, #4]
+ 467 003a A36B     		ldr	r3, [r4, #56]
+ 468 003c 23F40013 		bic	r3, r3, #2097152
+ 469 0040 A363     		str	r3, [r4, #56]
+ 470 0042 2368     		ldr	r3, [r4]
+ 471 0044 43F04003 		orr	r3, r3, #64
+ 472 0048 2360     		str	r3, [r4]
+ 473 004a 2368     		ldr	r3, [r4]
+ 474 004c 43F08003 		orr	r3, r3, #128
+ 475 0050 2360     		str	r3, [r4]
+ARM GAS  /tmp/ccGHUpQA.s 			page 9
+
+
+ 476              	.L76:
+ 477 0052 0023     		movs	r3, #0
+ 478 0054 0129     		cmp	r1, #1
+ 479 0056 C4F8003E 		str	r3, [r4, #3584]
+ 480 005a D4F80038 		ldr	r3, [r4, #2048]
+ 481 005e C4F80038 		str	r3, [r4, #2048]
+ 482 0062 59D1     		bne	.L77
+ 483              	.L102:
+ 484 0064 002A     		cmp	r2, #0
+ 485 0066 55D1     		bne	.L78
+ 486 0068 0021     		movs	r1, #0
+ 487              	.L103:
+ 488 006a 2046     		mov	r0, r4
+ 489 006c 4FF67F38 		movw	r8, #64383
+ 490 0070 FFF7FEFF 		bl	USB_SetDevSpeed
+ 491 0074 1021     		movs	r1, #16
+ 492 0076 2046     		mov	r0, r4
+ 493 0078 FFF7FEFF 		bl	USB_FlushTxFifo
+ 494 007c 0146     		mov	r1, r0
+ 495 007e 2046     		mov	r0, r4
+ 496 0080 FFF7FEFF 		bl	USB_FlushRxFifo
+ 497 0084 0843     		orrs	r0, r0, r1
+ 498 0086 0023     		movs	r3, #0
+ 499 0088 04F51062 		add	r2, r4, #2304
+ 500 008c C0B2     		uxtb	r0, r0
+ 501 008e 4FF0904C 		mov	ip, #1207959552
+ 502 0092 1946     		mov	r1, r3
+ 503 0094 4FF0006E 		mov	lr, #134217728
+ 504 0098 0030     		adds	r0, r0, #0
+ 505 009a 3B61     		str	r3, [r7, #16]
+ 506 009c 7B61     		str	r3, [r7, #20]
+ 507 009e 18BF     		it	ne
+ 508 00a0 0120     		movne	r0, #1
+ 509 00a2 FB61     		str	r3, [r7, #28]
+ 510              	.L82:
+ 511 00a4 B342     		cmp	r3, r6
+ 512 00a6 3BD1     		bne	.L86
+ 513 00a8 0022     		movs	r2, #0
+ 514 00aa 04F53063 		add	r3, r4, #2816
+ 515 00ae 4FF0904C 		mov	ip, #1207959552
+ 516 00b2 4FF0006E 		mov	lr, #134217728
+ 517 00b6 1146     		mov	r1, r2
+ 518 00b8 4FF67F38 		movw	r8, #64383
+ 519              	.L87:
+ 520 00bc B242     		cmp	r2, r6
+ 521 00be 42D1     		bne	.L91
+ 522 00c0 3B69     		ldr	r3, [r7, #16]
+ 523 00c2 23F48073 		bic	r3, r3, #256
+ 524 00c6 3B61     		str	r3, [r7, #16]
+ 525 00c8 0023     		movs	r3, #0
+ 526 00ca A361     		str	r3, [r4, #24]
+ 527 00cc 6FF08043 		mvn	r3, #1073741824
+ 528 00d0 6361     		str	r3, [r4, #20]
+ 529 00d2 0C9B     		ldr	r3, [sp, #48]
+ 530 00d4 1BB9     		cbnz	r3, .L92
+ 531 00d6 A369     		ldr	r3, [r4, #24]
+ 532 00d8 43F01003 		orr	r3, r3, #16
+ARM GAS  /tmp/ccGHUpQA.s 			page 10
+
+
+ 533 00dc A361     		str	r3, [r4, #24]
+ 534              	.L92:
+ 535 00de A269     		ldr	r2, [r4, #24]
+ 536 00e0 224B     		ldr	r3, .L104
+ 537 00e2 1343     		orrs	r3, r3, r2
+ 538 00e4 A361     		str	r3, [r4, #24]
+ 539 00e6 0F9B     		ldr	r3, [sp, #60]
+ 540 00e8 1BB1     		cbz	r3, .L93
+ 541 00ea A369     		ldr	r3, [r4, #24]
+ 542 00ec 43F00803 		orr	r3, r3, #8
+ 543 00f0 A361     		str	r3, [r4, #24]
+ 544              	.L93:
+ 545 00f2 012D     		cmp	r5, #1
+ 546 00f4 05D1     		bne	.L94
+ 547 00f6 A369     		ldr	r3, [r4, #24]
+ 548 00f8 43F08043 		orr	r3, r3, #1073741824
+ 549 00fc 43F00403 		orr	r3, r3, #4
+ 550 0100 A361     		str	r3, [r4, #24]
+ 551              	.L94:
+ 552 0102 BDE8F843 		pop	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 553 0106 04B0     		add	sp, sp, #16
+ 554 0108 7047     		bx	lr
+ 555              	.L75:
+ 556 010a A36B     		ldr	r3, [r4, #56]
+ 557 010c 43F40013 		orr	r3, r3, #2097152
+ 558 0110 A363     		str	r3, [r4, #56]
+ 559 0112 9EE7     		b	.L76
+ 560              	.L78:
+ 561 0114 0121     		movs	r1, #1
+ 562 0116 A8E7     		b	.L103
+ 563              	.L77:
+ 564 0118 0329     		cmp	r1, #3
+ 565 011a A3D0     		beq	.L102
+ 566 011c 0321     		movs	r1, #3
+ 567 011e A4E7     		b	.L103
+ 568              	.L86:
+ 569 0120 D2F80090 		ldr	r9, [r2]
+ 570 0124 B9F1000F 		cmp	r9, #0
+ 571 0128 0BDA     		bge	.L83
+ 572 012a 3BB9     		cbnz	r3, .L84
+ 573 012c C2F800E0 		str	lr, [r2]
+ 574              	.L85:
+ 575 0130 1161     		str	r1, [r2, #16]
+ 576 0132 0133     		adds	r3, r3, #1
+ 577 0134 C2F80880 		str	r8, [r2, #8]
+ 578 0138 2032     		adds	r2, r2, #32
+ 579 013a B3E7     		b	.L82
+ 580              	.L84:
+ 581 013c C2F800C0 		str	ip, [r2]
+ 582 0140 F6E7     		b	.L85
+ 583              	.L83:
+ 584 0142 1160     		str	r1, [r2]
+ 585 0144 F4E7     		b	.L85
+ 586              	.L91:
+ 587 0146 D3F80090 		ldr	r9, [r3]
+ 588 014a B9F1000F 		cmp	r9, #0
+ 589 014e 0BDA     		bge	.L88
+ARM GAS  /tmp/ccGHUpQA.s 			page 11
+
+
+ 590 0150 3AB9     		cbnz	r2, .L89
+ 591 0152 C3F800E0 		str	lr, [r3]
+ 592              	.L90:
+ 593 0156 1961     		str	r1, [r3, #16]
+ 594 0158 0132     		adds	r2, r2, #1
+ 595 015a C3F80880 		str	r8, [r3, #8]
+ 596 015e 2033     		adds	r3, r3, #32
+ 597 0160 ACE7     		b	.L87
+ 598              	.L89:
+ 599 0162 C3F800C0 		str	ip, [r3]
+ 600 0166 F6E7     		b	.L90
+ 601              	.L88:
+ 602 0168 1960     		str	r1, [r3]
+ 603 016a F4E7     		b	.L90
+ 604              	.L105:
+ 605              		.align	2
+ 606              	.L104:
+ 607 016c 00383C80 		.word	-2143537152
+ 609              		.section	.text.USB_GetDevSpeed,"ax",%progbits
+ 610              		.align	1
+ 611              		.global	USB_GetDevSpeed
+ 612              		.syntax unified
+ 613              		.thumb
+ 614              		.thumb_func
+ 615              		.fpu fpv5-sp-d16
+ 617              	USB_GetDevSpeed:
+ 618              		@ args = 0, pretend = 0, frame = 0
+ 619              		@ frame_needed = 0, uses_anonymous_args = 0
+ 620              		@ link register save eliminated.
+ 621 0000 D0F80838 		ldr	r3, [r0, #2056]
+ 622 0004 13F00600 		ands	r0, r3, #6
+ 623 0008 04D0     		beq	.L107
+ 624 000a 13F0020F 		tst	r3, #2
+ 625 000e 14BF     		ite	ne
+ 626 0010 0220     		movne	r0, #2
+ 627 0012 0F20     		moveq	r0, #15
+ 628              	.L107:
+ 629 0014 7047     		bx	lr
+ 631              		.section	.text.USB_ActivateEndpoint,"ax",%progbits
+ 632              		.align	1
+ 633              		.global	USB_ActivateEndpoint
+ 634              		.syntax unified
+ 635              		.thumb
+ 636              		.thumb_func
+ 637              		.fpu fpv5-sp-d16
+ 639              	USB_ActivateEndpoint:
+ 640              		@ args = 0, pretend = 0, frame = 0
+ 641              		@ frame_needed = 0, uses_anonymous_args = 0
+ 642 0000 70B5     		push	{r4, r5, r6, lr}
+ 643 0002 0E78     		ldrb	r6, [r1]	@ zero_extendqisi2
+ 644 0004 0125     		movs	r5, #1
+ 645 0006 00F50064 		add	r4, r0, #2048
+ 646 000a 06F00F03 		and	r3, r6, #15
+ 647 000e 00EB4610 		add	r0, r0, r6, lsl #5
+ 648 0012 9D40     		lsls	r5, r5, r3
+ 649 0014 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
+ 650 0016 012B     		cmp	r3, #1
+ARM GAS  /tmp/ccGHUpQA.s 			page 12
+
+
+ 651 0018 E369     		ldr	r3, [r4, #28]
+ 652 001a 18D1     		bne	.L111
+ 653 001c 1D43     		orrs	r5, r5, r3
+ 654 001e E561     		str	r5, [r4, #28]
+ 655 0020 D0F80039 		ldr	r3, [r0, #2304]
+ 656 0024 1A04     		lsls	r2, r3, #16
+ 657 0026 10D4     		bmi	.L113
+ 658 0028 8A68     		ldr	r2, [r1, #8]
+ 659 002a D0F80039 		ldr	r3, [r0, #2304]
+ 660 002e C2F30A02 		ubfx	r2, r2, #0, #11
+ 661 0032 1A43     		orrs	r2, r2, r3
+ 662 0034 CB78     		ldrb	r3, [r1, #3]	@ zero_extendqisi2
+ 663 0036 42EA8343 		orr	r3, r2, r3, lsl #18
+ 664 003a 43EA8653 		orr	r3, r3, r6, lsl #22
+ 665 003e 43F08053 		orr	r3, r3, #268435456
+ 666 0042 43F40043 		orr	r3, r3, #32768
+ 667 0046 C0F80039 		str	r3, [r0, #2304]
+ 668              	.L113:
+ 669 004a 0020     		movs	r0, #0
+ 670 004c 70BD     		pop	{r4, r5, r6, pc}
+ 671              	.L111:
+ 672 004e 43EA0545 		orr	r5, r3, r5, lsl #16
+ 673 0052 E561     		str	r5, [r4, #28]
+ 674 0054 D0F8003B 		ldr	r3, [r0, #2816]
+ 675 0058 1B04     		lsls	r3, r3, #16
+ 676 005a F6D4     		bmi	.L113
+ 677 005c 8B68     		ldr	r3, [r1, #8]
+ 678 005e D0F8002B 		ldr	r2, [r0, #2816]
+ 679 0062 C3F30A03 		ubfx	r3, r3, #0, #11
+ 680 0066 1343     		orrs	r3, r3, r2
+ 681 0068 CA78     		ldrb	r2, [r1, #3]	@ zero_extendqisi2
+ 682 006a 43EA8243 		orr	r3, r3, r2, lsl #18
+ 683 006e 43F08053 		orr	r3, r3, #268435456
+ 684 0072 43F40043 		orr	r3, r3, #32768
+ 685 0076 C0F8003B 		str	r3, [r0, #2816]
+ 686 007a E6E7     		b	.L113
+ 688              		.section	.text.USB_ActivateDedicatedEndpoint,"ax",%progbits
+ 689              		.align	1
+ 690              		.global	USB_ActivateDedicatedEndpoint
+ 691              		.syntax unified
+ 692              		.thumb
+ 693              		.thumb_func
+ 694              		.fpu fpv5-sp-d16
+ 696              	USB_ActivateDedicatedEndpoint:
+ 697              		@ args = 0, pretend = 0, frame = 0
+ 698              		@ frame_needed = 0, uses_anonymous_args = 0
+ 699 0000 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
+ 700 0002 F0B5     		push	{r4, r5, r6, r7, lr}
+ 701 0004 012B     		cmp	r3, #1
+ 702 0006 0F78     		ldrb	r7, [r1]	@ zero_extendqisi2
+ 703 0008 00EB4715 		add	r5, r0, r7, lsl #5
+ 704 000c 07F00F06 		and	r6, r7, #15
+ 705 0010 00F50060 		add	r0, r0, #2048
+ 706 0014 1CD1     		bne	.L116
+ 707 0016 D5F80039 		ldr	r3, [r5, #2304]
+ 708 001a 1A04     		lsls	r2, r3, #16
+ 709 001c 10D4     		bmi	.L117
+ARM GAS  /tmp/ccGHUpQA.s 			page 13
+
+
+ 710 001e 8A68     		ldr	r2, [r1, #8]
+ 711 0020 D5F80039 		ldr	r3, [r5, #2304]
+ 712 0024 C2F30A02 		ubfx	r2, r2, #0, #11
+ 713 0028 1A43     		orrs	r2, r2, r3
+ 714 002a CB78     		ldrb	r3, [r1, #3]	@ zero_extendqisi2
+ 715 002c 42EA8343 		orr	r3, r2, r3, lsl #18
+ 716 0030 43EA8753 		orr	r3, r3, r7, lsl #22
+ 717 0034 43F08053 		orr	r3, r3, #268435456
+ 718 0038 43F40043 		orr	r3, r3, #32768
+ 719 003c C5F80039 		str	r3, [r5, #2304]
+ 720              	.L117:
+ 721 0040 C26B     		ldr	r2, [r0, #60]
+ 722 0042 0123     		movs	r3, #1
+ 723              	.L120:
+ 724 0044 03FA06F6 		lsl	r6, r3, r6
+ 725 0048 1643     		orrs	r6, r6, r2
+ 726 004a C663     		str	r6, [r0, #60]
+ 727 004c 0020     		movs	r0, #0
+ 728 004e F0BD     		pop	{r4, r5, r6, r7, pc}
+ 729              	.L116:
+ 730 0050 D5F8003B 		ldr	r3, [r5, #2816]
+ 731 0054 1B04     		lsls	r3, r3, #16
+ 732 0056 0ED4     		bmi	.L119
+ 733 0058 8C68     		ldr	r4, [r1, #8]
+ 734 005a D5F8003B 		ldr	r3, [r5, #2816]
+ 735 005e C4F30A04 		ubfx	r4, r4, #0, #11
+ 736 0062 1C43     		orrs	r4, r4, r3
+ 737 0064 CB78     		ldrb	r3, [r1, #3]	@ zero_extendqisi2
+ 738 0066 44EA8344 		orr	r4, r4, r3, lsl #18
+ 739 006a 44EA8754 		orr	r4, r4, r7, lsl #22
+ 740 006e 44F40044 		orr	r4, r4, #32768
+ 741 0072 C5F8004B 		str	r4, [r5, #2816]
+ 742              	.L119:
+ 743 0076 C26B     		ldr	r2, [r0, #60]
+ 744 0078 4FF48033 		mov	r3, #65536
+ 745 007c E2E7     		b	.L120
+ 747              		.section	.text.USB_DeactivateEndpoint,"ax",%progbits
+ 748              		.align	1
+ 749              		.global	USB_DeactivateEndpoint
+ 750              		.syntax unified
+ 751              		.thumb
+ 752              		.thumb_func
+ 753              		.fpu fpv5-sp-d16
+ 755              	USB_DeactivateEndpoint:
+ 756              		@ args = 0, pretend = 0, frame = 0
+ 757              		@ frame_needed = 0, uses_anonymous_args = 0
+ 758 0000 10B5     		push	{r4, lr}
+ 759 0002 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
+ 760 0004 4978     		ldrb	r1, [r1, #1]	@ zero_extendqisi2
+ 761 0006 00EB4213 		add	r3, r0, r2, lsl #5
+ 762 000a 00F50060 		add	r0, r0, #2048
+ 763 000e 0129     		cmp	r1, #1
+ 764 0010 02F00F01 		and	r1, r2, #15
+ 765 0014 20D1     		bne	.L122
+ 766 0016 D3F80029 		ldr	r2, [r3, #2304]
+ 767 001a 002A     		cmp	r2, #0
+ 768 001c 0BDA     		bge	.L123
+ARM GAS  /tmp/ccGHUpQA.s 			page 14
+
+
+ 769 001e D3F80029 		ldr	r2, [r3, #2304]
+ 770 0022 42F00062 		orr	r2, r2, #134217728
+ 771 0026 C3F80029 		str	r2, [r3, #2304]
+ 772 002a D3F80029 		ldr	r2, [r3, #2304]
+ 773 002e 42F08042 		orr	r2, r2, #1073741824
+ 774 0032 C3F80029 		str	r2, [r3, #2304]
+ 775              	.L123:
+ 776 0036 0122     		movs	r2, #1
+ 777 0038 C46B     		ldr	r4, [r0, #60]
+ 778 003a 8A40     		lsls	r2, r2, r1
+ 779 003c D243     		mvns	r2, r2
+ 780 003e 1440     		ands	r4, r4, r2
+ 781 0040 C463     		str	r4, [r0, #60]
+ 782 0042 C169     		ldr	r1, [r0, #28]
+ 783 0044 0A40     		ands	r2, r2, r1
+ 784 0046 C261     		str	r2, [r0, #28]
+ 785 0048 144A     		ldr	r2, .L126
+ 786 004a D3F80019 		ldr	r1, [r3, #2304]
+ 787 004e 0A40     		ands	r2, r2, r1
+ 788 0050 C3F80029 		str	r2, [r3, #2304]
+ 789              	.L124:
+ 790 0054 0020     		movs	r0, #0
+ 791 0056 10BD     		pop	{r4, pc}
+ 792              	.L122:
+ 793 0058 D3F8002B 		ldr	r2, [r3, #2816]
+ 794 005c 002A     		cmp	r2, #0
+ 795 005e 0BDA     		bge	.L125
+ 796 0060 D3F8002B 		ldr	r2, [r3, #2816]
+ 797 0064 42F00062 		orr	r2, r2, #134217728
+ 798 0068 C3F8002B 		str	r2, [r3, #2816]
+ 799 006c D3F8002B 		ldr	r2, [r3, #2816]
+ 800 0070 42F08042 		orr	r2, r2, #1073741824
+ 801 0074 C3F8002B 		str	r2, [r3, #2816]
+ 802              	.L125:
+ 803 0078 4FF48032 		mov	r2, #65536
+ 804 007c C46B     		ldr	r4, [r0, #60]
+ 805 007e 8A40     		lsls	r2, r2, r1
+ 806 0080 D243     		mvns	r2, r2
+ 807 0082 1440     		ands	r4, r4, r2
+ 808 0084 C463     		str	r4, [r0, #60]
+ 809 0086 C169     		ldr	r1, [r0, #28]
+ 810 0088 0A40     		ands	r2, r2, r1
+ 811 008a C261     		str	r2, [r0, #28]
+ 812 008c 044A     		ldr	r2, .L126+4
+ 813 008e D3F8001B 		ldr	r1, [r3, #2816]
+ 814 0092 0A40     		ands	r2, r2, r1
+ 815 0094 C3F8002B 		str	r2, [r3, #2816]
+ 816 0098 DCE7     		b	.L124
+ 817              	.L127:
+ 818 009a 00BF     		.align	2
+ 819              	.L126:
+ 820 009c 007833EC 		.word	-332171264
+ 821 00a0 0078F3EF 		.word	-269256704
+ 823              		.section	.text.USB_DeactivateDedicatedEndpoint,"ax",%progbits
+ 824              		.align	1
+ 825              		.global	USB_DeactivateDedicatedEndpoint
+ 826              		.syntax unified
+ARM GAS  /tmp/ccGHUpQA.s 			page 15
+
+
+ 827              		.thumb
+ 828              		.thumb_func
+ 829              		.fpu fpv5-sp-d16
+ 831              	USB_DeactivateDedicatedEndpoint:
+ 832              		@ args = 0, pretend = 0, frame = 0
+ 833              		@ frame_needed = 0, uses_anonymous_args = 0
+ 834              		@ link register save eliminated.
+ 835 0000 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
+ 836 0002 4978     		ldrb	r1, [r1, #1]	@ zero_extendqisi2
+ 837 0004 00EB4213 		add	r3, r0, r2, lsl #5
+ 838 0008 00F50060 		add	r0, r0, #2048
+ 839 000c 0129     		cmp	r1, #1
+ 840 000e 02F00F02 		and	r2, r2, #15
+ 841 0012 1ED1     		bne	.L129
+ 842 0014 D3F80019 		ldr	r1, [r3, #2304]
+ 843 0018 0029     		cmp	r1, #0
+ 844 001a 0BDA     		bge	.L130
+ 845 001c D3F80019 		ldr	r1, [r3, #2304]
+ 846 0020 41F00061 		orr	r1, r1, #134217728
+ 847 0024 C3F80019 		str	r1, [r3, #2304]
+ 848 0028 D3F80019 		ldr	r1, [r3, #2304]
+ 849 002c 41F08041 		orr	r1, r1, #1073741824
+ 850 0030 C3F80019 		str	r1, [r3, #2304]
+ 851              	.L130:
+ 852 0034 D3F80019 		ldr	r1, [r3, #2304]
+ 853 0038 21F40041 		bic	r1, r1, #32768
+ 854 003c C3F80019 		str	r1, [r3, #2304]
+ 855 0040 0121     		movs	r1, #1
+ 856 0042 C369     		ldr	r3, [r0, #28]
+ 857              	.L133:
+ 858 0044 01FA02F2 		lsl	r2, r1, r2
+ 859 0048 23EA0202 		bic	r2, r3, r2
+ 860 004c C261     		str	r2, [r0, #28]
+ 861 004e 0020     		movs	r0, #0
+ 862 0050 7047     		bx	lr
+ 863              	.L129:
+ 864 0052 D3F8001B 		ldr	r1, [r3, #2816]
+ 865 0056 0029     		cmp	r1, #0
+ 866 0058 0BDA     		bge	.L132
+ 867 005a D3F8001B 		ldr	r1, [r3, #2816]
+ 868 005e 41F00061 		orr	r1, r1, #134217728
+ 869 0062 C3F8001B 		str	r1, [r3, #2816]
+ 870 0066 D3F8001B 		ldr	r1, [r3, #2816]
+ 871 006a 41F08041 		orr	r1, r1, #1073741824
+ 872 006e C3F8001B 		str	r1, [r3, #2816]
+ 873              	.L132:
+ 874 0072 D3F8001B 		ldr	r1, [r3, #2816]
+ 875 0076 21F40041 		bic	r1, r1, #32768
+ 876 007a C3F8001B 		str	r1, [r3, #2816]
+ 877 007e 4FF48031 		mov	r1, #65536
+ 878 0082 C369     		ldr	r3, [r0, #28]
+ 879 0084 DEE7     		b	.L133
+ 881              		.section	.text.USB_EP0StartXfer,"ax",%progbits
+ 882              		.align	1
+ 883              		.global	USB_EP0StartXfer
+ 884              		.syntax unified
+ 885              		.thumb
+ARM GAS  /tmp/ccGHUpQA.s 			page 16
+
+
+ 886              		.thumb_func
+ 887              		.fpu fpv5-sp-d16
+ 889              	USB_EP0StartXfer:
+ 890              		@ args = 0, pretend = 0, frame = 0
+ 891              		@ frame_needed = 0, uses_anonymous_args = 0
+ 892 0000 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
+ 893 0002 DFF8E8C0 		ldr	ip, .L157+4
+ 894 0006 012B     		cmp	r3, #1
+ 895 0008 F0B5     		push	{r4, r5, r6, r7, lr}
+ 896 000a 0E78     		ldrb	r6, [r1]	@ zero_extendqisi2
+ 897 000c 4D69     		ldr	r5, [r1, #20]
+ 898 000e 00EB4614 		add	r4, r0, r6, lsl #5
+ 899 0012 354F     		ldr	r7, .L157
+ 900 0014 46D1     		bne	.L135
+ 901 0016 04F51063 		add	r3, r4, #2304
+ 902 001a BDB9     		cbnz	r5, .L136
+ 903 001c 1D69     		ldr	r5, [r3, #16]
+ 904 001e 2F40     		ands	r7, r7, r5
+ 905 0020 1F61     		str	r7, [r3, #16]
+ 906 0022 1D69     		ldr	r5, [r3, #16]
+ 907 0024 45F40025 		orr	r5, r5, #524288
+ 908 0028 1D61     		str	r5, [r3, #16]
+ 909 002a 1D69     		ldr	r5, [r3, #16]
+ 910 002c 05EA0C05 		and	r5, r5, ip
+ 911              	.L156:
+ 912 0030 012A     		cmp	r2, #1
+ 913 0032 1D61     		str	r5, [r3, #16]
+ 914 0034 23D1     		bne	.L139
+ 915 0036 0A69     		ldr	r2, [r1, #16]
+ 916 0038 02B1     		cbz	r2, .L140
+ 917 003a 5A61     		str	r2, [r3, #20]
+ 918              	.L140:
+ 919 003c D4F80039 		ldr	r3, [r4, #2304]
+ 920 0040 43F00443 		orr	r3, r3, #-2080374784
+ 921 0044 C4F80039 		str	r3, [r4, #2304]
+ 922              	.L141:
+ 923 0048 0020     		movs	r0, #0
+ 924 004a F0BD     		pop	{r4, r5, r6, r7, pc}
+ 925              	.L136:
+ 926 004c D3F810E0 		ldr	lr, [r3, #16]
+ 927 0050 0EEA0C0C 		and	ip, lr, ip
+ 928 0054 C3F810C0 		str	ip, [r3, #16]
+ 929 0058 D3F810C0 		ldr	ip, [r3, #16]
+ 930 005c 0CEA0707 		and	r7, ip, r7
+ 931 0060 1F61     		str	r7, [r3, #16]
+ 932 0062 8F68     		ldr	r7, [r1, #8]
+ 933 0064 AF42     		cmp	r7, r5
+ 934 0066 1D69     		ldr	r5, [r3, #16]
+ 935 0068 45F40025 		orr	r5, r5, #524288
+ 936 006c 38BF     		it	cc
+ 937 006e 4F61     		strcc	r7, [r1, #20]
+ 938 0070 1D61     		str	r5, [r3, #16]
+ 939 0072 4D69     		ldr	r5, [r1, #20]
+ 940 0074 1F69     		ldr	r7, [r3, #16]
+ 941 0076 C5F31205 		ubfx	r5, r5, #0, #19
+ 942 007a 3D43     		orrs	r5, r5, r7
+ 943 007c D8E7     		b	.L156
+ARM GAS  /tmp/ccGHUpQA.s 			page 17
+
+
+ 944              	.L139:
+ 945 007e D4F80039 		ldr	r3, [r4, #2304]
+ 946 0082 43F00443 		orr	r3, r3, #-2080374784
+ 947 0086 C4F80039 		str	r3, [r4, #2304]
+ 948 008a 4B69     		ldr	r3, [r1, #20]
+ 949 008c 002B     		cmp	r3, #0
+ 950 008e DBD0     		beq	.L141
+ 951 0090 06F00F06 		and	r6, r6, #15
+ 952 0094 0123     		movs	r3, #1
+ 953 0096 D0F83428 		ldr	r2, [r0, #2100]
+ 954 009a B340     		lsls	r3, r3, r6
+ 955 009c 1343     		orrs	r3, r3, r2
+ 956 009e C0F83438 		str	r3, [r0, #2100]
+ 957 00a2 D1E7     		b	.L141
+ 958              	.L135:
+ 959 00a4 04F53063 		add	r3, r4, #2816
+ 960 00a8 1869     		ldr	r0, [r3, #16]
+ 961 00aa 00EA0C00 		and	r0, r0, ip
+ 962 00ae 1861     		str	r0, [r3, #16]
+ 963 00b0 1869     		ldr	r0, [r3, #16]
+ 964 00b2 3840     		ands	r0, r0, r7
+ 965 00b4 1861     		str	r0, [r3, #16]
+ 966 00b6 8868     		ldr	r0, [r1, #8]
+ 967 00b8 05B1     		cbz	r5, .L142
+ 968 00ba 4861     		str	r0, [r1, #20]
+ 969              	.L142:
+ 970 00bc 1D69     		ldr	r5, [r3, #16]
+ 971 00be C0F31200 		ubfx	r0, r0, #0, #19
+ 972 00c2 012A     		cmp	r2, #1
+ 973 00c4 45F40025 		orr	r5, r5, #524288
+ 974 00c8 1D61     		str	r5, [r3, #16]
+ 975 00ca 1D69     		ldr	r5, [r3, #16]
+ 976 00cc 40EA0500 		orr	r0, r0, r5
+ 977 00d0 1861     		str	r0, [r3, #16]
+ 978 00d2 02D1     		bne	.L143
+ 979 00d4 CA68     		ldr	r2, [r1, #12]
+ 980 00d6 02B1     		cbz	r2, .L143
+ 981 00d8 5A61     		str	r2, [r3, #20]
+ 982              	.L143:
+ 983 00da D4F8003B 		ldr	r3, [r4, #2816]
+ 984 00de 43F00443 		orr	r3, r3, #-2080374784
+ 985 00e2 C4F8003B 		str	r3, [r4, #2816]
+ 986 00e6 AFE7     		b	.L141
+ 987              	.L158:
+ 988              		.align	2
+ 989              	.L157:
+ 990 00e8 FFFF07E0 		.word	-536346625
+ 991 00ec 0000F8FF 		.word	-524288
+ 993              		.section	.text.USB_WritePacket,"ax",%progbits
+ 994              		.align	1
+ 995              		.global	USB_WritePacket
+ 996              		.syntax unified
+ 997              		.thumb
+ 998              		.thumb_func
+ 999              		.fpu fpv5-sp-d16
+ 1001              	USB_WritePacket:
+ 1002              		@ args = 4, pretend = 0, frame = 0
+ARM GAS  /tmp/ccGHUpQA.s 			page 18
+
+
+ 1003              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1004 0000 10B5     		push	{r4, lr}
+ 1005 0002 9DF80840 		ldrb	r4, [sp, #8]	@ zero_extendqisi2
+ 1006 0006 44B9     		cbnz	r4, .L164
+ 1007 0008 0333     		adds	r3, r3, #3
+ 1008 000a 0132     		adds	r2, r2, #1
+ 1009 000c 9B08     		lsrs	r3, r3, #2
+ 1010 000e 00EB0230 		add	r0, r0, r2, lsl #12
+ 1011 0012 01EB8303 		add	r3, r1, r3, lsl #2
+ 1012              	.L161:
+ 1013 0016 8B42     		cmp	r3, r1
+ 1014 0018 01D1     		bne	.L162
+ 1015              	.L164:
+ 1016 001a 0020     		movs	r0, #0
+ 1017 001c 10BD     		pop	{r4, pc}
+ 1018              	.L162:
+ 1019 001e 51F8042B 		ldr	r2, [r1], #4	@ unaligned
+ 1020 0022 0260     		str	r2, [r0]
+ 1021 0024 F7E7     		b	.L161
+ 1023              		.section	.text.USB_EPStartXfer,"ax",%progbits
+ 1024              		.align	1
+ 1025              		.global	USB_EPStartXfer
+ 1026              		.syntax unified
+ 1027              		.thumb
+ 1028              		.thumb_func
+ 1029              		.fpu fpv5-sp-d16
+ 1031              	USB_EPStartXfer:
+ 1032              		@ args = 0, pretend = 0, frame = 0
+ 1033              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1034 0000 2DE9F341 		push	{r0, r1, r4, r5, r6, r7, r8, lr}
+ 1035 0004 4D78     		ldrb	r5, [r1, #1]	@ zero_extendqisi2
+ 1036 0006 0F78     		ldrb	r7, [r1]	@ zero_extendqisi2
+ 1037 0008 012D     		cmp	r5, #1
+ 1038 000a 4B69     		ldr	r3, [r1, #20]
+ 1039 000c 00EB4714 		add	r4, r0, r7, lsl #5
+ 1040 0010 CE78     		ldrb	r6, [r1, #3]	@ zero_extendqisi2
+ 1041 0012 DFF8B4C1 		ldr	ip, .L195
+ 1042 0016 DFF8B4E1 		ldr	lr, .L195+4
+ 1043 001a 40F08E80 		bne	.L166
+ 1044 001e 04F51065 		add	r5, r4, #2304
+ 1045 0022 D5F81080 		ldr	r8, [r5, #16]
+ 1046 0026 6BBB     		cbnz	r3, .L167
+ 1047 0028 08EA0C0C 		and	ip, r8, ip
+ 1048 002c C5F810C0 		str	ip, [r5, #16]
+ 1049 0030 D5F810C0 		ldr	ip, [r5, #16]
+ 1050 0034 4CF4002C 		orr	ip, ip, #524288
+ 1051 0038 C5F810C0 		str	ip, [r5, #16]
+ 1052 003c D5F810C0 		ldr	ip, [r5, #16]
+ 1053 0040 0CEA0E0E 		and	lr, ip, lr
+ 1054 0044 C5F810E0 		str	lr, [r5, #16]
+ 1055              	.L168:
+ 1056 0048 012A     		cmp	r2, #1
+ 1057 004a 4ED1     		bne	.L169
+ 1058 004c 0B69     		ldr	r3, [r1, #16]
+ 1059 004e 03B1     		cbz	r3, .L170
+ 1060 0050 6B61     		str	r3, [r5, #20]
+ 1061              	.L170:
+ARM GAS  /tmp/ccGHUpQA.s 			page 19
+
+
+ 1062 0052 012E     		cmp	r6, #1
+ 1063 0054 0CD1     		bne	.L171
+ 1064 0056 D0F80838 		ldr	r3, [r0, #2056]
+ 1065 005a 13F4807F 		tst	r3, #256
+ 1066 005e D4F80039 		ldr	r3, [r4, #2304]
+ 1067 0062 0CBF     		ite	eq
+ 1068 0064 43F00053 		orreq	r3, r3, #536870912
+ 1069 0068 43F08053 		orrne	r3, r3, #268435456
+ 1070 006c C4F80039 		str	r3, [r4, #2304]
+ 1071              	.L171:
+ 1072 0070 D4F80039 		ldr	r3, [r4, #2304]
+ 1073 0074 43F00443 		orr	r3, r3, #-2080374784
+ 1074 0078 C4F80039 		str	r3, [r4, #2304]
+ 1075              	.L173:
+ 1076 007c 0020     		movs	r0, #0
+ 1077 007e 02B0     		add	sp, sp, #8
+ 1078              		@ sp needed
+ 1079 0080 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 1080              	.L167:
+ 1081 0084 08EA0E0E 		and	lr, r8, lr
+ 1082 0088 012E     		cmp	r6, #1
+ 1083 008a C5F810E0 		str	lr, [r5, #16]
+ 1084 008e D5F810E0 		ldr	lr, [r5, #16]
+ 1085 0092 0EEA0C0C 		and	ip, lr, ip
+ 1086 0096 D1F808E0 		ldr	lr, [r1, #8]
+ 1087 009a C5F810C0 		str	ip, [r5, #16]
+ 1088 009e 0EEB030C 		add	ip, lr, r3
+ 1089 00a2 D5F81080 		ldr	r8, [r5, #16]
+ 1090 00a6 0CF1FF3C 		add	ip, ip, #-1
+ 1091 00aa BCFBFEFE 		udiv	lr, ip, lr
+ 1092 00ae DFF820C1 		ldr	ip, .L195+8
+ 1093 00b2 0CEACE4C 		and	ip, ip, lr, lsl #19
+ 1094 00b6 4CEA080C 		orr	ip, ip, r8
+ 1095 00ba C5F810C0 		str	ip, [r5, #16]
+ 1096 00be C3F3120C 		ubfx	ip, r3, #0, #19
+ 1097 00c2 D5F810E0 		ldr	lr, [r5, #16]
+ 1098 00c6 4CEA0E0C 		orr	ip, ip, lr
+ 1099 00ca C5F810C0 		str	ip, [r5, #16]
+ 1100 00ce BBD1     		bne	.L168
+ 1101 00d0 D5F810C0 		ldr	ip, [r5, #16]
+ 1102 00d4 2CF0C04C 		bic	ip, ip, #1610612736
+ 1103 00d8 C5F810C0 		str	ip, [r5, #16]
+ 1104 00dc D5F810C0 		ldr	ip, [r5, #16]
+ 1105 00e0 4CF0005C 		orr	ip, ip, #536870912
+ 1106 00e4 C5F810C0 		str	ip, [r5, #16]
+ 1107 00e8 AEE7     		b	.L168
+ 1108              	.L169:
+ 1109 00ea D4F80059 		ldr	r5, [r4, #2304]
+ 1110 00ee 012E     		cmp	r6, #1
+ 1111 00f0 45F00445 		orr	r5, r5, #-2080374784
+ 1112 00f4 C4F80059 		str	r5, [r4, #2304]
+ 1113 00f8 0BD0     		beq	.L174
+ 1114 00fa 002B     		cmp	r3, #0
+ 1115 00fc BED0     		beq	.L173
+ 1116 00fe 07F00F02 		and	r2, r7, #15
+ 1117 0102 0127     		movs	r7, #1
+ 1118 0104 D0F83438 		ldr	r3, [r0, #2100]
+ARM GAS  /tmp/ccGHUpQA.s 			page 20
+
+
+ 1119 0108 9740     		lsls	r7, r7, r2
+ 1120 010a 1F43     		orrs	r7, r7, r3
+ 1121 010c C0F83478 		str	r7, [r0, #2100]
+ 1122 0110 B4E7     		b	.L173
+ 1123              	.L174:
+ 1124 0112 D0F80858 		ldr	r5, [r0, #2056]
+ 1125 0116 9BB2     		uxth	r3, r3
+ 1126 0118 15F4807F 		tst	r5, #256
+ 1127 011c D4F80059 		ldr	r5, [r4, #2304]
+ 1128 0120 0CBF     		ite	eq
+ 1129 0122 45F00055 		orreq	r5, r5, #536870912
+ 1130 0126 45F08055 		orrne	r5, r5, #268435456
+ 1131 012a C4F80059 		str	r5, [r4, #2304]
+ 1132 012e 0092     		str	r2, [sp]
+ 1133 0130 3A46     		mov	r2, r7
+ 1134 0132 C968     		ldr	r1, [r1, #12]
+ 1135 0134 FFF7FEFF 		bl	USB_WritePacket
+ 1136 0138 A0E7     		b	.L173
+ 1137              	.L166:
+ 1138 013a 04F53067 		add	r7, r4, #2816
+ 1139 013e 3D69     		ldr	r5, [r7, #16]
+ 1140 0140 05EA0E05 		and	r5, r5, lr
+ 1141 0144 3D61     		str	r5, [r7, #16]
+ 1142 0146 3D69     		ldr	r5, [r7, #16]
+ 1143 0148 05EA0C05 		and	r5, r5, ip
+ 1144 014c 3D61     		str	r5, [r7, #16]
+ 1145 014e 8D68     		ldr	r5, [r1, #8]
+ 1146 0150 1BBB     		cbnz	r3, .L177
+ 1147 0152 3B69     		ldr	r3, [r7, #16]
+ 1148 0154 C5F31205 		ubfx	r5, r5, #0, #19
+ 1149 0158 1D43     		orrs	r5, r5, r3
+ 1150 015a 3D61     		str	r5, [r7, #16]
+ 1151 015c 3B69     		ldr	r3, [r7, #16]
+ 1152 015e 43F40023 		orr	r3, r3, #524288
+ 1153              	.L193:
+ 1154 0162 012A     		cmp	r2, #1
+ 1155 0164 3B61     		str	r3, [r7, #16]
+ 1156 0166 02D1     		bne	.L179
+ 1157 0168 CB68     		ldr	r3, [r1, #12]
+ 1158 016a 03B1     		cbz	r3, .L179
+ 1159 016c 7B61     		str	r3, [r7, #20]
+ 1160              	.L179:
+ 1161 016e 012E     		cmp	r6, #1
+ 1162 0170 0CD1     		bne	.L180
+ 1163 0172 D0F80838 		ldr	r3, [r0, #2056]
+ 1164 0176 13F4807F 		tst	r3, #256
+ 1165 017a D4F8003B 		ldr	r3, [r4, #2816]
+ 1166 017e 0CBF     		ite	eq
+ 1167 0180 43F00053 		orreq	r3, r3, #536870912
+ 1168 0184 43F08053 		orrne	r3, r3, #268435456
+ 1169 0188 C4F8003B 		str	r3, [r4, #2816]
+ 1170              	.L180:
+ 1171 018c D4F8003B 		ldr	r3, [r4, #2816]
+ 1172 0190 43F00443 		orr	r3, r3, #-2080374784
+ 1173 0194 C4F8003B 		str	r3, [r4, #2816]
+ 1174 0198 70E7     		b	.L173
+ 1175              	.L177:
+ARM GAS  /tmp/ccGHUpQA.s 			page 21
+
+
+ 1176 019a 2B44     		add	r3, r3, r5
+ 1177 019c DFF830C0 		ldr	ip, .L195+8
+ 1178 01a0 D7F810E0 		ldr	lr, [r7, #16]
+ 1179 01a4 013B     		subs	r3, r3, #1
+ 1180 01a6 B3FBF5F3 		udiv	r3, r3, r5
+ 1181 01aa 0CEAC34C 		and	ip, ip, r3, lsl #19
+ 1182 01ae 9BB2     		uxth	r3, r3
+ 1183 01b0 4CEA0E0C 		orr	ip, ip, lr
+ 1184 01b4 6B43     		muls	r3, r5, r3
+ 1185 01b6 C7F810C0 		str	ip, [r7, #16]
+ 1186 01ba D7F810C0 		ldr	ip, [r7, #16]
+ 1187 01be C3F31203 		ubfx	r3, r3, #0, #19
+ 1188 01c2 43EA0C03 		orr	r3, r3, ip
+ 1189 01c6 CCE7     		b	.L193
+ 1190              	.L196:
+ 1191              		.align	2
+ 1192              	.L195:
+ 1193 01c8 FFFF07E0 		.word	-536346625
+ 1194 01cc 0000F8FF 		.word	-524288
+ 1195 01d0 0000F81F 		.word	536346624
+ 1197              		.section	.text.USB_ReadPacket,"ax",%progbits
+ 1198              		.align	1
+ 1199              		.global	USB_ReadPacket
+ 1200              		.syntax unified
+ 1201              		.thumb
+ 1202              		.thumb_func
+ 1203              		.fpu fpv5-sp-d16
+ 1205              	USB_ReadPacket:
+ 1206              		@ args = 0, pretend = 0, frame = 0
+ 1207              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1208              		@ link register save eliminated.
+ 1209 0000 0332     		adds	r2, r2, #3
+ 1210 0002 00F58050 		add	r0, r0, #4096
+ 1211 0006 9208     		lsrs	r2, r2, #2
+ 1212 0008 01EB8202 		add	r2, r1, r2, lsl #2
+ 1213              	.L198:
+ 1214 000c 9142     		cmp	r1, r2
+ 1215 000e 01D1     		bne	.L199
+ 1216 0010 0846     		mov	r0, r1
+ 1217 0012 7047     		bx	lr
+ 1218              	.L199:
+ 1219 0014 0368     		ldr	r3, [r0]
+ 1220 0016 41F8043B 		str	r3, [r1], #4	@ unaligned
+ 1221 001a F7E7     		b	.L198
+ 1223              		.section	.text.USB_EPSetStall,"ax",%progbits
+ 1224              		.align	1
+ 1225              		.global	USB_EPSetStall
+ 1226              		.syntax unified
+ 1227              		.thumb
+ 1228              		.thumb_func
+ 1229              		.fpu fpv5-sp-d16
+ 1231              	USB_EPSetStall:
+ 1232              		@ args = 0, pretend = 0, frame = 0
+ 1233              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1234              		@ link register save eliminated.
+ 1235 0000 4A78     		ldrb	r2, [r1, #1]	@ zero_extendqisi2
+ 1236 0002 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ARM GAS  /tmp/ccGHUpQA.s 			page 22
+
+
+ 1237 0004 012A     		cmp	r2, #1
+ 1238 0006 00EB4310 		add	r0, r0, r3, lsl #5
+ 1239 000a 12D1     		bne	.L201
+ 1240 000c D0F80029 		ldr	r2, [r0, #2304]
+ 1241 0010 002A     		cmp	r2, #0
+ 1242 0012 06DB     		blt	.L202
+ 1243 0014 2BB1     		cbz	r3, .L202
+ 1244 0016 D0F80039 		ldr	r3, [r0, #2304]
+ 1245 001a 23F08043 		bic	r3, r3, #1073741824
+ 1246 001e C0F80039 		str	r3, [r0, #2304]
+ 1247              	.L202:
+ 1248 0022 D0F80039 		ldr	r3, [r0, #2304]
+ 1249 0026 43F40013 		orr	r3, r3, #2097152
+ 1250 002a C0F80039 		str	r3, [r0, #2304]
+ 1251              	.L203:
+ 1252 002e 0020     		movs	r0, #0
+ 1253 0030 7047     		bx	lr
+ 1254              	.L201:
+ 1255 0032 D0F8002B 		ldr	r2, [r0, #2816]
+ 1256 0036 002A     		cmp	r2, #0
+ 1257 0038 06DB     		blt	.L204
+ 1258 003a 2BB1     		cbz	r3, .L204
+ 1259 003c D0F8003B 		ldr	r3, [r0, #2816]
+ 1260 0040 23F08043 		bic	r3, r3, #1073741824
+ 1261 0044 C0F8003B 		str	r3, [r0, #2816]
+ 1262              	.L204:
+ 1263 0048 D0F8003B 		ldr	r3, [r0, #2816]
+ 1264 004c 43F40013 		orr	r3, r3, #2097152
+ 1265 0050 C0F8003B 		str	r3, [r0, #2816]
+ 1266 0054 EBE7     		b	.L203
+ 1268              		.section	.text.USB_EPClearStall,"ax",%progbits
+ 1269              		.align	1
+ 1270              		.global	USB_EPClearStall
+ 1271              		.syntax unified
+ 1272              		.thumb
+ 1273              		.thumb_func
+ 1274              		.fpu fpv5-sp-d16
+ 1276              	USB_EPClearStall:
+ 1277              		@ args = 0, pretend = 0, frame = 0
+ 1278              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1279              		@ link register save eliminated.
+ 1280 0000 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 1281 0002 4A78     		ldrb	r2, [r1, #1]	@ zero_extendqisi2
+ 1282 0004 00EB4310 		add	r0, r0, r3, lsl #5
+ 1283 0008 CB78     		ldrb	r3, [r1, #3]	@ zero_extendqisi2
+ 1284 000a 012A     		cmp	r2, #1
+ 1285 000c A3F10203 		sub	r3, r3, #2
+ 1286 0010 DBB2     		uxtb	r3, r3
+ 1287 0012 0FD1     		bne	.L212
+ 1288 0014 D0F80029 		ldr	r2, [r0, #2304]
+ 1289 0018 012B     		cmp	r3, #1
+ 1290 001a 22F40012 		bic	r2, r2, #2097152
+ 1291 001e C0F80029 		str	r2, [r0, #2304]
+ 1292 0022 05D8     		bhi	.L214
+ 1293 0024 D0F80039 		ldr	r3, [r0, #2304]
+ 1294 0028 43F08053 		orr	r3, r3, #268435456
+ 1295 002c C0F80039 		str	r3, [r0, #2304]
+ARM GAS  /tmp/ccGHUpQA.s 			page 23
+
+
+ 1296              	.L214:
+ 1297 0030 0020     		movs	r0, #0
+ 1298 0032 7047     		bx	lr
+ 1299              	.L212:
+ 1300 0034 D0F8002B 		ldr	r2, [r0, #2816]
+ 1301 0038 012B     		cmp	r3, #1
+ 1302 003a 22F40012 		bic	r2, r2, #2097152
+ 1303 003e C0F8002B 		str	r2, [r0, #2816]
+ 1304 0042 F5D8     		bhi	.L214
+ 1305 0044 D0F8003B 		ldr	r3, [r0, #2816]
+ 1306 0048 43F08053 		orr	r3, r3, #268435456
+ 1307 004c C0F8003B 		str	r3, [r0, #2816]
+ 1308 0050 EEE7     		b	.L214
+ 1310              		.section	.text.USB_StopDevice,"ax",%progbits
+ 1311              		.align	1
+ 1312              		.global	USB_StopDevice
+ 1313              		.syntax unified
+ 1314              		.thumb
+ 1315              		.thumb_func
+ 1316              		.fpu fpv5-sp-d16
+ 1318              	USB_StopDevice:
+ 1319              		@ args = 0, pretend = 0, frame = 0
+ 1320              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1321 0000 10B5     		push	{r4, lr}
+ 1322 0002 00F51063 		add	r3, r0, #2304
+ 1323 0006 0446     		mov	r4, r0
+ 1324 0008 00F52E61 		add	r1, r0, #2784
+ 1325 000c 4FF67F32 		movw	r2, #64383
+ 1326              	.L217:
+ 1327 0010 9A60     		str	r2, [r3, #8]
+ 1328 0012 2033     		adds	r3, r3, #32
+ 1329 0014 C3F8E821 		str	r2, [r3, #488]
+ 1330 0018 8B42     		cmp	r3, r1
+ 1331 001a F9D1     		bne	.L217
+ 1332 001c 0022     		movs	r2, #0
+ 1333 001e 2046     		mov	r0, r4
+ 1334 0020 C4F81028 		str	r2, [r4, #2064]
+ 1335 0024 C4F81428 		str	r2, [r4, #2068]
+ 1336 0028 C4F81C28 		str	r2, [r4, #2076]
+ 1337 002c FFF7FEFF 		bl	USB_FlushRxFifo
+ 1338 0030 28B9     		cbnz	r0, .L218
+ 1339 0032 2046     		mov	r0, r4
+ 1340 0034 1021     		movs	r1, #16
+ 1341 0036 BDE81040 		pop	{r4, lr}
+ 1342 003a FFF7FEBF 		b	USB_FlushTxFifo
+ 1343              	.L218:
+ 1344 003e 10BD     		pop	{r4, pc}
+ 1346              		.section	.text.USB_SetDevAddress,"ax",%progbits
+ 1347              		.align	1
+ 1348              		.global	USB_SetDevAddress
+ 1349              		.syntax unified
+ 1350              		.thumb
+ 1351              		.thumb_func
+ 1352              		.fpu fpv5-sp-d16
+ 1354              	USB_SetDevAddress:
+ 1355              		@ args = 0, pretend = 0, frame = 0
+ 1356              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/ccGHUpQA.s 			page 24
+
+
+ 1357              		@ link register save eliminated.
+ 1358 0000 D0F80038 		ldr	r3, [r0, #2048]
+ 1359 0004 0901     		lsls	r1, r1, #4
+ 1360 0006 23F4FE63 		bic	r3, r3, #2032
+ 1361 000a 01F4FE61 		and	r1, r1, #2032
+ 1362 000e C0F80038 		str	r3, [r0, #2048]
+ 1363 0012 D0F80038 		ldr	r3, [r0, #2048]
+ 1364 0016 1943     		orrs	r1, r1, r3
+ 1365 0018 C0F80018 		str	r1, [r0, #2048]
+ 1366 001c 0020     		movs	r0, #0
+ 1367 001e 7047     		bx	lr
+ 1369              		.section	.text.USB_DevConnect,"ax",%progbits
+ 1370              		.align	1
+ 1371              		.global	USB_DevConnect
+ 1372              		.syntax unified
+ 1373              		.thumb
+ 1374              		.thumb_func
+ 1375              		.fpu fpv5-sp-d16
+ 1377              	USB_DevConnect:
+ 1378              		@ args = 0, pretend = 0, frame = 0
+ 1379              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1380 0000 08B5     		push	{r3, lr}
+ 1381 0002 D0F80438 		ldr	r3, [r0, #2052]
+ 1382 0006 23F00203 		bic	r3, r3, #2
+ 1383 000a C0F80438 		str	r3, [r0, #2052]
+ 1384 000e 0320     		movs	r0, #3
+ 1385 0010 FFF7FEFF 		bl	HAL_Delay
+ 1386 0014 0020     		movs	r0, #0
+ 1387 0016 08BD     		pop	{r3, pc}
+ 1389              		.section	.text.USB_DevDisconnect,"ax",%progbits
+ 1390              		.align	1
+ 1391              		.global	USB_DevDisconnect
+ 1392              		.syntax unified
+ 1393              		.thumb
+ 1394              		.thumb_func
+ 1395              		.fpu fpv5-sp-d16
+ 1397              	USB_DevDisconnect:
+ 1398              		@ args = 0, pretend = 0, frame = 0
+ 1399              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1400 0000 08B5     		push	{r3, lr}
+ 1401 0002 D0F80438 		ldr	r3, [r0, #2052]
+ 1402 0006 43F00203 		orr	r3, r3, #2
+ 1403 000a C0F80438 		str	r3, [r0, #2052]
+ 1404 000e 0320     		movs	r0, #3
+ 1405 0010 FFF7FEFF 		bl	HAL_Delay
+ 1406 0014 0020     		movs	r0, #0
+ 1407 0016 08BD     		pop	{r3, pc}
+ 1409              		.section	.text.USB_ReadInterrupts,"ax",%progbits
+ 1410              		.align	1
+ 1411              		.global	USB_ReadInterrupts
+ 1412              		.syntax unified
+ 1413              		.thumb
+ 1414              		.thumb_func
+ 1415              		.fpu fpv5-sp-d16
+ 1417              	USB_ReadInterrupts:
+ 1418              		@ args = 0, pretend = 0, frame = 0
+ 1419              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/ccGHUpQA.s 			page 25
+
+
+ 1420              		@ link register save eliminated.
+ 1421 0000 4269     		ldr	r2, [r0, #20]
+ 1422 0002 8069     		ldr	r0, [r0, #24]
+ 1423 0004 1040     		ands	r0, r0, r2
+ 1424 0006 7047     		bx	lr
+ 1426              		.section	.text.USB_ReadDevAllOutEpInterrupt,"ax",%progbits
+ 1427              		.align	1
+ 1428              		.global	USB_ReadDevAllOutEpInterrupt
+ 1429              		.syntax unified
+ 1430              		.thumb
+ 1431              		.thumb_func
+ 1432              		.fpu fpv5-sp-d16
+ 1434              	USB_ReadDevAllOutEpInterrupt:
+ 1435              		@ args = 0, pretend = 0, frame = 0
+ 1436              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1437              		@ link register save eliminated.
+ 1438 0000 D0F81838 		ldr	r3, [r0, #2072]
+ 1439 0004 00F50060 		add	r0, r0, #2048
+ 1440 0008 C069     		ldr	r0, [r0, #28]
+ 1441 000a 1840     		ands	r0, r0, r3
+ 1442 000c 000C     		lsrs	r0, r0, #16
+ 1443 000e 7047     		bx	lr
+ 1445              		.section	.text.USB_ReadDevAllInEpInterrupt,"ax",%progbits
+ 1446              		.align	1
+ 1447              		.global	USB_ReadDevAllInEpInterrupt
+ 1448              		.syntax unified
+ 1449              		.thumb
+ 1450              		.thumb_func
+ 1451              		.fpu fpv5-sp-d16
+ 1453              	USB_ReadDevAllInEpInterrupt:
+ 1454              		@ args = 0, pretend = 0, frame = 0
+ 1455              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1456              		@ link register save eliminated.
+ 1457 0000 D0F81838 		ldr	r3, [r0, #2072]
+ 1458 0004 00F50060 		add	r0, r0, #2048
+ 1459 0008 C069     		ldr	r0, [r0, #28]
+ 1460 000a 1840     		ands	r0, r0, r3
+ 1461 000c 80B2     		uxth	r0, r0
+ 1462 000e 7047     		bx	lr
+ 1464              		.section	.text.USB_ReadDevOutEPInterrupt,"ax",%progbits
+ 1465              		.align	1
+ 1466              		.global	USB_ReadDevOutEPInterrupt
+ 1467              		.syntax unified
+ 1468              		.thumb
+ 1469              		.thumb_func
+ 1470              		.fpu fpv5-sp-d16
+ 1472              	USB_ReadDevOutEPInterrupt:
+ 1473              		@ args = 0, pretend = 0, frame = 0
+ 1474              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1475              		@ link register save eliminated.
+ 1476 0000 00EB4111 		add	r1, r0, r1, lsl #5
+ 1477 0004 00F50060 		add	r0, r0, #2048
+ 1478 0008 D1F8082B 		ldr	r2, [r1, #2824]
+ 1479 000c 4069     		ldr	r0, [r0, #20]
+ 1480 000e 1040     		ands	r0, r0, r2
+ 1481 0010 7047     		bx	lr
+ 1483              		.section	.text.USB_ReadDevInEPInterrupt,"ax",%progbits
+ARM GAS  /tmp/ccGHUpQA.s 			page 26
+
+
+ 1484              		.align	1
+ 1485              		.global	USB_ReadDevInEPInterrupt
+ 1486              		.syntax unified
+ 1487              		.thumb
+ 1488              		.thumb_func
+ 1489              		.fpu fpv5-sp-d16
+ 1491              	USB_ReadDevInEPInterrupt:
+ 1492              		@ args = 0, pretend = 0, frame = 0
+ 1493              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1494 0000 10B5     		push	{r4, lr}
+ 1495 0002 D0F81048 		ldr	r4, [r0, #2064]
+ 1496 0006 D0F83438 		ldr	r3, [r0, #2100]
+ 1497 000a 00EB4110 		add	r0, r0, r1, lsl #5
+ 1498 000e 01F00F01 		and	r1, r1, #15
+ 1499 0012 00F51060 		add	r0, r0, #2304
+ 1500 0016 CB40     		lsrs	r3, r3, r1
+ 1501 0018 8068     		ldr	r0, [r0, #8]
+ 1502 001a DB01     		lsls	r3, r3, #7
+ 1503 001c DBB2     		uxtb	r3, r3
+ 1504 001e 2343     		orrs	r3, r3, r4
+ 1505 0020 1840     		ands	r0, r0, r3
+ 1506 0022 10BD     		pop	{r4, pc}
+ 1508              		.section	.text.USB_ClearInterrupts,"ax",%progbits
+ 1509              		.align	1
+ 1510              		.global	USB_ClearInterrupts
+ 1511              		.syntax unified
+ 1512              		.thumb
+ 1513              		.thumb_func
+ 1514              		.fpu fpv5-sp-d16
+ 1516              	USB_ClearInterrupts:
+ 1517              		@ args = 0, pretend = 0, frame = 0
+ 1518              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1519              		@ link register save eliminated.
+ 1520 0000 4369     		ldr	r3, [r0, #20]
+ 1521 0002 1943     		orrs	r1, r1, r3
+ 1522 0004 4161     		str	r1, [r0, #20]
+ 1523 0006 7047     		bx	lr
+ 1525              		.section	.text.USB_GetMode,"ax",%progbits
+ 1526              		.align	1
+ 1527              		.global	USB_GetMode
+ 1528              		.syntax unified
+ 1529              		.thumb
+ 1530              		.thumb_func
+ 1531              		.fpu fpv5-sp-d16
+ 1533              	USB_GetMode:
+ 1534              		@ args = 0, pretend = 0, frame = 0
+ 1535              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1536              		@ link register save eliminated.
+ 1537 0000 4069     		ldr	r0, [r0, #20]
+ 1538 0002 00F00100 		and	r0, r0, #1
+ 1539 0006 7047     		bx	lr
+ 1541              		.section	.text.USB_ActivateSetup,"ax",%progbits
+ 1542              		.align	1
+ 1543              		.global	USB_ActivateSetup
+ 1544              		.syntax unified
+ 1545              		.thumb
+ 1546              		.thumb_func
+ARM GAS  /tmp/ccGHUpQA.s 			page 27
+
+
+ 1547              		.fpu fpv5-sp-d16
+ 1549              	USB_ActivateSetup:
+ 1550              		@ args = 0, pretend = 0, frame = 0
+ 1551              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1552              		@ link register save eliminated.
+ 1553 0000 D0F80039 		ldr	r3, [r0, #2304]
+ 1554 0004 23F4FF63 		bic	r3, r3, #2040
+ 1555 0008 23F00703 		bic	r3, r3, #7
+ 1556 000c C0F80039 		str	r3, [r0, #2304]
+ 1557 0010 D0F80438 		ldr	r3, [r0, #2052]
+ 1558 0014 43F48073 		orr	r3, r3, #256
+ 1559 0018 C0F80438 		str	r3, [r0, #2052]
+ 1560 001c 0020     		movs	r0, #0
+ 1561 001e 7047     		bx	lr
+ 1563              		.section	.text.USB_EP0_OutStart,"ax",%progbits
+ 1564              		.align	1
+ 1565              		.global	USB_EP0_OutStart
+ 1566              		.syntax unified
+ 1567              		.thumb
+ 1568              		.thumb_func
+ 1569              		.fpu fpv5-sp-d16
+ 1571              	USB_EP0_OutStart:
+ 1572              		@ args = 0, pretend = 0, frame = 0
+ 1573              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1574 0000 30B5     		push	{r4, r5, lr}
+ 1575 0002 056C     		ldr	r5, [r0, #64]
+ 1576 0004 00F53063 		add	r3, r0, #2816
+ 1577 0008 0F4C     		ldr	r4, .L235
+ 1578 000a A542     		cmp	r5, r4
+ 1579 000c 03D9     		bls	.L232
+ 1580 000e D0F8004B 		ldr	r4, [r0, #2816]
+ 1581 0012 002C     		cmp	r4, #0
+ 1582 0014 16DB     		blt	.L233
+ 1583              	.L232:
+ 1584 0016 0024     		movs	r4, #0
+ 1585 0018 0129     		cmp	r1, #1
+ 1586 001a 1C61     		str	r4, [r3, #16]
+ 1587 001c 1C69     		ldr	r4, [r3, #16]
+ 1588 001e 44F40024 		orr	r4, r4, #524288
+ 1589 0022 1C61     		str	r4, [r3, #16]
+ 1590 0024 1C69     		ldr	r4, [r3, #16]
+ 1591 0026 44F01804 		orr	r4, r4, #24
+ 1592 002a 1C61     		str	r4, [r3, #16]
+ 1593 002c 1C69     		ldr	r4, [r3, #16]
+ 1594 002e 44F0C044 		orr	r4, r4, #1610612736
+ 1595 0032 1C61     		str	r4, [r3, #16]
+ 1596 0034 06D1     		bne	.L233
+ 1597 0036 5A61     		str	r2, [r3, #20]
+ 1598 0038 D0F8003B 		ldr	r3, [r0, #2816]
+ 1599 003c 43F08023 		orr	r3, r3, #-2147450880
+ 1600 0040 C0F8003B 		str	r3, [r0, #2816]
+ 1601              	.L233:
+ 1602 0044 0020     		movs	r0, #0
+ 1603 0046 30BD     		pop	{r4, r5, pc}
+ 1604              	.L236:
+ 1605              		.align	2
+ 1606              	.L235:
+ARM GAS  /tmp/ccGHUpQA.s 			page 28
+
+
+ 1607 0048 0A30544F 		.word	1330917386
+ 1609              		.section	.text.USB_InitFSLSPClkSel,"ax",%progbits
+ 1610              		.align	1
+ 1611              		.global	USB_InitFSLSPClkSel
+ 1612              		.syntax unified
+ 1613              		.thumb
+ 1614              		.thumb_func
+ 1615              		.fpu fpv5-sp-d16
+ 1617              	USB_InitFSLSPClkSel:
+ 1618              		@ args = 0, pretend = 0, frame = 0
+ 1619              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1620 0000 D0F80034 		ldr	r3, [r0, #1024]
+ 1621 0004 0129     		cmp	r1, #1
+ 1622 0006 00F58062 		add	r2, r0, #1024
+ 1623 000a 23F00303 		bic	r3, r3, #3
+ 1624 000e 10B5     		push	{r4, lr}
+ 1625 0010 C0F80034 		str	r3, [r0, #1024]
+ 1626 0014 01F00303 		and	r3, r1, #3
+ 1627 0018 D0F80044 		ldr	r4, [r0, #1024]
+ 1628 001c 43EA0403 		orr	r3, r3, r4
+ 1629 0020 C0F80034 		str	r3, [r0, #1024]
+ 1630 0024 04D1     		bne	.L238
+ 1631 0026 4BF68033 		movw	r3, #48000
+ 1632              	.L240:
+ 1633 002a 5360     		str	r3, [r2, #4]
+ 1634              	.L239:
+ 1635 002c 0020     		movs	r0, #0
+ 1636 002e 10BD     		pop	{r4, pc}
+ 1637              	.L238:
+ 1638 0030 0229     		cmp	r1, #2
+ 1639 0032 FBD1     		bne	.L239
+ 1640 0034 41F27073 		movw	r3, #6000
+ 1641 0038 F7E7     		b	.L240
+ 1643              		.section	.text.USB_ResetPort,"ax",%progbits
+ 1644              		.align	1
+ 1645              		.global	USB_ResetPort
+ 1646              		.syntax unified
+ 1647              		.thumb
+ 1648              		.thumb_func
+ 1649              		.fpu fpv5-sp-d16
+ 1651              	USB_ResetPort:
+ 1652              		@ args = 0, pretend = 0, frame = 8
+ 1653              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1654 0000 37B5     		push	{r0, r1, r2, r4, r5, lr}
+ 1655 0002 0025     		movs	r5, #0
+ 1656 0004 0446     		mov	r4, r0
+ 1657 0006 0195     		str	r5, [sp, #4]
+ 1658 0008 D0F84034 		ldr	r3, [r0, #1088]
+ 1659 000c 0193     		str	r3, [sp, #4]
+ 1660 000e 019B     		ldr	r3, [sp, #4]
+ 1661 0010 23F02E03 		bic	r3, r3, #46
+ 1662 0014 0193     		str	r3, [sp, #4]
+ 1663 0016 019B     		ldr	r3, [sp, #4]
+ 1664 0018 43F48073 		orr	r3, r3, #256
+ 1665 001c C0F84034 		str	r3, [r0, #1088]
+ 1666 0020 6420     		movs	r0, #100
+ 1667 0022 FFF7FEFF 		bl	HAL_Delay
+ARM GAS  /tmp/ccGHUpQA.s 			page 29
+
+
+ 1668 0026 019B     		ldr	r3, [sp, #4]
+ 1669 0028 0A20     		movs	r0, #10
+ 1670 002a 23F48073 		bic	r3, r3, #256
+ 1671 002e C4F84034 		str	r3, [r4, #1088]
+ 1672 0032 FFF7FEFF 		bl	HAL_Delay
+ 1673 0036 2846     		mov	r0, r5
+ 1674 0038 03B0     		add	sp, sp, #12
+ 1675              		@ sp needed
+ 1676 003a 30BD     		pop	{r4, r5, pc}
+ 1678              		.section	.text.USB_DriveVbus,"ax",%progbits
+ 1679              		.align	1
+ 1680              		.global	USB_DriveVbus
+ 1681              		.syntax unified
+ 1682              		.thumb
+ 1683              		.thumb_func
+ 1684              		.fpu fpv5-sp-d16
+ 1686              	USB_DriveVbus:
+ 1687              		@ args = 0, pretend = 0, frame = 8
+ 1688              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1689              		@ link register save eliminated.
+ 1690 0000 82B0     		sub	sp, sp, #8
+ 1691 0002 0023     		movs	r3, #0
+ 1692 0004 0193     		str	r3, [sp, #4]
+ 1693 0006 D0F84034 		ldr	r3, [r0, #1088]
+ 1694 000a 0193     		str	r3, [sp, #4]
+ 1695 000c 019B     		ldr	r3, [sp, #4]
+ 1696 000e 23F02E03 		bic	r3, r3, #46
+ 1697 0012 0193     		str	r3, [sp, #4]
+ 1698 0014 019B     		ldr	r3, [sp, #4]
+ 1699 0016 DA04     		lsls	r2, r3, #19
+ 1700 0018 06D4     		bmi	.L243
+ 1701 001a 0129     		cmp	r1, #1
+ 1702 001c 04D1     		bne	.L243
+ 1703 001e 019B     		ldr	r3, [sp, #4]
+ 1704 0020 43F48053 		orr	r3, r3, #4096
+ 1705 0024 C0F84034 		str	r3, [r0, #1088]
+ 1706              	.L243:
+ 1707 0028 019B     		ldr	r3, [sp, #4]
+ 1708 002a DB04     		lsls	r3, r3, #19
+ 1709 002c 05D5     		bpl	.L244
+ 1710 002e 21B9     		cbnz	r1, .L244
+ 1711 0030 019B     		ldr	r3, [sp, #4]
+ 1712 0032 23F48053 		bic	r3, r3, #4096
+ 1713 0036 C0F84034 		str	r3, [r0, #1088]
+ 1714              	.L244:
+ 1715 003a 0020     		movs	r0, #0
+ 1716 003c 02B0     		add	sp, sp, #8
+ 1717              		@ sp needed
+ 1718 003e 7047     		bx	lr
+ 1720              		.section	.text.USB_HostInit,"ax",%progbits
+ 1721              		.align	1
+ 1722              		.global	USB_HostInit
+ 1723              		.syntax unified
+ 1724              		.thumb
+ 1725              		.thumb_func
+ 1726              		.fpu fpv5-sp-d16
+ 1728              	USB_HostInit:
+ARM GAS  /tmp/ccGHUpQA.s 			page 30
+
+
+ 1729              		@ args = 56, pretend = 16, frame = 0
+ 1730              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1731 0000 84B0     		sub	sp, sp, #16
+ 1732 0002 38B5     		push	{r3, r4, r5, lr}
+ 1733 0004 0446     		mov	r4, r0
+ 1734 0006 05A8     		add	r0, sp, #20
+ 1735 0008 80E80E00 		stm	r0, {r1, r2, r3}
+ 1736 000c 0023     		movs	r3, #0
+ 1737 000e C4F8003E 		str	r3, [r4, #3584]
+ 1738 0012 A36B     		ldr	r3, [r4, #56]
+ 1739 0014 23F40013 		bic	r3, r3, #2097152
+ 1740 0018 A363     		str	r3, [r4, #56]
+ 1741 001a E36B     		ldr	r3, [r4, #60]
+ 1742 001c DA05     		lsls	r2, r3, #23
+ 1743 001e 3FD5     		bpl	.L249
+ 1744 0020 079B     		ldr	r3, [sp, #28]
+ 1745 0022 012B     		cmp	r3, #1
+ 1746 0024 D4F80034 		ldr	r3, [r4, #1024]
+ 1747 0028 3CD1     		bne	.L258
+ 1748 002a 43F00403 		orr	r3, r3, #4
+ 1749              	.L257:
+ 1750 002e C4F80034 		str	r3, [r4, #1024]
+ 1751 0032 1021     		movs	r1, #16
+ 1752 0034 2046     		mov	r0, r4
+ 1753 0036 FFF7FEFF 		bl	USB_FlushTxFifo
+ 1754 003a 2046     		mov	r0, r4
+ 1755 003c FFF7FEFF 		bl	USB_FlushRxFifo
+ 1756 0040 0023     		movs	r3, #0
+ 1757 0042 0699     		ldr	r1, [sp, #24]
+ 1758 0044 04F5A062 		add	r2, r4, #1280
+ 1759 0048 4FF0FF30 		mov	r0, #-1
+ 1760 004c 1D46     		mov	r5, r3
+ 1761              	.L252:
+ 1762 004e 9942     		cmp	r1, r3
+ 1763 0050 2BD1     		bne	.L253
+ 1764 0052 0121     		movs	r1, #1
+ 1765 0054 2046     		mov	r0, r4
+ 1766 0056 FFF7FEFF 		bl	USB_DriveVbus
+ 1767 005a C820     		movs	r0, #200
+ 1768 005c FFF7FEFF 		bl	HAL_Delay
+ 1769 0060 0023     		movs	r3, #0
+ 1770 0062 A361     		str	r3, [r4, #24]
+ 1771 0064 4FF0FF33 		mov	r3, #-1
+ 1772 0068 6361     		str	r3, [r4, #20]
+ 1773 006a E36B     		ldr	r3, [r4, #60]
+ 1774 006c DB05     		lsls	r3, r3, #23
+ 1775 006e 21D5     		bpl	.L254
+ 1776 0070 4FF40073 		mov	r3, #512
+ 1777 0074 6362     		str	r3, [r4, #36]
+ 1778 0076 03F18073 		add	r3, r3, #16777216
+ 1779 007a A362     		str	r3, [r4, #40]
+ 1780 007c 114B     		ldr	r3, .L260
+ 1781              	.L259:
+ 1782 007e C4F80031 		str	r3, [r4, #256]
+ 1783 0082 089B     		ldr	r3, [sp, #32]
+ 1784 0084 1BB9     		cbnz	r3, .L256
+ 1785 0086 A369     		ldr	r3, [r4, #24]
+ARM GAS  /tmp/ccGHUpQA.s 			page 31
+
+
+ 1786 0088 43F01003 		orr	r3, r3, #16
+ 1787 008c A361     		str	r3, [r4, #24]
+ 1788              	.L256:
+ 1789 008e A269     		ldr	r2, [r4, #24]
+ 1790 0090 0020     		movs	r0, #0
+ 1791 0092 0D4B     		ldr	r3, .L260+4
+ 1792 0094 1343     		orrs	r3, r3, r2
+ 1793 0096 A361     		str	r3, [r4, #24]
+ 1794 0098 BDE83840 		pop	{r3, r4, r5, lr}
+ 1795 009c 04B0     		add	sp, sp, #16
+ 1796 009e 7047     		bx	lr
+ 1797              	.L249:
+ 1798 00a0 D4F80034 		ldr	r3, [r4, #1024]
+ 1799              	.L258:
+ 1800 00a4 23F00403 		bic	r3, r3, #4
+ 1801 00a8 C1E7     		b	.L257
+ 1802              	.L253:
+ 1803 00aa 9060     		str	r0, [r2, #8]
+ 1804 00ac 0133     		adds	r3, r3, #1
+ 1805 00ae D560     		str	r5, [r2, #12]
+ 1806 00b0 2032     		adds	r2, r2, #32
+ 1807 00b2 CCE7     		b	.L252
+ 1808              	.L254:
+ 1809 00b4 8023     		movs	r3, #128
+ 1810 00b6 6362     		str	r3, [r4, #36]
+ 1811 00b8 03F5C003 		add	r3, r3, #6291456
+ 1812 00bc A362     		str	r3, [r4, #40]
+ 1813 00be 034B     		ldr	r3, .L260+8
+ 1814 00c0 DDE7     		b	.L259
+ 1815              	.L261:
+ 1816 00c2 00BF     		.align	2
+ 1817              	.L260:
+ 1818 00c4 0003E000 		.word	14680832
+ 1819 00c8 080020A3 		.word	-1558183928
+ 1820 00cc E0004000 		.word	4194528
+ 1822              		.section	.text.USB_GetHostSpeed,"ax",%progbits
+ 1823              		.align	1
+ 1824              		.global	USB_GetHostSpeed
+ 1825              		.syntax unified
+ 1826              		.thumb
+ 1827              		.thumb_func
+ 1828              		.fpu fpv5-sp-d16
+ 1830              	USB_GetHostSpeed:
+ 1831              		@ args = 0, pretend = 0, frame = 8
+ 1832              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1833              		@ link register save eliminated.
+ 1834 0000 82B0     		sub	sp, sp, #8
+ 1835 0002 0023     		movs	r3, #0
+ 1836 0004 0193     		str	r3, [sp, #4]
+ 1837 0006 D0F84034 		ldr	r3, [r0, #1088]
+ 1838 000a 0193     		str	r3, [sp, #4]
+ 1839 000c 0198     		ldr	r0, [sp, #4]
+ 1840 000e C0F34140 		ubfx	r0, r0, #17, #2
+ 1841 0012 02B0     		add	sp, sp, #8
+ 1842              		@ sp needed
+ 1843 0014 7047     		bx	lr
+ 1845              		.section	.text.USB_GetCurrentFrame,"ax",%progbits
+ARM GAS  /tmp/ccGHUpQA.s 			page 32
+
+
+ 1846              		.align	1
+ 1847              		.global	USB_GetCurrentFrame
+ 1848              		.syntax unified
+ 1849              		.thumb
+ 1850              		.thumb_func
+ 1851              		.fpu fpv5-sp-d16
+ 1853              	USB_GetCurrentFrame:
+ 1854              		@ args = 0, pretend = 0, frame = 0
+ 1855              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1856              		@ link register save eliminated.
+ 1857 0000 00F58060 		add	r0, r0, #1024
+ 1858 0004 8068     		ldr	r0, [r0, #8]
+ 1859 0006 80B2     		uxth	r0, r0
+ 1860 0008 7047     		bx	lr
+ 1862              		.section	.text.USB_HC_Init,"ax",%progbits
+ 1863              		.align	1
+ 1864              		.global	USB_HC_Init
+ 1865              		.syntax unified
+ 1866              		.thumb
+ 1867              		.thumb_func
+ 1868              		.fpu fpv5-sp-d16
+ 1870              	USB_HC_Init:
+ 1871              		@ args = 12, pretend = 0, frame = 0
+ 1872              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1873 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 1874 0004 00EB4115 		add	r5, r0, r1, lsl #5
+ 1875 0008 0746     		mov	r7, r0
+ 1876 000a 9DF81C60 		ldrb	r6, [sp, #28]	@ zero_extendqisi2
+ 1877 000e 4FF0FF30 		mov	r0, #-1
+ 1878 0012 05F5A064 		add	r4, r5, #1280
+ 1879 0016 4FFA82FC 		sxtb	ip, r2
+ 1880 001a A060     		str	r0, [r4, #8]
+ 1881 001c 032E     		cmp	r6, #3
+ 1882 001e 67D8     		bhi	.L276
+ 1883 0020 DFE806F0 		tbb	[pc, r6]
+ 1884              	.L267:
+ 1885 0024 02       		.byte	(.L268-.L267)/2
+ 1886 0025 5C       		.byte	(.L269-.L267)/2
+ 1887 0026 02       		.byte	(.L268-.L267)/2
+ 1888 0027 55       		.byte	(.L266-.L267)/2
+ 1889              		.p2align 1
+ 1890              	.L268:
+ 1891 0028 40F29D40 		movw	r0, #1181
+ 1892 002c BCF1000F 		cmp	ip, #0
+ 1893 0030 E060     		str	r0, [r4, #12]
+ 1894 0032 03DA     		bge	.L270
+ 1895              	.L281:
+ 1896 0034 E068     		ldr	r0, [r4, #12]
+ 1897 0036 40F48070 		orr	r0, r0, #256
+ 1898 003a 46E0     		b	.L279
+ 1899              	.L270:
+ 1900 003c F86B     		ldr	r0, [r7, #60]
+ 1901 003e C005     		lsls	r0, r0, #23
+ 1902 0040 40D4     		bmi	.L271
+ 1903              	.L280:
+ 1904 0042 0020     		movs	r0, #0
+ 1905              	.L265:
+ARM GAS  /tmp/ccGHUpQA.s 			page 33
+
+
+ 1906 0044 01F00F04 		and	r4, r1, #15
+ 1907 0048 0121     		movs	r1, #1
+ 1908 004a D7F81884 		ldr	r8, [r7, #1048]
+ 1909 004e 07F5806E 		add	lr, r7, #1024
+ 1910 0052 A140     		lsls	r1, r1, r4
+ 1911 0054 9B05     		lsls	r3, r3, #22
+ 1912 0056 D202     		lsls	r2, r2, #11
+ 1913 0058 BCF1000F 		cmp	ip, #0
+ 1914 005c 41EA0801 		orr	r1, r1, r8
+ 1915 0060 03F0FE53 		and	r3, r3, #532676608
+ 1916 0064 02F4F042 		and	r2, r2, #30720
+ 1917 0068 B8BF     		it	lt
+ 1918 006a 4FF40044 		movlt	r4, #32768
+ 1919 006e C7F81814 		str	r1, [r7, #1048]
+ 1920 0072 A8BF     		it	ge
+ 1921 0074 0024     		movge	r4, #0
+ 1922 0076 B969     		ldr	r1, [r7, #24]
+ 1923 0078 41F00071 		orr	r1, r1, #33554432
+ 1924 007c B961     		str	r1, [r7, #24]
+ 1925 007e BDF82070 		ldrh	r7, [sp, #32]
+ 1926 0082 9DF81810 		ldrb	r1, [sp, #24]	@ zero_extendqisi2
+ 1927 0086 C7F30A07 		ubfx	r7, r7, #0, #11
+ 1928 008a 0229     		cmp	r1, #2
+ 1929 008c 43EA0703 		orr	r3, r3, r7
+ 1930 0090 0CBF     		ite	eq
+ 1931 0092 4FF40031 		moveq	r1, #131072
+ 1932 0096 0021     		movne	r1, #0
+ 1933 0098 1343     		orrs	r3, r3, r2
+ 1934 009a B204     		lsls	r2, r6, #18
+ 1935 009c 032E     		cmp	r6, #3
+ 1936 009e 02F44022 		and	r2, r2, #786432
+ 1937 00a2 43EA0203 		orr	r3, r3, r2
+ 1938 00a6 43EA0403 		orr	r3, r3, r4
+ 1939 00aa 43EA0103 		orr	r3, r3, r1
+ 1940 00ae C5F80035 		str	r3, [r5, #1280]
+ 1941 00b2 05D1     		bne	.L275
+ 1942 00b4 D5F80035 		ldr	r3, [r5, #1280]
+ 1943 00b8 43F00053 		orr	r3, r3, #536870912
+ 1944 00bc C5F80035 		str	r3, [r5, #1280]
+ 1945              	.L275:
+ 1946 00c0 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 1947              	.L271:
+ 1948 00c4 E068     		ldr	r0, [r4, #12]
+ 1949 00c6 40F06000 		orr	r0, r0, #96
+ 1950              	.L279:
+ 1951 00ca E060     		str	r0, [r4, #12]
+ 1952 00cc B9E7     		b	.L280
+ 1953              	.L266:
+ 1954 00ce 40F29D60 		movw	r0, #1693
+ 1955 00d2 BCF1000F 		cmp	ip, #0
+ 1956 00d6 E060     		str	r0, [r4, #12]
+ 1957 00d8 B3DA     		bge	.L280
+ 1958 00da ABE7     		b	.L281
+ 1959              	.L269:
+ 1960 00dc 40F22520 		movw	r0, #549
+ 1961 00e0 BCF1000F 		cmp	ip, #0
+ 1962 00e4 E060     		str	r0, [r4, #12]
+ARM GAS  /tmp/ccGHUpQA.s 			page 34
+
+
+ 1963 00e6 ACDA     		bge	.L280
+ 1964 00e8 E068     		ldr	r0, [r4, #12]
+ 1965 00ea 40F4C070 		orr	r0, r0, #384
+ 1966 00ee ECE7     		b	.L279
+ 1967              	.L276:
+ 1968 00f0 0120     		movs	r0, #1
+ 1969 00f2 A7E7     		b	.L265
+ 1971              		.section	.text.USB_HC_ReadInterrupt,"ax",%progbits
+ 1972              		.align	1
+ 1973              		.global	USB_HC_ReadInterrupt
+ 1974              		.syntax unified
+ 1975              		.thumb
+ 1976              		.thumb_func
+ 1977              		.fpu fpv5-sp-d16
+ 1979              	USB_HC_ReadInterrupt:
+ 1980              		@ args = 0, pretend = 0, frame = 0
+ 1981              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1982              		@ link register save eliminated.
+ 1983 0000 00F58060 		add	r0, r0, #1024
+ 1984 0004 4069     		ldr	r0, [r0, #20]
+ 1985 0006 80B2     		uxth	r0, r0
+ 1986 0008 7047     		bx	lr
+ 1988              		.section	.text.USB_HC_Halt,"ax",%progbits
+ 1989              		.align	1
+ 1990              		.global	USB_HC_Halt
+ 1991              		.syntax unified
+ 1992              		.thumb
+ 1993              		.thumb_func
+ 1994              		.fpu fpv5-sp-d16
+ 1996              	USB_HC_Halt:
+ 1997              		@ args = 0, pretend = 0, frame = 0
+ 1998              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1999              		@ link register save eliminated.
+ 2000 0000 00EB4111 		add	r1, r0, r1, lsl #5
+ 2001 0004 D1F80035 		ldr	r3, [r1, #1280]
+ 2002 0008 01F5A062 		add	r2, r1, #1280
+ 2003 000c 13F4802F 		tst	r3, #262144
+ 2004 0010 D1F80035 		ldr	r3, [r1, #1280]
+ 2005 0014 43F08043 		orr	r3, r3, #1073741824
+ 2006 0018 C1F80035 		str	r3, [r1, #1280]
+ 2007 001c 1ED1     		bne	.L284
+ 2008 001e C36A     		ldr	r3, [r0, #44]
+ 2009 0020 13F47F0F 		tst	r3, #16711680
+ 2010 0024 D1F80035 		ldr	r3, [r1, #1280]
+ 2011 0028 37D1     		bne	.L290
+ 2012 002a 23F00043 		bic	r3, r3, #-2147483648
+ 2013 002e C1F80035 		str	r3, [r1, #1280]
+ 2014 0032 D1F80035 		ldr	r3, [r1, #1280]
+ 2015 0036 43F00043 		orr	r3, r3, #-2147483648
+ 2016 003a C1F80035 		str	r3, [r1, #1280]
+ 2017 003e D1F80035 		ldr	r3, [r1, #1280]
+ 2018 0042 23F40043 		bic	r3, r3, #32768
+ 2019 0046 C1F80035 		str	r3, [r1, #1280]
+ 2020 004a 40F2E933 		movw	r3, #1001
+ 2021              	.L288:
+ 2022 004e 013B     		subs	r3, r3, #1
+ 2023 0050 02D0     		beq	.L287
+ARM GAS  /tmp/ccGHUpQA.s 			page 35
+
+
+ 2024 0052 1168     		ldr	r1, [r2]
+ 2025 0054 0029     		cmp	r1, #0
+ 2026 0056 FADB     		blt	.L288
+ 2027              	.L287:
+ 2028 0058 0020     		movs	r0, #0
+ 2029 005a 7047     		bx	lr
+ 2030              	.L284:
+ 2031 005c D0F81034 		ldr	r3, [r0, #1040]
+ 2032 0060 13F47F0F 		tst	r3, #16711680
+ 2033 0064 D1F80035 		ldr	r3, [r1, #1280]
+ 2034 0068 17D1     		bne	.L290
+ 2035 006a 23F00043 		bic	r3, r3, #-2147483648
+ 2036 006e C1F80035 		str	r3, [r1, #1280]
+ 2037 0072 D1F80035 		ldr	r3, [r1, #1280]
+ 2038 0076 43F00043 		orr	r3, r3, #-2147483648
+ 2039 007a C1F80035 		str	r3, [r1, #1280]
+ 2040 007e D1F80035 		ldr	r3, [r1, #1280]
+ 2041 0082 23F40043 		bic	r3, r3, #32768
+ 2042 0086 C1F80035 		str	r3, [r1, #1280]
+ 2043 008a 40F2E933 		movw	r3, #1001
+ 2044              	.L291:
+ 2045 008e 013B     		subs	r3, r3, #1
+ 2046 0090 E2D0     		beq	.L287
+ 2047 0092 1168     		ldr	r1, [r2]
+ 2048 0094 0029     		cmp	r1, #0
+ 2049 0096 FADB     		blt	.L291
+ 2050 0098 DEE7     		b	.L287
+ 2051              	.L290:
+ 2052 009a 43F00043 		orr	r3, r3, #-2147483648
+ 2053 009e C1F80035 		str	r3, [r1, #1280]
+ 2054 00a2 D9E7     		b	.L287
+ 2056              		.section	.text.USB_DoPing,"ax",%progbits
+ 2057              		.align	1
+ 2058              		.global	USB_DoPing
+ 2059              		.syntax unified
+ 2060              		.thumb
+ 2061              		.thumb_func
+ 2062              		.fpu fpv5-sp-d16
+ 2064              	USB_DoPing:
+ 2065              		@ args = 0, pretend = 0, frame = 0
+ 2066              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2067              		@ link register save eliminated.
+ 2068 0000 00EB4111 		add	r1, r0, r1, lsl #5
+ 2069 0004 064A     		ldr	r2, .L299
+ 2070 0006 0020     		movs	r0, #0
+ 2071 0008 C1F81025 		str	r2, [r1, #1296]
+ 2072 000c D1F80035 		ldr	r3, [r1, #1280]
+ 2073 0010 23F08043 		bic	r3, r3, #1073741824
+ 2074 0014 43F00043 		orr	r3, r3, #-2147483648
+ 2075 0018 C1F80035 		str	r3, [r1, #1280]
+ 2076 001c 7047     		bx	lr
+ 2077              	.L300:
+ 2078 001e 00BF     		.align	2
+ 2079              	.L299:
+ 2080 0020 00000880 		.word	-2146959360
+ 2082              		.section	.text.USB_HC_StartXfer,"ax",%progbits
+ 2083              		.align	1
+ARM GAS  /tmp/ccGHUpQA.s 			page 36
+
+
+ 2084              		.global	USB_HC_StartXfer
+ 2085              		.syntax unified
+ 2086              		.thumb
+ 2087              		.thumb_func
+ 2088              		.fpu fpv5-sp-d16
+ 2090              	USB_HC_StartXfer:
+ 2091              		@ args = 0, pretend = 0, frame = 0
+ 2092              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2093 0000 C36B     		ldr	r3, [r0, #60]
+ 2094 0002 DB05     		lsls	r3, r3, #23
+ 2095 0004 2DE9F341 		push	{r0, r1, r4, r5, r6, r7, r8, lr}
+ 2096 0008 1646     		mov	r6, r2
+ 2097 000a 0446     		mov	r4, r0
+ 2098 000c 4A78     		ldrb	r2, [r1, #1]	@ zero_extendqisi2
+ 2099 000e 17D5     		bpl	.L302
+ 2100 0010 0D79     		ldrb	r5, [r1, #4]	@ zero_extendqisi2
+ 2101 0012 ADB9     		cbnz	r5, .L302
+ 2102 0014 4EB9     		cbnz	r6, .L303
+ 2103 0016 4B79     		ldrb	r3, [r1, #5]	@ zero_extendqisi2
+ 2104 0018 012B     		cmp	r3, #1
+ 2105 001a 11D1     		bne	.L302
+ 2106 001c 1146     		mov	r1, r2
+ 2107 001e FFF7FEFF 		bl	USB_DoPing
+ 2108              	.L304:
+ 2109 0022 0020     		movs	r0, #0
+ 2110 0024 02B0     		add	sp, sp, #8
+ 2111              		@ sp needed
+ 2112 0026 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 2113              	.L303:
+ 2114 002a 012E     		cmp	r6, #1
+ 2115 002c 08D1     		bne	.L302
+ 2116 002e 00EB4213 		add	r3, r0, r2, lsl #5
+ 2117 0032 D3F80C05 		ldr	r0, [r3, #1292]
+ 2118 0036 20F06000 		bic	r0, r0, #96
+ 2119 003a C3F80C05 		str	r0, [r3, #1292]
+ 2120 003e 4D71     		strb	r5, [r1, #5]
+ 2121              	.L302:
+ 2122 0040 0869     		ldr	r0, [r1, #16]
+ 2123 0042 0028     		cmp	r0, #0
+ 2124 0044 61D0     		beq	.L314
+ 2125 0046 0B89     		ldrh	r3, [r1, #8]
+ 2126 0048 0138     		subs	r0, r0, #1
+ 2127 004a 1844     		add	r0, r0, r3
+ 2128 004c B0FBF3F0 		udiv	r0, r0, r3
+ 2129 0050 80B2     		uxth	r0, r0
+ 2130 0052 B0F5807F 		cmp	r0, #256
+ 2131 0056 03D9     		bls	.L305
+ 2132 0058 1B02     		lsls	r3, r3, #8
+ 2133 005a 4FF48070 		mov	r0, #256
+ 2134 005e 0B61     		str	r3, [r1, #16]
+ 2135              	.L305:
+ 2136 0060 CF78     		ldrb	r7, [r1, #3]	@ zero_extendqisi2
+ 2137 0062 17B1     		cbz	r7, .L306
+ 2138 0064 0B89     		ldrh	r3, [r1, #8]
+ 2139 0066 4343     		muls	r3, r0, r3
+ 2140 0068 0B61     		str	r3, [r1, #16]
+ 2141              	.L306:
+ARM GAS  /tmp/ccGHUpQA.s 			page 37
+
+
+ 2142 006a 91F80AC0 		ldrb	ip, [r1, #10]	@ zero_extendqisi2
+ 2143 006e 04EB4215 		add	r5, r4, r2, lsl #5
+ 2144 0072 0B69     		ldr	r3, [r1, #16]
+ 2145 0074 4FEA4C7C 		lsl	ip, ip, #29
+ 2146 0078 C3F31208 		ubfx	r8, r3, #0, #19
+ 2147 007c 0CF0C04C 		and	ip, ip, #1610612736
+ 2148 0080 4CEA080C 		orr	ip, ip, r8
+ 2149 0084 4CEAC040 		orr	r0, ip, r0, lsl #19
+ 2150 0088 C5F81005 		str	r0, [r5, #1296]
+ 2151 008c 16B1     		cbz	r6, .L307
+ 2152 008e C868     		ldr	r0, [r1, #12]
+ 2153 0090 C5F81405 		str	r0, [r5, #1300]
+ 2154              	.L307:
+ 2155 0094 04F5806C 		add	ip, r4, #1024
+ 2156 0098 DCF80800 		ldr	r0, [ip, #8]
+ 2157 009c D5F800E5 		ldr	lr, [r5, #1280]
+ 2158 00a0 C043     		mvns	r0, r0
+ 2159 00a2 2EF0005E 		bic	lr, lr, #536870912
+ 2160 00a6 4007     		lsls	r0, r0, #29
+ 2161 00a8 C5F800E5 		str	lr, [r5, #1280]
+ 2162 00ac 00F00050 		and	r0, r0, #536870912
+ 2163 00b0 D5F800E5 		ldr	lr, [r5, #1280]
+ 2164 00b4 40EA0E00 		orr	r0, r0, lr
+ 2165 00b8 C5F80005 		str	r0, [r5, #1280]
+ 2166 00bc 2548     		ldr	r0, .L329
+ 2167 00be D5F800E5 		ldr	lr, [r5, #1280]
+ 2168 00c2 C0F800E0 		str	lr, [r0]
+ 2169 00c6 D0F800E0 		ldr	lr, [r0]
+ 2170 00ca 2EF0804E 		bic	lr, lr, #1073741824
+ 2171 00ce C0F800E0 		str	lr, [r0]
+ 2172 00d2 D0F800E0 		ldr	lr, [r0]
+ 2173 00d6 D7B1     		cbz	r7, .L308
+ 2174 00d8 4EF4004E 		orr	lr, lr, #32768
+ 2175              	.L327:
+ 2176 00dc C0F800E0 		str	lr, [r0]
+ 2177 00e0 D0F800E0 		ldr	lr, [r0]
+ 2178 00e4 4EF0004E 		orr	lr, lr, #-2147483648
+ 2179 00e8 C0F800E0 		str	lr, [r0]
+ 2180 00ec 0068     		ldr	r0, [r0]
+ 2181 00ee C5F80005 		str	r0, [r5, #1280]
+ 2182 00f2 57EA0600 		orrs	r0, r7, r6
+ 2183 00f6 94D1     		bne	.L304
+ 2184 00f8 002B     		cmp	r3, #0
+ 2185 00fa 92D0     		beq	.L304
+ 2186 00fc C879     		ldrb	r0, [r1, #7]	@ zero_extendqisi2
+ 2187 00fe 0328     		cmp	r0, #3
+ 2188 0100 13D8     		bhi	.L310
+ 2189 0102 DFE800F0 		tbb	[pc, r0]
+ 2190              	.L312:
+ 2191 0106 07       		.byte	(.L313-.L312)/2
+ 2192 0107 1A       		.byte	(.L311-.L312)/2
+ 2193 0108 07       		.byte	(.L313-.L312)/2
+ 2194 0109 1A       		.byte	(.L311-.L312)/2
+ 2195              		.p2align 1
+ 2196              	.L314:
+ 2197 010a 0120     		movs	r0, #1
+ 2198 010c A8E7     		b	.L305
+ARM GAS  /tmp/ccGHUpQA.s 			page 38
+
+
+ 2199              	.L308:
+ 2200 010e 2EF4004E 		bic	lr, lr, #32768
+ 2201 0112 E3E7     		b	.L327
+ 2202              	.L313:
+ 2203 0114 E56A     		ldr	r5, [r4, #44]
+ 2204 0116 D81C     		adds	r0, r3, #3
+ 2205 0118 ADB2     		uxth	r5, r5
+ 2206 011a C0F38F00 		ubfx	r0, r0, #2, #16
+ 2207 011e 8542     		cmp	r5, r0
+ 2208 0120 03D2     		bcs	.L310
+ 2209 0122 A069     		ldr	r0, [r4, #24]
+ 2210 0124 40F02000 		orr	r0, r0, #32
+ 2211              	.L328:
+ 2212 0128 A061     		str	r0, [r4, #24]
+ 2213              	.L310:
+ 2214 012a 0020     		movs	r0, #0
+ 2215 012c 9BB2     		uxth	r3, r3
+ 2216 012e 0090     		str	r0, [sp]
+ 2217 0130 2046     		mov	r0, r4
+ 2218 0132 C968     		ldr	r1, [r1, #12]
+ 2219 0134 FFF7FEFF 		bl	USB_WritePacket
+ 2220 0138 73E7     		b	.L304
+ 2221              	.L311:
+ 2222 013a DCF81050 		ldr	r5, [ip, #16]
+ 2223 013e D81C     		adds	r0, r3, #3
+ 2224 0140 ADB2     		uxth	r5, r5
+ 2225 0142 C0F38F00 		ubfx	r0, r0, #2, #16
+ 2226 0146 8542     		cmp	r5, r0
+ 2227 0148 EFD2     		bcs	.L310
+ 2228 014a A069     		ldr	r0, [r4, #24]
+ 2229 014c 40F08060 		orr	r0, r0, #67108864
+ 2230 0150 EAE7     		b	.L328
+ 2231              	.L330:
+ 2232 0152 00BF     		.align	2
+ 2233              	.L329:
+ 2234 0154 00000000 		.word	.LANCHOR0
+ 2236              		.section	.text.USB_StopHost,"ax",%progbits
+ 2237              		.align	1
+ 2238              		.global	USB_StopHost
+ 2239              		.syntax unified
+ 2240              		.thumb
+ 2241              		.thumb_func
+ 2242              		.fpu fpv5-sp-d16
+ 2244              	USB_StopHost:
+ 2245              		@ args = 0, pretend = 0, frame = 0
+ 2246              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2247 0000 8368     		ldr	r3, [r0, #8]
+ 2248 0002 1021     		movs	r1, #16
+ 2249 0004 23F00103 		bic	r3, r3, #1
+ 2250 0008 10B5     		push	{r4, lr}
+ 2251 000a 0446     		mov	r4, r0
+ 2252 000c 8360     		str	r3, [r0, #8]
+ 2253 000e FFF7FEFF 		bl	USB_FlushTxFifo
+ 2254 0012 2046     		mov	r0, r4
+ 2255 0014 FFF7FEFF 		bl	USB_FlushRxFifo
+ 2256 0018 04F5A063 		add	r3, r4, #1280
+ 2257 001c 04F5E060 		add	r0, r4, #1792
+ARM GAS  /tmp/ccGHUpQA.s 			page 39
+
+
+ 2258 0020 1946     		mov	r1, r3
+ 2259              	.L332:
+ 2260 0022 0A68     		ldr	r2, [r1]
+ 2261 0024 22F08022 		bic	r2, r2, #-2147450880
+ 2262 0028 42F08042 		orr	r2, r2, #1073741824
+ 2263 002c 41F8202B 		str	r2, [r1], #32
+ 2264 0030 8142     		cmp	r1, r0
+ 2265 0032 F6D1     		bne	.L332
+ 2266 0034 0021     		movs	r1, #0
+ 2267              	.L335:
+ 2268 0036 1A68     		ldr	r2, [r3]
+ 2269 0038 22F40042 		bic	r2, r2, #32768
+ 2270 003c 42F04042 		orr	r2, r2, #-1073741824
+ 2271 0040 1A60     		str	r2, [r3]
+ 2272              	.L334:
+ 2273 0042 0131     		adds	r1, r1, #1
+ 2274 0044 B1F57A7F 		cmp	r1, #1000
+ 2275 0048 02D8     		bhi	.L333
+ 2276 004a 1A68     		ldr	r2, [r3]
+ 2277 004c 002A     		cmp	r2, #0
+ 2278 004e F8DB     		blt	.L334
+ 2279              	.L333:
+ 2280 0050 2033     		adds	r3, r3, #32
+ 2281 0052 8342     		cmp	r3, r0
+ 2282 0054 EFD1     		bne	.L335
+ 2283 0056 4FF0FF33 		mov	r3, #-1
+ 2284 005a 0020     		movs	r0, #0
+ 2285 005c C4F81434 		str	r3, [r4, #1044]
+ 2286 0060 6361     		str	r3, [r4, #20]
+ 2287 0062 A368     		ldr	r3, [r4, #8]
+ 2288 0064 43F00103 		orr	r3, r3, #1
+ 2289 0068 A360     		str	r3, [r4, #8]
+ 2290 006a 10BD     		pop	{r4, pc}
+ 2292              		.section	.text.USB_ActivateRemoteWakeup,"ax",%progbits
+ 2293              		.align	1
+ 2294              		.global	USB_ActivateRemoteWakeup
+ 2295              		.syntax unified
+ 2296              		.thumb
+ 2297              		.thumb_func
+ 2298              		.fpu fpv5-sp-d16
+ 2300              	USB_ActivateRemoteWakeup:
+ 2301              		@ args = 0, pretend = 0, frame = 0
+ 2302              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2303              		@ link register save eliminated.
+ 2304 0000 D0F80838 		ldr	r3, [r0, #2056]
+ 2305 0004 00F50060 		add	r0, r0, #2048
+ 2306 0008 DB07     		lsls	r3, r3, #31
+ 2307 000a 03D5     		bpl	.L341
+ 2308 000c 4368     		ldr	r3, [r0, #4]
+ 2309 000e 43F00103 		orr	r3, r3, #1
+ 2310 0012 4360     		str	r3, [r0, #4]
+ 2311              	.L341:
+ 2312 0014 0020     		movs	r0, #0
+ 2313 0016 7047     		bx	lr
+ 2315              		.section	.text.USB_DeActivateRemoteWakeup,"ax",%progbits
+ 2316              		.align	1
+ 2317              		.global	USB_DeActivateRemoteWakeup
+ARM GAS  /tmp/ccGHUpQA.s 			page 40
+
+
+ 2318              		.syntax unified
+ 2319              		.thumb
+ 2320              		.thumb_func
+ 2321              		.fpu fpv5-sp-d16
+ 2323              	USB_DeActivateRemoteWakeup:
+ 2324              		@ args = 0, pretend = 0, frame = 0
+ 2325              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2326              		@ link register save eliminated.
+ 2327 0000 D0F80438 		ldr	r3, [r0, #2052]
+ 2328 0004 23F00103 		bic	r3, r3, #1
+ 2329 0008 C0F80438 		str	r3, [r0, #2052]
+ 2330 000c 0020     		movs	r0, #0
+ 2331 000e 7047     		bx	lr
+ 2333              		.section	.bss.tmpreg.9167,"aw",%nobits
+ 2334              		.align	2
+ 2335              		.set	.LANCHOR0,. + 0
+ 2338              	tmpreg.9167:
+ 2339 0000 00000000 		.space	4
+ 2340              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
+ARM GAS  /tmp/ccGHUpQA.s 			page 41
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f7xx_ll_usb.c
+     /tmp/ccGHUpQA.s:15     .text.USB_CoreReset:0000000000000000 $t
+     /tmp/ccGHUpQA.s:22     .text.USB_CoreReset:0000000000000000 USB_CoreReset
+     /tmp/ccGHUpQA.s:51     .text.USB_CoreReset:000000000000002c $d
+     /tmp/ccGHUpQA.s:54     .text.USB_CoreInit:0000000000000000 $t
+     /tmp/ccGHUpQA.s:61     .text.USB_CoreInit:0000000000000000 USB_CoreInit
+     /tmp/ccGHUpQA.s:164    .text.USB_CoreInit:00000000000000e4 $d
+     /tmp/ccGHUpQA.s:168    .text.USB_SetTurnaroundTime:0000000000000000 $t
+     /tmp/ccGHUpQA.s:175    .text.USB_SetTurnaroundTime:0000000000000000 USB_SetTurnaroundTime
+     /tmp/ccGHUpQA.s:269    .text.USB_SetTurnaroundTime:00000000000000c0 $d
+     /tmp/ccGHUpQA.s:281    .text.USB_EnableGlobalInt:0000000000000000 $t
+     /tmp/ccGHUpQA.s:288    .text.USB_EnableGlobalInt:0000000000000000 USB_EnableGlobalInt
+     /tmp/ccGHUpQA.s:299    .text.USB_DisableGlobalInt:0000000000000000 $t
+     /tmp/ccGHUpQA.s:306    .text.USB_DisableGlobalInt:0000000000000000 USB_DisableGlobalInt
+     /tmp/ccGHUpQA.s:317    .text.USB_SetCurrentMode:0000000000000000 $t
+     /tmp/ccGHUpQA.s:324    .text.USB_SetCurrentMode:0000000000000000 USB_SetCurrentMode
+     /tmp/ccGHUpQA.s:352    .text.USB_FlushTxFifo:0000000000000000 $t
+     /tmp/ccGHUpQA.s:359    .text.USB_FlushTxFifo:0000000000000000 USB_FlushTxFifo
+     /tmp/ccGHUpQA.s:381    .text.USB_FlushTxFifo:0000000000000020 $d
+     /tmp/ccGHUpQA.s:384    .text.USB_FlushRxFifo:0000000000000000 $t
+     /tmp/ccGHUpQA.s:391    .text.USB_FlushRxFifo:0000000000000000 USB_FlushRxFifo
+     /tmp/ccGHUpQA.s:412    .text.USB_FlushRxFifo:000000000000001c $d
+     /tmp/ccGHUpQA.s:415    .text.USB_SetDevSpeed:0000000000000000 $t
+     /tmp/ccGHUpQA.s:422    .text.USB_SetDevSpeed:0000000000000000 USB_SetDevSpeed
+     /tmp/ccGHUpQA.s:433    .text.USB_DevInit:0000000000000000 $t
+     /tmp/ccGHUpQA.s:440    .text.USB_DevInit:0000000000000000 USB_DevInit
+     /tmp/ccGHUpQA.s:607    .text.USB_DevInit:000000000000016c $d
+     /tmp/ccGHUpQA.s:610    .text.USB_GetDevSpeed:0000000000000000 $t
+     /tmp/ccGHUpQA.s:617    .text.USB_GetDevSpeed:0000000000000000 USB_GetDevSpeed
+     /tmp/ccGHUpQA.s:632    .text.USB_ActivateEndpoint:0000000000000000 $t
+     /tmp/ccGHUpQA.s:639    .text.USB_ActivateEndpoint:0000000000000000 USB_ActivateEndpoint
+     /tmp/ccGHUpQA.s:689    .text.USB_ActivateDedicatedEndpoint:0000000000000000 $t
+     /tmp/ccGHUpQA.s:696    .text.USB_ActivateDedicatedEndpoint:0000000000000000 USB_ActivateDedicatedEndpoint
+     /tmp/ccGHUpQA.s:748    .text.USB_DeactivateEndpoint:0000000000000000 $t
+     /tmp/ccGHUpQA.s:755    .text.USB_DeactivateEndpoint:0000000000000000 USB_DeactivateEndpoint
+     /tmp/ccGHUpQA.s:820    .text.USB_DeactivateEndpoint:000000000000009c $d
+     /tmp/ccGHUpQA.s:824    .text.USB_DeactivateDedicatedEndpoint:0000000000000000 $t
+     /tmp/ccGHUpQA.s:831    .text.USB_DeactivateDedicatedEndpoint:0000000000000000 USB_DeactivateDedicatedEndpoint
+     /tmp/ccGHUpQA.s:882    .text.USB_EP0StartXfer:0000000000000000 $t
+     /tmp/ccGHUpQA.s:889    .text.USB_EP0StartXfer:0000000000000000 USB_EP0StartXfer
+     /tmp/ccGHUpQA.s:990    .text.USB_EP0StartXfer:00000000000000e8 $d
+     /tmp/ccGHUpQA.s:994    .text.USB_WritePacket:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1001   .text.USB_WritePacket:0000000000000000 USB_WritePacket
+     /tmp/ccGHUpQA.s:1024   .text.USB_EPStartXfer:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1031   .text.USB_EPStartXfer:0000000000000000 USB_EPStartXfer
+     /tmp/ccGHUpQA.s:1193   .text.USB_EPStartXfer:00000000000001c8 $d
+     /tmp/ccGHUpQA.s:1198   .text.USB_ReadPacket:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1205   .text.USB_ReadPacket:0000000000000000 USB_ReadPacket
+     /tmp/ccGHUpQA.s:1224   .text.USB_EPSetStall:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1231   .text.USB_EPSetStall:0000000000000000 USB_EPSetStall
+     /tmp/ccGHUpQA.s:1269   .text.USB_EPClearStall:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1276   .text.USB_EPClearStall:0000000000000000 USB_EPClearStall
+     /tmp/ccGHUpQA.s:1311   .text.USB_StopDevice:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1318   .text.USB_StopDevice:0000000000000000 USB_StopDevice
+     /tmp/ccGHUpQA.s:1347   .text.USB_SetDevAddress:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1354   .text.USB_SetDevAddress:0000000000000000 USB_SetDevAddress
+ARM GAS  /tmp/ccGHUpQA.s 			page 42
+
+
+     /tmp/ccGHUpQA.s:1370   .text.USB_DevConnect:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1377   .text.USB_DevConnect:0000000000000000 USB_DevConnect
+     /tmp/ccGHUpQA.s:1390   .text.USB_DevDisconnect:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1397   .text.USB_DevDisconnect:0000000000000000 USB_DevDisconnect
+     /tmp/ccGHUpQA.s:1410   .text.USB_ReadInterrupts:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1417   .text.USB_ReadInterrupts:0000000000000000 USB_ReadInterrupts
+     /tmp/ccGHUpQA.s:1427   .text.USB_ReadDevAllOutEpInterrupt:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1434   .text.USB_ReadDevAllOutEpInterrupt:0000000000000000 USB_ReadDevAllOutEpInterrupt
+     /tmp/ccGHUpQA.s:1446   .text.USB_ReadDevAllInEpInterrupt:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1453   .text.USB_ReadDevAllInEpInterrupt:0000000000000000 USB_ReadDevAllInEpInterrupt
+     /tmp/ccGHUpQA.s:1465   .text.USB_ReadDevOutEPInterrupt:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1472   .text.USB_ReadDevOutEPInterrupt:0000000000000000 USB_ReadDevOutEPInterrupt
+     /tmp/ccGHUpQA.s:1484   .text.USB_ReadDevInEPInterrupt:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1491   .text.USB_ReadDevInEPInterrupt:0000000000000000 USB_ReadDevInEPInterrupt
+     /tmp/ccGHUpQA.s:1509   .text.USB_ClearInterrupts:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1516   .text.USB_ClearInterrupts:0000000000000000 USB_ClearInterrupts
+     /tmp/ccGHUpQA.s:1526   .text.USB_GetMode:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1533   .text.USB_GetMode:0000000000000000 USB_GetMode
+     /tmp/ccGHUpQA.s:1542   .text.USB_ActivateSetup:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1549   .text.USB_ActivateSetup:0000000000000000 USB_ActivateSetup
+     /tmp/ccGHUpQA.s:1564   .text.USB_EP0_OutStart:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1571   .text.USB_EP0_OutStart:0000000000000000 USB_EP0_OutStart
+     /tmp/ccGHUpQA.s:1607   .text.USB_EP0_OutStart:0000000000000048 $d
+     /tmp/ccGHUpQA.s:1610   .text.USB_InitFSLSPClkSel:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1617   .text.USB_InitFSLSPClkSel:0000000000000000 USB_InitFSLSPClkSel
+     /tmp/ccGHUpQA.s:1644   .text.USB_ResetPort:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1651   .text.USB_ResetPort:0000000000000000 USB_ResetPort
+     /tmp/ccGHUpQA.s:1679   .text.USB_DriveVbus:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1686   .text.USB_DriveVbus:0000000000000000 USB_DriveVbus
+     /tmp/ccGHUpQA.s:1721   .text.USB_HostInit:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1728   .text.USB_HostInit:0000000000000000 USB_HostInit
+     /tmp/ccGHUpQA.s:1818   .text.USB_HostInit:00000000000000c4 $d
+     /tmp/ccGHUpQA.s:1823   .text.USB_GetHostSpeed:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1830   .text.USB_GetHostSpeed:0000000000000000 USB_GetHostSpeed
+     /tmp/ccGHUpQA.s:1846   .text.USB_GetCurrentFrame:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1853   .text.USB_GetCurrentFrame:0000000000000000 USB_GetCurrentFrame
+     /tmp/ccGHUpQA.s:1863   .text.USB_HC_Init:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1870   .text.USB_HC_Init:0000000000000000 USB_HC_Init
+     /tmp/ccGHUpQA.s:1885   .text.USB_HC_Init:0000000000000024 $d
+     /tmp/ccGHUpQA.s:1889   .text.USB_HC_Init:0000000000000028 $t
+     /tmp/ccGHUpQA.s:1972   .text.USB_HC_ReadInterrupt:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1979   .text.USB_HC_ReadInterrupt:0000000000000000 USB_HC_ReadInterrupt
+     /tmp/ccGHUpQA.s:1989   .text.USB_HC_Halt:0000000000000000 $t
+     /tmp/ccGHUpQA.s:1996   .text.USB_HC_Halt:0000000000000000 USB_HC_Halt
+     /tmp/ccGHUpQA.s:2057   .text.USB_DoPing:0000000000000000 $t
+     /tmp/ccGHUpQA.s:2064   .text.USB_DoPing:0000000000000000 USB_DoPing
+     /tmp/ccGHUpQA.s:2080   .text.USB_DoPing:0000000000000020 $d
+     /tmp/ccGHUpQA.s:2083   .text.USB_HC_StartXfer:0000000000000000 $t
+     /tmp/ccGHUpQA.s:2090   .text.USB_HC_StartXfer:0000000000000000 USB_HC_StartXfer
+     /tmp/ccGHUpQA.s:2191   .text.USB_HC_StartXfer:0000000000000106 $d
+     /tmp/ccGHUpQA.s:2195   .text.USB_HC_StartXfer:000000000000010a $t
+     /tmp/ccGHUpQA.s:2234   .text.USB_HC_StartXfer:0000000000000154 $d
+     /tmp/ccGHUpQA.s:2237   .text.USB_StopHost:0000000000000000 $t
+     /tmp/ccGHUpQA.s:2244   .text.USB_StopHost:0000000000000000 USB_StopHost
+     /tmp/ccGHUpQA.s:2293   .text.USB_ActivateRemoteWakeup:0000000000000000 $t
+     /tmp/ccGHUpQA.s:2300   .text.USB_ActivateRemoteWakeup:0000000000000000 USB_ActivateRemoteWakeup
+     /tmp/ccGHUpQA.s:2316   .text.USB_DeActivateRemoteWakeup:0000000000000000 $t
+ARM GAS  /tmp/ccGHUpQA.s 			page 43
+
+
+     /tmp/ccGHUpQA.s:2323   .text.USB_DeActivateRemoteWakeup:0000000000000000 USB_DeActivateRemoteWakeup
+     /tmp/ccGHUpQA.s:2334   .bss.tmpreg.9167:0000000000000000 $d
+     /tmp/ccGHUpQA.s:2338   .bss.tmpreg.9167:0000000000000000 tmpreg.9167
+
+UNDEFINED SYMBOLS
+HAL_Delay

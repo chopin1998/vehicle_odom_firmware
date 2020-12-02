@@ -1,0 +1,129 @@
+ARM GAS  /tmp/ccyKoC39.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"stm32f7xx_hal_uart_ex.c"
+  13              		.text
+  14              		.section	.text.HAL_RS485Ex_Init,"ax",%progbits
+  15              		.align	1
+  16              		.global	HAL_RS485Ex_Init
+  17              		.arch armv7e-m
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  21              		.fpu fpv5-sp-d16
+  23              	HAL_RS485Ex_Init:
+  24              		@ args = 0, pretend = 0, frame = 0
+  25              		@ frame_needed = 0, uses_anonymous_args = 0
+  26 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  27 0002 0F46     		mov	r7, r1
+  28 0004 1646     		mov	r6, r2
+  29 0006 1D46     		mov	r5, r3
+  30 0008 0446     		mov	r4, r0
+  31 000a 0028     		cmp	r0, #0
+  32 000c 33D0     		beq	.L3
+  33 000e 436F     		ldr	r3, [r0, #116]
+  34 0010 1BB9     		cbnz	r3, .L4
+  35 0012 80F87030 		strb	r3, [r0, #112]
+  36 0016 FFF7FEFF 		bl	HAL_UART_MspInit
+  37              	.L4:
+  38 001a 2268     		ldr	r2, [r4]
+  39 001c 2423     		movs	r3, #36
+  40 001e 2046     		mov	r0, r4
+  41 0020 6367     		str	r3, [r4, #116]
+  42 0022 1368     		ldr	r3, [r2]
+  43 0024 23F00103 		bic	r3, r3, #1
+  44 0028 1360     		str	r3, [r2]
+  45 002a FFF7FEFF 		bl	UART_SetConfig
+  46 002e 0128     		cmp	r0, #1
+  47 0030 21D0     		beq	.L3
+  48 0032 636A     		ldr	r3, [r4, #36]
+  49 0034 13B1     		cbz	r3, .L6
+  50 0036 2046     		mov	r0, r4
+  51 0038 FFF7FEFF 		bl	UART_AdvFeatureConfig
+  52              	.L6:
+  53 003c 2068     		ldr	r0, [r4]
+  54 003e 2D04     		lsls	r5, r5, #16
+  55 0040 8368     		ldr	r3, [r0, #8]
+  56 0042 45EA4655 		orr	r5, r5, r6, lsl #21
+  57 0046 43F48043 		orr	r3, r3, #16384
+  58 004a 8360     		str	r3, [r0, #8]
+ARM GAS  /tmp/ccyKoC39.s 			page 2
+
+
+  59 004c 8168     		ldr	r1, [r0, #8]
+  60 004e 21F40041 		bic	r1, r1, #32768
+  61 0052 3943     		orrs	r1, r1, r7
+  62 0054 8160     		str	r1, [r0, #8]
+  63 0056 0368     		ldr	r3, [r0]
+  64 0058 23F07F73 		bic	r3, r3, #66846720
+  65 005c 23F44033 		bic	r3, r3, #196608
+  66 0060 1D43     		orrs	r5, r5, r3
+  67 0062 0560     		str	r5, [r0]
+  68 0064 0368     		ldr	r3, [r0]
+  69 0066 43F00103 		orr	r3, r3, #1
+  70 006a 0360     		str	r3, [r0]
+  71 006c 2046     		mov	r0, r4
+  72 006e BDE8F840 		pop	{r3, r4, r5, r6, r7, lr}
+  73 0072 FFF7FEBF 		b	UART_CheckIdleState
+  74              	.L3:
+  75 0076 0120     		movs	r0, #1
+  76 0078 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+  78              		.section	.text.HAL_MultiProcessorEx_AddressLength_Set,"ax",%progbits
+  79              		.align	1
+  80              		.global	HAL_MultiProcessorEx_AddressLength_Set
+  81              		.syntax unified
+  82              		.thumb
+  83              		.thumb_func
+  84              		.fpu fpv5-sp-d16
+  86              	HAL_MultiProcessorEx_AddressLength_Set:
+  87              		@ args = 0, pretend = 0, frame = 0
+  88              		@ frame_needed = 0, uses_anonymous_args = 0
+  89              		@ link register save eliminated.
+  90 0000 10B4     		push	{r4}
+  91 0002 98B1     		cbz	r0, .L14
+  92 0004 0368     		ldr	r3, [r0]
+  93 0006 2422     		movs	r2, #36
+  94 0008 4267     		str	r2, [r0, #116]
+  95 000a 1C68     		ldr	r4, [r3]
+  96 000c 24F00104 		bic	r4, r4, #1
+  97 0010 1C60     		str	r4, [r3]
+  98 0012 5A68     		ldr	r2, [r3, #4]
+  99 0014 5DF8044B 		ldr	r4, [sp], #4
+ 100 0018 22F01002 		bic	r2, r2, #16
+ 101 001c 0A43     		orrs	r2, r2, r1
+ 102 001e 5A60     		str	r2, [r3, #4]
+ 103 0020 1A68     		ldr	r2, [r3]
+ 104 0022 42F00102 		orr	r2, r2, #1
+ 105 0026 1A60     		str	r2, [r3]
+ 106 0028 FFF7FEBF 		b	UART_CheckIdleState
+ 107              	.L14:
+ 108 002c 0120     		movs	r0, #1
+ 109 002e 5DF8044B 		ldr	r4, [sp], #4
+ 110 0032 7047     		bx	lr
+ 112              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
+ARM GAS  /tmp/ccyKoC39.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f7xx_hal_uart_ex.c
+     /tmp/ccyKoC39.s:15     .text.HAL_RS485Ex_Init:0000000000000000 $t
+     /tmp/ccyKoC39.s:23     .text.HAL_RS485Ex_Init:0000000000000000 HAL_RS485Ex_Init
+     /tmp/ccyKoC39.s:79     .text.HAL_MultiProcessorEx_AddressLength_Set:0000000000000000 $t
+     /tmp/ccyKoC39.s:86     .text.HAL_MultiProcessorEx_AddressLength_Set:0000000000000000 HAL_MultiProcessorEx_AddressLength_Set
+
+UNDEFINED SYMBOLS
+HAL_UART_MspInit
+UART_SetConfig
+UART_AdvFeatureConfig
+UART_CheckIdleState

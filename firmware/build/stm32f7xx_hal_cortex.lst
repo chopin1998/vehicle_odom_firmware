@@ -1,0 +1,645 @@
+ARM GAS  /tmp/ccF6ERQI.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"stm32f7xx_hal_cortex.c"
+  13              		.text
+  14              		.section	.text.HAL_NVIC_SetPriorityGrouping,"ax",%progbits
+  15              		.align	1
+  16              		.global	HAL_NVIC_SetPriorityGrouping
+  17              		.arch armv7e-m
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  21              		.fpu fpv5-sp-d16
+  23              	HAL_NVIC_SetPriorityGrouping:
+  24              		@ args = 0, pretend = 0, frame = 0
+  25              		@ frame_needed = 0, uses_anonymous_args = 0
+  26              		@ link register save eliminated.
+  27 0000 074A     		ldr	r2, .L2
+  28 0002 0002     		lsls	r0, r0, #8
+  29 0004 D368     		ldr	r3, [r2, #12]
+  30 0006 00F4E060 		and	r0, r0, #1792
+  31 000a 23F4E063 		bic	r3, r3, #1792
+  32 000e 1B04     		lsls	r3, r3, #16
+  33 0010 1B0C     		lsrs	r3, r3, #16
+  34 0012 1843     		orrs	r0, r0, r3
+  35 0014 40F0BF60 		orr	r0, r0, #100139008
+  36 0018 40F40030 		orr	r0, r0, #131072
+  37 001c D060     		str	r0, [r2, #12]
+  38 001e 7047     		bx	lr
+  39              	.L3:
+  40              		.align	2
+  41              	.L2:
+  42 0020 00ED00E0 		.word	-536810240
+  44              		.section	.text.HAL_NVIC_SetPriority,"ax",%progbits
+  45              		.align	1
+  46              		.global	HAL_NVIC_SetPriority
+  47              		.syntax unified
+  48              		.thumb
+  49              		.thumb_func
+  50              		.fpu fpv5-sp-d16
+  52              	HAL_NVIC_SetPriority:
+  53              		@ args = 0, pretend = 0, frame = 0
+  54              		@ frame_needed = 0, uses_anonymous_args = 0
+  55 0000 164B     		ldr	r3, .L9
+  56 0002 70B5     		push	{r4, r5, r6, lr}
+  57 0004 DC68     		ldr	r4, [r3, #12]
+  58 0006 4FF0FF36 		mov	r6, #-1
+  59 000a C4F30224 		ubfx	r4, r4, #8, #3
+  60 000e C4F10705 		rsb	r5, r4, #7
+ARM GAS  /tmp/ccF6ERQI.s 			page 2
+
+
+  61 0012 231D     		adds	r3, r4, #4
+  62 0014 042D     		cmp	r5, #4
+  63 0016 28BF     		it	cs
+  64 0018 0425     		movcs	r5, #4
+  65 001a 062B     		cmp	r3, #6
+  66 001c 06FA05F5 		lsl	r5, r6, r5
+  67 0020 8CBF     		ite	hi
+  68 0022 033C     		subhi	r4, r4, #3
+  69 0024 0024     		movls	r4, #0
+  70 0026 0028     		cmp	r0, #0
+  71 0028 21EA0501 		bic	r1, r1, r5
+  72 002c 01FA04F1 		lsl	r1, r1, r4
+  73 0030 06FA04F4 		lsl	r4, r6, r4
+  74 0034 22EA0403 		bic	r3, r2, r4
+  75 0038 43EA0103 		orr	r3, r3, r1
+  76 003c 4FEA0313 		lsl	r3, r3, #4
+  77 0040 DBB2     		uxtb	r3, r3
+  78 0042 06DB     		blt	.L6
+  79 0044 00F16040 		add	r0, r0, #-536870912
+  80 0048 00F56140 		add	r0, r0, #57600
+  81 004c 80F80033 		strb	r3, [r0, #768]
+  82              	.L4:
+  83 0050 70BD     		pop	{r4, r5, r6, pc}
+  84              	.L6:
+  85 0052 00F00F00 		and	r0, r0, #15
+  86 0056 024A     		ldr	r2, .L9+4
+  87 0058 1354     		strb	r3, [r2, r0]
+  88 005a F9E7     		b	.L4
+  89              	.L10:
+  90              		.align	2
+  91              	.L9:
+  92 005c 00ED00E0 		.word	-536810240
+  93 0060 14ED00E0 		.word	-536810220
+  95              		.section	.text.HAL_NVIC_EnableIRQ,"ax",%progbits
+  96              		.align	1
+  97              		.global	HAL_NVIC_EnableIRQ
+  98              		.syntax unified
+  99              		.thumb
+ 100              		.thumb_func
+ 101              		.fpu fpv5-sp-d16
+ 103              	HAL_NVIC_EnableIRQ:
+ 104              		@ args = 0, pretend = 0, frame = 0
+ 105              		@ frame_needed = 0, uses_anonymous_args = 0
+ 106              		@ link register save eliminated.
+ 107 0000 0028     		cmp	r0, #0
+ 108 0002 08DB     		blt	.L11
+ 109 0004 4209     		lsrs	r2, r0, #5
+ 110 0006 0123     		movs	r3, #1
+ 111 0008 00F01F00 		and	r0, r0, #31
+ 112 000c 03FA00F0 		lsl	r0, r3, r0
+ 113 0010 014B     		ldr	r3, .L13
+ 114 0012 43F82200 		str	r0, [r3, r2, lsl #2]
+ 115              	.L11:
+ 116 0016 7047     		bx	lr
+ 117              	.L14:
+ 118              		.align	2
+ 119              	.L13:
+ARM GAS  /tmp/ccF6ERQI.s 			page 3
+
+
+ 120 0018 00E100E0 		.word	-536813312
+ 122              		.section	.text.HAL_NVIC_DisableIRQ,"ax",%progbits
+ 123              		.align	1
+ 124              		.global	HAL_NVIC_DisableIRQ
+ 125              		.syntax unified
+ 126              		.thumb
+ 127              		.thumb_func
+ 128              		.fpu fpv5-sp-d16
+ 130              	HAL_NVIC_DisableIRQ:
+ 131              		@ args = 0, pretend = 0, frame = 0
+ 132              		@ frame_needed = 0, uses_anonymous_args = 0
+ 133              		@ link register save eliminated.
+ 134 0000 0028     		cmp	r0, #0
+ 135 0002 0DDB     		blt	.L15
+ 136 0004 4309     		lsrs	r3, r0, #5
+ 137 0006 0122     		movs	r2, #1
+ 138 0008 00F01F00 		and	r0, r0, #31
+ 139 000c 2033     		adds	r3, r3, #32
+ 140 000e 02FA00F0 		lsl	r0, r2, r0
+ 141 0012 044A     		ldr	r2, .L17
+ 142 0014 42F82300 		str	r0, [r2, r3, lsl #2]
+ 143              		.syntax unified
+ 144              	@ 879 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 145 0018 BFF34F8F 		dsb 0xF
+ 146              	@ 0 "" 2
+ 147              	@ 868 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 148 001c BFF36F8F 		isb 0xF
+ 149              	@ 0 "" 2
+ 150              		.thumb
+ 151              		.syntax unified
+ 152              	.L15:
+ 153 0020 7047     		bx	lr
+ 154              	.L18:
+ 155 0022 00BF     		.align	2
+ 156              	.L17:
+ 157 0024 00E100E0 		.word	-536813312
+ 159              		.section	.text.HAL_NVIC_SystemReset,"ax",%progbits
+ 160              		.align	1
+ 161              		.global	HAL_NVIC_SystemReset
+ 162              		.syntax unified
+ 163              		.thumb
+ 164              		.thumb_func
+ 165              		.fpu fpv5-sp-d16
+ 167              	HAL_NVIC_SystemReset:
+ 168              		@ Volatile: function does not return.
+ 169              		@ args = 0, pretend = 0, frame = 0
+ 170              		@ frame_needed = 0, uses_anonymous_args = 0
+ 171              		@ link register save eliminated.
+ 172              		.syntax unified
+ 173              	@ 879 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 174 0000 BFF34F8F 		dsb 0xF
+ 175              	@ 0 "" 2
+ 176              		.thumb
+ 177              		.syntax unified
+ 178 0004 0549     		ldr	r1, .L21
+ 179 0006 064B     		ldr	r3, .L21+4
+ 180 0008 CA68     		ldr	r2, [r1, #12]
+ARM GAS  /tmp/ccF6ERQI.s 			page 4
+
+
+ 181 000a 02F4E062 		and	r2, r2, #1792
+ 182 000e 1343     		orrs	r3, r3, r2
+ 183 0010 CB60     		str	r3, [r1, #12]
+ 184              		.syntax unified
+ 185              	@ 879 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 186 0012 BFF34F8F 		dsb 0xF
+ 187              	@ 0 "" 2
+ 188              		.thumb
+ 189              		.syntax unified
+ 190              	.L20:
+ 191              		.syntax unified
+ 192              	@ 2158 "Drivers/CMSIS/Include/core_cm7.h" 1
+ 193 0016 00BF     		nop
+ 194              	@ 0 "" 2
+ 195              		.thumb
+ 196              		.syntax unified
+ 197 0018 FDE7     		b	.L20
+ 198              	.L22:
+ 199 001a 00BF     		.align	2
+ 200              	.L21:
+ 201 001c 00ED00E0 		.word	-536810240
+ 202 0020 0400FA05 		.word	100270084
+ 204              		.section	.text.HAL_SYSTICK_Config,"ax",%progbits
+ 205              		.align	1
+ 206              		.global	HAL_SYSTICK_Config
+ 207              		.syntax unified
+ 208              		.thumb
+ 209              		.thumb_func
+ 210              		.fpu fpv5-sp-d16
+ 212              	HAL_SYSTICK_Config:
+ 213              		@ args = 0, pretend = 0, frame = 0
+ 214              		@ frame_needed = 0, uses_anonymous_args = 0
+ 215              		@ link register save eliminated.
+ 216 0000 0138     		subs	r0, r0, #1
+ 217 0002 B0F1807F 		cmp	r0, #16777216
+ 218 0006 0AD2     		bcs	.L25
+ 219 0008 064B     		ldr	r3, .L26
+ 220 000a F021     		movs	r1, #240
+ 221 000c 064A     		ldr	r2, .L26+4
+ 222 000e 5860     		str	r0, [r3, #4]
+ 223 0010 0020     		movs	r0, #0
+ 224 0012 82F82310 		strb	r1, [r2, #35]
+ 225 0016 0722     		movs	r2, #7
+ 226 0018 9860     		str	r0, [r3, #8]
+ 227 001a 1A60     		str	r2, [r3]
+ 228 001c 7047     		bx	lr
+ 229              	.L25:
+ 230 001e 0120     		movs	r0, #1
+ 231 0020 7047     		bx	lr
+ 232              	.L27:
+ 233 0022 00BF     		.align	2
+ 234              	.L26:
+ 235 0024 10E000E0 		.word	-536813552
+ 236 0028 00ED00E0 		.word	-536810240
+ 238              		.section	.text.HAL_MPU_Disable,"ax",%progbits
+ 239              		.align	1
+ 240              		.global	HAL_MPU_Disable
+ARM GAS  /tmp/ccF6ERQI.s 			page 5
+
+
+ 241              		.syntax unified
+ 242              		.thumb
+ 243              		.thumb_func
+ 244              		.fpu fpv5-sp-d16
+ 246              	HAL_MPU_Disable:
+ 247              		@ args = 0, pretend = 0, frame = 0
+ 248              		@ frame_needed = 0, uses_anonymous_args = 0
+ 249              		@ link register save eliminated.
+ 250              		.syntax unified
+ 251              	@ 890 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 252 0000 BFF35F8F 		dmb 0xF
+ 253              	@ 0 "" 2
+ 254              		.thumb
+ 255              		.syntax unified
+ 256 0004 044A     		ldr	r2, .L29
+ 257 0006 536A     		ldr	r3, [r2, #36]
+ 258 0008 23F48033 		bic	r3, r3, #65536
+ 259 000c 5362     		str	r3, [r2, #36]
+ 260 000e 0022     		movs	r2, #0
+ 261 0010 024B     		ldr	r3, .L29+4
+ 262 0012 5A60     		str	r2, [r3, #4]
+ 263 0014 7047     		bx	lr
+ 264              	.L30:
+ 265 0016 00BF     		.align	2
+ 266              	.L29:
+ 267 0018 00ED00E0 		.word	-536810240
+ 268 001c 90ED00E0 		.word	-536810096
+ 270              		.section	.text.HAL_MPU_Enable,"ax",%progbits
+ 271              		.align	1
+ 272              		.global	HAL_MPU_Enable
+ 273              		.syntax unified
+ 274              		.thumb
+ 275              		.thumb_func
+ 276              		.fpu fpv5-sp-d16
+ 278              	HAL_MPU_Enable:
+ 279              		@ args = 0, pretend = 0, frame = 0
+ 280              		@ frame_needed = 0, uses_anonymous_args = 0
+ 281              		@ link register save eliminated.
+ 282 0000 064A     		ldr	r2, .L32
+ 283 0002 40F00100 		orr	r0, r0, #1
+ 284 0006 064B     		ldr	r3, .L32+4
+ 285 0008 5860     		str	r0, [r3, #4]
+ 286 000a 536A     		ldr	r3, [r2, #36]
+ 287 000c 43F48033 		orr	r3, r3, #65536
+ 288 0010 5362     		str	r3, [r2, #36]
+ 289              		.syntax unified
+ 290              	@ 879 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 291 0012 BFF34F8F 		dsb 0xF
+ 292              	@ 0 "" 2
+ 293              	@ 868 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 294 0016 BFF36F8F 		isb 0xF
+ 295              	@ 0 "" 2
+ 296              		.thumb
+ 297              		.syntax unified
+ 298 001a 7047     		bx	lr
+ 299              	.L33:
+ 300              		.align	2
+ARM GAS  /tmp/ccF6ERQI.s 			page 6
+
+
+ 301              	.L32:
+ 302 001c 00ED00E0 		.word	-536810240
+ 303 0020 90ED00E0 		.word	-536810096
+ 305              		.section	.text.HAL_MPU_ConfigRegion,"ax",%progbits
+ 306              		.align	1
+ 307              		.global	HAL_MPU_ConfigRegion
+ 308              		.syntax unified
+ 309              		.thumb
+ 310              		.thumb_func
+ 311              		.fpu fpv5-sp-d16
+ 313              	HAL_MPU_ConfigRegion:
+ 314              		@ args = 0, pretend = 0, frame = 0
+ 315              		@ frame_needed = 0, uses_anonymous_args = 0
+ 316 0000 4378     		ldrb	r3, [r0, #1]	@ zero_extendqisi2
+ 317 0002 124A     		ldr	r2, .L37
+ 318 0004 10B5     		push	{r4, lr}
+ 319 0006 9360     		str	r3, [r2, #8]
+ 320 0008 0178     		ldrb	r1, [r0]	@ zero_extendqisi2
+ 321 000a D9B1     		cbz	r1, .L35
+ 322 000c 4368     		ldr	r3, [r0, #4]
+ 323 000e D360     		str	r3, [r2, #12]
+ 324 0010 C37A     		ldrb	r3, [r0, #11]	@ zero_extendqisi2
+ 325 0012 047B     		ldrb	r4, [r0, #12]	@ zero_extendqisi2
+ 326 0014 1B06     		lsls	r3, r3, #24
+ 327 0016 43EA0473 		orr	r3, r3, r4, lsl #28
+ 328 001a 0B43     		orrs	r3, r3, r1
+ 329 001c 817A     		ldrb	r1, [r0, #10]	@ zero_extendqisi2
+ 330 001e 43EAC143 		orr	r3, r3, r1, lsl #19
+ 331 0022 417B     		ldrb	r1, [r0, #13]	@ zero_extendqisi2
+ 332 0024 43EA8143 		orr	r3, r3, r1, lsl #18
+ 333 0028 817B     		ldrb	r1, [r0, #14]	@ zero_extendqisi2
+ 334 002a 43EA4143 		orr	r3, r3, r1, lsl #17
+ 335 002e C17B     		ldrb	r1, [r0, #15]	@ zero_extendqisi2
+ 336 0030 43EA0143 		orr	r3, r3, r1, lsl #16
+ 337 0034 417A     		ldrb	r1, [r0, #9]	@ zero_extendqisi2
+ 338 0036 43EA0123 		orr	r3, r3, r1, lsl #8
+ 339 003a 017A     		ldrb	r1, [r0, #8]	@ zero_extendqisi2
+ 340 003c 43EA4103 		orr	r3, r3, r1, lsl #1
+ 341 0040 1361     		str	r3, [r2, #16]
+ 342              	.L34:
+ 343 0042 10BD     		pop	{r4, pc}
+ 344              	.L35:
+ 345 0044 D160     		str	r1, [r2, #12]
+ 346 0046 1161     		str	r1, [r2, #16]
+ 347 0048 FBE7     		b	.L34
+ 348              	.L38:
+ 349 004a 00BF     		.align	2
+ 350              	.L37:
+ 351 004c 90ED00E0 		.word	-536810096
+ 353              		.section	.text.HAL_NVIC_GetPriorityGrouping,"ax",%progbits
+ 354              		.align	1
+ 355              		.global	HAL_NVIC_GetPriorityGrouping
+ 356              		.syntax unified
+ 357              		.thumb
+ 358              		.thumb_func
+ 359              		.fpu fpv5-sp-d16
+ 361              	HAL_NVIC_GetPriorityGrouping:
+ARM GAS  /tmp/ccF6ERQI.s 			page 7
+
+
+ 362              		@ args = 0, pretend = 0, frame = 0
+ 363              		@ frame_needed = 0, uses_anonymous_args = 0
+ 364              		@ link register save eliminated.
+ 365 0000 024B     		ldr	r3, .L40
+ 366 0002 D868     		ldr	r0, [r3, #12]
+ 367 0004 C0F30220 		ubfx	r0, r0, #8, #3
+ 368 0008 7047     		bx	lr
+ 369              	.L41:
+ 370 000a 00BF     		.align	2
+ 371              	.L40:
+ 372 000c 00ED00E0 		.word	-536810240
+ 374              		.section	.text.HAL_NVIC_GetPriority,"ax",%progbits
+ 375              		.align	1
+ 376              		.global	HAL_NVIC_GetPriority
+ 377              		.syntax unified
+ 378              		.thumb
+ 379              		.thumb_func
+ 380              		.fpu fpv5-sp-d16
+ 382              	HAL_NVIC_GetPriority:
+ 383              		@ args = 0, pretend = 0, frame = 0
+ 384              		@ frame_needed = 0, uses_anonymous_args = 0
+ 385 0000 0028     		cmp	r0, #0
+ 386 0002 70B5     		push	{r4, r5, r6, lr}
+ 387 0004 21DB     		blt	.L43
+ 388 0006 00F16040 		add	r0, r0, #-536870912
+ 389 000a 00F56140 		add	r0, r0, #57600
+ 390 000e 90F80003 		ldrb	r0, [r0, #768]	@ zero_extendqisi2
+ 391              	.L47:
+ 392 0012 01F00701 		and	r1, r1, #7
+ 393 0016 0009     		lsrs	r0, r0, #4
+ 394 0018 C1F10704 		rsb	r4, r1, #7
+ 395 001c 0D1D     		adds	r5, r1, #4
+ 396 001e 042C     		cmp	r4, #4
+ 397 0020 28BF     		it	cs
+ 398 0022 0424     		movcs	r4, #4
+ 399 0024 062D     		cmp	r5, #6
+ 400 0026 4FF0FF35 		mov	r5, #-1
+ 401 002a 8CBF     		ite	hi
+ 402 002c 0339     		subhi	r1, r1, #3
+ 403 002e 0021     		movls	r1, #0
+ 404 0030 05FA04F4 		lsl	r4, r5, r4
+ 405 0034 20FA01F6 		lsr	r6, r0, r1
+ 406 0038 05FA01F1 		lsl	r1, r5, r1
+ 407 003c 26EA0404 		bic	r4, r6, r4
+ 408 0040 20EA0100 		bic	r0, r0, r1
+ 409 0044 1460     		str	r4, [r2]
+ 410 0046 1860     		str	r0, [r3]
+ 411 0048 70BD     		pop	{r4, r5, r6, pc}
+ 412              	.L43:
+ 413 004a 00F00F00 		and	r0, r0, #15
+ 414 004e 014C     		ldr	r4, .L48
+ 415 0050 205C     		ldrb	r0, [r4, r0]	@ zero_extendqisi2
+ 416 0052 DEE7     		b	.L47
+ 417              	.L49:
+ 418              		.align	2
+ 419              	.L48:
+ 420 0054 14ED00E0 		.word	-536810220
+ARM GAS  /tmp/ccF6ERQI.s 			page 8
+
+
+ 422              		.section	.text.HAL_NVIC_SetPendingIRQ,"ax",%progbits
+ 423              		.align	1
+ 424              		.global	HAL_NVIC_SetPendingIRQ
+ 425              		.syntax unified
+ 426              		.thumb
+ 427              		.thumb_func
+ 428              		.fpu fpv5-sp-d16
+ 430              	HAL_NVIC_SetPendingIRQ:
+ 431              		@ args = 0, pretend = 0, frame = 0
+ 432              		@ frame_needed = 0, uses_anonymous_args = 0
+ 433              		@ link register save eliminated.
+ 434 0000 0028     		cmp	r0, #0
+ 435 0002 09DB     		blt	.L50
+ 436 0004 4309     		lsrs	r3, r0, #5
+ 437 0006 0122     		movs	r2, #1
+ 438 0008 00F01F00 		and	r0, r0, #31
+ 439 000c 4033     		adds	r3, r3, #64
+ 440 000e 02FA00F0 		lsl	r0, r2, r0
+ 441 0012 024A     		ldr	r2, .L52
+ 442 0014 42F82300 		str	r0, [r2, r3, lsl #2]
+ 443              	.L50:
+ 444 0018 7047     		bx	lr
+ 445              	.L53:
+ 446 001a 00BF     		.align	2
+ 447              	.L52:
+ 448 001c 00E100E0 		.word	-536813312
+ 450              		.section	.text.HAL_NVIC_GetPendingIRQ,"ax",%progbits
+ 451              		.align	1
+ 452              		.global	HAL_NVIC_GetPendingIRQ
+ 453              		.syntax unified
+ 454              		.thumb
+ 455              		.thumb_func
+ 456              		.fpu fpv5-sp-d16
+ 458              	HAL_NVIC_GetPendingIRQ:
+ 459              		@ args = 0, pretend = 0, frame = 0
+ 460              		@ frame_needed = 0, uses_anonymous_args = 0
+ 461              		@ link register save eliminated.
+ 462 0000 0028     		cmp	r0, #0
+ 463 0002 0BDB     		blt	.L56
+ 464 0004 4309     		lsrs	r3, r0, #5
+ 465 0006 064A     		ldr	r2, .L57
+ 466 0008 00F01F00 		and	r0, r0, #31
+ 467 000c 4033     		adds	r3, r3, #64
+ 468 000e 52F82330 		ldr	r3, [r2, r3, lsl #2]
+ 469 0012 23FA00F0 		lsr	r0, r3, r0
+ 470 0016 00F00100 		and	r0, r0, #1
+ 471 001a 7047     		bx	lr
+ 472              	.L56:
+ 473 001c 0020     		movs	r0, #0
+ 474 001e 7047     		bx	lr
+ 475              	.L58:
+ 476              		.align	2
+ 477              	.L57:
+ 478 0020 00E100E0 		.word	-536813312
+ 480              		.section	.text.HAL_NVIC_ClearPendingIRQ,"ax",%progbits
+ 481              		.align	1
+ 482              		.global	HAL_NVIC_ClearPendingIRQ
+ARM GAS  /tmp/ccF6ERQI.s 			page 9
+
+
+ 483              		.syntax unified
+ 484              		.thumb
+ 485              		.thumb_func
+ 486              		.fpu fpv5-sp-d16
+ 488              	HAL_NVIC_ClearPendingIRQ:
+ 489              		@ args = 0, pretend = 0, frame = 0
+ 490              		@ frame_needed = 0, uses_anonymous_args = 0
+ 491              		@ link register save eliminated.
+ 492 0000 0028     		cmp	r0, #0
+ 493 0002 09DB     		blt	.L59
+ 494 0004 4309     		lsrs	r3, r0, #5
+ 495 0006 0122     		movs	r2, #1
+ 496 0008 00F01F00 		and	r0, r0, #31
+ 497 000c 6033     		adds	r3, r3, #96
+ 498 000e 02FA00F0 		lsl	r0, r2, r0
+ 499 0012 024A     		ldr	r2, .L61
+ 500 0014 42F82300 		str	r0, [r2, r3, lsl #2]
+ 501              	.L59:
+ 502 0018 7047     		bx	lr
+ 503              	.L62:
+ 504 001a 00BF     		.align	2
+ 505              	.L61:
+ 506 001c 00E100E0 		.word	-536813312
+ 508              		.section	.text.HAL_NVIC_GetActive,"ax",%progbits
+ 509              		.align	1
+ 510              		.global	HAL_NVIC_GetActive
+ 511              		.syntax unified
+ 512              		.thumb
+ 513              		.thumb_func
+ 514              		.fpu fpv5-sp-d16
+ 516              	HAL_NVIC_GetActive:
+ 517              		@ args = 0, pretend = 0, frame = 0
+ 518              		@ frame_needed = 0, uses_anonymous_args = 0
+ 519              		@ link register save eliminated.
+ 520 0000 0028     		cmp	r0, #0
+ 521 0002 0BDB     		blt	.L65
+ 522 0004 4309     		lsrs	r3, r0, #5
+ 523 0006 064A     		ldr	r2, .L66
+ 524 0008 00F01F00 		and	r0, r0, #31
+ 525 000c 8033     		adds	r3, r3, #128
+ 526 000e 52F82330 		ldr	r3, [r2, r3, lsl #2]
+ 527 0012 23FA00F0 		lsr	r0, r3, r0
+ 528 0016 00F00100 		and	r0, r0, #1
+ 529 001a 7047     		bx	lr
+ 530              	.L65:
+ 531 001c 0020     		movs	r0, #0
+ 532 001e 7047     		bx	lr
+ 533              	.L67:
+ 534              		.align	2
+ 535              	.L66:
+ 536 0020 00E100E0 		.word	-536813312
+ 538              		.section	.text.HAL_SYSTICK_CLKSourceConfig,"ax",%progbits
+ 539              		.align	1
+ 540              		.global	HAL_SYSTICK_CLKSourceConfig
+ 541              		.syntax unified
+ 542              		.thumb
+ 543              		.thumb_func
+ARM GAS  /tmp/ccF6ERQI.s 			page 10
+
+
+ 544              		.fpu fpv5-sp-d16
+ 546              	HAL_SYSTICK_CLKSourceConfig:
+ 547              		@ args = 0, pretend = 0, frame = 0
+ 548              		@ frame_needed = 0, uses_anonymous_args = 0
+ 549              		@ link register save eliminated.
+ 550 0000 044B     		ldr	r3, .L72
+ 551 0002 0428     		cmp	r0, #4
+ 552 0004 1A68     		ldr	r2, [r3]
+ 553 0006 0CBF     		ite	eq
+ 554 0008 42F00402 		orreq	r2, r2, #4
+ 555 000c 22F00402 		bicne	r2, r2, #4
+ 556 0010 1A60     		str	r2, [r3]
+ 557 0012 7047     		bx	lr
+ 558              	.L73:
+ 559              		.align	2
+ 560              	.L72:
+ 561 0014 10E000E0 		.word	-536813552
+ 563              		.section	.text.HAL_SYSTICK_Callback,"ax",%progbits
+ 564              		.align	1
+ 565              		.weak	HAL_SYSTICK_Callback
+ 566              		.syntax unified
+ 567              		.thumb
+ 568              		.thumb_func
+ 569              		.fpu fpv5-sp-d16
+ 571              	HAL_SYSTICK_Callback:
+ 572              		@ args = 0, pretend = 0, frame = 0
+ 573              		@ frame_needed = 0, uses_anonymous_args = 0
+ 574              		@ link register save eliminated.
+ 575 0000 7047     		bx	lr
+ 577              		.section	.text.HAL_SYSTICK_IRQHandler,"ax",%progbits
+ 578              		.align	1
+ 579              		.global	HAL_SYSTICK_IRQHandler
+ 580              		.syntax unified
+ 581              		.thumb
+ 582              		.thumb_func
+ 583              		.fpu fpv5-sp-d16
+ 585              	HAL_SYSTICK_IRQHandler:
+ 586              		@ args = 0, pretend = 0, frame = 0
+ 587              		@ frame_needed = 0, uses_anonymous_args = 0
+ 588 0000 08B5     		push	{r3, lr}
+ 589 0002 FFF7FEFF 		bl	HAL_SYSTICK_Callback
+ 590 0006 08BD     		pop	{r3, pc}
+ 592              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
+ARM GAS  /tmp/ccF6ERQI.s 			page 11
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f7xx_hal_cortex.c
+     /tmp/ccF6ERQI.s:15     .text.HAL_NVIC_SetPriorityGrouping:0000000000000000 $t
+     /tmp/ccF6ERQI.s:23     .text.HAL_NVIC_SetPriorityGrouping:0000000000000000 HAL_NVIC_SetPriorityGrouping
+     /tmp/ccF6ERQI.s:42     .text.HAL_NVIC_SetPriorityGrouping:0000000000000020 $d
+     /tmp/ccF6ERQI.s:45     .text.HAL_NVIC_SetPriority:0000000000000000 $t
+     /tmp/ccF6ERQI.s:52     .text.HAL_NVIC_SetPriority:0000000000000000 HAL_NVIC_SetPriority
+     /tmp/ccF6ERQI.s:92     .text.HAL_NVIC_SetPriority:000000000000005c $d
+     /tmp/ccF6ERQI.s:96     .text.HAL_NVIC_EnableIRQ:0000000000000000 $t
+     /tmp/ccF6ERQI.s:103    .text.HAL_NVIC_EnableIRQ:0000000000000000 HAL_NVIC_EnableIRQ
+     /tmp/ccF6ERQI.s:120    .text.HAL_NVIC_EnableIRQ:0000000000000018 $d
+     /tmp/ccF6ERQI.s:123    .text.HAL_NVIC_DisableIRQ:0000000000000000 $t
+     /tmp/ccF6ERQI.s:130    .text.HAL_NVIC_DisableIRQ:0000000000000000 HAL_NVIC_DisableIRQ
+     /tmp/ccF6ERQI.s:157    .text.HAL_NVIC_DisableIRQ:0000000000000024 $d
+     /tmp/ccF6ERQI.s:160    .text.HAL_NVIC_SystemReset:0000000000000000 $t
+     /tmp/ccF6ERQI.s:167    .text.HAL_NVIC_SystemReset:0000000000000000 HAL_NVIC_SystemReset
+     /tmp/ccF6ERQI.s:201    .text.HAL_NVIC_SystemReset:000000000000001c $d
+     /tmp/ccF6ERQI.s:205    .text.HAL_SYSTICK_Config:0000000000000000 $t
+     /tmp/ccF6ERQI.s:212    .text.HAL_SYSTICK_Config:0000000000000000 HAL_SYSTICK_Config
+     /tmp/ccF6ERQI.s:235    .text.HAL_SYSTICK_Config:0000000000000024 $d
+     /tmp/ccF6ERQI.s:239    .text.HAL_MPU_Disable:0000000000000000 $t
+     /tmp/ccF6ERQI.s:246    .text.HAL_MPU_Disable:0000000000000000 HAL_MPU_Disable
+     /tmp/ccF6ERQI.s:267    .text.HAL_MPU_Disable:0000000000000018 $d
+     /tmp/ccF6ERQI.s:271    .text.HAL_MPU_Enable:0000000000000000 $t
+     /tmp/ccF6ERQI.s:278    .text.HAL_MPU_Enable:0000000000000000 HAL_MPU_Enable
+     /tmp/ccF6ERQI.s:302    .text.HAL_MPU_Enable:000000000000001c $d
+     /tmp/ccF6ERQI.s:306    .text.HAL_MPU_ConfigRegion:0000000000000000 $t
+     /tmp/ccF6ERQI.s:313    .text.HAL_MPU_ConfigRegion:0000000000000000 HAL_MPU_ConfigRegion
+     /tmp/ccF6ERQI.s:351    .text.HAL_MPU_ConfigRegion:000000000000004c $d
+     /tmp/ccF6ERQI.s:354    .text.HAL_NVIC_GetPriorityGrouping:0000000000000000 $t
+     /tmp/ccF6ERQI.s:361    .text.HAL_NVIC_GetPriorityGrouping:0000000000000000 HAL_NVIC_GetPriorityGrouping
+     /tmp/ccF6ERQI.s:372    .text.HAL_NVIC_GetPriorityGrouping:000000000000000c $d
+     /tmp/ccF6ERQI.s:375    .text.HAL_NVIC_GetPriority:0000000000000000 $t
+     /tmp/ccF6ERQI.s:382    .text.HAL_NVIC_GetPriority:0000000000000000 HAL_NVIC_GetPriority
+     /tmp/ccF6ERQI.s:420    .text.HAL_NVIC_GetPriority:0000000000000054 $d
+     /tmp/ccF6ERQI.s:423    .text.HAL_NVIC_SetPendingIRQ:0000000000000000 $t
+     /tmp/ccF6ERQI.s:430    .text.HAL_NVIC_SetPendingIRQ:0000000000000000 HAL_NVIC_SetPendingIRQ
+     /tmp/ccF6ERQI.s:448    .text.HAL_NVIC_SetPendingIRQ:000000000000001c $d
+     /tmp/ccF6ERQI.s:451    .text.HAL_NVIC_GetPendingIRQ:0000000000000000 $t
+     /tmp/ccF6ERQI.s:458    .text.HAL_NVIC_GetPendingIRQ:0000000000000000 HAL_NVIC_GetPendingIRQ
+     /tmp/ccF6ERQI.s:478    .text.HAL_NVIC_GetPendingIRQ:0000000000000020 $d
+     /tmp/ccF6ERQI.s:481    .text.HAL_NVIC_ClearPendingIRQ:0000000000000000 $t
+     /tmp/ccF6ERQI.s:488    .text.HAL_NVIC_ClearPendingIRQ:0000000000000000 HAL_NVIC_ClearPendingIRQ
+     /tmp/ccF6ERQI.s:506    .text.HAL_NVIC_ClearPendingIRQ:000000000000001c $d
+     /tmp/ccF6ERQI.s:509    .text.HAL_NVIC_GetActive:0000000000000000 $t
+     /tmp/ccF6ERQI.s:516    .text.HAL_NVIC_GetActive:0000000000000000 HAL_NVIC_GetActive
+     /tmp/ccF6ERQI.s:536    .text.HAL_NVIC_GetActive:0000000000000020 $d
+     /tmp/ccF6ERQI.s:539    .text.HAL_SYSTICK_CLKSourceConfig:0000000000000000 $t
+     /tmp/ccF6ERQI.s:546    .text.HAL_SYSTICK_CLKSourceConfig:0000000000000000 HAL_SYSTICK_CLKSourceConfig
+     /tmp/ccF6ERQI.s:561    .text.HAL_SYSTICK_CLKSourceConfig:0000000000000014 $d
+     /tmp/ccF6ERQI.s:564    .text.HAL_SYSTICK_Callback:0000000000000000 $t
+     /tmp/ccF6ERQI.s:571    .text.HAL_SYSTICK_Callback:0000000000000000 HAL_SYSTICK_Callback
+     /tmp/ccF6ERQI.s:578    .text.HAL_SYSTICK_IRQHandler:0000000000000000 $t
+     /tmp/ccF6ERQI.s:585    .text.HAL_SYSTICK_IRQHandler:0000000000000000 HAL_SYSTICK_IRQHandler
+
+NO UNDEFINED SYMBOLS

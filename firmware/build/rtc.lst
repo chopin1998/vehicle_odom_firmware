@@ -1,0 +1,126 @@
+ARM GAS  /tmp/cc3VeNWg.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"rtc.c"
+  13              		.text
+  14              		.section	.text.MX_RTC_Init,"ax",%progbits
+  15              		.align	1
+  16              		.global	MX_RTC_Init
+  17              		.arch armv7e-m
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  21              		.fpu fpv5-sp-d16
+  23              	MX_RTC_Init:
+  24              		@ args = 0, pretend = 0, frame = 0
+  25              		@ frame_needed = 0, uses_anonymous_args = 0
+  26 0000 08B5     		push	{r3, lr}
+  27 0002 0A48     		ldr	r0, .L3
+  28 0004 0023     		movs	r3, #0
+  29 0006 0A4A     		ldr	r2, .L3+4
+  30 0008 7F21     		movs	r1, #127
+  31 000a 8361     		str	r3, [r0, #24]
+  32 000c C0E90023 		strd	r2, r3, [r0]
+  33 0010 FF22     		movs	r2, #255
+  34 0012 C0E90433 		strd	r3, r3, [r0, #16]
+  35 0016 C0E90212 		strd	r1, r2, [r0, #8]
+  36 001a FFF7FEFF 		bl	HAL_RTC_Init
+  37 001e 18B1     		cbz	r0, .L1
+  38 0020 BDE80840 		pop	{r3, lr}
+  39 0024 FFF7FEBF 		b	Error_Handler
+  40              	.L1:
+  41 0028 08BD     		pop	{r3, pc}
+  42              	.L4:
+  43 002a 00BF     		.align	2
+  44              	.L3:
+  45 002c 00000000 		.word	hrtc
+  46 0030 00280040 		.word	1073752064
+  48              		.section	.text.HAL_RTC_MspInit,"ax",%progbits
+  49              		.align	1
+  50              		.global	HAL_RTC_MspInit
+  51              		.syntax unified
+  52              		.thumb
+  53              		.thumb_func
+  54              		.fpu fpv5-sp-d16
+  56              	HAL_RTC_MspInit:
+  57              		@ args = 0, pretend = 0, frame = 0
+  58              		@ frame_needed = 0, uses_anonymous_args = 0
+  59              		@ link register save eliminated.
+  60 0000 0268     		ldr	r2, [r0]
+ARM GAS  /tmp/cc3VeNWg.s 			page 2
+
+
+  61 0002 044B     		ldr	r3, .L7
+  62 0004 9A42     		cmp	r2, r3
+  63 0006 04D1     		bne	.L5
+  64 0008 034A     		ldr	r2, .L7+4
+  65 000a 136F     		ldr	r3, [r2, #112]
+  66 000c 43F40043 		orr	r3, r3, #32768
+  67 0010 1367     		str	r3, [r2, #112]
+  68              	.L5:
+  69 0012 7047     		bx	lr
+  70              	.L8:
+  71              		.align	2
+  72              	.L7:
+  73 0014 00280040 		.word	1073752064
+  74 0018 00380240 		.word	1073887232
+  76              		.section	.text.HAL_RTC_MspDeInit,"ax",%progbits
+  77              		.align	1
+  78              		.global	HAL_RTC_MspDeInit
+  79              		.syntax unified
+  80              		.thumb
+  81              		.thumb_func
+  82              		.fpu fpv5-sp-d16
+  84              	HAL_RTC_MspDeInit:
+  85              		@ args = 0, pretend = 0, frame = 0
+  86              		@ frame_needed = 0, uses_anonymous_args = 0
+  87              		@ link register save eliminated.
+  88 0000 0268     		ldr	r2, [r0]
+  89 0002 044B     		ldr	r3, .L11
+  90 0004 9A42     		cmp	r2, r3
+  91 0006 04D1     		bne	.L9
+  92 0008 034A     		ldr	r2, .L11+4
+  93 000a 136F     		ldr	r3, [r2, #112]
+  94 000c 23F40043 		bic	r3, r3, #32768
+  95 0010 1367     		str	r3, [r2, #112]
+  96              	.L9:
+  97 0012 7047     		bx	lr
+  98              	.L12:
+  99              		.align	2
+ 100              	.L11:
+ 101 0014 00280040 		.word	1073752064
+ 102 0018 00380240 		.word	1073887232
+ 104              		.comm	hrtc,32,4
+ 105              		.comm	odom,1,1
+ 106              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
+ARM GAS  /tmp/cc3VeNWg.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 rtc.c
+     /tmp/cc3VeNWg.s:15     .text.MX_RTC_Init:0000000000000000 $t
+     /tmp/cc3VeNWg.s:23     .text.MX_RTC_Init:0000000000000000 MX_RTC_Init
+     /tmp/cc3VeNWg.s:45     .text.MX_RTC_Init:000000000000002c $d
+                            *COM*:0000000000000020 hrtc
+     /tmp/cc3VeNWg.s:49     .text.HAL_RTC_MspInit:0000000000000000 $t
+     /tmp/cc3VeNWg.s:56     .text.HAL_RTC_MspInit:0000000000000000 HAL_RTC_MspInit
+     /tmp/cc3VeNWg.s:73     .text.HAL_RTC_MspInit:0000000000000014 $d
+     /tmp/cc3VeNWg.s:77     .text.HAL_RTC_MspDeInit:0000000000000000 $t
+     /tmp/cc3VeNWg.s:84     .text.HAL_RTC_MspDeInit:0000000000000000 HAL_RTC_MspDeInit
+     /tmp/cc3VeNWg.s:101    .text.HAL_RTC_MspDeInit:0000000000000014 $d
+                            *COM*:0000000000000001 odom
+
+UNDEFINED SYMBOLS
+HAL_RTC_Init
+Error_Handler

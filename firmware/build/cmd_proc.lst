@@ -1,0 +1,131 @@
+ARM GAS  /tmp/ccrOhhC1.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"cmd_proc.c"
+  13              		.text
+  14              		.section	.text.cmd_proc,"ax",%progbits
+  15              		.align	1
+  16              		.global	cmd_proc
+  17              		.arch armv7e-m
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  21              		.fpu fpv5-sp-d16
+  23              	cmd_proc:
+  24              		@ args = 0, pretend = 0, frame = 64
+  25              		@ frame_needed = 0, uses_anonymous_args = 0
+  26 0000 30B5     		push	{r4, r5, lr}
+  27 0002 0422     		movs	r2, #4
+  28 0004 91B0     		sub	sp, sp, #68
+  29 0006 0D46     		mov	r5, r1
+  30 0008 1C49     		ldr	r1, .L8
+  31 000a 0446     		mov	r4, r0
+  32 000c FFF7FEFF 		bl	strncmp
+  33 0010 98B9     		cbnz	r0, .L2
+  34 0012 042D     		cmp	r5, #4
+  35 0014 1A4A     		ldr	r2, .L8+4
+  36 0016 0AD1     		bne	.L3
+  37 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  38 001a 4021     		movs	r1, #64
+  39 001c 194A     		ldr	r2, .L8+8
+  40 001e 6846     		mov	r0, sp
+  41 0020 FFF7FEFF 		bl	snprintf
+  42 0024 81B2     		uxth	r1, r0
+  43 0026 6846     		mov	r0, sp
+  44              	.L7:
+  45 0028 FFF7FEFF 		bl	CDC_Transmit_FS
+  46 002c 03E0     		b	.L1
+  47              	.L3:
+  48 002e 2379     		ldrb	r3, [r4, #4]	@ zero_extendqisi2
+  49 0030 303B     		subs	r3, r3, #48
+  50 0032 DBB2     		uxtb	r3, r3
+  51 0034 1370     		strb	r3, [r2]
+  52              	.L1:
+  53 0036 11B0     		add	sp, sp, #68
+  54              		@ sp needed
+  55 0038 30BD     		pop	{r4, r5, pc}
+  56              	.L2:
+  57 003a 0322     		movs	r2, #3
+  58 003c 1249     		ldr	r1, .L8+12
+ARM GAS  /tmp/ccrOhhC1.s 			page 2
+
+
+  59 003e 2046     		mov	r0, r4
+  60 0040 FFF7FEFF 		bl	strncmp
+  61 0044 10B9     		cbnz	r0, .L5
+  62 0046 FFF7FEFF 		bl	adns3080_capture
+  63 004a F4E7     		b	.L1
+  64              	.L5:
+  65 004c ADB2     		uxth	r5, r5
+  66 004e 0F49     		ldr	r1, .L8+16
+  67 0050 0222     		movs	r2, #2
+  68 0052 2046     		mov	r0, r4
+  69 0054 FFF7FEFF 		bl	strncmp
+  70 0058 2946     		mov	r1, r5
+  71 005a 60B9     		cbnz	r0, .L6
+  72 005c 2046     		mov	r0, r4
+  73 005e FFF7FEFF 		bl	CDC_Transmit_FS
+  74 0062 2146     		mov	r1, r4
+  75 0064 2A46     		mov	r2, r5
+  76 0066 0A48     		ldr	r0, .L8+20
+  77 0068 FFF7FEFF 		bl	HAL_UART_Transmit_DMA
+  78 006c 4021     		movs	r1, #64
+  79 006e 0948     		ldr	r0, .L8+24
+  80 0070 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+  81 0074 DFE7     		b	.L1
+  82              	.L6:
+  83 0076 2046     		mov	r0, r4
+  84 0078 D6E7     		b	.L7
+  85              	.L9:
+  86 007a 00BF     		.align	2
+  87              	.L8:
+  88 007c 00000000 		.word	.LC0
+  89 0080 00000000 		.word	odom
+  90 0084 05000000 		.word	.LC1
+  91 0088 0F000000 		.word	.LC2
+  92 008c 13000000 		.word	.LC3
+  93 0090 00000000 		.word	huart3
+  94 0094 00000240 		.word	1073872896
+  96              		.comm	odom,1,1
+  97              		.section	.rodata.cmd_proc.str1.1,"aMS",%progbits,1
+  98              	.LC0:
+  99 0000 6D6F6465 		.ascii	"mode\000"
+  99      00
+ 100              	.LC1:
+ 101 0005 6D6F6465 		.ascii	"mode: %d\012\000"
+ 101      3A202564 
+ 101      0A00
+ 102              	.LC2:
+ 103 000f 63617000 		.ascii	"cap\000"
+ 104              	.LC3:
+ 105 0013 415400   		.ascii	"AT\000"
+ 106              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
+ARM GAS  /tmp/ccrOhhC1.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 cmd_proc.c
+     /tmp/ccrOhhC1.s:15     .text.cmd_proc:0000000000000000 $t
+     /tmp/ccrOhhC1.s:23     .text.cmd_proc:0000000000000000 cmd_proc
+     /tmp/ccrOhhC1.s:88     .text.cmd_proc:000000000000007c $d
+                            *COM*:0000000000000001 odom
+
+UNDEFINED SYMBOLS
+strncmp
+snprintf
+CDC_Transmit_FS
+adns3080_capture
+HAL_UART_Transmit_DMA
+HAL_GPIO_TogglePin
+huart3

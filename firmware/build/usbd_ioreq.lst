@@ -1,0 +1,174 @@
+ARM GAS  /tmp/ccTTAkSC.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"usbd_ioreq.c"
+  13              		.text
+  14              		.section	.text.USBD_CtlSendData,"ax",%progbits
+  15              		.align	1
+  16              		.global	USBD_CtlSendData
+  17              		.arch armv7e-m
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  21              		.fpu fpv5-sp-d16
+  23              	USBD_CtlSendData:
+  24              		@ args = 0, pretend = 0, frame = 0
+  25              		@ frame_needed = 0, uses_anonymous_args = 0
+  26 0000 1346     		mov	r3, r2
+  27 0002 0222     		movs	r2, #2
+  28 0004 10B5     		push	{r4, lr}
+  29 0006 C0F89422 		str	r2, [r0, #660]
+  30 000a 0A46     		mov	r2, r1
+  31 000c 0021     		movs	r1, #0
+  32 000e C0E90633 		strd	r3, r3, [r0, #24]
+  33 0012 FFF7FEFF 		bl	USBD_LL_Transmit
+  34 0016 0020     		movs	r0, #0
+  35 0018 10BD     		pop	{r4, pc}
+  37              		.section	.text.USBD_CtlContinueSendData,"ax",%progbits
+  38              		.align	1
+  39              		.global	USBD_CtlContinueSendData
+  40              		.syntax unified
+  41              		.thumb
+  42              		.thumb_func
+  43              		.fpu fpv5-sp-d16
+  45              	USBD_CtlContinueSendData:
+  46              		@ args = 0, pretend = 0, frame = 0
+  47              		@ frame_needed = 0, uses_anonymous_args = 0
+  48 0000 08B5     		push	{r3, lr}
+  49 0002 1346     		mov	r3, r2
+  50 0004 0A46     		mov	r2, r1
+  51 0006 0021     		movs	r1, #0
+  52 0008 FFF7FEFF 		bl	USBD_LL_Transmit
+  53 000c 0020     		movs	r0, #0
+  54 000e 08BD     		pop	{r3, pc}
+  56              		.section	.text.USBD_CtlPrepareRx,"ax",%progbits
+  57              		.align	1
+  58              		.global	USBD_CtlPrepareRx
+  59              		.syntax unified
+  60              		.thumb
+  61              		.thumb_func
+ARM GAS  /tmp/ccTTAkSC.s 			page 2
+
+
+  62              		.fpu fpv5-sp-d16
+  64              	USBD_CtlPrepareRx:
+  65              		@ args = 0, pretend = 0, frame = 0
+  66              		@ frame_needed = 0, uses_anonymous_args = 0
+  67 0000 1346     		mov	r3, r2
+  68 0002 0322     		movs	r2, #3
+  69 0004 10B5     		push	{r4, lr}
+  70 0006 C0F89422 		str	r2, [r0, #660]
+  71 000a 0A46     		mov	r2, r1
+  72 000c 0021     		movs	r1, #0
+  73 000e C0E95633 		strd	r3, r3, [r0, #344]
+  74 0012 FFF7FEFF 		bl	USBD_LL_PrepareReceive
+  75 0016 0020     		movs	r0, #0
+  76 0018 10BD     		pop	{r4, pc}
+  78              		.section	.text.USBD_CtlContinueRx,"ax",%progbits
+  79              		.align	1
+  80              		.global	USBD_CtlContinueRx
+  81              		.syntax unified
+  82              		.thumb
+  83              		.thumb_func
+  84              		.fpu fpv5-sp-d16
+  86              	USBD_CtlContinueRx:
+  87              		@ args = 0, pretend = 0, frame = 0
+  88              		@ frame_needed = 0, uses_anonymous_args = 0
+  89 0000 08B5     		push	{r3, lr}
+  90 0002 1346     		mov	r3, r2
+  91 0004 0A46     		mov	r2, r1
+  92 0006 0021     		movs	r1, #0
+  93 0008 FFF7FEFF 		bl	USBD_LL_PrepareReceive
+  94 000c 0020     		movs	r0, #0
+  95 000e 08BD     		pop	{r3, pc}
+  97              		.section	.text.USBD_CtlSendStatus,"ax",%progbits
+  98              		.align	1
+  99              		.global	USBD_CtlSendStatus
+ 100              		.syntax unified
+ 101              		.thumb
+ 102              		.thumb_func
+ 103              		.fpu fpv5-sp-d16
+ 105              	USBD_CtlSendStatus:
+ 106              		@ args = 0, pretend = 0, frame = 0
+ 107              		@ frame_needed = 0, uses_anonymous_args = 0
+ 108 0000 08B5     		push	{r3, lr}
+ 109 0002 0423     		movs	r3, #4
+ 110 0004 C0F89432 		str	r3, [r0, #660]
+ 111 0008 0023     		movs	r3, #0
+ 112 000a 1A46     		mov	r2, r3
+ 113 000c 1946     		mov	r1, r3
+ 114 000e FFF7FEFF 		bl	USBD_LL_Transmit
+ 115 0012 0020     		movs	r0, #0
+ 116 0014 08BD     		pop	{r3, pc}
+ 118              		.section	.text.USBD_CtlReceiveStatus,"ax",%progbits
+ 119              		.align	1
+ 120              		.global	USBD_CtlReceiveStatus
+ 121              		.syntax unified
+ 122              		.thumb
+ 123              		.thumb_func
+ 124              		.fpu fpv5-sp-d16
+ARM GAS  /tmp/ccTTAkSC.s 			page 3
+
+
+ 126              	USBD_CtlReceiveStatus:
+ 127              		@ args = 0, pretend = 0, frame = 0
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129 0000 08B5     		push	{r3, lr}
+ 130 0002 0523     		movs	r3, #5
+ 131 0004 C0F89432 		str	r3, [r0, #660]
+ 132 0008 0023     		movs	r3, #0
+ 133 000a 1A46     		mov	r2, r3
+ 134 000c 1946     		mov	r1, r3
+ 135 000e FFF7FEFF 		bl	USBD_LL_PrepareReceive
+ 136 0012 0020     		movs	r0, #0
+ 137 0014 08BD     		pop	{r3, pc}
+ 139              		.section	.text.USBD_GetRxCount,"ax",%progbits
+ 140              		.align	1
+ 141              		.global	USBD_GetRxCount
+ 142              		.syntax unified
+ 143              		.thumb
+ 144              		.thumb_func
+ 145              		.fpu fpv5-sp-d16
+ 147              	USBD_GetRxCount:
+ 148              		@ args = 0, pretend = 0, frame = 0
+ 149              		@ frame_needed = 0, uses_anonymous_args = 0
+ 150              		@ link register save eliminated.
+ 151 0000 FFF7FEBF 		b	USBD_LL_GetRxDataSize
+ 153              		.comm	odom,1,1
+ 154              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
+ARM GAS  /tmp/ccTTAkSC.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 usbd_ioreq.c
+     /tmp/ccTTAkSC.s:15     .text.USBD_CtlSendData:0000000000000000 $t
+     /tmp/ccTTAkSC.s:23     .text.USBD_CtlSendData:0000000000000000 USBD_CtlSendData
+     /tmp/ccTTAkSC.s:38     .text.USBD_CtlContinueSendData:0000000000000000 $t
+     /tmp/ccTTAkSC.s:45     .text.USBD_CtlContinueSendData:0000000000000000 USBD_CtlContinueSendData
+     /tmp/ccTTAkSC.s:57     .text.USBD_CtlPrepareRx:0000000000000000 $t
+     /tmp/ccTTAkSC.s:64     .text.USBD_CtlPrepareRx:0000000000000000 USBD_CtlPrepareRx
+     /tmp/ccTTAkSC.s:79     .text.USBD_CtlContinueRx:0000000000000000 $t
+     /tmp/ccTTAkSC.s:86     .text.USBD_CtlContinueRx:0000000000000000 USBD_CtlContinueRx
+     /tmp/ccTTAkSC.s:98     .text.USBD_CtlSendStatus:0000000000000000 $t
+     /tmp/ccTTAkSC.s:105    .text.USBD_CtlSendStatus:0000000000000000 USBD_CtlSendStatus
+     /tmp/ccTTAkSC.s:119    .text.USBD_CtlReceiveStatus:0000000000000000 $t
+     /tmp/ccTTAkSC.s:126    .text.USBD_CtlReceiveStatus:0000000000000000 USBD_CtlReceiveStatus
+     /tmp/ccTTAkSC.s:140    .text.USBD_GetRxCount:0000000000000000 $t
+     /tmp/ccTTAkSC.s:147    .text.USBD_GetRxCount:0000000000000000 USBD_GetRxCount
+                            *COM*:0000000000000001 odom
+
+UNDEFINED SYMBOLS
+USBD_LL_Transmit
+USBD_LL_PrepareReceive
+USBD_LL_GetRxDataSize

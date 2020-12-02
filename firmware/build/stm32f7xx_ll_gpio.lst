@@ -1,0 +1,387 @@
+ARM GAS  /tmp/ccI1tfXr.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"stm32f7xx_ll_gpio.c"
+  13              		.text
+  14              		.section	.text.LL_AHB1_GRP1_ForceReset,"ax",%progbits
+  15              		.align	1
+  16              		.arch armv7e-m
+  17              		.syntax unified
+  18              		.thumb
+  19              		.thumb_func
+  20              		.fpu fpv5-sp-d16
+  22              	LL_AHB1_GRP1_ForceReset:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25              		@ link register save eliminated.
+  26 0000 024A     		ldr	r2, .L2
+  27 0002 1369     		ldr	r3, [r2, #16]
+  28 0004 1843     		orrs	r0, r0, r3
+  29 0006 1061     		str	r0, [r2, #16]
+  30 0008 7047     		bx	lr
+  31              	.L3:
+  32 000a 00BF     		.align	2
+  33              	.L2:
+  34 000c 00380240 		.word	1073887232
+  36              		.section	.text.LL_AHB1_GRP1_ReleaseReset,"ax",%progbits
+  37              		.align	1
+  38              		.syntax unified
+  39              		.thumb
+  40              		.thumb_func
+  41              		.fpu fpv5-sp-d16
+  43              	LL_AHB1_GRP1_ReleaseReset:
+  44              		@ args = 0, pretend = 0, frame = 0
+  45              		@ frame_needed = 0, uses_anonymous_args = 0
+  46              		@ link register save eliminated.
+  47 0000 024A     		ldr	r2, .L5
+  48 0002 1369     		ldr	r3, [r2, #16]
+  49 0004 23EA0000 		bic	r0, r3, r0
+  50 0008 1061     		str	r0, [r2, #16]
+  51 000a 7047     		bx	lr
+  52              	.L6:
+  53              		.align	2
+  54              	.L5:
+  55 000c 00380240 		.word	1073887232
+  57              		.section	.text.LL_GPIO_DeInit,"ax",%progbits
+  58              		.align	1
+  59              		.global	LL_GPIO_DeInit
+  60              		.syntax unified
+  61              		.thumb
+ARM GAS  /tmp/ccI1tfXr.s 			page 2
+
+
+  62              		.thumb_func
+  63              		.fpu fpv5-sp-d16
+  65              	LL_GPIO_DeInit:
+  66              		@ args = 0, pretend = 0, frame = 0
+  67              		@ frame_needed = 0, uses_anonymous_args = 0
+  68 0000 08B5     		push	{r3, lr}
+  69 0002 274B     		ldr	r3, .L19
+  70 0004 9842     		cmp	r0, r3
+  71 0006 07D1     		bne	.L8
+  72 0008 0120     		movs	r0, #1
+  73 000a FFF7FEFF 		bl	LL_AHB1_GRP1_ForceReset
+  74 000e 0120     		movs	r0, #1
+  75              	.L18:
+  76 0010 FFF7FEFF 		bl	LL_AHB1_GRP1_ReleaseReset
+  77 0014 0020     		movs	r0, #0
+  78              	.L9:
+  79 0016 08BD     		pop	{r3, pc}
+  80              	.L8:
+  81 0018 224B     		ldr	r3, .L19+4
+  82 001a 9842     		cmp	r0, r3
+  83 001c 04D1     		bne	.L10
+  84 001e 0220     		movs	r0, #2
+  85 0020 FFF7FEFF 		bl	LL_AHB1_GRP1_ForceReset
+  86 0024 0220     		movs	r0, #2
+  87 0026 F3E7     		b	.L18
+  88              	.L10:
+  89 0028 1F4B     		ldr	r3, .L19+8
+  90 002a 9842     		cmp	r0, r3
+  91 002c 04D1     		bne	.L11
+  92 002e 0420     		movs	r0, #4
+  93 0030 FFF7FEFF 		bl	LL_AHB1_GRP1_ForceReset
+  94 0034 0420     		movs	r0, #4
+  95 0036 EBE7     		b	.L18
+  96              	.L11:
+  97 0038 1C4B     		ldr	r3, .L19+12
+  98 003a 9842     		cmp	r0, r3
+  99 003c 04D1     		bne	.L12
+ 100 003e 0820     		movs	r0, #8
+ 101 0040 FFF7FEFF 		bl	LL_AHB1_GRP1_ForceReset
+ 102 0044 0820     		movs	r0, #8
+ 103 0046 E3E7     		b	.L18
+ 104              	.L12:
+ 105 0048 194B     		ldr	r3, .L19+16
+ 106 004a 9842     		cmp	r0, r3
+ 107 004c 04D1     		bne	.L13
+ 108 004e 1020     		movs	r0, #16
+ 109 0050 FFF7FEFF 		bl	LL_AHB1_GRP1_ForceReset
+ 110 0054 1020     		movs	r0, #16
+ 111 0056 DBE7     		b	.L18
+ 112              	.L13:
+ 113 0058 164B     		ldr	r3, .L19+20
+ 114 005a 9842     		cmp	r0, r3
+ 115 005c 04D1     		bne	.L14
+ 116 005e 2020     		movs	r0, #32
+ 117 0060 FFF7FEFF 		bl	LL_AHB1_GRP1_ForceReset
+ 118 0064 2020     		movs	r0, #32
+ 119 0066 D3E7     		b	.L18
+ARM GAS  /tmp/ccI1tfXr.s 			page 3
+
+
+ 120              	.L14:
+ 121 0068 134B     		ldr	r3, .L19+24
+ 122 006a 9842     		cmp	r0, r3
+ 123 006c 04D1     		bne	.L15
+ 124 006e 4020     		movs	r0, #64
+ 125 0070 FFF7FEFF 		bl	LL_AHB1_GRP1_ForceReset
+ 126 0074 4020     		movs	r0, #64
+ 127 0076 CBE7     		b	.L18
+ 128              	.L15:
+ 129 0078 104B     		ldr	r3, .L19+28
+ 130 007a 9842     		cmp	r0, r3
+ 131 007c 04D1     		bne	.L16
+ 132 007e 8020     		movs	r0, #128
+ 133 0080 FFF7FEFF 		bl	LL_AHB1_GRP1_ForceReset
+ 134 0084 8020     		movs	r0, #128
+ 135 0086 C3E7     		b	.L18
+ 136              	.L16:
+ 137 0088 0D4B     		ldr	r3, .L19+32
+ 138 008a 9842     		cmp	r0, r3
+ 139 008c 06D1     		bne	.L17
+ 140 008e 4FF48070 		mov	r0, #256
+ 141 0092 FFF7FEFF 		bl	LL_AHB1_GRP1_ForceReset
+ 142 0096 4FF48070 		mov	r0, #256
+ 143 009a B9E7     		b	.L18
+ 144              	.L17:
+ 145 009c 0120     		movs	r0, #1
+ 146 009e BAE7     		b	.L9
+ 147              	.L20:
+ 148              		.align	2
+ 149              	.L19:
+ 150 00a0 00000240 		.word	1073872896
+ 151 00a4 00040240 		.word	1073873920
+ 152 00a8 00080240 		.word	1073874944
+ 153 00ac 000C0240 		.word	1073875968
+ 154 00b0 00100240 		.word	1073876992
+ 155 00b4 00140240 		.word	1073878016
+ 156 00b8 00180240 		.word	1073879040
+ 157 00bc 001C0240 		.word	1073880064
+ 158 00c0 00200240 		.word	1073881088
+ 160              		.section	.text.LL_GPIO_Init,"ax",%progbits
+ 161              		.align	1
+ 162              		.global	LL_GPIO_Init
+ 163              		.syntax unified
+ 164              		.thumb
+ 165              		.thumb_func
+ 166              		.fpu fpv5-sp-d16
+ 168              	LL_GPIO_Init:
+ 169              		@ args = 0, pretend = 0, frame = 0
+ 170              		@ frame_needed = 0, uses_anonymous_args = 0
+ 171 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 172 0004 0246     		mov	r2, r0
+ 173 0006 0D68     		ldr	r5, [r1]
+ 174              		.syntax unified
+ 175              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 176 0008 95FAA5F4 		rbit r4, r5
+ 177              	@ 0 "" 2
+ 178              		.thumb
+ARM GAS  /tmp/ccI1tfXr.s 			page 4
+
+
+ 179              		.syntax unified
+ 180 000c 4FF0010E 		mov	lr, #1
+ 181 0010 B4FA84F4 		clz	r4, r4
+ 182 0014 0326     		movs	r6, #3
+ 183 0016 4FF00F0C 		mov	ip, #15
+ 184 001a 6FEA0508 		mvn	r8, r5
+ 185              	.L22:
+ 186 001e 35FA04F0 		lsrs	r0, r5, r4
+ 187 0022 01D1     		bne	.L27
+ 188 0024 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 189              	.L27:
+ 190 0028 0EFA04F3 		lsl	r3, lr, r4
+ 191 002c 2B40     		ands	r3, r3, r5
+ 192 002e 6CD0     		beq	.L23
+ 193 0030 4868     		ldr	r0, [r1, #4]
+ 194 0032 471E     		subs	r7, r0, #1
+ 195 0034 012F     		cmp	r7, #1
+ 196 0036 1ED8     		bhi	.L24
+ 197 0038 9768     		ldr	r7, [r2, #8]
+ 198              		.syntax unified
+ 199              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 200 003a 93FAA3F9 		rbit r9, r3
+ 201              	@ 0 "" 2
+ 202              		.thumb
+ 203              		.syntax unified
+ 204 003e B9FA89F9 		clz	r9, r9
+ 205              		.syntax unified
+ 206              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 207 0042 93FAA3FA 		rbit r10, r3
+ 208              	@ 0 "" 2
+ 209              		.thumb
+ 210              		.syntax unified
+ 211 0046 4FEA4909 		lsl	r9, r9, #1
+ 212 004a BAFA8AFA 		clz	r10, r10
+ 213 004e 06FA09F9 		lsl	r9, r6, r9
+ 214 0052 4FEA4A0A 		lsl	r10, r10, #1
+ 215 0056 27EA0909 		bic	r9, r7, r9
+ 216 005a 8F68     		ldr	r7, [r1, #8]
+ 217 005c 07FA0AF7 		lsl	r7, r7, r10
+ 218 0060 49EA0707 		orr	r7, r9, r7
+ 219 0064 9760     		str	r7, [r2, #8]
+ 220 0066 5768     		ldr	r7, [r2, #4]
+ 221 0068 08EA0709 		and	r9, r8, r7
+ 222 006c CF68     		ldr	r7, [r1, #12]
+ 223 006e 6F43     		muls	r7, r5, r7
+ 224 0070 49EA0707 		orr	r7, r9, r7
+ 225 0074 5760     		str	r7, [r2, #4]
+ 226              	.L24:
+ 227 0076 D768     		ldr	r7, [r2, #12]
+ 228              		.syntax unified
+ 229              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 230 0078 93FAA3F9 		rbit r9, r3
+ 231              	@ 0 "" 2
+ 232              		.thumb
+ 233              		.syntax unified
+ 234 007c B9FA89F9 		clz	r9, r9
+ 235              		.syntax unified
+ARM GAS  /tmp/ccI1tfXr.s 			page 5
+
+
+ 236              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 237 0080 93FAA3FA 		rbit r10, r3
+ 238              	@ 0 "" 2
+ 239              		.thumb
+ 240              		.syntax unified
+ 241 0084 4FEA4909 		lsl	r9, r9, #1
+ 242 0088 BAFA8AFA 		clz	r10, r10
+ 243 008c 0228     		cmp	r0, #2
+ 244 008e 06FA09F9 		lsl	r9, r6, r9
+ 245 0092 4FEA4A0A 		lsl	r10, r10, #1
+ 246 0096 27EA0909 		bic	r9, r7, r9
+ 247 009a 0F69     		ldr	r7, [r1, #16]
+ 248 009c 07FA0AF7 		lsl	r7, r7, r10
+ 249 00a0 49EA0707 		orr	r7, r9, r7
+ 250 00a4 D760     		str	r7, [r2, #12]
+ 251 00a6 1DD1     		bne	.L25
+ 252              		.syntax unified
+ 253              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 254 00a8 93FAA3F7 		rbit r7, r3
+ 255              	@ 0 "" 2
+ 256              		.thumb
+ 257              		.syntax unified
+ 258 00ac B7FA87F7 		clz	r7, r7
+ 259 00b0 D1F814A0 		ldr	r10, [r1, #20]
+ 260 00b4 072F     		cmp	r7, #7
+ 261 00b6 2ADC     		bgt	.L26
+ 262 00b8 D2F820B0 		ldr	fp, [r2, #32]
+ 263              		.syntax unified
+ 264              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 265 00bc 93FAA3F7 		rbit r7, r3
+ 266              	@ 0 "" 2
+ 267              		.thumb
+ 268              		.syntax unified
+ 269 00c0 B7FA87F7 		clz	r7, r7
+ 270              		.syntax unified
+ 271              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 272 00c4 93FAA3F9 		rbit r9, r3
+ 273              	@ 0 "" 2
+ 274              		.thumb
+ 275              		.syntax unified
+ 276 00c8 B9FA89F9 		clz	r9, r9
+ 277 00cc BF00     		lsls	r7, r7, #2
+ 278 00ce 4FEA8909 		lsl	r9, r9, #2
+ 279 00d2 0CFA07F7 		lsl	r7, ip, r7
+ 280 00d6 0AFA09FA 		lsl	r10, r10, r9
+ 281 00da 2BEA0707 		bic	r7, fp, r7
+ 282 00de 47EA0A07 		orr	r7, r7, r10
+ 283 00e2 1762     		str	r7, [r2, #32]
+ 284              	.L25:
+ 285 00e4 D2F80090 		ldr	r9, [r2]
+ 286              		.syntax unified
+ 287              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 288 00e8 93FAA3F7 		rbit r7, r3
+ 289              	@ 0 "" 2
+ 290              		.thumb
+ 291              		.syntax unified
+ 292 00ec B7FA87F7 		clz	r7, r7
+ARM GAS  /tmp/ccI1tfXr.s 			page 6
+
+
+ 293              		.syntax unified
+ 294              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 295 00f0 93FAA3F3 		rbit r3, r3
+ 296              	@ 0 "" 2
+ 297              		.thumb
+ 298              		.syntax unified
+ 299 00f4 B3FA83F3 		clz	r3, r3
+ 300 00f8 7F00     		lsls	r7, r7, #1
+ 301 00fa 5B00     		lsls	r3, r3, #1
+ 302 00fc 06FA07F7 		lsl	r7, r6, r7
+ 303 0100 9840     		lsls	r0, r0, r3
+ 304 0102 29EA0707 		bic	r7, r9, r7
+ 305 0106 0743     		orrs	r7, r7, r0
+ 306 0108 1760     		str	r7, [r2]
+ 307              	.L23:
+ 308 010a 0134     		adds	r4, r4, #1
+ 309 010c 87E7     		b	.L22
+ 310              	.L26:
+ 311 010e D2F824B0 		ldr	fp, [r2, #36]
+ 312 0112 4FEA1329 		lsr	r9, r3, #8
+ 313              		.syntax unified
+ 314              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 315 0116 99FAA9F7 		rbit r7, r9
+ 316              	@ 0 "" 2
+ 317              		.thumb
+ 318              		.syntax unified
+ 319 011a B7FA87F7 		clz	r7, r7
+ 320              		.syntax unified
+ 321              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 322 011e 99FAA9F9 		rbit r9, r9
+ 323              	@ 0 "" 2
+ 324              		.thumb
+ 325              		.syntax unified
+ 326 0122 B9FA89F9 		clz	r9, r9
+ 327 0126 BF00     		lsls	r7, r7, #2
+ 328 0128 4FEA8909 		lsl	r9, r9, #2
+ 329 012c 0CFA07F7 		lsl	r7, ip, r7
+ 330 0130 0AFA09FA 		lsl	r10, r10, r9
+ 331 0134 2BEA0707 		bic	r7, fp, r7
+ 332 0138 47EA0A07 		orr	r7, r7, r10
+ 333 013c 5762     		str	r7, [r2, #36]
+ 334 013e D1E7     		b	.L25
+ 336              		.section	.text.LL_GPIO_StructInit,"ax",%progbits
+ 337              		.align	1
+ 338              		.global	LL_GPIO_StructInit
+ 339              		.syntax unified
+ 340              		.thumb
+ 341              		.thumb_func
+ 342              		.fpu fpv5-sp-d16
+ 344              	LL_GPIO_StructInit:
+ 345              		@ args = 0, pretend = 0, frame = 0
+ 346              		@ frame_needed = 0, uses_anonymous_args = 0
+ 347              		@ link register save eliminated.
+ 348 0000 0323     		movs	r3, #3
+ 349 0002 4FF6FF72 		movw	r2, #65535
+ 350 0006 C0E90023 		strd	r2, r3, [r0]
+ 351 000a 0023     		movs	r3, #0
+ARM GAS  /tmp/ccI1tfXr.s 			page 7
+
+
+ 352 000c C0E90233 		strd	r3, r3, [r0, #8]
+ 353 0010 C0E90433 		strd	r3, r3, [r0, #16]
+ 354 0014 7047     		bx	lr
+ 356              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
+ARM GAS  /tmp/ccI1tfXr.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f7xx_ll_gpio.c
+     /tmp/ccI1tfXr.s:15     .text.LL_AHB1_GRP1_ForceReset:0000000000000000 $t
+     /tmp/ccI1tfXr.s:22     .text.LL_AHB1_GRP1_ForceReset:0000000000000000 LL_AHB1_GRP1_ForceReset
+     /tmp/ccI1tfXr.s:34     .text.LL_AHB1_GRP1_ForceReset:000000000000000c $d
+     /tmp/ccI1tfXr.s:37     .text.LL_AHB1_GRP1_ReleaseReset:0000000000000000 $t
+     /tmp/ccI1tfXr.s:43     .text.LL_AHB1_GRP1_ReleaseReset:0000000000000000 LL_AHB1_GRP1_ReleaseReset
+     /tmp/ccI1tfXr.s:55     .text.LL_AHB1_GRP1_ReleaseReset:000000000000000c $d
+     /tmp/ccI1tfXr.s:58     .text.LL_GPIO_DeInit:0000000000000000 $t
+     /tmp/ccI1tfXr.s:65     .text.LL_GPIO_DeInit:0000000000000000 LL_GPIO_DeInit
+     /tmp/ccI1tfXr.s:150    .text.LL_GPIO_DeInit:00000000000000a0 $d
+     /tmp/ccI1tfXr.s:161    .text.LL_GPIO_Init:0000000000000000 $t
+     /tmp/ccI1tfXr.s:168    .text.LL_GPIO_Init:0000000000000000 LL_GPIO_Init
+     /tmp/ccI1tfXr.s:337    .text.LL_GPIO_StructInit:0000000000000000 $t
+     /tmp/ccI1tfXr.s:344    .text.LL_GPIO_StructInit:0000000000000000 LL_GPIO_StructInit
+
+NO UNDEFINED SYMBOLS

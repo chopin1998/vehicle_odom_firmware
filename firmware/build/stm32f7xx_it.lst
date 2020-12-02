@@ -1,0 +1,375 @@
+ARM GAS  /tmp/ccp7RRyD.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"stm32f7xx_it.c"
+  13              		.text
+  14              		.section	.text.NMI_Handler,"ax",%progbits
+  15              		.align	1
+  16              		.global	NMI_Handler
+  17              		.arch armv7e-m
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  21              		.fpu fpv5-sp-d16
+  23              	NMI_Handler:
+  24              		@ args = 0, pretend = 0, frame = 0
+  25              		@ frame_needed = 0, uses_anonymous_args = 0
+  26              		@ link register save eliminated.
+  27 0000 7047     		bx	lr
+  29              		.section	.text.HardFault_Handler,"ax",%progbits
+  30              		.align	1
+  31              		.global	HardFault_Handler
+  32              		.syntax unified
+  33              		.thumb
+  34              		.thumb_func
+  35              		.fpu fpv5-sp-d16
+  37              	HardFault_Handler:
+  38              		@ args = 0, pretend = 0, frame = 0
+  39              		@ frame_needed = 0, uses_anonymous_args = 0
+  40 0000 38B5     		push	{r3, r4, r5, lr}
+  41 0002 4FF47023 		mov	r3, #983040
+  42              		.syntax unified
+  43              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+  44 0006 93FAA3F3 		rbit r3, r3
+  45              	@ 0 "" 2
+  46              		.thumb
+  47              		.syntax unified
+  48 000a 4FF44032 		mov	r2, #196608
+  49 000e B3FA83F3 		clz	r3, r3
+  50 0012 0A49     		ldr	r1, .L5
+  51 0014 1024     		movs	r4, #16
+  52 0016 DA40     		lsrs	r2, r2, r3
+  53 0018 094D     		ldr	r5, .L5+4
+  54 001a 51F82230 		ldr	r3, [r1, r2, lsl #2]
+  55 001e 23F47F63 		bic	r3, r3, #4080
+  56 0022 23F00F03 		bic	r3, r3, #15
+  57 0026 41F82230 		str	r3, [r1, r2, lsl #2]
+  58              	.L3:
+  59 002a 013C     		subs	r4, r4, #1
+  60 002c 4021     		movs	r1, #64
+ARM GAS  /tmp/ccp7RRyD.s 			page 2
+
+
+  61 002e 2846     		mov	r0, r5
+  62 0030 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+  63 0034 14F0FF04 		ands	r4, r4, #255
+  64 0038 F7D1     		bne	.L3
+  65 003a 38BD     		pop	{r3, r4, r5, pc}
+  66              	.L6:
+  67              		.align	2
+  68              	.L5:
+  69 003c 08740040 		.word	1073771528
+  70 0040 00000240 		.word	1073872896
+  72              		.section	.text.MemManage_Handler,"ax",%progbits
+  73              		.align	1
+  74              		.global	MemManage_Handler
+  75              		.syntax unified
+  76              		.thumb
+  77              		.thumb_func
+  78              		.fpu fpv5-sp-d16
+  80              	MemManage_Handler:
+  81              		@ Volatile: function does not return.
+  82              		@ args = 0, pretend = 0, frame = 0
+  83              		@ frame_needed = 0, uses_anonymous_args = 0
+  84              		@ link register save eliminated.
+  85              	.L8:
+  86 0000 FEE7     		b	.L8
+  88              		.section	.text.BusFault_Handler,"ax",%progbits
+  89              		.align	1
+  90              		.global	BusFault_Handler
+  91              		.syntax unified
+  92              		.thumb
+  93              		.thumb_func
+  94              		.fpu fpv5-sp-d16
+  96              	BusFault_Handler:
+  97              		@ Volatile: function does not return.
+  98              		@ args = 0, pretend = 0, frame = 0
+  99              		@ frame_needed = 0, uses_anonymous_args = 0
+ 100              		@ link register save eliminated.
+ 101              	.L10:
+ 102 0000 FEE7     		b	.L10
+ 104              		.section	.text.UsageFault_Handler,"ax",%progbits
+ 105              		.align	1
+ 106              		.global	UsageFault_Handler
+ 107              		.syntax unified
+ 108              		.thumb
+ 109              		.thumb_func
+ 110              		.fpu fpv5-sp-d16
+ 112              	UsageFault_Handler:
+ 113              		@ Volatile: function does not return.
+ 114              		@ args = 0, pretend = 0, frame = 0
+ 115              		@ frame_needed = 0, uses_anonymous_args = 0
+ 116              		@ link register save eliminated.
+ 117              	.L12:
+ 118 0000 FEE7     		b	.L12
+ 120              		.section	.text.SVC_Handler,"ax",%progbits
+ 121              		.align	1
+ 122              		.global	SVC_Handler
+ 123              		.syntax unified
+ 124              		.thumb
+ARM GAS  /tmp/ccp7RRyD.s 			page 3
+
+
+ 125              		.thumb_func
+ 126              		.fpu fpv5-sp-d16
+ 128              	SVC_Handler:
+ 129              		@ args = 0, pretend = 0, frame = 0
+ 130              		@ frame_needed = 0, uses_anonymous_args = 0
+ 131              		@ link register save eliminated.
+ 132 0000 7047     		bx	lr
+ 134              		.section	.text.DebugMon_Handler,"ax",%progbits
+ 135              		.align	1
+ 136              		.global	DebugMon_Handler
+ 137              		.syntax unified
+ 138              		.thumb
+ 139              		.thumb_func
+ 140              		.fpu fpv5-sp-d16
+ 142              	DebugMon_Handler:
+ 143              		@ args = 0, pretend = 0, frame = 0
+ 144              		@ frame_needed = 0, uses_anonymous_args = 0
+ 145              		@ link register save eliminated.
+ 146 0000 7047     		bx	lr
+ 148              		.section	.text.PendSV_Handler,"ax",%progbits
+ 149              		.align	1
+ 150              		.global	PendSV_Handler
+ 151              		.syntax unified
+ 152              		.thumb
+ 153              		.thumb_func
+ 154              		.fpu fpv5-sp-d16
+ 156              	PendSV_Handler:
+ 157              		@ args = 0, pretend = 0, frame = 0
+ 158              		@ frame_needed = 0, uses_anonymous_args = 0
+ 159              		@ link register save eliminated.
+ 160 0000 7047     		bx	lr
+ 162              		.section	.text.SysTick_Handler,"ax",%progbits
+ 163              		.align	1
+ 164              		.global	SysTick_Handler
+ 165              		.syntax unified
+ 166              		.thumb
+ 167              		.thumb_func
+ 168              		.fpu fpv5-sp-d16
+ 170              	SysTick_Handler:
+ 171              		@ args = 0, pretend = 0, frame = 0
+ 172              		@ frame_needed = 0, uses_anonymous_args = 0
+ 173              		@ link register save eliminated.
+ 174 0000 1449     		ldr	r1, .L22
+ 175 0002 154A     		ldr	r2, .L22+4
+ 176 0004 0868     		ldr	r0, [r1]
+ 177 0006 1368     		ldr	r3, [r2]
+ 178 0008 E8B9     		cbnz	r0, .L17
+ 179 000a 0133     		adds	r3, r3, #1
+ 180 000c 40F6D760 		movw	r0, #3799
+ 181 0010 8342     		cmp	r3, r0
+ 182 0012 1360     		str	r3, [r2]
+ 183 0014 01DD     		ble	.L19
+ 184 0016 0123     		movs	r3, #1
+ 185              	.L21:
+ 186 0018 0B60     		str	r3, [r1]
+ 187              	.L19:
+ 188 001a 4FF47023 		mov	r3, #983040
+ARM GAS  /tmp/ccp7RRyD.s 			page 4
+
+
+ 189              		.syntax unified
+ 190              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 191 001e 93FAA3F3 		rbit r3, r3
+ 192              	@ 0 "" 2
+ 193              		.thumb
+ 194              		.syntax unified
+ 195 0022 4FF44031 		mov	r1, #196608
+ 196 0026 B3FA83F3 		clz	r3, r3
+ 197 002a 0C48     		ldr	r0, .L22+8
+ 198 002c D940     		lsrs	r1, r1, r3
+ 199 002e 1268     		ldr	r2, [r2]
+ 200 0030 50F82130 		ldr	r3, [r0, r1, lsl #2]
+ 201 0034 23F47F63 		bic	r3, r3, #4080
+ 202 0038 23F00F03 		bic	r3, r3, #15
+ 203 003c 1343     		orrs	r3, r3, r2
+ 204 003e 40F82130 		str	r3, [r0, r1, lsl #2]
+ 205 0042 FFF7FEBF 		b	HAL_IncTick
+ 206              	.L17:
+ 207 0046 013B     		subs	r3, r3, #1
+ 208 0048 B3F52F6F 		cmp	r3, #2800
+ 209 004c 1360     		str	r3, [r2]
+ 210 004e E4DC     		bgt	.L19
+ 211 0050 0023     		movs	r3, #0
+ 212 0052 E1E7     		b	.L21
+ 213              	.L23:
+ 214              		.align	2
+ 215              	.L22:
+ 216 0054 00000000 		.word	.LANCHOR1
+ 217 0058 00000000 		.word	.LANCHOR0
+ 218 005c 08740040 		.word	1073771528
+ 220              		.section	.text.DMA1_Stream1_IRQHandler,"ax",%progbits
+ 221              		.align	1
+ 222              		.global	DMA1_Stream1_IRQHandler
+ 223              		.syntax unified
+ 224              		.thumb
+ 225              		.thumb_func
+ 226              		.fpu fpv5-sp-d16
+ 228              	DMA1_Stream1_IRQHandler:
+ 229              		@ args = 0, pretend = 0, frame = 0
+ 230              		@ frame_needed = 0, uses_anonymous_args = 0
+ 231              		@ link register save eliminated.
+ 232 0000 0148     		ldr	r0, .L25
+ 233 0002 FFF7FEBF 		b	HAL_DMA_IRQHandler
+ 234              	.L26:
+ 235 0006 00BF     		.align	2
+ 236              	.L25:
+ 237 0008 00000000 		.word	hdma_usart3_rx
+ 239              		.section	.text.DMA1_Stream3_IRQHandler,"ax",%progbits
+ 240              		.align	1
+ 241              		.global	DMA1_Stream3_IRQHandler
+ 242              		.syntax unified
+ 243              		.thumb
+ 244              		.thumb_func
+ 245              		.fpu fpv5-sp-d16
+ 247              	DMA1_Stream3_IRQHandler:
+ 248              		@ args = 0, pretend = 0, frame = 0
+ 249              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/ccp7RRyD.s 			page 5
+
+
+ 250              		@ link register save eliminated.
+ 251 0000 0148     		ldr	r0, .L28
+ 252 0002 FFF7FEBF 		b	HAL_DMA_IRQHandler
+ 253              	.L29:
+ 254 0006 00BF     		.align	2
+ 255              	.L28:
+ 256 0008 00000000 		.word	hdma_usart3_tx
+ 258              		.section	.text.USART3_IRQHandler,"ax",%progbits
+ 259              		.align	1
+ 260              		.global	USART3_IRQHandler
+ 261              		.syntax unified
+ 262              		.thumb
+ 263              		.thumb_func
+ 264              		.fpu fpv5-sp-d16
+ 266              	USART3_IRQHandler:
+ 267              		@ args = 0, pretend = 0, frame = 0
+ 268              		@ frame_needed = 0, uses_anonymous_args = 0
+ 269 0000 10B5     		push	{r4, lr}
+ 270 0002 0D4C     		ldr	r4, .L32
+ 271 0004 2046     		mov	r0, r4
+ 272 0006 FFF7FEFF 		bl	HAL_UART_IRQHandler
+ 273 000a 2368     		ldr	r3, [r4]
+ 274 000c DA69     		ldr	r2, [r3, #28]
+ 275 000e D206     		lsls	r2, r2, #27
+ 276 0010 10D5     		bpl	.L30
+ 277 0012 1022     		movs	r2, #16
+ 278 0014 2046     		mov	r0, r4
+ 279 0016 1A62     		str	r2, [r3, #32]
+ 280 0018 FFF7FEFF 		bl	HAL_UART_DMAStop
+ 281 001c 074B     		ldr	r3, .L32+4
+ 282 001e 1B68     		ldr	r3, [r3]
+ 283 0020 5868     		ldr	r0, [r3, #4]
+ 284 0022 C0F18000 		rsb	r0, r0, #128
+ 285 0026 C0B2     		uxtb	r0, r0
+ 286 0028 FFF7FEFF 		bl	ser_imu_callback
+ 287 002c BDE81040 		pop	{r4, lr}
+ 288 0030 FFF7FEBF 		b	ser_imu_enable
+ 289              	.L30:
+ 290 0034 10BD     		pop	{r4, pc}
+ 291              	.L33:
+ 292 0036 00BF     		.align	2
+ 293              	.L32:
+ 294 0038 00000000 		.word	huart3
+ 295 003c 00000000 		.word	hdma_usart3_rx
+ 297              		.section	.text.OTG_FS_IRQHandler,"ax",%progbits
+ 298              		.align	1
+ 299              		.global	OTG_FS_IRQHandler
+ 300              		.syntax unified
+ 301              		.thumb
+ 302              		.thumb_func
+ 303              		.fpu fpv5-sp-d16
+ 305              	OTG_FS_IRQHandler:
+ 306              		@ args = 0, pretend = 0, frame = 0
+ 307              		@ frame_needed = 0, uses_anonymous_args = 0
+ 308              		@ link register save eliminated.
+ 309 0000 0148     		ldr	r0, .L35
+ 310 0002 FFF7FEBF 		b	HAL_PCD_IRQHandler
+ARM GAS  /tmp/ccp7RRyD.s 			page 6
+
+
+ 311              	.L36:
+ 312 0006 00BF     		.align	2
+ 313              	.L35:
+ 314 0008 00000000 		.word	hpcd_USB_OTG_FS
+ 316              		.comm	odom,1,1
+ 317              		.section	.bss.led_dir.12842,"aw",%nobits
+ 318              		.align	2
+ 319              		.set	.LANCHOR1,. + 0
+ 322              	led_dir.12842:
+ 323 0000 00000000 		.space	4
+ 324              		.section	.data.led_val.12841,"aw"
+ 325              		.align	2
+ 326              		.set	.LANCHOR0,. + 0
+ 329              	led_val.12841:
+ 330 0000 F00A0000 		.word	2800
+ 331              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
+ARM GAS  /tmp/ccp7RRyD.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f7xx_it.c
+     /tmp/ccp7RRyD.s:15     .text.NMI_Handler:0000000000000000 $t
+     /tmp/ccp7RRyD.s:23     .text.NMI_Handler:0000000000000000 NMI_Handler
+     /tmp/ccp7RRyD.s:30     .text.HardFault_Handler:0000000000000000 $t
+     /tmp/ccp7RRyD.s:37     .text.HardFault_Handler:0000000000000000 HardFault_Handler
+     /tmp/ccp7RRyD.s:69     .text.HardFault_Handler:000000000000003c $d
+     /tmp/ccp7RRyD.s:73     .text.MemManage_Handler:0000000000000000 $t
+     /tmp/ccp7RRyD.s:80     .text.MemManage_Handler:0000000000000000 MemManage_Handler
+     /tmp/ccp7RRyD.s:89     .text.BusFault_Handler:0000000000000000 $t
+     /tmp/ccp7RRyD.s:96     .text.BusFault_Handler:0000000000000000 BusFault_Handler
+     /tmp/ccp7RRyD.s:105    .text.UsageFault_Handler:0000000000000000 $t
+     /tmp/ccp7RRyD.s:112    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
+     /tmp/ccp7RRyD.s:121    .text.SVC_Handler:0000000000000000 $t
+     /tmp/ccp7RRyD.s:128    .text.SVC_Handler:0000000000000000 SVC_Handler
+     /tmp/ccp7RRyD.s:135    .text.DebugMon_Handler:0000000000000000 $t
+     /tmp/ccp7RRyD.s:142    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
+     /tmp/ccp7RRyD.s:149    .text.PendSV_Handler:0000000000000000 $t
+     /tmp/ccp7RRyD.s:156    .text.PendSV_Handler:0000000000000000 PendSV_Handler
+     /tmp/ccp7RRyD.s:163    .text.SysTick_Handler:0000000000000000 $t
+     /tmp/ccp7RRyD.s:170    .text.SysTick_Handler:0000000000000000 SysTick_Handler
+     /tmp/ccp7RRyD.s:216    .text.SysTick_Handler:0000000000000054 $d
+     /tmp/ccp7RRyD.s:221    .text.DMA1_Stream1_IRQHandler:0000000000000000 $t
+     /tmp/ccp7RRyD.s:228    .text.DMA1_Stream1_IRQHandler:0000000000000000 DMA1_Stream1_IRQHandler
+     /tmp/ccp7RRyD.s:237    .text.DMA1_Stream1_IRQHandler:0000000000000008 $d
+     /tmp/ccp7RRyD.s:240    .text.DMA1_Stream3_IRQHandler:0000000000000000 $t
+     /tmp/ccp7RRyD.s:247    .text.DMA1_Stream3_IRQHandler:0000000000000000 DMA1_Stream3_IRQHandler
+     /tmp/ccp7RRyD.s:256    .text.DMA1_Stream3_IRQHandler:0000000000000008 $d
+     /tmp/ccp7RRyD.s:259    .text.USART3_IRQHandler:0000000000000000 $t
+     /tmp/ccp7RRyD.s:266    .text.USART3_IRQHandler:0000000000000000 USART3_IRQHandler
+     /tmp/ccp7RRyD.s:294    .text.USART3_IRQHandler:0000000000000038 $d
+     /tmp/ccp7RRyD.s:298    .text.OTG_FS_IRQHandler:0000000000000000 $t
+     /tmp/ccp7RRyD.s:305    .text.OTG_FS_IRQHandler:0000000000000000 OTG_FS_IRQHandler
+     /tmp/ccp7RRyD.s:314    .text.OTG_FS_IRQHandler:0000000000000008 $d
+                            *COM*:0000000000000001 odom
+     /tmp/ccp7RRyD.s:318    .bss.led_dir.12842:0000000000000000 $d
+     /tmp/ccp7RRyD.s:322    .bss.led_dir.12842:0000000000000000 led_dir.12842
+     /tmp/ccp7RRyD.s:325    .data.led_val.12841:0000000000000000 $d
+     /tmp/ccp7RRyD.s:329    .data.led_val.12841:0000000000000000 led_val.12841
+
+UNDEFINED SYMBOLS
+HAL_GPIO_TogglePin
+HAL_IncTick
+HAL_DMA_IRQHandler
+hdma_usart3_rx
+hdma_usart3_tx
+HAL_UART_IRQHandler
+HAL_UART_DMAStop
+ser_imu_callback
+ser_imu_enable
+huart3
+HAL_PCD_IRQHandler
+hpcd_USB_OTG_FS

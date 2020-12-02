@@ -25,6 +25,8 @@ class OdomDump( object ):
             print('flush dev error')
             sys.exit(-1)
         
+        print('\033[2J') # clear screen
+        print('\033[?25l') # hide cursor
         while 1:
 
             try:
@@ -49,8 +51,27 @@ class OdomDump( object ):
             imu_data[2] /= 10
 
             odom_data = odom_data.split(b',')
+            odom_data[0] = int(odom_data[0], 16)
+            odom_data[1:] = list(map(int, odom_data[1:]))
 
-            print(imu_data, odom_data, end='\r')
+            # print(imu_data, odom_data, end='\r')
+            for i in imu_data:
+                if i < 0:
+                    print(i, ' '*4)
+                else:
+                    print('', i, ' '*4)
+            
+            print('--'*4)
+
+            for i in odom_data:
+                if i < 0:
+                    print(i, ' '*4)
+                else:
+                    print('', i, ' '*4)
+            
+            print('\033[%dA' %(12)) # move cursor N line up
+
+
 
 
 ########################

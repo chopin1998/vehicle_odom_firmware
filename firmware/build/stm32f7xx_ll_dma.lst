@@ -1,0 +1,363 @@
+ARM GAS  /tmp/ccw3pI5K.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"stm32f7xx_ll_dma.c"
+  13              		.text
+  14              		.section	.text.LL_DMA_DeInit,"ax",%progbits
+  15              		.align	1
+  16              		.global	LL_DMA_DeInit
+  17              		.arch armv7e-m
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  21              		.fpu fpv5-sp-d16
+  23              	LL_DMA_DeInit:
+  24              		@ args = 0, pretend = 0, frame = 0
+  25              		@ frame_needed = 0, uses_anonymous_args = 0
+  26 0000 11F5803F 		cmn	r1, #65536
+  27 0004 0246     		mov	r2, r0
+  28 0006 4F48     		ldr	r0, .L36
+  29 0008 30B5     		push	{r4, r5, lr}
+  30 000a 1AD1     		bne	.L2
+  31 000c 8242     		cmp	r2, r0
+  32 000e 0AD1     		bne	.L3
+  33 0010 4D4B     		ldr	r3, .L36+4
+  34 0012 1A69     		ldr	r2, [r3, #16]
+  35 0014 42F40012 		orr	r2, r2, #2097152
+  36 0018 1A61     		str	r2, [r3, #16]
+  37 001a 1A69     		ldr	r2, [r3, #16]
+  38 001c 22F40012 		bic	r2, r2, #2097152
+  39              	.L34:
+  40 0020 1A61     		str	r2, [r3, #16]
+  41              	.L32:
+  42 0022 0020     		movs	r0, #0
+  43 0024 03E0     		b	.L4
+  44              	.L3:
+  45 0026 494B     		ldr	r3, .L36+8
+  46 0028 9A42     		cmp	r2, r3
+  47 002a 01D0     		beq	.L5
+  48              	.L28:
+  49 002c 0120     		movs	r0, #1
+  50              	.L4:
+  51 002e 30BD     		pop	{r4, r5, pc}
+  52              	.L5:
+  53 0030 454B     		ldr	r3, .L36+4
+  54 0032 1A69     		ldr	r2, [r3, #16]
+  55 0034 42F48002 		orr	r2, r2, #4194304
+  56 0038 1A61     		str	r2, [r3, #16]
+  57 003a 1A69     		ldr	r2, [r3, #16]
+  58 003c 22F48002 		bic	r2, r2, #4194304
+ARM GAS  /tmp/ccw3pI5K.s 			page 2
+
+
+  59 0040 EEE7     		b	.L34
+  60              	.L2:
+  61 0042 434B     		ldr	r3, .L36+12
+  62 0044 8242     		cmp	r2, r0
+  63 0046 5C5C     		ldrb	r4, [r3, r1]	@ zero_extendqisi2
+  64 0048 1359     		ldr	r3, [r2, r4]
+  65 004a 23F00103 		bic	r3, r3, #1
+  66 004e 1351     		str	r3, [r2, r4]
+  67 0050 12D1     		bne	.L6
+  68 0052 B9B9     		cbnz	r1, .L7
+  69 0054 3F4B     		ldr	r3, .L36+16
+  70              	.L8:
+  71 0056 0020     		movs	r0, #0
+  72 0058 2125     		movs	r5, #33
+  73 005a 1860     		str	r0, [r3]
+  74 005c 5860     		str	r0, [r3, #4]
+  75 005e 9860     		str	r0, [r3, #8]
+  76 0060 D860     		str	r0, [r3, #12]
+  77 0062 1861     		str	r0, [r3, #16]
+  78 0064 5D61     		str	r5, [r3, #20]
+  79 0066 1359     		ldr	r3, [r2, r4]
+  80 0068 23F0F053 		bic	r3, r3, #503316480
+  81 006c 1351     		str	r3, [r2, r4]
+  82 006e 0029     		cmp	r1, #0
+  83 0070 42D1     		bne	.L21
+  84 0072 3F23     		movs	r3, #63
+  85 0074 9360     		str	r3, [r2, #8]
+  86 0076 D4E7     		b	.L32
+  87              	.L6:
+  88 0078 344B     		ldr	r3, .L36+8
+  89 007a 9A42     		cmp	r2, r3
+  90 007c 3AD1     		bne	.L29
+  91 007e 29B9     		cbnz	r1, .L9
+  92 0080 1033     		adds	r3, r3, #16
+  93 0082 E8E7     		b	.L8
+  94              	.L7:
+  95 0084 0129     		cmp	r1, #1
+  96 0086 05D1     		bne	.L10
+  97 0088 334B     		ldr	r3, .L36+20
+  98 008a E4E7     		b	.L8
+  99              	.L9:
+ 100 008c 0129     		cmp	r1, #1
+ 101 008e 05D1     		bne	.L11
+ 102 0090 324B     		ldr	r3, .L36+24
+ 103 0092 E0E7     		b	.L8
+ 104              	.L10:
+ 105 0094 0229     		cmp	r1, #2
+ 106 0096 05D1     		bne	.L12
+ 107 0098 314B     		ldr	r3, .L36+28
+ 108 009a DCE7     		b	.L8
+ 109              	.L11:
+ 110 009c 0229     		cmp	r1, #2
+ 111 009e 05D1     		bne	.L13
+ 112 00a0 304B     		ldr	r3, .L36+32
+ 113 00a2 D8E7     		b	.L8
+ 114              	.L12:
+ 115 00a4 0329     		cmp	r1, #3
+ARM GAS  /tmp/ccw3pI5K.s 			page 3
+
+
+ 116 00a6 05D1     		bne	.L14
+ 117 00a8 2F4B     		ldr	r3, .L36+36
+ 118 00aa D4E7     		b	.L8
+ 119              	.L13:
+ 120 00ac 0329     		cmp	r1, #3
+ 121 00ae 05D1     		bne	.L15
+ 122 00b0 2E4B     		ldr	r3, .L36+40
+ 123 00b2 D0E7     		b	.L8
+ 124              	.L14:
+ 125 00b4 0429     		cmp	r1, #4
+ 126 00b6 05D1     		bne	.L16
+ 127 00b8 2D4B     		ldr	r3, .L36+44
+ 128 00ba CCE7     		b	.L8
+ 129              	.L15:
+ 130 00bc 0429     		cmp	r1, #4
+ 131 00be 05D1     		bne	.L17
+ 132 00c0 2C4B     		ldr	r3, .L36+48
+ 133 00c2 C8E7     		b	.L8
+ 134              	.L16:
+ 135 00c4 0529     		cmp	r1, #5
+ 136 00c6 05D1     		bne	.L18
+ 137 00c8 2B4B     		ldr	r3, .L36+52
+ 138 00ca C4E7     		b	.L8
+ 139              	.L17:
+ 140 00cc 0529     		cmp	r1, #5
+ 141 00ce 05D1     		bne	.L19
+ 142 00d0 2A4B     		ldr	r3, .L36+56
+ 143 00d2 C0E7     		b	.L8
+ 144              	.L18:
+ 145 00d4 0629     		cmp	r1, #6
+ 146 00d6 07D1     		bne	.L20
+ 147 00d8 294B     		ldr	r3, .L36+60
+ 148 00da BCE7     		b	.L8
+ 149              	.L19:
+ 150 00dc 294B     		ldr	r3, .L36+64
+ 151 00de 2A48     		ldr	r0, .L36+68
+ 152 00e0 0629     		cmp	r1, #6
+ 153 00e2 18BF     		it	ne
+ 154 00e4 0346     		movne	r3, r0
+ 155 00e6 B6E7     		b	.L8
+ 156              	.L20:
+ 157 00e8 284B     		ldr	r3, .L36+72
+ 158 00ea 2748     		ldr	r0, .L36+68
+ 159 00ec 0729     		cmp	r1, #7
+ 160 00ee 18BF     		it	ne
+ 161 00f0 0346     		movne	r3, r0
+ 162 00f2 B0E7     		b	.L8
+ 163              	.L29:
+ 164 00f4 244B     		ldr	r3, .L36+68
+ 165 00f6 AEE7     		b	.L8
+ 166              	.L21:
+ 167 00f8 0129     		cmp	r1, #1
+ 168 00fa 03D1     		bne	.L22
+ 169 00fc 4FF47463 		mov	r3, #3904
+ 170              	.L35:
+ 171 0100 9360     		str	r3, [r2, #8]
+ 172 0102 94E7     		b	.L4
+ARM GAS  /tmp/ccw3pI5K.s 			page 4
+
+
+ 173              	.L22:
+ 174 0104 0229     		cmp	r1, #2
+ 175 0106 02D1     		bne	.L23
+ 176 0108 4FF47C13 		mov	r3, #4128768
+ 177 010c F8E7     		b	.L35
+ 178              	.L23:
+ 179 010e 0329     		cmp	r1, #3
+ 180 0110 02D1     		bne	.L24
+ 181 0112 4FF07463 		mov	r3, #255852544
+ 182 0116 F3E7     		b	.L35
+ 183              	.L24:
+ 184 0118 0429     		cmp	r1, #4
+ 185 011a 02D1     		bne	.L25
+ 186 011c 3F23     		movs	r3, #63
+ 187              	.L33:
+ 188 011e D360     		str	r3, [r2, #12]
+ 189 0120 85E7     		b	.L4
+ 190              	.L25:
+ 191 0122 0529     		cmp	r1, #5
+ 192 0124 02D1     		bne	.L26
+ 193 0126 4FF47463 		mov	r3, #3904
+ 194 012a F8E7     		b	.L33
+ 195              	.L26:
+ 196 012c 0629     		cmp	r1, #6
+ 197 012e 02D1     		bne	.L27
+ 198 0130 4FF47C13 		mov	r3, #4128768
+ 199 0134 F3E7     		b	.L33
+ 200              	.L27:
+ 201 0136 0729     		cmp	r1, #7
+ 202 0138 7FF478AF 		bne	.L28
+ 203 013c 4FF07463 		mov	r3, #255852544
+ 204 0140 EDE7     		b	.L33
+ 205              	.L37:
+ 206 0142 00BF     		.align	2
+ 207              	.L36:
+ 208 0144 00600240 		.word	1073897472
+ 209 0148 00380240 		.word	1073887232
+ 210 014c 00640240 		.word	1073898496
+ 211 0150 00000000 		.word	.LANCHOR0
+ 212 0154 10600240 		.word	1073897488
+ 213 0158 28600240 		.word	1073897512
+ 214 015c 28640240 		.word	1073898536
+ 215 0160 40600240 		.word	1073897536
+ 216 0164 40640240 		.word	1073898560
+ 217 0168 58600240 		.word	1073897560
+ 218 016c 58640240 		.word	1073898584
+ 219 0170 70600240 		.word	1073897584
+ 220 0174 70640240 		.word	1073898608
+ 221 0178 88600240 		.word	1073897608
+ 222 017c 88640240 		.word	1073898632
+ 223 0180 A0600240 		.word	1073897632
+ 224 0184 A0640240 		.word	1073898656
+ 225 0188 B8640240 		.word	1073898680
+ 226 018c B8600240 		.word	1073897656
+ 228              		.section	.text.LL_DMA_Init,"ax",%progbits
+ 229              		.align	1
+ 230              		.global	LL_DMA_Init
+ARM GAS  /tmp/ccw3pI5K.s 			page 5
+
+
+ 231              		.syntax unified
+ 232              		.thumb
+ 233              		.thumb_func
+ 234              		.fpu fpv5-sp-d16
+ 236              	LL_DMA_Init:
+ 237              		@ args = 0, pretend = 0, frame = 0
+ 238              		@ frame_needed = 0, uses_anonymous_args = 0
+ 239 0000 1F4B     		ldr	r3, .L43
+ 240 0002 70B5     		push	{r4, r5, r6, lr}
+ 241 0004 595C     		ldrb	r1, [r3, r1]	@ zero_extendqisi2
+ 242 0006 D2E90236 		ldrd	r3, r6, [r2, #8]
+ 243 000a 4558     		ldr	r5, [r0, r1]
+ 244 000c 4418     		adds	r4, r0, r1
+ 245 000e 3343     		orrs	r3, r3, r6
+ 246 0010 1669     		ldr	r6, [r2, #16]
+ 247 0012 25F45F35 		bic	r5, r5, #228352
+ 248 0016 3343     		orrs	r3, r3, r6
+ 249 0018 5669     		ldr	r6, [r2, #20]
+ 250 001a 25F47875 		bic	r5, r5, #992
+ 251 001e 3343     		orrs	r3, r3, r6
+ 252 0020 9669     		ldr	r6, [r2, #24]
+ 253 0022 3343     		orrs	r3, r3, r6
+ 254 0024 D669     		ldr	r6, [r2, #28]
+ 255 0026 3343     		orrs	r3, r3, r6
+ 256 0028 966A     		ldr	r6, [r2, #40]
+ 257 002a 3343     		orrs	r3, r3, r6
+ 258 002c 2B43     		orrs	r3, r3, r5
+ 259 002e 4350     		str	r3, [r0, r1]
+ 260 0030 D36A     		ldr	r3, [r2, #44]
+ 261 0032 93B1     		cbz	r3, .L39
+ 262 0034 6569     		ldr	r5, [r4, #20]
+ 263 0036 166B     		ldr	r6, [r2, #48]
+ 264 0038 25F00705 		bic	r5, r5, #7
+ 265 003c 3343     		orrs	r3, r3, r6
+ 266 003e 2B43     		orrs	r3, r3, r5
+ 267 0040 556B     		ldr	r5, [r2, #52]
+ 268 0042 6361     		str	r3, [r4, #20]
+ 269 0044 4358     		ldr	r3, [r0, r1]
+ 270 0046 23F0C073 		bic	r3, r3, #25165824
+ 271 004a 2B43     		orrs	r3, r3, r5
+ 272 004c 956B     		ldr	r5, [r2, #56]
+ 273 004e 4350     		str	r3, [r0, r1]
+ 274 0050 4358     		ldr	r3, [r0, r1]
+ 275 0052 23F4C003 		bic	r3, r3, #6291456
+ 276 0056 2B43     		orrs	r3, r3, r5
+ 277 0058 4350     		str	r3, [r0, r1]
+ 278              	.L39:
+ 279 005a 5368     		ldr	r3, [r2, #4]
+ 280 005c 156A     		ldr	r5, [r2, #32]
+ 281 005e E360     		str	r3, [r4, #12]
+ 282 0060 1368     		ldr	r3, [r2]
+ 283 0062 526A     		ldr	r2, [r2, #36]
+ 284 0064 A360     		str	r3, [r4, #8]
+ 285 0066 6368     		ldr	r3, [r4, #4]
+ 286 0068 1B0C     		lsrs	r3, r3, #16
+ 287 006a 1B04     		lsls	r3, r3, #16
+ 288 006c 2B43     		orrs	r3, r3, r5
+ARM GAS  /tmp/ccw3pI5K.s 			page 6
+
+
+ 289 006e 6360     		str	r3, [r4, #4]
+ 290 0070 4358     		ldr	r3, [r0, r1]
+ 291 0072 23F0F053 		bic	r3, r3, #503316480
+ 292 0076 1343     		orrs	r3, r3, r2
+ 293 0078 4350     		str	r3, [r0, r1]
+ 294 007a 0020     		movs	r0, #0
+ 295 007c 70BD     		pop	{r4, r5, r6, pc}
+ 296              	.L44:
+ 297 007e 00BF     		.align	2
+ 298              	.L43:
+ 299 0080 00000000 		.word	.LANCHOR0
+ 301              		.section	.text.LL_DMA_StructInit,"ax",%progbits
+ 302              		.align	1
+ 303              		.global	LL_DMA_StructInit
+ 304              		.syntax unified
+ 305              		.thumb
+ 306              		.thumb_func
+ 307              		.fpu fpv5-sp-d16
+ 309              	LL_DMA_StructInit:
+ 310              		@ args = 0, pretend = 0, frame = 0
+ 311              		@ frame_needed = 0, uses_anonymous_args = 0
+ 312              		@ link register save eliminated.
+ 313 0000 0023     		movs	r3, #0
+ 314 0002 C0E90033 		strd	r3, r3, [r0]
+ 315 0006 C0E90233 		strd	r3, r3, [r0, #8]
+ 316 000a C0E90433 		strd	r3, r3, [r0, #16]
+ 317 000e C0E90633 		strd	r3, r3, [r0, #24]
+ 318 0012 C0E90833 		strd	r3, r3, [r0, #32]
+ 319 0016 C0E90A33 		strd	r3, r3, [r0, #40]
+ 320 001a C0E90C33 		strd	r3, r3, [r0, #48]
+ 321 001e 8363     		str	r3, [r0, #56]
+ 322 0020 7047     		bx	lr
+ 324              		.section	.rodata.STREAM_OFFSET_TAB,"a"
+ 325              		.set	.LANCHOR0,. + 0
+ 328              	STREAM_OFFSET_TAB:
+ 329 0000 10       		.byte	16
+ 330 0001 28       		.byte	40
+ 331 0002 40       		.byte	64
+ 332 0003 58       		.byte	88
+ 333 0004 70       		.byte	112
+ 334 0005 88       		.byte	-120
+ 335 0006 A0       		.byte	-96
+ 336 0007 B8       		.byte	-72
+ 337              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
+ARM GAS  /tmp/ccw3pI5K.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f7xx_ll_dma.c
+     /tmp/ccw3pI5K.s:15     .text.LL_DMA_DeInit:0000000000000000 $t
+     /tmp/ccw3pI5K.s:23     .text.LL_DMA_DeInit:0000000000000000 LL_DMA_DeInit
+     /tmp/ccw3pI5K.s:208    .text.LL_DMA_DeInit:0000000000000144 $d
+     /tmp/ccw3pI5K.s:229    .text.LL_DMA_Init:0000000000000000 $t
+     /tmp/ccw3pI5K.s:236    .text.LL_DMA_Init:0000000000000000 LL_DMA_Init
+     /tmp/ccw3pI5K.s:299    .text.LL_DMA_Init:0000000000000080 $d
+     /tmp/ccw3pI5K.s:302    .text.LL_DMA_StructInit:0000000000000000 $t
+     /tmp/ccw3pI5K.s:309    .text.LL_DMA_StructInit:0000000000000000 LL_DMA_StructInit
+     /tmp/ccw3pI5K.s:328    .rodata.STREAM_OFFSET_TAB:0000000000000000 STREAM_OFFSET_TAB
+
+NO UNDEFINED SYMBOLS

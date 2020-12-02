@@ -1,0 +1,173 @@
+ARM GAS  /tmp/ccutLLwt.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"spi.c"
+  13              		.text
+  14              		.section	.text.MX_SPI2_Init,"ax",%progbits
+  15              		.align	1
+  16              		.global	MX_SPI2_Init
+  17              		.arch armv7e-m
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  21              		.fpu fpv5-sp-d16
+  23              	MX_SPI2_Init:
+  24              		@ args = 0, pretend = 0, frame = 0
+  25              		@ frame_needed = 0, uses_anonymous_args = 0
+  26 0000 08B5     		push	{r3, lr}
+  27 0002 1148     		ldr	r0, .L3
+  28 0004 4FF48273 		mov	r3, #260
+  29 0008 104A     		ldr	r2, .L3+4
+  30 000a 0221     		movs	r1, #2
+  31 000c 4FF4802C 		mov	ip, #262144
+  32 0010 C0E90023 		strd	r2, r3, [r0]
+  33 0014 0023     		movs	r3, #0
+  34 0016 4FF4E062 		mov	r2, #1792
+  35 001a C0E90232 		strd	r3, r2, [r0, #8]
+  36 001e 0122     		movs	r2, #1
+  37 0020 8362     		str	r3, [r0, #40]
+  38 0022 4363     		str	r3, [r0, #52]
+  39 0024 C0E90412 		strd	r1, r2, [r0, #16]
+  40 0028 2022     		movs	r2, #32
+  41 002a C0E906C2 		strd	ip, r2, [r0, #24]
+  42 002e 0722     		movs	r2, #7
+  43 0030 C0E90833 		strd	r3, r3, [r0, #32]
+  44 0034 C0E90B23 		strd	r2, r3, [r0, #44]
+  45 0038 FFF7FEFF 		bl	HAL_SPI_Init
+  46 003c 18B1     		cbz	r0, .L1
+  47 003e BDE80840 		pop	{r3, lr}
+  48 0042 FFF7FEBF 		b	Error_Handler
+  49              	.L1:
+  50 0046 08BD     		pop	{r3, pc}
+  51              	.L4:
+  52              		.align	2
+  53              	.L3:
+  54 0048 00000000 		.word	hspi2
+  55 004c 00380040 		.word	1073756160
+  57              		.section	.text.HAL_SPI_MspInit,"ax",%progbits
+  58              		.align	1
+  59              		.global	HAL_SPI_MspInit
+ARM GAS  /tmp/ccutLLwt.s 			page 2
+
+
+  60              		.syntax unified
+  61              		.thumb
+  62              		.thumb_func
+  63              		.fpu fpv5-sp-d16
+  65              	HAL_SPI_MspInit:
+  66              		@ args = 0, pretend = 0, frame = 32
+  67              		@ frame_needed = 0, uses_anonymous_args = 0
+  68 0000 10B5     		push	{r4, lr}
+  69 0002 88B0     		sub	sp, sp, #32
+  70 0004 0446     		mov	r4, r0
+  71 0006 1422     		movs	r2, #20
+  72 0008 0021     		movs	r1, #0
+  73 000a 03A8     		add	r0, sp, #12
+  74 000c FFF7FEFF 		bl	memset
+  75 0010 2268     		ldr	r2, [r4]
+  76 0012 134B     		ldr	r3, .L7
+  77 0014 9A42     		cmp	r2, r3
+  78 0016 20D1     		bne	.L5
+  79 0018 03F50033 		add	r3, r3, #131072
+  80 001c 0321     		movs	r1, #3
+  81 001e 1148     		ldr	r0, .L7+4
+  82 0020 1A6C     		ldr	r2, [r3, #64]
+  83 0022 42F48042 		orr	r2, r2, #16384
+  84 0026 1A64     		str	r2, [r3, #64]
+  85 0028 1A6C     		ldr	r2, [r3, #64]
+  86 002a 02F48042 		and	r2, r2, #16384
+  87 002e 0192     		str	r2, [sp, #4]
+  88 0030 019A     		ldr	r2, [sp, #4]
+  89 0032 1A6B     		ldr	r2, [r3, #48]
+  90 0034 42F00202 		orr	r2, r2, #2
+  91 0038 1A63     		str	r2, [r3, #48]
+  92 003a 4FF47042 		mov	r2, #61440
+  93 003e 1B6B     		ldr	r3, [r3, #48]
+  94 0040 03F00203 		and	r3, r3, #2
+  95 0044 0293     		str	r3, [sp, #8]
+  96 0046 029B     		ldr	r3, [sp, #8]
+  97 0048 0223     		movs	r3, #2
+  98 004a CDE90323 		strd	r2, r3, [sp, #12]
+  99 004e 0523     		movs	r3, #5
+ 100 0050 CDE90613 		strd	r1, r3, [sp, #24]
+ 101 0054 03A9     		add	r1, sp, #12
+ 102 0056 FFF7FEFF 		bl	HAL_GPIO_Init
+ 103              	.L5:
+ 104 005a 08B0     		add	sp, sp, #32
+ 105              		@ sp needed
+ 106 005c 10BD     		pop	{r4, pc}
+ 107              	.L8:
+ 108 005e 00BF     		.align	2
+ 109              	.L7:
+ 110 0060 00380040 		.word	1073756160
+ 111 0064 00040240 		.word	1073873920
+ 113              		.section	.text.HAL_SPI_MspDeInit,"ax",%progbits
+ 114              		.align	1
+ 115              		.global	HAL_SPI_MspDeInit
+ 116              		.syntax unified
+ 117              		.thumb
+ 118              		.thumb_func
+ARM GAS  /tmp/ccutLLwt.s 			page 3
+
+
+ 119              		.fpu fpv5-sp-d16
+ 121              	HAL_SPI_MspDeInit:
+ 122              		@ args = 0, pretend = 0, frame = 0
+ 123              		@ frame_needed = 0, uses_anonymous_args = 0
+ 124              		@ link register save eliminated.
+ 125 0000 0268     		ldr	r2, [r0]
+ 126 0002 074B     		ldr	r3, .L11
+ 127 0004 9A42     		cmp	r2, r3
+ 128 0006 09D1     		bne	.L9
+ 129 0008 064A     		ldr	r2, .L11+4
+ 130 000a 4FF47041 		mov	r1, #61440
+ 131 000e 0648     		ldr	r0, .L11+8
+ 132 0010 136C     		ldr	r3, [r2, #64]
+ 133 0012 23F48043 		bic	r3, r3, #16384
+ 134 0016 1364     		str	r3, [r2, #64]
+ 135 0018 FFF7FEBF 		b	HAL_GPIO_DeInit
+ 136              	.L9:
+ 137 001c 7047     		bx	lr
+ 138              	.L12:
+ 139 001e 00BF     		.align	2
+ 140              	.L11:
+ 141 0020 00380040 		.word	1073756160
+ 142 0024 00380240 		.word	1073887232
+ 143 0028 00040240 		.word	1073873920
+ 145              		.comm	hspi2,100,4
+ 146              		.comm	odom,1,1
+ 147              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
+ARM GAS  /tmp/ccutLLwt.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 spi.c
+     /tmp/ccutLLwt.s:15     .text.MX_SPI2_Init:0000000000000000 $t
+     /tmp/ccutLLwt.s:23     .text.MX_SPI2_Init:0000000000000000 MX_SPI2_Init
+     /tmp/ccutLLwt.s:54     .text.MX_SPI2_Init:0000000000000048 $d
+                            *COM*:0000000000000064 hspi2
+     /tmp/ccutLLwt.s:58     .text.HAL_SPI_MspInit:0000000000000000 $t
+     /tmp/ccutLLwt.s:65     .text.HAL_SPI_MspInit:0000000000000000 HAL_SPI_MspInit
+     /tmp/ccutLLwt.s:110    .text.HAL_SPI_MspInit:0000000000000060 $d
+     /tmp/ccutLLwt.s:114    .text.HAL_SPI_MspDeInit:0000000000000000 $t
+     /tmp/ccutLLwt.s:121    .text.HAL_SPI_MspDeInit:0000000000000000 HAL_SPI_MspDeInit
+     /tmp/ccutLLwt.s:141    .text.HAL_SPI_MspDeInit:0000000000000020 $d
+                            *COM*:0000000000000001 odom
+
+UNDEFINED SYMBOLS
+HAL_SPI_Init
+Error_Handler
+memset
+HAL_GPIO_Init
+HAL_GPIO_DeInit

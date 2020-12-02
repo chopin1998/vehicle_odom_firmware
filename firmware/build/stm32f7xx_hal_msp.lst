@@ -1,0 +1,64 @@
+ARM GAS  /tmp/ccGt65G7.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"stm32f7xx_hal_msp.c"
+  13              		.text
+  14              		.section	.text.HAL_MspInit,"ax",%progbits
+  15              		.align	1
+  16              		.global	HAL_MspInit
+  17              		.arch armv7e-m
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  21              		.fpu fpv5-sp-d16
+  23              	HAL_MspInit:
+  24              		@ args = 0, pretend = 0, frame = 8
+  25              		@ frame_needed = 0, uses_anonymous_args = 0
+  26              		@ link register save eliminated.
+  27 0000 0A4B     		ldr	r3, .L2
+  28 0002 82B0     		sub	sp, sp, #8
+  29 0004 1A6C     		ldr	r2, [r3, #64]
+  30 0006 42F08052 		orr	r2, r2, #268435456
+  31 000a 1A64     		str	r2, [r3, #64]
+  32 000c 1A6C     		ldr	r2, [r3, #64]
+  33 000e 02F08052 		and	r2, r2, #268435456
+  34 0012 0092     		str	r2, [sp]
+  35 0014 009A     		ldr	r2, [sp]
+  36 0016 5A6C     		ldr	r2, [r3, #68]
+  37 0018 42F48042 		orr	r2, r2, #16384
+  38 001c 5A64     		str	r2, [r3, #68]
+  39 001e 5B6C     		ldr	r3, [r3, #68]
+  40 0020 03F48043 		and	r3, r3, #16384
+  41 0024 0193     		str	r3, [sp, #4]
+  42 0026 019B     		ldr	r3, [sp, #4]
+  43 0028 02B0     		add	sp, sp, #8
+  44              		@ sp needed
+  45 002a 7047     		bx	lr
+  46              	.L3:
+  47              		.align	2
+  48              	.L2:
+  49 002c 00380240 		.word	1073887232
+  51              		.comm	odom,1,1
+  52              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
+ARM GAS  /tmp/ccGt65G7.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f7xx_hal_msp.c
+     /tmp/ccGt65G7.s:15     .text.HAL_MspInit:0000000000000000 $t
+     /tmp/ccGt65G7.s:23     .text.HAL_MspInit:0000000000000000 HAL_MspInit
+     /tmp/ccGt65G7.s:49     .text.HAL_MspInit:000000000000002c $d
+                            *COM*:0000000000000001 odom
+
+NO UNDEFINED SYMBOLS

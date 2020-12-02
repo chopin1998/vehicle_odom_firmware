@@ -1,0 +1,509 @@
+ARM GAS  /tmp/ccIlaNTs.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"stm32f7xx_ll_utils.c"
+  13              		.text
+  14              		.section	.text.UTILS_PLL_IsBusy,"ax",%progbits
+  15              		.align	1
+  16              		.arch armv7e-m
+  17              		.syntax unified
+  18              		.thumb
+  19              		.thumb_func
+  20              		.fpu fpv5-sp-d16
+  22              	UTILS_PLL_IsBusy:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25              		@ link register save eliminated.
+  26 0000 084B     		ldr	r3, .L5
+  27 0002 1968     		ldr	r1, [r3]
+  28 0004 1A68     		ldr	r2, [r3]
+  29 0006 01F00071 		and	r1, r1, #33554432
+  30 000a 1B68     		ldr	r3, [r3]
+  31 000c 02F00052 		and	r2, r2, #536870912
+  32 0010 0A43     		orrs	r2, r1, r2
+  33 0012 14BF     		ite	ne
+  34 0014 0120     		movne	r0, #1
+  35 0016 0020     		moveq	r0, #0
+  36 0018 13F0006F 		tst	r3, #134217728
+  37 001c 18BF     		it	ne
+  38 001e 0120     		movne	r0, #1
+  39 0020 7047     		bx	lr
+  40              	.L6:
+  41 0022 00BF     		.align	2
+  42              	.L5:
+  43 0024 00380240 		.word	1073887232
+  45              		.section	.text.UTILS_SetFlashLatency.part.0,"ax",%progbits
+  46              		.align	1
+  47              		.syntax unified
+  48              		.thumb
+  49              		.thumb_func
+  50              		.fpu fpv5-sp-d16
+  52              	UTILS_SetFlashLatency.part.0:
+  53              		@ args = 0, pretend = 0, frame = 0
+  54              		@ frame_needed = 0, uses_anonymous_args = 0
+  55              		@ link register save eliminated.
+  56 0000 2E4B     		ldr	r3, .L37
+  57 0002 1A68     		ldr	r2, [r3]
+  58 0004 1B68     		ldr	r3, [r3]
+  59 0006 02F44042 		and	r2, r2, #49152
+  60 000a B2F5404F 		cmp	r2, #49152
+ARM GAS  /tmp/ccIlaNTs.s 			page 2
+
+
+  61 000e 23D1     		bne	.L8
+  62 0010 13F48033 		ands	r3, r3, #65536
+  63 0014 3CD0     		beq	.L9
+  64 0016 2A4B     		ldr	r3, .L37+4
+  65 0018 9842     		cmp	r0, r3
+  66 001a 3ED8     		bhi	.L19
+  67 001c 294B     		ldr	r3, .L37+8
+  68 001e 9842     		cmp	r0, r3
+  69 0020 3DD8     		bhi	.L20
+  70 0022 294B     		ldr	r3, .L37+12
+  71 0024 9842     		cmp	r0, r3
+  72 0026 3AD8     		bhi	.L20
+  73 0028 284B     		ldr	r3, .L37+16
+  74 002a 9842     		cmp	r0, r3
+  75 002c 4FF00603 		mov	r3, #6
+  76 0030 05D8     		bhi	.L12
+  77              	.L18:
+  78 0032 274A     		ldr	r2, .L37+20
+  79 0034 9042     		cmp	r0, r2
+  80 0036 02D9     		bls	.L12
+  81 0038 002B     		cmp	r3, #0
+  82 003a 08BF     		it	eq
+  83 003c 0123     		moveq	r3, #1
+  84              	.L12:
+  85 003e 2549     		ldr	r1, .L37+24
+  86 0040 0A68     		ldr	r2, [r1]
+  87 0042 22F00F02 		bic	r2, r2, #15
+  88 0046 1A43     		orrs	r2, r2, r3
+  89 0048 0A60     		str	r2, [r1]
+  90 004a 0868     		ldr	r0, [r1]
+  91 004c 00F00F00 		and	r0, r0, #15
+  92 0050 C01A     		subs	r0, r0, r3
+  93 0052 18BF     		it	ne
+  94 0054 0120     		movne	r0, #1
+  95 0056 7047     		bx	lr
+  96              	.L8:
+  97 0058 03F44043 		and	r3, r3, #49152
+  98 005c B3F5004F 		cmp	r3, #32768
+  99 0060 05D1     		bne	.L13
+ 100 0062 03F10F63 		add	r3, r3, #149946368
+ 101 0066 03F5A343 		add	r3, r3, #20864
+ 102 006a 9842     		cmp	r0, r3
+ 103 006c 13D8     		bhi	.L26
+ 104              	.L13:
+ 105 006e 154B     		ldr	r3, .L37+8
+ 106 0070 9842     		cmp	r0, r3
+ 107 0072 0BD8     		bhi	.L27
+ 108 0074 144B     		ldr	r3, .L37+12
+ 109 0076 9842     		cmp	r0, r3
+ 110 0078 19D8     		bhi	.L28
+ 111 007a 144B     		ldr	r3, .L37+16
+ 112 007c 9842     		cmp	r0, r3
+ 113 007e 1BD8     		bhi	.L31
+ 114 0080 134B     		ldr	r3, .L37+20
+ 115 0082 9842     		cmp	r0, r3
+ 116 0084 94BF     		ite	ls
+ 117 0086 0023     		movls	r3, #0
+ARM GAS  /tmp/ccIlaNTs.s 			page 3
+
+
+ 118 0088 0123     		movhi	r3, #1
+ 119 008a D8E7     		b	.L12
+ 120              	.L27:
+ 121 008c 0423     		movs	r3, #4
+ 122 008e D6E7     		b	.L12
+ 123              	.L9:
+ 124 0090 114A     		ldr	r2, .L37+28
+ 125 0092 9042     		cmp	r0, r2
+ 126 0094 05D9     		bls	.L34
+ 127              	.L26:
+ 128 0096 0523     		movs	r3, #5
+ 129 0098 D1E7     		b	.L12
+ 130              	.L19:
+ 131 009a 0723     		movs	r3, #7
+ 132 009c CFE7     		b	.L12
+ 133              	.L20:
+ 134 009e 0623     		movs	r3, #6
+ 135 00a0 CDE7     		b	.L12
+ 136              	.L34:
+ 137 00a2 084A     		ldr	r2, .L37+8
+ 138 00a4 9042     		cmp	r0, r2
+ 139 00a6 F1D8     		bhi	.L27
+ 140 00a8 074A     		ldr	r2, .L37+12
+ 141 00aa 9042     		cmp	r0, r2
+ 142 00ac 01D9     		bls	.L35
+ 143              	.L28:
+ 144 00ae 0323     		movs	r3, #3
+ 145 00b0 C5E7     		b	.L12
+ 146              	.L35:
+ 147 00b2 064A     		ldr	r2, .L37+16
+ 148 00b4 9042     		cmp	r0, r2
+ 149 00b6 BCD9     		bls	.L18
+ 150              	.L31:
+ 151 00b8 0223     		movs	r3, #2
+ 152 00ba C0E7     		b	.L12
+ 153              	.L38:
+ 154              		.align	2
+ 155              	.L37:
+ 156 00bc 00700040 		.word	1073770496
+ 157 00c0 8058840C 		.word	210000000
+ 158 00c4 000E2707 		.word	120000000
+ 159 00c8 804A5D05 		.word	90000000
+ 160 00cc 00879303 		.word	60000000
+ 161 00d0 80C3C901 		.word	30000000
+ 162 00d4 003C0240 		.word	1073888256
+ 163 00d8 80D1F008 		.word	150000000
+ 165              		.section	.text.UTILS_EnablePLLAndSwitchSystem,"ax",%progbits
+ 166              		.align	1
+ 167              		.syntax unified
+ 168              		.thumb
+ 169              		.thumb_func
+ 170              		.fpu fpv5-sp-d16
+ 172              	UTILS_EnablePLLAndSwitchSystem:
+ 173              		@ args = 0, pretend = 0, frame = 0
+ 174              		@ frame_needed = 0, uses_anonymous_args = 0
+ 175 0000 0B68     		ldr	r3, [r1]
+ 176 0002 244A     		ldr	r2, .L55
+ARM GAS  /tmp/ccIlaNTs.s 			page 4
+
+
+ 177 0004 C3F30313 		ubfx	r3, r3, #4, #4
+ 178 0008 70B5     		push	{r4, r5, r6, lr}
+ 179 000a D45C     		ldrb	r4, [r2, r3]	@ zero_extendqisi2
+ 180 000c 0E46     		mov	r6, r1
+ 181 000e 224D     		ldr	r5, .L55+4
+ 182 0010 20FA04F4 		lsr	r4, r0, r4
+ 183 0014 2B68     		ldr	r3, [r5]
+ 184 0016 A342     		cmp	r3, r4
+ 185 0018 27D3     		bcc	.L40
+ 186              	.L43:
+ 187 001a 204B     		ldr	r3, .L55+8
+ 188 001c 1A68     		ldr	r2, [r3]
+ 189 001e 42F08072 		orr	r2, r2, #16777216
+ 190 0022 1A60     		str	r2, [r3]
+ 191              	.L41:
+ 192 0024 1A68     		ldr	r2, [r3]
+ 193 0026 9201     		lsls	r2, r2, #6
+ 194 0028 FCD5     		bpl	.L41
+ 195 002a 9A68     		ldr	r2, [r3, #8]
+ 196 002c 3168     		ldr	r1, [r6]
+ 197 002e 22F0F002 		bic	r2, r2, #240
+ 198 0032 0A43     		orrs	r2, r2, r1
+ 199 0034 9A60     		str	r2, [r3, #8]
+ 200 0036 9A68     		ldr	r2, [r3, #8]
+ 201 0038 22F00302 		bic	r2, r2, #3
+ 202 003c 42F00202 		orr	r2, r2, #2
+ 203 0040 9A60     		str	r2, [r3, #8]
+ 204 0042 164B     		ldr	r3, .L55+8
+ 205              	.L44:
+ 206 0044 9A68     		ldr	r2, [r3, #8]
+ 207 0046 02F00C02 		and	r2, r2, #12
+ 208 004a 082A     		cmp	r2, #8
+ 209 004c FAD1     		bne	.L44
+ 210 004e 9A68     		ldr	r2, [r3, #8]
+ 211 0050 0020     		movs	r0, #0
+ 212 0052 7168     		ldr	r1, [r6, #4]
+ 213 0054 22F4E052 		bic	r2, r2, #7168
+ 214 0058 0A43     		orrs	r2, r2, r1
+ 215 005a 9A60     		str	r2, [r3, #8]
+ 216 005c 9A68     		ldr	r2, [r3, #8]
+ 217 005e B168     		ldr	r1, [r6, #8]
+ 218 0060 22F46042 		bic	r2, r2, #57344
+ 219 0064 0A43     		orrs	r2, r2, r1
+ 220 0066 9A60     		str	r2, [r3, #8]
+ 221 0068 05E0     		b	.L42
+ 222              	.L40:
+ 223 006a 74B1     		cbz	r4, .L47
+ 224 006c 2046     		mov	r0, r4
+ 225 006e FFF7FEFF 		bl	UTILS_SetFlashLatency.part.0
+ 226 0072 0028     		cmp	r0, #0
+ 227 0074 D1D0     		beq	.L43
+ 228              	.L42:
+ 229 0076 2B68     		ldr	r3, [r5]
+ 230 0078 A342     		cmp	r3, r4
+ 231 007a 03D9     		bls	.L45
+ 232 007c 3CB1     		cbz	r4, .L48
+ 233 007e 2046     		mov	r0, r4
+ARM GAS  /tmp/ccIlaNTs.s 			page 5
+
+
+ 234 0080 FFF7FEFF 		bl	UTILS_SetFlashLatency.part.0
+ 235              	.L45:
+ 236 0084 00B9     		cbnz	r0, .L46
+ 237 0086 2C60     		str	r4, [r5]
+ 238              	.L46:
+ 239 0088 70BD     		pop	{r4, r5, r6, pc}
+ 240              	.L47:
+ 241 008a 0120     		movs	r0, #1
+ 242 008c F3E7     		b	.L42
+ 243              	.L48:
+ 244 008e 0120     		movs	r0, #1
+ 245 0090 FAE7     		b	.L46
+ 246              	.L56:
+ 247 0092 00BF     		.align	2
+ 248              	.L55:
+ 249 0094 00000000 		.word	AHBPrescTable
+ 250 0098 00000000 		.word	SystemCoreClock
+ 251 009c 00380240 		.word	1073887232
+ 253              		.section	.text.LL_Init1msTick,"ax",%progbits
+ 254              		.align	1
+ 255              		.global	LL_Init1msTick
+ 256              		.syntax unified
+ 257              		.thumb
+ 258              		.thumb_func
+ 259              		.fpu fpv5-sp-d16
+ 261              	LL_Init1msTick:
+ 262              		@ args = 0, pretend = 0, frame = 0
+ 263              		@ frame_needed = 0, uses_anonymous_args = 0
+ 264              		@ link register save eliminated.
+ 265 0000 4FF47A73 		mov	r3, #1000
+ 266 0004 0022     		movs	r2, #0
+ 267 0006 B0FBF3F0 		udiv	r0, r0, r3
+ 268 000a 034B     		ldr	r3, .L58
+ 269 000c 0138     		subs	r0, r0, #1
+ 270 000e 5860     		str	r0, [r3, #4]
+ 271 0010 9A60     		str	r2, [r3, #8]
+ 272 0012 0522     		movs	r2, #5
+ 273 0014 1A60     		str	r2, [r3]
+ 274 0016 7047     		bx	lr
+ 275              	.L59:
+ 276              		.align	2
+ 277              	.L58:
+ 278 0018 10E000E0 		.word	-536813552
+ 280              		.section	.text.LL_mDelay,"ax",%progbits
+ 281              		.align	1
+ 282              		.global	LL_mDelay
+ 283              		.syntax unified
+ 284              		.thumb
+ 285              		.thumb_func
+ 286              		.fpu fpv5-sp-d16
+ 288              	LL_mDelay:
+ 289              		@ args = 0, pretend = 0, frame = 8
+ 290              		@ frame_needed = 0, uses_anonymous_args = 0
+ 291              		@ link register save eliminated.
+ 292 0000 084B     		ldr	r3, .L70
+ 293 0002 82B0     		sub	sp, sp, #8
+ 294 0004 411C     		adds	r1, r0, #1
+ARM GAS  /tmp/ccIlaNTs.s 			page 6
+
+
+ 295 0006 1B68     		ldr	r3, [r3]
+ 296 0008 18BF     		it	ne
+ 297 000a 0130     		addne	r0, r0, #1
+ 298 000c 0193     		str	r3, [sp, #4]
+ 299 000e 019B     		ldr	r3, [sp, #4]
+ 300 0010 044B     		ldr	r3, .L70
+ 301              	.L63:
+ 302 0012 08B9     		cbnz	r0, .L64
+ 303 0014 02B0     		add	sp, sp, #8
+ 304              		@ sp needed
+ 305 0016 7047     		bx	lr
+ 306              	.L64:
+ 307 0018 1A68     		ldr	r2, [r3]
+ 308 001a D203     		lsls	r2, r2, #15
+ 309 001c 48BF     		it	mi
+ 310 001e 00F1FF30 		addmi	r0, r0, #-1
+ 311 0022 F6E7     		b	.L63
+ 312              	.L71:
+ 313              		.align	2
+ 314              	.L70:
+ 315 0024 10E000E0 		.word	-536813552
+ 317              		.section	.text.LL_SetSystemCoreClock,"ax",%progbits
+ 318              		.align	1
+ 319              		.global	LL_SetSystemCoreClock
+ 320              		.syntax unified
+ 321              		.thumb
+ 322              		.thumb_func
+ 323              		.fpu fpv5-sp-d16
+ 325              	LL_SetSystemCoreClock:
+ 326              		@ args = 0, pretend = 0, frame = 0
+ 327              		@ frame_needed = 0, uses_anonymous_args = 0
+ 328              		@ link register save eliminated.
+ 329 0000 014B     		ldr	r3, .L73
+ 330 0002 1860     		str	r0, [r3]
+ 331 0004 7047     		bx	lr
+ 332              	.L74:
+ 333 0006 00BF     		.align	2
+ 334              	.L73:
+ 335 0008 00000000 		.word	SystemCoreClock
+ 337              		.section	.text.LL_PLL_ConfigSystemClock_HSI,"ax",%progbits
+ 338              		.align	1
+ 339              		.global	LL_PLL_ConfigSystemClock_HSI
+ 340              		.syntax unified
+ 341              		.thumb
+ 342              		.thumb_func
+ 343              		.fpu fpv5-sp-d16
+ 345              	LL_PLL_ConfigSystemClock_HSI:
+ 346              		@ args = 0, pretend = 0, frame = 0
+ 347              		@ frame_needed = 0, uses_anonymous_args = 0
+ 348 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 349 0002 0546     		mov	r5, r0
+ 350 0004 0C46     		mov	r4, r1
+ 351 0006 FFF7FEFF 		bl	UTILS_PLL_IsBusy
+ 352 000a 40BB     		cbnz	r0, .L76
+ 353 000c 2B68     		ldr	r3, [r5]
+ 354 000e 1548     		ldr	r0, .L81
+ 355 0010 03F03F02 		and	r2, r3, #63
+ARM GAS  /tmp/ccIlaNTs.s 			page 7
+
+
+ 356 0014 6968     		ldr	r1, [r5, #4]
+ 357 0016 AE68     		ldr	r6, [r5, #8]
+ 358 0018 B0FBF2F0 		udiv	r0, r0, r2
+ 359 001c C1F30802 		ubfx	r2, r1, #0, #9
+ 360 0020 4243     		muls	r2, r0, r2
+ 361 0022 300C     		lsrs	r0, r6, #16
+ 362 0024 0130     		adds	r0, r0, #1
+ 363 0026 4000     		lsls	r0, r0, #1
+ 364 0028 B2FBF0F0 		udiv	r0, r2, r0
+ 365 002c 0E4A     		ldr	r2, .L81+4
+ 366 002e 1568     		ldr	r5, [r2]
+ 367 0030 AF07     		lsls	r7, r5, #30
+ 368 0032 06D4     		bmi	.L77
+ 369 0034 1568     		ldr	r5, [r2]
+ 370 0036 45F00105 		orr	r5, r5, #1
+ 371 003a 1560     		str	r5, [r2]
+ 372              	.L78:
+ 373 003c 1568     		ldr	r5, [r2]
+ 374 003e AD07     		lsls	r5, r5, #30
+ 375 0040 FCD5     		bpl	.L78
+ 376              	.L77:
+ 377 0042 094D     		ldr	r5, .L81+4
+ 378 0044 3343     		orrs	r3, r3, r6
+ 379 0046 094A     		ldr	r2, .L81+8
+ 380 0048 6F68     		ldr	r7, [r5, #4]
+ 381 004a 3A40     		ands	r2, r2, r7
+ 382 004c 1343     		orrs	r3, r3, r2
+ 383 004e 43EA8113 		orr	r3, r3, r1, lsl #6
+ 384 0052 2146     		mov	r1, r4
+ 385 0054 6B60     		str	r3, [r5, #4]
+ 386 0056 BDE8F840 		pop	{r3, r4, r5, r6, r7, lr}
+ 387 005a FFF7FEBF 		b	UTILS_EnablePLLAndSwitchSystem
+ 388              	.L76:
+ 389 005e 0120     		movs	r0, #1
+ 390 0060 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 391              	.L82:
+ 392 0062 00BF     		.align	2
+ 393              	.L81:
+ 394 0064 0024F400 		.word	16000000
+ 395 0068 00380240 		.word	1073887232
+ 396 006c 0080BCFF 		.word	-4423680
+ 398              		.section	.text.LL_PLL_ConfigSystemClock_HSE,"ax",%progbits
+ 399              		.align	1
+ 400              		.global	LL_PLL_ConfigSystemClock_HSE
+ 401              		.syntax unified
+ 402              		.thumb
+ 403              		.thumb_func
+ 404              		.fpu fpv5-sp-d16
+ 406              	LL_PLL_ConfigSystemClock_HSE:
+ 407              		@ args = 0, pretend = 0, frame = 0
+ 408              		@ frame_needed = 0, uses_anonymous_args = 0
+ 409 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 410 0004 0446     		mov	r4, r0
+ 411 0006 0E46     		mov	r6, r1
+ 412 0008 9046     		mov	r8, r2
+ 413 000a 1D46     		mov	r5, r3
+ 414 000c FFF7FEFF 		bl	UTILS_PLL_IsBusy
+ARM GAS  /tmp/ccIlaNTs.s 			page 8
+
+
+ 415 0010 0028     		cmp	r0, #0
+ 416 0012 35D1     		bne	.L84
+ 417 0014 D8F80030 		ldr	r3, [r8]
+ 418 0018 D8F80470 		ldr	r7, [r8, #4]
+ 419 001c 03F03F00 		and	r0, r3, #63
+ 420 0020 D8F80810 		ldr	r1, [r8, #8]
+ 421 0024 B4FBF0F4 		udiv	r4, r4, r0
+ 422 0028 C7F30800 		ubfx	r0, r7, #0, #9
+ 423 002c 4443     		muls	r4, r0, r4
+ 424 002e 080C     		lsrs	r0, r1, #16
+ 425 0030 0130     		adds	r0, r0, #1
+ 426 0032 4000     		lsls	r0, r0, #1
+ 427 0034 B4FBF0F0 		udiv	r0, r4, r0
+ 428 0038 134C     		ldr	r4, .L92
+ 429 003a 2268     		ldr	r2, [r4]
+ 430 003c 9203     		lsls	r2, r2, #14
+ 431 003e 0FD4     		bmi	.L85
+ 432 0040 2268     		ldr	r2, [r4]
+ 433 0042 012E     		cmp	r6, #1
+ 434 0044 0CBF     		ite	eq
+ 435 0046 42F48022 		orreq	r2, r2, #262144
+ 436 004a 22F48022 		bicne	r2, r2, #262144
+ 437 004e 2260     		str	r2, [r4]
+ 438 0050 2268     		ldr	r2, [r4]
+ 439 0052 42F48032 		orr	r2, r2, #65536
+ 440 0056 2260     		str	r2, [r4]
+ 441 0058 0B4C     		ldr	r4, .L92
+ 442              	.L88:
+ 443 005a 2268     		ldr	r2, [r4]
+ 444 005c 9203     		lsls	r2, r2, #14
+ 445 005e FCD5     		bpl	.L88
+ 446              	.L85:
+ 447 0060 094C     		ldr	r4, .L92
+ 448 0062 0A4A     		ldr	r2, .L92+4
+ 449 0064 6668     		ldr	r6, [r4, #4]
+ 450 0066 3240     		ands	r2, r2, r6
+ 451 0068 42EA8712 		orr	r2, r2, r7, lsl #6
+ 452 006c 1A43     		orrs	r2, r2, r3
+ 453 006e 0A43     		orrs	r2, r2, r1
+ 454 0070 2946     		mov	r1, r5
+ 455 0072 42F48002 		orr	r2, r2, #4194304
+ 456 0076 6260     		str	r2, [r4, #4]
+ 457 0078 BDE8F041 		pop	{r4, r5, r6, r7, r8, lr}
+ 458 007c FFF7FEBF 		b	UTILS_EnablePLLAndSwitchSystem
+ 459              	.L84:
+ 460 0080 0120     		movs	r0, #1
+ 461 0082 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 462              	.L93:
+ 463 0086 00BF     		.align	2
+ 464              	.L92:
+ 465 0088 00380240 		.word	1073887232
+ 466 008c 0080BCFF 		.word	-4423680
+ 468              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
+ARM GAS  /tmp/ccIlaNTs.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f7xx_ll_utils.c
+     /tmp/ccIlaNTs.s:15     .text.UTILS_PLL_IsBusy:0000000000000000 $t
+     /tmp/ccIlaNTs.s:22     .text.UTILS_PLL_IsBusy:0000000000000000 UTILS_PLL_IsBusy
+     /tmp/ccIlaNTs.s:43     .text.UTILS_PLL_IsBusy:0000000000000024 $d
+     /tmp/ccIlaNTs.s:46     .text.UTILS_SetFlashLatency.part.0:0000000000000000 $t
+     /tmp/ccIlaNTs.s:52     .text.UTILS_SetFlashLatency.part.0:0000000000000000 UTILS_SetFlashLatency.part.0
+     /tmp/ccIlaNTs.s:156    .text.UTILS_SetFlashLatency.part.0:00000000000000bc $d
+     /tmp/ccIlaNTs.s:166    .text.UTILS_EnablePLLAndSwitchSystem:0000000000000000 $t
+     /tmp/ccIlaNTs.s:172    .text.UTILS_EnablePLLAndSwitchSystem:0000000000000000 UTILS_EnablePLLAndSwitchSystem
+     /tmp/ccIlaNTs.s:249    .text.UTILS_EnablePLLAndSwitchSystem:0000000000000094 $d
+     /tmp/ccIlaNTs.s:254    .text.LL_Init1msTick:0000000000000000 $t
+     /tmp/ccIlaNTs.s:261    .text.LL_Init1msTick:0000000000000000 LL_Init1msTick
+     /tmp/ccIlaNTs.s:278    .text.LL_Init1msTick:0000000000000018 $d
+     /tmp/ccIlaNTs.s:281    .text.LL_mDelay:0000000000000000 $t
+     /tmp/ccIlaNTs.s:288    .text.LL_mDelay:0000000000000000 LL_mDelay
+     /tmp/ccIlaNTs.s:315    .text.LL_mDelay:0000000000000024 $d
+     /tmp/ccIlaNTs.s:318    .text.LL_SetSystemCoreClock:0000000000000000 $t
+     /tmp/ccIlaNTs.s:325    .text.LL_SetSystemCoreClock:0000000000000000 LL_SetSystemCoreClock
+     /tmp/ccIlaNTs.s:335    .text.LL_SetSystemCoreClock:0000000000000008 $d
+     /tmp/ccIlaNTs.s:338    .text.LL_PLL_ConfigSystemClock_HSI:0000000000000000 $t
+     /tmp/ccIlaNTs.s:345    .text.LL_PLL_ConfigSystemClock_HSI:0000000000000000 LL_PLL_ConfigSystemClock_HSI
+     /tmp/ccIlaNTs.s:394    .text.LL_PLL_ConfigSystemClock_HSI:0000000000000064 $d
+     /tmp/ccIlaNTs.s:399    .text.LL_PLL_ConfigSystemClock_HSE:0000000000000000 $t
+     /tmp/ccIlaNTs.s:406    .text.LL_PLL_ConfigSystemClock_HSE:0000000000000000 LL_PLL_ConfigSystemClock_HSE
+     /tmp/ccIlaNTs.s:465    .text.LL_PLL_ConfigSystemClock_HSE:0000000000000088 $d
+
+UNDEFINED SYMBOLS
+AHBPrescTable
+SystemCoreClock

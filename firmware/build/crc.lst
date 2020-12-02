@@ -1,0 +1,131 @@
+ARM GAS  /tmp/ccikdGTB.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"crc.c"
+  13              		.text
+  14              		.section	.text.MX_CRC_Init,"ax",%progbits
+  15              		.align	1
+  16              		.global	MX_CRC_Init
+  17              		.arch armv7e-m
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  21              		.fpu fpv5-sp-d16
+  23              	MX_CRC_Init:
+  24              		@ args = 0, pretend = 0, frame = 0
+  25              		@ frame_needed = 0, uses_anonymous_args = 0
+  26 0000 08B5     		push	{r3, lr}
+  27 0002 0848     		ldr	r0, .L3
+  28 0004 084B     		ldr	r3, .L3+4
+  29 0006 0360     		str	r3, [r0]
+  30 0008 0023     		movs	r3, #0
+  31 000a 8380     		strh	r3, [r0, #4]	@ movhi
+  32 000c C0E90533 		strd	r3, r3, [r0, #20]
+  33 0010 0123     		movs	r3, #1
+  34 0012 0362     		str	r3, [r0, #32]
+  35 0014 FFF7FEFF 		bl	HAL_CRC_Init
+  36 0018 18B1     		cbz	r0, .L1
+  37 001a BDE80840 		pop	{r3, lr}
+  38 001e FFF7FEBF 		b	Error_Handler
+  39              	.L1:
+  40 0022 08BD     		pop	{r3, pc}
+  41              	.L4:
+  42              		.align	2
+  43              	.L3:
+  44 0024 00000000 		.word	hcrc
+  45 0028 00300240 		.word	1073885184
+  47              		.section	.text.HAL_CRC_MspInit,"ax",%progbits
+  48              		.align	1
+  49              		.global	HAL_CRC_MspInit
+  50              		.syntax unified
+  51              		.thumb
+  52              		.thumb_func
+  53              		.fpu fpv5-sp-d16
+  55              	HAL_CRC_MspInit:
+  56              		@ args = 0, pretend = 0, frame = 8
+  57              		@ frame_needed = 0, uses_anonymous_args = 0
+  58              		@ link register save eliminated.
+  59 0000 0268     		ldr	r2, [r0]
+  60 0002 82B0     		sub	sp, sp, #8
+ARM GAS  /tmp/ccikdGTB.s 			page 2
+
+
+  61 0004 084B     		ldr	r3, .L7
+  62 0006 9A42     		cmp	r2, r3
+  63 0008 0BD1     		bne	.L5
+  64 000a D3F83028 		ldr	r2, [r3, #2096]
+  65 000e 03F50063 		add	r3, r3, #2048
+  66 0012 42F48052 		orr	r2, r2, #4096
+  67 0016 1A63     		str	r2, [r3, #48]
+  68 0018 1B6B     		ldr	r3, [r3, #48]
+  69 001a 03F48053 		and	r3, r3, #4096
+  70 001e 0193     		str	r3, [sp, #4]
+  71 0020 019B     		ldr	r3, [sp, #4]
+  72              	.L5:
+  73 0022 02B0     		add	sp, sp, #8
+  74              		@ sp needed
+  75 0024 7047     		bx	lr
+  76              	.L8:
+  77 0026 00BF     		.align	2
+  78              	.L7:
+  79 0028 00300240 		.word	1073885184
+  81              		.section	.text.HAL_CRC_MspDeInit,"ax",%progbits
+  82              		.align	1
+  83              		.global	HAL_CRC_MspDeInit
+  84              		.syntax unified
+  85              		.thumb
+  86              		.thumb_func
+  87              		.fpu fpv5-sp-d16
+  89              	HAL_CRC_MspDeInit:
+  90              		@ args = 0, pretend = 0, frame = 0
+  91              		@ frame_needed = 0, uses_anonymous_args = 0
+  92              		@ link register save eliminated.
+  93 0000 0268     		ldr	r2, [r0]
+  94 0002 044B     		ldr	r3, .L11
+  95 0004 9A42     		cmp	r2, r3
+  96 0006 04D1     		bne	.L9
+  97 0008 034A     		ldr	r2, .L11+4
+  98 000a 136B     		ldr	r3, [r2, #48]
+  99 000c 23F48053 		bic	r3, r3, #4096
+ 100 0010 1363     		str	r3, [r2, #48]
+ 101              	.L9:
+ 102 0012 7047     		bx	lr
+ 103              	.L12:
+ 104              		.align	2
+ 105              	.L11:
+ 106 0014 00300240 		.word	1073885184
+ 107 0018 00380240 		.word	1073887232
+ 109              		.comm	hcrc,36,4
+ 110              		.comm	odom,1,1
+ 111              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
+ARM GAS  /tmp/ccikdGTB.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 crc.c
+     /tmp/ccikdGTB.s:15     .text.MX_CRC_Init:0000000000000000 $t
+     /tmp/ccikdGTB.s:23     .text.MX_CRC_Init:0000000000000000 MX_CRC_Init
+     /tmp/ccikdGTB.s:44     .text.MX_CRC_Init:0000000000000024 $d
+                            *COM*:0000000000000024 hcrc
+     /tmp/ccikdGTB.s:48     .text.HAL_CRC_MspInit:0000000000000000 $t
+     /tmp/ccikdGTB.s:55     .text.HAL_CRC_MspInit:0000000000000000 HAL_CRC_MspInit
+     /tmp/ccikdGTB.s:79     .text.HAL_CRC_MspInit:0000000000000028 $d
+     /tmp/ccikdGTB.s:82     .text.HAL_CRC_MspDeInit:0000000000000000 $t
+     /tmp/ccikdGTB.s:89     .text.HAL_CRC_MspDeInit:0000000000000000 HAL_CRC_MspDeInit
+     /tmp/ccikdGTB.s:106    .text.HAL_CRC_MspDeInit:0000000000000014 $d
+                            *COM*:0000000000000001 odom
+
+UNDEFINED SYMBOLS
+HAL_CRC_Init
+Error_Handler

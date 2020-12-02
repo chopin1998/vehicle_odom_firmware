@@ -1,0 +1,18 @@
+{
+    "C_Cpp.intelliSenseEngineFallback": "Enabled",
+    "python.autoComplete.extraPaths": [
+        "/opt/ros/foxy/lib/python3.8/site-packages"
+    ],
+
+    "folders": [
+		{
+			"path": "/home/marco/enterprises/vehicle_natural_selection/odom_board/scripts"
+		}
+	],
+		"sync-rsync.sites": [
+			{
+				"localPath": "/home/marco/enterprises/vehicle_natural_selection/odom_board/scripts",
+				"remotePath": "pi@nanopc-t4.local:/home/pi/code/odom"
+			}
+		]
+}
