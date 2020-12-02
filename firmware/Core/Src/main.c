@@ -118,7 +118,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  uint8_t buf[256];
+  uint8_t buf[128];
   int len;
 
   adns3080_init();
@@ -148,12 +148,12 @@ int main(void)
           motion_t m;
           adns3080_motion(&m);
 
-          // uint8_t euler[6];
-          ser_imu_get(buf);
+          int16_t euler[3] = {0, 0, 0};
+          ser_imu_get(&euler);
 
-          len = snprintf(buf+6, 128, "|0x%02x,%d,%d,%u,%u,%u,%u\n", m.motion, m.dx, m.dy, m.squal, m.shutter_upper, m.shutter_lower, m.max_pixel);
+          len = snprintf(buf, 128, "%d,%d,%d|0x%02x,%d,%d,%d,%d,%d,%d\n", euler[0], euler[1], euler[2], m.motion, m.dx, m.dy, m.squal, m.shutter_upper, m.shutter_lower, m.max_pixel);
 
-          CDC_Transmit_FS(buf, len+6);
+          CDC_Transmit_FS(buf, len);
         }
 
       break;

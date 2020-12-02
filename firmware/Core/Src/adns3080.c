@@ -12,6 +12,8 @@ void adns3080_reset(void)
     HAL_GPIO_WritePin(SPI2_RST_GPIO_Port, SPI2_RST_Pin, 0);
 
     HAL_Delay(36);
+
+    adns3080_write_reg(A_CONF, 0x19); // 1600cpi
 }
 
 void adns3080_init(void)
