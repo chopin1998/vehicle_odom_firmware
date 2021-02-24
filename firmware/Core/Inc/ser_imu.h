@@ -8,11 +8,11 @@
 
 static uint8_t ser_imu_rx_buff[];
 extern uint8_t ser_imu_frame_flag;
-
+extern uint8_t ser_imu_last_data[32];
 
 void ser_imu_tick(void);
 void ser_imu_init(void);
-void ser_imu_get(uint16_t *data);
+void ser_imu_get(int16_t *a, int16_t *r, int16_t *e);
 
 
 #endif

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cccNYaEY.s 			page 1
+ARM GAS  /tmp/ccuBiW5p.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cccNYaEY.s 			page 1
   58              		.align	2
   59              	.L10:
   60 0008 00000000 		.word	.LANCHOR0
-ARM GAS  /tmp/cccNYaEY.s 			page 2
+ARM GAS  /tmp/ccuBiW5p.s 			page 2
 
 
   62              		.section	.text.USBD_CDC_GetHSCfgDesc,"ax",%progbits
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cccNYaEY.s 			page 1
  121 0008 00000000 		.word	.LANCHOR3
  123              		.section	.text.USBD_CDC_DataOut,"ax",%progbits
  124              		.align	1
-ARM GAS  /tmp/cccNYaEY.s 			page 3
+ARM GAS  /tmp/ccuBiW5p.s 			page 3
 
 
  125              		.syntax unified
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cccNYaEY.s 			page 1
  182 003a 2046     		mov	r0, r4
  183              	.L25:
  184 003c F8BD     		pop	{r3, r4, r5, r6, r7, pc}
-ARM GAS  /tmp/cccNYaEY.s 			page 4
+ARM GAS  /tmp/ccuBiW5p.s 			page 4
 
 
  185              	.L26:
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cccNYaEY.s 			page 1
  241 0054 3946     		mov	r1, r7
  242 0056 FFF7FEFF 		bl	USBD_CtlPrepareRx
  243              	.L43:
-ARM GAS  /tmp/cccNYaEY.s 			page 5
+ARM GAS  /tmp/ccuBiW5p.s 			page 5
 
 
  244 005a 0020     		movs	r0, #0
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cccNYaEY.s 			page 1
  298 00da 03B0     		add	sp, sp, #12
  299              		@ sp needed
  300 00dc BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
-ARM GAS  /tmp/cccNYaEY.s 			page 6
+ARM GAS  /tmp/ccuBiW5p.s 			page 6
 
 
  302              		.section	.text.USBD_CDC_DeInit,"ax",%progbits
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cccNYaEY.s 			page 1
  359 001c 237C     		ldrb	r3, [r4, #16]	@ zero_extendqisi2
  360 001e ABBB     		cbnz	r3, .L53
  361 0020 4FF40073 		mov	r3, #512
-ARM GAS  /tmp/cccNYaEY.s 			page 7
+ARM GAS  /tmp/ccuBiW5p.s 			page 7
 
 
  362 0024 0222     		movs	r2, #2
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cccNYaEY.s 			page 1
  416 00ae 2846     		mov	r0, r5
  417 00b0 B2E7     		b	.L52
  419              		.section	.text.USBD_CDC_RegisterInterface,"ax",%progbits
-ARM GAS  /tmp/cccNYaEY.s 			page 8
+ARM GAS  /tmp/ccuBiW5p.s 			page 8
 
 
  420              		.align	1
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cccNYaEY.s 			page 1
  480              		.fpu fpv5-sp-d16
  482              	USBD_CDC_TransmitPacket:
  483              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/cccNYaEY.s 			page 9
+ARM GAS  /tmp/ccuBiW5p.s 			page 9
 
 
  484              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cccNYaEY.s 			page 1
  541              		.align	2
  544              	USBD_CDC:
  545 0000 00000000 		.word	USBD_CDC_Init
-ARM GAS  /tmp/cccNYaEY.s 			page 10
+ARM GAS  /tmp/ccuBiW5p.s 			page 10
 
 
  546 0004 00000000 		.word	USBD_CDC_DeInit
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cccNYaEY.s 			page 1
  602 0025 07       		.byte	7
  603 0026 05       		.byte	5
  604 0027 82       		.byte	-126
-ARM GAS  /tmp/cccNYaEY.s 			page 11
+ARM GAS  /tmp/ccuBiW5p.s 			page 11
 
 
  605 0028 03       		.byte	3
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cccNYaEY.s 			page 1
  661 0017 05       		.byte	5
  662 0018 24       		.byte	36
  663 0019 01       		.byte	1
-ARM GAS  /tmp/cccNYaEY.s 			page 12
+ARM GAS  /tmp/ccuBiW5p.s 			page 12
 
 
  664 001a 00       		.byte	0
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cccNYaEY.s 			page 1
  720 0009 00       		.byte	0
  721              		.section	.data.USBD_CDC_OtherSpeedCfgDesc,"aw"
  722              		.align	2
-ARM GAS  /tmp/cccNYaEY.s 			page 13
+ARM GAS  /tmp/ccuBiW5p.s 			page 13
 
 
  723              		.set	.LANCHOR2,. + 0
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cccNYaEY.s 			page 1
  779 0034 00       		.byte	0
  780 0035 07       		.byte	7
  781 0036 05       		.byte	5
-ARM GAS  /tmp/cccNYaEY.s 			page 14
+ARM GAS  /tmp/ccuBiW5p.s 			page 14
 
 
  782 0037 01       		.byte	1
@@ -794,58 +794,58 @@ ARM GAS  /tmp/cccNYaEY.s 			page 1
  792 0041 00       		.byte	0
  793 0042 00       		.byte	0
  794              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/cccNYaEY.s 			page 15
+ARM GAS  /tmp/ccuBiW5p.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 usbd_cdc.c
-     /tmp/cccNYaEY.s:15     .text.USBD_CDC_EP0_RxReady:0000000000000000 $t
-     /tmp/cccNYaEY.s:22     .text.USBD_CDC_EP0_RxReady:0000000000000000 USBD_CDC_EP0_RxReady
-     /tmp/cccNYaEY.s:43     .text.USBD_CDC_GetFSCfgDesc:0000000000000000 $t
-     /tmp/cccNYaEY.s:49     .text.USBD_CDC_GetFSCfgDesc:0000000000000000 USBD_CDC_GetFSCfgDesc
-     /tmp/cccNYaEY.s:60     .text.USBD_CDC_GetFSCfgDesc:0000000000000008 $d
-     /tmp/cccNYaEY.s:63     .text.USBD_CDC_GetHSCfgDesc:0000000000000000 $t
-     /tmp/cccNYaEY.s:69     .text.USBD_CDC_GetHSCfgDesc:0000000000000000 USBD_CDC_GetHSCfgDesc
-     /tmp/cccNYaEY.s:80     .text.USBD_CDC_GetHSCfgDesc:0000000000000008 $d
-     /tmp/cccNYaEY.s:83     .text.USBD_CDC_GetOtherSpeedCfgDesc:0000000000000000 $t
-     /tmp/cccNYaEY.s:89     .text.USBD_CDC_GetOtherSpeedCfgDesc:0000000000000000 USBD_CDC_GetOtherSpeedCfgDesc
-     /tmp/cccNYaEY.s:100    .text.USBD_CDC_GetOtherSpeedCfgDesc:0000000000000008 $d
-     /tmp/cccNYaEY.s:103    .text.USBD_CDC_GetDeviceQualifierDescriptor:0000000000000000 $t
-     /tmp/cccNYaEY.s:110    .text.USBD_CDC_GetDeviceQualifierDescriptor:0000000000000000 USBD_CDC_GetDeviceQualifierDescriptor
-     /tmp/cccNYaEY.s:121    .text.USBD_CDC_GetDeviceQualifierDescriptor:0000000000000008 $d
-     /tmp/cccNYaEY.s:124    .text.USBD_CDC_DataOut:0000000000000000 $t
-     /tmp/cccNYaEY.s:130    .text.USBD_CDC_DataOut:0000000000000000 USBD_CDC_DataOut
-     /tmp/cccNYaEY.s:152    .text.USBD_CDC_DataIn:0000000000000000 $t
-     /tmp/cccNYaEY.s:158    .text.USBD_CDC_DataIn:0000000000000000 USBD_CDC_DataIn
-     /tmp/cccNYaEY.s:199    .text.USBD_CDC_Setup:0000000000000000 $t
-     /tmp/cccNYaEY.s:205    .text.USBD_CDC_Setup:0000000000000000 USBD_CDC_Setup
-     /tmp/cccNYaEY.s:261    .text.USBD_CDC_Setup:0000000000000078 $d
-     /tmp/cccNYaEY.s:273    .text.USBD_CDC_Setup:00000000000000a8 $t
-     /tmp/cccNYaEY.s:303    .text.USBD_CDC_DeInit:0000000000000000 $t
-     /tmp/cccNYaEY.s:309    .text.USBD_CDC_DeInit:0000000000000000 USBD_CDC_DeInit
-     /tmp/cccNYaEY.s:339    .text.USBD_CDC_Init:0000000000000000 $t
-     /tmp/cccNYaEY.s:345    .text.USBD_CDC_Init:0000000000000000 USBD_CDC_Init
-     /tmp/cccNYaEY.s:420    .text.USBD_CDC_RegisterInterface:0000000000000000 $t
-     /tmp/cccNYaEY.s:427    .text.USBD_CDC_RegisterInterface:0000000000000000 USBD_CDC_RegisterInterface
-     /tmp/cccNYaEY.s:440    .text.USBD_CDC_SetTxBuffer:0000000000000000 $t
-     /tmp/cccNYaEY.s:447    .text.USBD_CDC_SetTxBuffer:0000000000000000 USBD_CDC_SetTxBuffer
-     /tmp/cccNYaEY.s:458    .text.USBD_CDC_SetRxBuffer:0000000000000000 $t
-     /tmp/cccNYaEY.s:465    .text.USBD_CDC_SetRxBuffer:0000000000000000 USBD_CDC_SetRxBuffer
-     /tmp/cccNYaEY.s:475    .text.USBD_CDC_TransmitPacket:0000000000000000 $t
-     /tmp/cccNYaEY.s:482    .text.USBD_CDC_TransmitPacket:0000000000000000 USBD_CDC_TransmitPacket
-     /tmp/cccNYaEY.s:508    .text.USBD_CDC_ReceivePacket:0000000000000000 $t
-     /tmp/cccNYaEY.s:515    .text.USBD_CDC_ReceivePacket:0000000000000000 USBD_CDC_ReceivePacket
-     /tmp/cccNYaEY.s:544    .data.USBD_CDC:0000000000000000 USBD_CDC
+     /tmp/ccuBiW5p.s:15     .text.USBD_CDC_EP0_RxReady:0000000000000000 $t
+     /tmp/ccuBiW5p.s:22     .text.USBD_CDC_EP0_RxReady:0000000000000000 USBD_CDC_EP0_RxReady
+     /tmp/ccuBiW5p.s:43     .text.USBD_CDC_GetFSCfgDesc:0000000000000000 $t
+     /tmp/ccuBiW5p.s:49     .text.USBD_CDC_GetFSCfgDesc:0000000000000000 USBD_CDC_GetFSCfgDesc
+     /tmp/ccuBiW5p.s:60     .text.USBD_CDC_GetFSCfgDesc:0000000000000008 $d
+     /tmp/ccuBiW5p.s:63     .text.USBD_CDC_GetHSCfgDesc:0000000000000000 $t
+     /tmp/ccuBiW5p.s:69     .text.USBD_CDC_GetHSCfgDesc:0000000000000000 USBD_CDC_GetHSCfgDesc
+     /tmp/ccuBiW5p.s:80     .text.USBD_CDC_GetHSCfgDesc:0000000000000008 $d
+     /tmp/ccuBiW5p.s:83     .text.USBD_CDC_GetOtherSpeedCfgDesc:0000000000000000 $t
+     /tmp/ccuBiW5p.s:89     .text.USBD_CDC_GetOtherSpeedCfgDesc:0000000000000000 USBD_CDC_GetOtherSpeedCfgDesc
+     /tmp/ccuBiW5p.s:100    .text.USBD_CDC_GetOtherSpeedCfgDesc:0000000000000008 $d
+     /tmp/ccuBiW5p.s:103    .text.USBD_CDC_GetDeviceQualifierDescriptor:0000000000000000 $t
+     /tmp/ccuBiW5p.s:110    .text.USBD_CDC_GetDeviceQualifierDescriptor:0000000000000000 USBD_CDC_GetDeviceQualifierDescriptor
+     /tmp/ccuBiW5p.s:121    .text.USBD_CDC_GetDeviceQualifierDescriptor:0000000000000008 $d
+     /tmp/ccuBiW5p.s:124    .text.USBD_CDC_DataOut:0000000000000000 $t
+     /tmp/ccuBiW5p.s:130    .text.USBD_CDC_DataOut:0000000000000000 USBD_CDC_DataOut
+     /tmp/ccuBiW5p.s:152    .text.USBD_CDC_DataIn:0000000000000000 $t
+     /tmp/ccuBiW5p.s:158    .text.USBD_CDC_DataIn:0000000000000000 USBD_CDC_DataIn
+     /tmp/ccuBiW5p.s:199    .text.USBD_CDC_Setup:0000000000000000 $t
+     /tmp/ccuBiW5p.s:205    .text.USBD_CDC_Setup:0000000000000000 USBD_CDC_Setup
+     /tmp/ccuBiW5p.s:261    .text.USBD_CDC_Setup:0000000000000078 $d
+     /tmp/ccuBiW5p.s:273    .text.USBD_CDC_Setup:00000000000000a8 $t
+     /tmp/ccuBiW5p.s:303    .text.USBD_CDC_DeInit:0000000000000000 $t
+     /tmp/ccuBiW5p.s:309    .text.USBD_CDC_DeInit:0000000000000000 USBD_CDC_DeInit
+     /tmp/ccuBiW5p.s:339    .text.USBD_CDC_Init:0000000000000000 $t
+     /tmp/ccuBiW5p.s:345    .text.USBD_CDC_Init:0000000000000000 USBD_CDC_Init
+     /tmp/ccuBiW5p.s:420    .text.USBD_CDC_RegisterInterface:0000000000000000 $t
+     /tmp/ccuBiW5p.s:427    .text.USBD_CDC_RegisterInterface:0000000000000000 USBD_CDC_RegisterInterface
+     /tmp/ccuBiW5p.s:440    .text.USBD_CDC_SetTxBuffer:0000000000000000 $t
+     /tmp/ccuBiW5p.s:447    .text.USBD_CDC_SetTxBuffer:0000000000000000 USBD_CDC_SetTxBuffer
+     /tmp/ccuBiW5p.s:458    .text.USBD_CDC_SetRxBuffer:0000000000000000 $t
+     /tmp/ccuBiW5p.s:465    .text.USBD_CDC_SetRxBuffer:0000000000000000 USBD_CDC_SetRxBuffer
+     /tmp/ccuBiW5p.s:475    .text.USBD_CDC_TransmitPacket:0000000000000000 $t
+     /tmp/ccuBiW5p.s:482    .text.USBD_CDC_TransmitPacket:0000000000000000 USBD_CDC_TransmitPacket
+     /tmp/ccuBiW5p.s:508    .text.USBD_CDC_ReceivePacket:0000000000000000 $t
+     /tmp/ccuBiW5p.s:515    .text.USBD_CDC_ReceivePacket:0000000000000000 USBD_CDC_ReceivePacket
+     /tmp/ccuBiW5p.s:544    .data.USBD_CDC:0000000000000000 USBD_CDC
                             *COM*:0000000000000001 odom
-     /tmp/cccNYaEY.s:541    .data.USBD_CDC:0000000000000000 $d
-     /tmp/cccNYaEY.s:560    .data.USBD_CDC_CfgFSDesc:0000000000000000 $d
-     /tmp/cccNYaEY.s:564    .data.USBD_CDC_CfgFSDesc:0000000000000000 USBD_CDC_CfgFSDesc
-     /tmp/cccNYaEY.s:633    .data.USBD_CDC_CfgHSDesc:0000000000000000 $d
-     /tmp/cccNYaEY.s:637    .data.USBD_CDC_CfgHSDesc:0000000000000000 USBD_CDC_CfgHSDesc
-     /tmp/cccNYaEY.s:706    .data.USBD_CDC_DeviceQualifierDesc:0000000000000000 $d
-     /tmp/cccNYaEY.s:710    .data.USBD_CDC_DeviceQualifierDesc:0000000000000000 USBD_CDC_DeviceQualifierDesc
-     /tmp/cccNYaEY.s:722    .data.USBD_CDC_OtherSpeedCfgDesc:0000000000000000 $d
-     /tmp/cccNYaEY.s:726    .data.USBD_CDC_OtherSpeedCfgDesc:0000000000000000 USBD_CDC_OtherSpeedCfgDesc
+     /tmp/ccuBiW5p.s:541    .data.USBD_CDC:0000000000000000 $d
+     /tmp/ccuBiW5p.s:560    .data.USBD_CDC_CfgFSDesc:0000000000000000 $d
+     /tmp/ccuBiW5p.s:564    .data.USBD_CDC_CfgFSDesc:0000000000000000 USBD_CDC_CfgFSDesc
+     /tmp/ccuBiW5p.s:633    .data.USBD_CDC_CfgHSDesc:0000000000000000 $d
+     /tmp/ccuBiW5p.s:637    .data.USBD_CDC_CfgHSDesc:0000000000000000 USBD_CDC_CfgHSDesc
+     /tmp/ccuBiW5p.s:706    .data.USBD_CDC_DeviceQualifierDesc:0000000000000000 $d
+     /tmp/ccuBiW5p.s:710    .data.USBD_CDC_DeviceQualifierDesc:0000000000000000 USBD_CDC_DeviceQualifierDesc
+     /tmp/ccuBiW5p.s:722    .data.USBD_CDC_OtherSpeedCfgDesc:0000000000000000 $d
+     /tmp/ccuBiW5p.s:726    .data.USBD_CDC_OtherSpeedCfgDesc:0000000000000000 USBD_CDC_OtherSpeedCfgDesc
 
 UNDEFINED SYMBOLS
 USBD_LL_GetRxDataSize
@@ -854,7 +854,7 @@ USBD_CtlSendData
 USBD_CtlPrepareRx
 USBD_CtlError
 USBD_LL_CloseEP
-ARM GAS  /tmp/cccNYaEY.s 			page 16
+ARM GAS  /tmp/ccuBiW5p.s 			page 16
 
 
 free

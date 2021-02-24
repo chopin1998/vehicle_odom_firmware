@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccaFZU2F.s 			page 1
+ARM GAS  /tmp/cceXQUHC.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -29,124 +29,120 @@ ARM GAS  /tmp/ccaFZU2F.s 			page 1
   27 0004 1422     		movs	r2, #20
   28 0006 8AB0     		sub	sp, sp, #40
   29 0008 0021     		movs	r1, #0
-  30 000a 404E     		ldr	r6, .L2
+  30 000a 3E4F     		ldr	r7, .L2
   31 000c 0DEB0200 		add	r0, sp, r2
-  32 0010 3F4F     		ldr	r7, .L2+4
+  32 0010 3D4E     		ldr	r6, .L2+4
   33 0012 FFF7FEFF 		bl	memset
-  34 0016 3F4B     		ldr	r3, .L2+8
-  35 0018 3046     		mov	r0, r6
-  36 001a 4021     		movs	r1, #64
-  37 001c 1A6B     		ldr	r2, [r3, #48]
-  38 001e 0024     		movs	r4, #0
-  39 0020 0325     		movs	r5, #3
-  40 0022 4FF00108 		mov	r8, #1
-  41 0026 42F00402 		orr	r2, r2, #4
-  42 002a 1A63     		str	r2, [r3, #48]
-  43 002c 1A6B     		ldr	r2, [r3, #48]
-  44 002e 02F00402 		and	r2, r2, #4
-  45 0032 0092     		str	r2, [sp]
-  46 0034 009A     		ldr	r2, [sp]
-  47 0036 1A6B     		ldr	r2, [r3, #48]
-  48 0038 42F08002 		orr	r2, r2, #128
-  49 003c 1A63     		str	r2, [r3, #48]
-  50 003e 1A6B     		ldr	r2, [r3, #48]
-  51 0040 02F08002 		and	r2, r2, #128
-  52 0044 0192     		str	r2, [sp, #4]
-  53 0046 019A     		ldr	r2, [sp, #4]
-  54 0048 1A6B     		ldr	r2, [r3, #48]
-  55 004a 42F00102 		orr	r2, r2, #1
-  56 004e 1A63     		str	r2, [r3, #48]
-  57 0050 1A6B     		ldr	r2, [r3, #48]
-  58 0052 02F00102 		and	r2, r2, #1
-ARM GAS  /tmp/ccaFZU2F.s 			page 2
+  34 0016 3D4B     		ldr	r3, .L2+8
+  35 0018 3846     		mov	r0, r7
+  36 001a 44F24001 		movw	r1, #16448
+  37 001e 1A6B     		ldr	r2, [r3, #48]
+  38 0020 0024     		movs	r4, #0
+  39 0022 0325     		movs	r5, #3
+  40 0024 4FF00108 		mov	r8, #1
+  41 0028 42F00402 		orr	r2, r2, #4
+  42 002c 1A63     		str	r2, [r3, #48]
+  43 002e 1A6B     		ldr	r2, [r3, #48]
+  44 0030 02F00402 		and	r2, r2, #4
+  45 0034 0092     		str	r2, [sp]
+  46 0036 009A     		ldr	r2, [sp]
+  47 0038 1A6B     		ldr	r2, [r3, #48]
+  48 003a 42F08002 		orr	r2, r2, #128
+  49 003e 1A63     		str	r2, [r3, #48]
+  50 0040 1A6B     		ldr	r2, [r3, #48]
+  51 0042 02F08002 		and	r2, r2, #128
+  52 0046 0192     		str	r2, [sp, #4]
+  53 0048 019A     		ldr	r2, [sp, #4]
+  54 004a 1A6B     		ldr	r2, [r3, #48]
+  55 004c 42F00102 		orr	r2, r2, #1
+  56 0050 1A63     		str	r2, [r3, #48]
+  57 0052 1A6B     		ldr	r2, [r3, #48]
+  58 0054 02F00102 		and	r2, r2, #1
+ARM GAS  /tmp/cceXQUHC.s 			page 2
 
 
-  59 0056 0292     		str	r2, [sp, #8]
-  60 0058 029A     		ldr	r2, [sp, #8]
-  61 005a 1A6B     		ldr	r2, [r3, #48]
-  62 005c 42F00202 		orr	r2, r2, #2
-  63 0060 1A63     		str	r2, [r3, #48]
-  64 0062 1A6B     		ldr	r2, [r3, #48]
-  65 0064 02F00202 		and	r2, r2, #2
-  66 0068 0392     		str	r2, [sp, #12]
-  67 006a 039A     		ldr	r2, [sp, #12]
-  68 006c 1A6B     		ldr	r2, [r3, #48]
-  69 006e 42F00802 		orr	r2, r2, #8
-  70 0072 1A63     		str	r2, [r3, #48]
-  71 0074 0022     		movs	r2, #0
-  72 0076 1B6B     		ldr	r3, [r3, #48]
-  73 0078 03F00803 		and	r3, r3, #8
-  74 007c 0493     		str	r3, [sp, #16]
-  75 007e 049B     		ldr	r3, [sp, #16]
-  76 0080 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  77 0084 3846     		mov	r0, r7
-  78 0086 0022     		movs	r2, #0
-  79 0088 4021     		movs	r1, #64
-  80 008a FFF7FEFF 		bl	HAL_GPIO_WritePin
-  81 008e 0122     		movs	r2, #1
-  82 0090 3046     		mov	r0, r6
-  83 0092 4FF48041 		mov	r1, #16384
-  84 0096 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  85 009a 4FF29F33 		movw	r3, #62367
-  86 009e 05A9     		add	r1, sp, #20
-  87 00a0 3846     		mov	r0, r7
-  88 00a2 0794     		str	r4, [sp, #28]
-  89 00a4 CDE90535 		strd	r3, r5, [sp, #20]
-  90 00a8 FFF7FEFF 		bl	HAL_GPIO_Init
-  91 00ac 4AF29F73 		movw	r3, #42911
-  92 00b0 05A9     		add	r1, sp, #20
-  93 00b2 3046     		mov	r0, r6
-  94 00b4 0794     		str	r4, [sp, #28]
-  95 00b6 CDE90535 		strd	r3, r5, [sp, #20]
-  96 00ba FFF7FEFF 		bl	HAL_GPIO_Init
-  97 00be 44F24003 		movw	r3, #16448
-  98 00c2 05A9     		add	r1, sp, #20
-  99 00c4 3046     		mov	r0, r6
- 100 00c6 CDE90538 		strd	r3, r8, [sp, #20]
- 101 00ca CDE90744 		strd	r4, r4, [sp, #28]
- 102 00ce FFF7FEFF 		bl	HAL_GPIO_Init
- 103 00d2 40F6FF73 		movw	r3, #4095
- 104 00d6 05A9     		add	r1, sp, #20
- 105 00d8 0F48     		ldr	r0, .L2+12
- 106 00da 0794     		str	r4, [sp, #28]
- 107 00dc CDE90535 		strd	r3, r5, [sp, #20]
- 108 00e0 FFF7FEFF 		bl	HAL_GPIO_Init
- 109 00e4 4023     		movs	r3, #64
- 110 00e6 05A9     		add	r1, sp, #20
- 111 00e8 3846     		mov	r0, r7
- 112 00ea CDE90538 		strd	r3, r8, [sp, #20]
- 113 00ee CDE90744 		strd	r4, r4, [sp, #28]
- 114 00f2 FFF7FEFF 		bl	HAL_GPIO_Init
- 115 00f6 0423     		movs	r3, #4
-ARM GAS  /tmp/ccaFZU2F.s 			page 3
+  59 0058 0292     		str	r2, [sp, #8]
+  60 005a 029A     		ldr	r2, [sp, #8]
+  61 005c 1A6B     		ldr	r2, [r3, #48]
+  62 005e 42F00202 		orr	r2, r2, #2
+  63 0062 1A63     		str	r2, [r3, #48]
+  64 0064 1A6B     		ldr	r2, [r3, #48]
+  65 0066 02F00202 		and	r2, r2, #2
+  66 006a 0392     		str	r2, [sp, #12]
+  67 006c 039A     		ldr	r2, [sp, #12]
+  68 006e 1A6B     		ldr	r2, [r3, #48]
+  69 0070 42F00802 		orr	r2, r2, #8
+  70 0074 1A63     		str	r2, [r3, #48]
+  71 0076 0022     		movs	r2, #0
+  72 0078 1B6B     		ldr	r3, [r3, #48]
+  73 007a 03F00803 		and	r3, r3, #8
+  74 007e 0493     		str	r3, [sp, #16]
+  75 0080 049B     		ldr	r3, [sp, #16]
+  76 0082 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  77 0086 0022     		movs	r2, #0
+  78 0088 3046     		mov	r0, r6
+  79 008a 4021     		movs	r1, #64
+  80 008c FFF7FEFF 		bl	HAL_GPIO_WritePin
+  81 0090 4EF29F33 		movw	r3, #58271
+  82 0094 05A9     		add	r1, sp, #20
+  83 0096 3046     		mov	r0, r6
+  84 0098 0794     		str	r4, [sp, #28]
+  85 009a CDE90535 		strd	r3, r5, [sp, #20]
+  86 009e FFF7FEFF 		bl	HAL_GPIO_Init
+  87 00a2 42F29373 		movw	r3, #10131
+  88 00a6 05A9     		add	r1, sp, #20
+  89 00a8 3846     		mov	r0, r7
+  90 00aa 0794     		str	r4, [sp, #28]
+  91 00ac CDE90535 		strd	r3, r5, [sp, #20]
+  92 00b0 FFF7FEFF 		bl	HAL_GPIO_Init
+  93 00b4 44F24003 		movw	r3, #16448
+  94 00b8 05A9     		add	r1, sp, #20
+  95 00ba 3846     		mov	r0, r7
+  96 00bc CDE90538 		strd	r3, r8, [sp, #20]
+  97 00c0 CDE90744 		strd	r4, r4, [sp, #28]
+  98 00c4 FFF7FEFF 		bl	HAL_GPIO_Init
+  99 00c8 40F6FF73 		movw	r3, #4095
+ 100 00cc 05A9     		add	r1, sp, #20
+ 101 00ce 1048     		ldr	r0, .L2+12
+ 102 00d0 0794     		str	r4, [sp, #28]
+ 103 00d2 CDE90535 		strd	r3, r5, [sp, #20]
+ 104 00d6 FFF7FEFF 		bl	HAL_GPIO_Init
+ 105 00da 4023     		movs	r3, #64
+ 106 00dc 05A9     		add	r1, sp, #20
+ 107 00de 3046     		mov	r0, r6
+ 108 00e0 CDE90538 		strd	r3, r8, [sp, #20]
+ 109 00e4 CDE90744 		strd	r4, r4, [sp, #28]
+ 110 00e8 FFF7FEFF 		bl	HAL_GPIO_Init
+ 111 00ec 0423     		movs	r3, #4
+ 112 00ee 05A9     		add	r1, sp, #20
+ 113 00f0 0848     		ldr	r0, .L2+16
+ 114 00f2 0794     		str	r4, [sp, #28]
+ 115 00f4 CDE90535 		strd	r3, r5, [sp, #20]
+ARM GAS  /tmp/cceXQUHC.s 			page 3
 
 
- 116 00f8 05A9     		add	r1, sp, #20
- 117 00fa 0848     		ldr	r0, .L2+16
- 118 00fc 0794     		str	r4, [sp, #28]
- 119 00fe CDE90535 		strd	r3, r5, [sp, #20]
- 120 0102 FFF7FEFF 		bl	HAL_GPIO_Init
- 121 0106 0AB0     		add	sp, sp, #40
- 122              		@ sp needed
- 123 0108 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 124              	.L3:
- 125              		.align	2
- 126              	.L2:
- 127 010c 00000240 		.word	1073872896
- 128 0110 00080240 		.word	1073874944
- 129 0114 00380240 		.word	1073887232
- 130 0118 00040240 		.word	1073873920
- 131 011c 000C0240 		.word	1073875968
- 133              		.comm	odom,1,1
- 134              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccaFZU2F.s 			page 4
+ 116 00f8 FFF7FEFF 		bl	HAL_GPIO_Init
+ 117 00fc 0AB0     		add	sp, sp, #40
+ 118              		@ sp needed
+ 119 00fe BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 120              	.L3:
+ 121 0102 00BF     		.align	2
+ 122              	.L2:
+ 123 0104 00000240 		.word	1073872896
+ 124 0108 00080240 		.word	1073874944
+ 125 010c 00380240 		.word	1073887232
+ 126 0110 00040240 		.word	1073873920
+ 127 0114 000C0240 		.word	1073875968
+ 129              		.comm	odom,1,1
+ 130              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
+ARM GAS  /tmp/cceXQUHC.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 gpio.c
-     /tmp/ccaFZU2F.s:15     .text.MX_GPIO_Init:0000000000000000 $t
-     /tmp/ccaFZU2F.s:23     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
-     /tmp/ccaFZU2F.s:127    .text.MX_GPIO_Init:000000000000010c $d
+     /tmp/cceXQUHC.s:15     .text.MX_GPIO_Init:0000000000000000 $t
+     /tmp/cceXQUHC.s:23     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
+     /tmp/cceXQUHC.s:123    .text.MX_GPIO_Init:0000000000000104 $d
                             *COM*:0000000000000001 odom
 
 UNDEFINED SYMBOLS

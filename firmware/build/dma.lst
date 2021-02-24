@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccM3DihZ.s 			page 1
+ARM GAS  /tmp/ccyTyInF.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -25,10 +25,10 @@ ARM GAS  /tmp/ccM3DihZ.s 			page 1
   23              	MX_DMA_Init:
   24              		@ args = 0, pretend = 0, frame = 8
   25              		@ frame_needed = 0, uses_anonymous_args = 0
-  26 0000 0E4B     		ldr	r3, .L2
+  26 0000 164B     		ldr	r3, .L2
   27 0002 07B5     		push	{r0, r1, r2, lr}
   28 0004 1A6B     		ldr	r2, [r3, #48]
-  29 0006 0C20     		movs	r0, #12
+  29 0006 0B20     		movs	r0, #11
   30 0008 42F40012 		orr	r2, r2, #2097152
   31 000c 1A63     		str	r2, [r3, #48]
   32 000e 0022     		movs	r2, #0
@@ -38,31 +38,46 @@ ARM GAS  /tmp/ccM3DihZ.s 			page 1
   36 0018 0193     		str	r3, [sp, #4]
   37 001a 019B     		ldr	r3, [sp, #4]
   38 001c FFF7FEFF 		bl	HAL_NVIC_SetPriority
-  39 0020 0C20     		movs	r0, #12
+  39 0020 0B20     		movs	r0, #11
   40 0022 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
   41 0026 0022     		movs	r2, #0
   42 0028 0E20     		movs	r0, #14
   43 002a 1146     		mov	r1, r2
   44 002c FFF7FEFF 		bl	HAL_NVIC_SetPriority
   45 0030 0E20     		movs	r0, #14
-  46 0032 03B0     		add	sp, sp, #12
-  47              		@ sp needed
-  48 0034 5DF804EB 		ldr	lr, [sp], #4
-  49 0038 FFF7FEBF 		b	HAL_NVIC_EnableIRQ
-  50              	.L3:
-  51              		.align	2
-  52              	.L2:
-  53 003c 00380240 		.word	1073887232
-  55              		.comm	odom,1,1
-  56              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccM3DihZ.s 			page 2
+  46 0032 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+  47 0036 0022     		movs	r2, #0
+  48 0038 1020     		movs	r0, #16
+  49 003a 1146     		mov	r1, r2
+  50 003c FFF7FEFF 		bl	HAL_NVIC_SetPriority
+  51 0040 1020     		movs	r0, #16
+  52 0042 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+  53 0046 0022     		movs	r2, #0
+  54 0048 1120     		movs	r0, #17
+  55 004a 1146     		mov	r1, r2
+  56 004c FFF7FEFF 		bl	HAL_NVIC_SetPriority
+  57 0050 1120     		movs	r0, #17
+  58 0052 03B0     		add	sp, sp, #12
+ARM GAS  /tmp/ccyTyInF.s 			page 2
+
+
+  59              		@ sp needed
+  60 0054 5DF804EB 		ldr	lr, [sp], #4
+  61 0058 FFF7FEBF 		b	HAL_NVIC_EnableIRQ
+  62              	.L3:
+  63              		.align	2
+  64              	.L2:
+  65 005c 00380240 		.word	1073887232
+  67              		.comm	odom,1,1
+  68              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
+ARM GAS  /tmp/ccyTyInF.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 dma.c
-     /tmp/ccM3DihZ.s:15     .text.MX_DMA_Init:0000000000000000 $t
-     /tmp/ccM3DihZ.s:23     .text.MX_DMA_Init:0000000000000000 MX_DMA_Init
-     /tmp/ccM3DihZ.s:53     .text.MX_DMA_Init:000000000000003c $d
+     /tmp/ccyTyInF.s:15     .text.MX_DMA_Init:0000000000000000 $t
+     /tmp/ccyTyInF.s:23     .text.MX_DMA_Init:0000000000000000 MX_DMA_Init
+     /tmp/ccyTyInF.s:65     .text.MX_DMA_Init:000000000000005c $d
                             *COM*:0000000000000001 odom
 
 UNDEFINED SYMBOLS

@@ -11,7 +11,7 @@ from PIL import Image, ImageQt
 
 class ADNS3080( object ):
 
-    def __init__(self, dev='/dev/ttyACM0', baud=1000000):
+    def __init__(self, dev='/dev/serial/by-id/usb-tensor-robotics_OF_IMU_3159365B3438-if00', baud=1000000):
 
         self.dev = serial.Serial(dev, baud, timeout=0.01)
         self.dev.flush()
@@ -20,13 +20,19 @@ class ADNS3080( object ):
 
         self.dev.flush()
         self.dev.write(b'cap')
-
         try:
-            rev = self.dev.read(900)
+            d0 = self.dev.read(900)
         except Exception as ex:
-            return (False, ex)
+            return (False,)
+        
+        self.dev.flush()
+        self.dev.write(b'cap2')
+        try:
+            d1 = self.dev.read(900)
+        except Exception as ex:
+            return (False,)
 
-        return (True, rev)
+        return (True, d0, d1)
 
     def motion(self):
 
@@ -49,7 +55,7 @@ class CapGui( QtWidgets.QWidget ):
         super(CapGui, self).__init__()
 
         self.img_label = QtWidgets.QLabel(self)
-        self.img_label.resize(600, 600)
+        self.img_label.resize(1200, 600)
 
         self.btn = QtWidgets.QPushButton(self)
         self.btn.clicked.connect(self.click)
@@ -58,7 +64,7 @@ class CapGui( QtWidgets.QWidget ):
         
         timer = QtCore.QTimer(self)
         timer.timeout.connect(self.show_img)
-        timer.start(33)
+        timer.start(40)
 
     def click(self):
         print('click')
@@ -72,14 +78,22 @@ class CapGui( QtWidgets.QWidget ):
                 t = time.time()
                 print(t - self._last_frame_time)
                 self._last_frame_time = t
+
+                img_l = Image.new('L', (30, 30))
+                img_l.frombytes(data[1])
+
+                img_r = Image.new('L', (30, 30))
+                img_r.frombytes(data[2])
+                # img = img.resize((600, 600))
                 
-                img = Image.new('L', (30, 30))
-                img.frombytes(data[1])
-                img = img.resize((600, 600))
+                img = Image.new('L', (60, 30))
+                img.paste(img_l, (0, 0))
+                img.paste(img_r, (30, 0))
+                img = img.resize((1200, 600))
+
                 img = ImageQt.ImageQt(img)
                 
                 self.img_label.setPixmap(QtGui.QPixmap.fromImage(img))
-                #self.img_label.setPixmap(QtGui.QPixmap.fromString(img.tobytes()))
                 self.img_label.show()
             else:
                 print('failed to capture frame')

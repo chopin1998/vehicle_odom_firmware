@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccMHhg2I.s 			page 1
+ARM GAS  /tmp/ccz39ptK.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccMHhg2I.s 			page 1
   56 004c 03F44043 		and	r3, r3, #49152
   57 0050 0293     		str	r3, [sp, #8]
   58 0052 029B     		ldr	r3, [sp, #8]
-ARM GAS  /tmp/ccMHhg2I.s 			page 2
+ARM GAS  /tmp/ccz39ptK.s 			page 2
 
 
   59 0054 0923     		movs	r3, #9
@@ -83,7 +83,7 @@ ARM GAS  /tmp/ccMHhg2I.s 			page 1
   78 008e FFF7FEFF 		bl	HAL_RCC_ClockConfig
   79 0092 084B     		ldr	r3, .L2+8
   80 0094 14A8     		add	r0, sp, #80
-  81 0096 2594     		str	r4, [sp, #148]
+  81 0096 2494     		str	r4, [sp, #144]
   82 0098 1493     		str	r3, [sp, #80]
   83 009a 4FF40073 		mov	r3, #512
   84 009e 3194     		str	r4, [sp, #196]
@@ -97,7 +97,7 @@ ARM GAS  /tmp/ccMHhg2I.s 			page 1
   92              	.L2:
   93 00ac 00380240 		.word	1073887232
   94 00b0 00700040 		.word	1073770496
-  95 00b4 20012000 		.word	2097440
+  95 00b4 A0002000 		.word	2097312
   97              		.section	.text.startup.main,"ax",%progbits
   98              		.align	1
   99              		.global	main
@@ -106,10 +106,10 @@ ARM GAS  /tmp/ccMHhg2I.s 			page 1
  102              		.thumb_func
  103              		.fpu fpv5-sp-d16
  105              	main:
- 106              		@ args = 0, pretend = 0, frame = 144
+ 106              		@ args = 0, pretend = 0, frame = 168
  107              		@ frame_needed = 0, uses_anonymous_args = 0
  108 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 109 0004 AEB0     		sub	sp, sp, #184
+ 109 0004 C2B0     		sub	sp, sp, #264
  110              		.syntax unified
  111              	@ 879 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
  112 0006 BFF34F8F 		dsb 0xF
@@ -118,11 +118,11 @@ ARM GAS  /tmp/ccMHhg2I.s 			page 1
  115 000a BFF36F8F 		isb 0xF
  116              	@ 0 "" 2
  117              		.thumb
-ARM GAS  /tmp/ccMHhg2I.s 			page 3
+ARM GAS  /tmp/ccz39ptK.s 			page 3
 
 
  118              		.syntax unified
- 119 000e 604B     		ldr	r3, .L18
+ 119 000e 7B4B     		ldr	r3, .L18
  120 0010 0021     		movs	r1, #0
  121 0012 C3F85012 		str	r1, [r3, #592]
  122              		.syntax unified
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccMHhg2I.s 			page 1
  172 0068 5A69     		ldr	r2, [r3, #20]
  173 006a 42F48032 		orr	r2, r2, #65536
  174 006e 5A61     		str	r2, [r3, #20]
-ARM GAS  /tmp/ccMHhg2I.s 			page 4
+ARM GAS  /tmp/ccz39ptK.s 			page 4
 
 
  175              		.syntax unified
@@ -199,158 +199,215 @@ ARM GAS  /tmp/ccMHhg2I.s 			page 1
  190 0090 FFF7FEFF 		bl	MX_DAC_Init
  191 0094 FFF7FEFF 		bl	MX_RTC_Init
  192 0098 FFF7FEFF 		bl	MX_CRC_Init
- 193 009c FFF7FEFF 		bl	MX_USART3_UART_Init
- 194 00a0 3C4A     		ldr	r2, .L18+4
- 195 00a2 1368     		ldr	r3, [r2]
- 196 00a4 43F48033 		orr	r3, r3, #65536
- 197 00a8 1360     		str	r3, [r2]
- 198 00aa 4FF47023 		mov	r3, #983040
- 199              		.syntax unified
- 200              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 201 00ae 93FAA3F3 		rbit r3, r3
- 202              	@ 0 "" 2
- 203              		.thumb
- 204              		.syntax unified
- 205 00b2 4FF44032 		mov	r2, #196608
- 206 00b6 B3FA83F3 		clz	r3, r3
- 207 00ba 3749     		ldr	r1, .L18+8
- 208 00bc DA40     		lsrs	r2, r2, r3
- 209 00be 374C     		ldr	r4, .L18+12
- 210 00c0 374F     		ldr	r7, .L18+16
- 211 00c2 51F82230 		ldr	r3, [r1, r2, lsl #2]
- 212 00c6 374E     		ldr	r6, .L18+20
- 213 00c8 23F47F63 		bic	r3, r3, #4080
- 214 00cc DFF8DC80 		ldr	r8, .L18+28
- 215 00d0 23F00F03 		bic	r3, r3, #15
- 216 00d4 43F06403 		orr	r3, r3, #100
- 217 00d8 41F82230 		str	r3, [r1, r2, lsl #2]
- 218 00dc FFF7FEFF 		bl	adns3080_init
- 219 00e0 FFF7FEFF 		bl	ser_imu_enable
- 220 00e4 0023     		movs	r3, #0
- 221 00e6 2370     		strb	r3, [r4]
- 222              	.L9:
- 223 00e8 FFF7FEFF 		bl	cdc_rx_tick
- 224 00ec 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
- 225 00ee 03F0FF02 		and	r2, r3, #255
- 226 00f2 002B     		cmp	r3, #0
- 227 00f4 39D0     		beq	.L7
- 228 00f6 012A     		cmp	r2, #1
- 229 00f8 3CD1     		bne	.L8
- 230 00fa 3378     		ldrb	r3, [r6]	@ zero_extendqisi2
- 231 00fc 002B     		cmp	r3, #0
-ARM GAS  /tmp/ccMHhg2I.s 			page 5
+ 193 009c FFF7FEFF 		bl	MX_USART2_UART_Init
+ 194 00a0 FFF7FEFF 		bl	MX_SPI3_Init
+ 195 00a4 564A     		ldr	r2, .L18+4
+ 196 00a6 1368     		ldr	r3, [r2]
+ 197 00a8 43F48033 		orr	r3, r3, #65536
+ 198 00ac 1360     		str	r3, [r2]
+ 199 00ae 4FF47023 		mov	r3, #983040
+ 200              		.syntax unified
+ 201              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 202 00b2 93FAA3F3 		rbit r3, r3
+ 203              	@ 0 "" 2
+ 204              		.thumb
+ 205              		.syntax unified
+ 206 00b6 4FF44032 		mov	r2, #196608
+ 207 00ba B3FA83F3 		clz	r3, r3
+ 208 00be 5149     		ldr	r1, .L18+8
+ 209 00c0 DA40     		lsrs	r2, r2, r3
+ 210 00c2 514C     		ldr	r4, .L18+12
+ 211 00c4 DFF85C81 		ldr	r8, .L18+40
+ 212 00c8 51F82230 		ldr	r3, [r1, r2, lsl #2]
+ 213 00cc 4F4E     		ldr	r6, .L18+16
+ 214 00ce 23F47F63 		bic	r3, r3, #4080
+ 215 00d2 4F4F     		ldr	r7, .L18+20
+ 216 00d4 23F00F03 		bic	r3, r3, #15
+ 217 00d8 43F06403 		orr	r3, r3, #100
+ 218 00dc 41F82230 		str	r3, [r1, r2, lsl #2]
+ 219 00e0 FFF7FEFF 		bl	adns3080_init
+ 220 00e4 FFF7FEFF 		bl	ser_imu_enable
+ 221 00e8 0023     		movs	r3, #0
+ 222 00ea 2370     		strb	r3, [r4]
+ 223              	.L9:
+ 224 00ec FFF7FEFF 		bl	cdc_rx_tick
+ 225 00f0 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 226 00f2 03F0FF02 		and	r2, r3, #255
+ 227 00f6 002B     		cmp	r3, #0
+ 228 00f8 6ED0     		beq	.L7
+ 229 00fa 012A     		cmp	r2, #1
+ 230 00fc 71D1     		bne	.L8
+ 231 00fe 3378     		ldrb	r3, [r6]	@ zero_extendqisi2
+ARM GAS  /tmp/ccz39ptK.s 			page 5
 
 
- 232 00fe 34D0     		beq	.L7
- 233 0100 0025     		movs	r5, #0
- 234 0102 4021     		movs	r1, #64
- 235 0104 4046     		mov	r0, r8
- 236 0106 3570     		strb	r5, [r6]
- 237 0108 FFF7FEFF 		bl	HAL_GPIO_TogglePin
- 238 010c 0CA8     		add	r0, sp, #48
- 239 010e FFF7FEFF 		bl	adns3080_motion
- 240 0112 0AA8     		add	r0, sp, #40
- 241 0114 0A95     		str	r5, [sp, #40]
- 242 0116 ADF82C50 		strh	r5, [sp, #44]	@ movhi
- 243 011a FFF7FEFF 		bl	ser_imu_get
- 244 011e 9DF93630 		ldrsb	r3, [sp, #54]
- 245 0122 8021     		movs	r1, #128
- 246 0124 204A     		ldr	r2, .L18+24
- 247 0126 0EA8     		add	r0, sp, #56
- 248 0128 0893     		str	r3, [sp, #32]
- 249 012a 9DF93530 		ldrsb	r3, [sp, #53]
- 250 012e 0793     		str	r3, [sp, #28]
- 251 0130 9DF93430 		ldrsb	r3, [sp, #52]
- 252 0134 0693     		str	r3, [sp, #24]
- 253 0136 9DF93330 		ldrsb	r3, [sp, #51]
- 254 013a 0593     		str	r3, [sp, #20]
- 255 013c 9DF93230 		ldrsb	r3, [sp, #50]
- 256 0140 0493     		str	r3, [sp, #16]
- 257 0142 9DF93130 		ldrsb	r3, [sp, #49]
- 258 0146 0393     		str	r3, [sp, #12]
- 259 0148 9DF83030 		ldrb	r3, [sp, #48]	@ zero_extendqisi2
- 260 014c 0293     		str	r3, [sp, #8]
- 261 014e BDF92C30 		ldrsh	r3, [sp, #44]
- 262 0152 0193     		str	r3, [sp, #4]
- 263 0154 BDF92A30 		ldrsh	r3, [sp, #42]
- 264 0158 0093     		str	r3, [sp]
- 265 015a BDF92830 		ldrsh	r3, [sp, #40]
- 266 015e FFF7FEFF 		bl	snprintf
- 267 0162 81B2     		uxth	r1, r0
- 268 0164 0EA8     		add	r0, sp, #56
- 269 0166 FFF7FEFF 		bl	CDC_Transmit_FS
- 270              	.L7:
- 271 016a 0121     		movs	r1, #1
- 272 016c 0846     		mov	r0, r1
- 273 016e FFF7FEFF 		bl	HAL_PWR_EnterSLEEPMode
- 274 0172 B9E7     		b	.L9
- 275              	.L8:
- 276 0174 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
- 277 0176 3A46     		mov	r2, r7
- 278 0178 4021     		movs	r1, #64
- 279 017a 0EA8     		add	r0, sp, #56
- 280 017c FFF7FEFF 		bl	snprintf
- 281 0180 81B2     		uxth	r1, r0
- 282 0182 0EA8     		add	r0, sp, #56
- 283 0184 FFF7FEFF 		bl	CDC_Transmit_FS
- 284 0188 0023     		movs	r3, #0
- 285 018a 2370     		strb	r3, [r4]
- 286 018c EDE7     		b	.L7
- 287              	.L19:
- 288 018e 00BF     		.align	2
-ARM GAS  /tmp/ccMHhg2I.s 			page 6
+ 232 0100 002B     		cmp	r3, #0
+ 233 0102 69D0     		beq	.L7
+ 234 0104 0023     		movs	r3, #0
+ 235 0106 3370     		strb	r3, [r6]
+ 236 0108 FFF7FEFF 		bl	HAL_GetTick
+ 237 010c 3B68     		ldr	r3, [r7]
+ 238 010e C31A     		subs	r3, r0, r3
+ 239 0110 9DB2     		uxth	r5, r3
+ 240 0112 FFF7FEFF 		bl	HAL_GetTick
+ 241 0116 1CAA     		add	r2, sp, #112
+ 242 0118 3860     		str	r0, [r7]
+ 243 011a 1AA9     		add	r1, sp, #104
+ 244 011c 18A8     		add	r0, sp, #96
+ 245 011e FFF7FEFF 		bl	ser_imu_get
+ 246 0122 1EA9     		add	r1, sp, #120
+ 247 0124 3B48     		ldr	r0, .L18+24
+ 248 0126 FFF7FEFF 		bl	adns3080_motion
+ 249 012a 20A9     		add	r1, sp, #128
+ 250 012c 3A48     		ldr	r0, .L18+28
+ 251 012e FFF7FEFF 		bl	adns3080_motion
+ 252 0132 9DF98630 		ldrsb	r3, [sp, #134]
+ 253 0136 394A     		ldr	r2, .L18+32
+ 254 0138 8021     		movs	r1, #128
+ 255 013a 1693     		str	r3, [sp, #88]
+ 256 013c 22A8     		add	r0, sp, #136
+ 257 013e 9DF98530 		ldrsb	r3, [sp, #133]
+ 258 0142 1593     		str	r3, [sp, #84]
+ 259 0144 9DF98430 		ldrsb	r3, [sp, #132]
+ 260 0148 1493     		str	r3, [sp, #80]
+ 261 014a 9DF98330 		ldrsb	r3, [sp, #131]
+ 262 014e 1393     		str	r3, [sp, #76]
+ 263 0150 9DF98230 		ldrsb	r3, [sp, #130]
+ 264 0154 1293     		str	r3, [sp, #72]
+ 265 0156 9DF98130 		ldrsb	r3, [sp, #129]
+ 266 015a 1193     		str	r3, [sp, #68]
+ 267 015c 9DF88030 		ldrb	r3, [sp, #128]	@ zero_extendqisi2
+ 268 0160 1093     		str	r3, [sp, #64]
+ 269 0162 9DF97E30 		ldrsb	r3, [sp, #126]
+ 270 0166 0F93     		str	r3, [sp, #60]
+ 271 0168 9DF97D30 		ldrsb	r3, [sp, #125]
+ 272 016c 0E93     		str	r3, [sp, #56]
+ 273 016e 9DF97C30 		ldrsb	r3, [sp, #124]
+ 274 0172 0D93     		str	r3, [sp, #52]
+ 275 0174 9DF97B30 		ldrsb	r3, [sp, #123]
+ 276 0178 0C93     		str	r3, [sp, #48]
+ 277 017a 9DF97A30 		ldrsb	r3, [sp, #122]
+ 278 017e 0B93     		str	r3, [sp, #44]
+ 279 0180 9DF97930 		ldrsb	r3, [sp, #121]
+ 280 0184 0A93     		str	r3, [sp, #40]
+ 281 0186 9DF87830 		ldrb	r3, [sp, #120]	@ zero_extendqisi2
+ 282 018a 0993     		str	r3, [sp, #36]
+ 283 018c BDF97430 		ldrsh	r3, [sp, #116]
+ 284 0190 0893     		str	r3, [sp, #32]
+ 285 0192 BDF97230 		ldrsh	r3, [sp, #114]
+ 286 0196 0793     		str	r3, [sp, #28]
+ 287 0198 BDF97030 		ldrsh	r3, [sp, #112]
+ 288 019c 0693     		str	r3, [sp, #24]
+ARM GAS  /tmp/ccz39ptK.s 			page 6
 
 
- 289              	.L18:
- 290 0190 00ED00E0 		.word	-536810240
- 291 0194 00740040 		.word	1073771520
- 292 0198 08740040 		.word	1073771528
- 293 019c 00000000 		.word	odom
- 294 01a0 23000000 		.word	.LC1
- 295 01a4 00000000 		.word	ser_imu_frame_flag
- 296 01a8 00000000 		.word	.LC0
- 297 01ac 00000240 		.word	1073872896
- 299              		.section	.text.Error_Handler,"ax",%progbits
- 300              		.align	1
- 301              		.global	Error_Handler
- 302              		.syntax unified
- 303              		.thumb
- 304              		.thumb_func
- 305              		.fpu fpv5-sp-d16
- 307              	Error_Handler:
- 308              		@ args = 0, pretend = 0, frame = 0
- 309              		@ frame_needed = 0, uses_anonymous_args = 0
- 310              		@ link register save eliminated.
- 311 0000 7047     		bx	lr
- 313              		.comm	odom,1,1
- 314              		.section	.rodata.main.str1.1,"aMS",%progbits,1
- 315              	.LC0:
- 316 0000 25642C25 		.ascii	"%d,%d,%d|0x%02x,%d,%d,%d,%d,%d,%d\012\000"
- 316      642C2564 
- 316      7C307825 
- 316      3032782C 
- 316      25642C25 
- 317              	.LC1:
- 318 0023 696E7661 		.ascii	"invalid odom mode: %d\012\000"
- 318      6C696420 
- 318      6F646F6D 
- 318      206D6F64 
- 318      653A2025 
- 319              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccMHhg2I.s 			page 7
+ 289 019e BDF96C30 		ldrsh	r3, [sp, #108]
+ 290 01a2 0593     		str	r3, [sp, #20]
+ 291 01a4 BDF96A30 		ldrsh	r3, [sp, #106]
+ 292 01a8 0493     		str	r3, [sp, #16]
+ 293 01aa BDF96830 		ldrsh	r3, [sp, #104]
+ 294 01ae 0393     		str	r3, [sp, #12]
+ 295 01b0 BDF96430 		ldrsh	r3, [sp, #100]
+ 296 01b4 0293     		str	r3, [sp, #8]
+ 297 01b6 BDF96230 		ldrsh	r3, [sp, #98]
+ 298 01ba 0193     		str	r3, [sp, #4]
+ 299 01bc BDF96030 		ldrsh	r3, [sp, #96]
+ 300 01c0 0093     		str	r3, [sp]
+ 301 01c2 2B46     		mov	r3, r5
+ 302 01c4 FFF7FEFF 		bl	snprintf
+ 303 01c8 0146     		mov	r1, r0
+ 304 01ca 22A8     		add	r0, sp, #136
+ 305 01cc FFF7FEFF 		bl	CDC_Transmit_FS
+ 306 01d0 4021     		movs	r1, #64
+ 307 01d2 1348     		ldr	r0, .L18+36
+ 308 01d4 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 309              	.L7:
+ 310 01d8 0121     		movs	r1, #1
+ 311 01da 0846     		mov	r0, r1
+ 312 01dc FFF7FEFF 		bl	HAL_PWR_EnterSLEEPMode
+ 313 01e0 84E7     		b	.L9
+ 314              	.L8:
+ 315 01e2 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 316 01e4 4246     		mov	r2, r8
+ 317 01e6 4021     		movs	r1, #64
+ 318 01e8 22A8     		add	r0, sp, #136
+ 319 01ea FFF7FEFF 		bl	snprintf
+ 320 01ee 0146     		mov	r1, r0
+ 321 01f0 22A8     		add	r0, sp, #136
+ 322 01f2 FFF7FEFF 		bl	CDC_Transmit_FS
+ 323 01f6 0023     		movs	r3, #0
+ 324 01f8 2370     		strb	r3, [r4]
+ 325 01fa EDE7     		b	.L7
+ 326              	.L19:
+ 327              		.align	2
+ 328              	.L18:
+ 329 01fc 00ED00E0 		.word	-536810240
+ 330 0200 00740040 		.word	1073771520
+ 331 0204 08740040 		.word	1073771528
+ 332 0208 00000000 		.word	odom
+ 333 020c 00000000 		.word	ser_imu_frame_flag
+ 334 0210 00000000 		.word	.LANCHOR0
+ 335 0214 00000000 		.word	hspi2
+ 336 0218 00000000 		.word	hspi3
+ 337 021c 00000000 		.word	.LC0
+ 338 0220 00000240 		.word	1073872896
+ 339 0224 51000000 		.word	.LC1
+ 341              		.section	.text.Error_Handler,"ax",%progbits
+ 342              		.align	1
+ 343              		.global	Error_Handler
+ 344              		.syntax unified
+ 345              		.thumb
+ 346              		.thumb_func
+ARM GAS  /tmp/ccz39ptK.s 			page 7
+
+
+ 347              		.fpu fpv5-sp-d16
+ 349              	Error_Handler:
+ 350              		@ args = 0, pretend = 0, frame = 0
+ 351              		@ frame_needed = 0, uses_anonymous_args = 0
+ 352              		@ link register save eliminated.
+ 353 0000 7047     		bx	lr
+ 355              		.comm	odom,1,1
+ 356              		.section	.bss.last_tick.12633,"aw",%nobits
+ 357              		.align	2
+ 358              		.set	.LANCHOR0,. + 0
+ 361              	last_tick.12633:
+ 362 0000 00000000 		.space	4
+ 363              		.section	.rodata.main.str1.1,"aMS",%progbits,1
+ 364              	.LC0:
+ 365 0000 25642C25 		.ascii	"%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,0x%02x,%d,%d,%d,%d,%d"
+ 365      642C2564 
+ 365      2C25642C 
+ 365      25642C25 
+ 365      642C2564 
+ 366 0033 2C25642C 		.ascii	",%d,0x%02x,%d,%d,%d,%d,%d,%d\012\000"
+ 366      30782530 
+ 366      32782C25 
+ 366      642C2564 
+ 366      2C25642C 
+ 367              	.LC1:
+ 368 0051 696E7661 		.ascii	"invalid odom mode: %d\012\000"
+ 368      6C696420 
+ 368      6F646F6D 
+ 368      206D6F64 
+ 368      653A2025 
+ 369              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
+ARM GAS  /tmp/ccz39ptK.s 			page 8
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/ccMHhg2I.s:15     .text.SystemClock_Config:0000000000000000 $t
-     /tmp/ccMHhg2I.s:23     .text.SystemClock_Config:0000000000000000 SystemClock_Config
-     /tmp/ccMHhg2I.s:93     .text.SystemClock_Config:00000000000000ac $d
-     /tmp/ccMHhg2I.s:98     .text.startup.main:0000000000000000 $t
-     /tmp/ccMHhg2I.s:105    .text.startup.main:0000000000000000 main
-     /tmp/ccMHhg2I.s:290    .text.startup.main:0000000000000190 $d
+     /tmp/ccz39ptK.s:15     .text.SystemClock_Config:0000000000000000 $t
+     /tmp/ccz39ptK.s:23     .text.SystemClock_Config:0000000000000000 SystemClock_Config
+     /tmp/ccz39ptK.s:93     .text.SystemClock_Config:00000000000000ac $d
+     /tmp/ccz39ptK.s:98     .text.startup.main:0000000000000000 $t
+     /tmp/ccz39ptK.s:105    .text.startup.main:0000000000000000 main
+     /tmp/ccz39ptK.s:329    .text.startup.main:00000000000001fc $d
                             *COM*:0000000000000001 odom
-     /tmp/ccMHhg2I.s:300    .text.Error_Handler:0000000000000000 $t
-     /tmp/ccMHhg2I.s:307    .text.Error_Handler:0000000000000000 Error_Handler
+     /tmp/ccz39ptK.s:342    .text.Error_Handler:0000000000000000 $t
+     /tmp/ccz39ptK.s:349    .text.Error_Handler:0000000000000000 Error_Handler
+     /tmp/ccz39ptK.s:357    .bss.last_tick.12633:0000000000000000 $d
+     /tmp/ccz39ptK.s:361    .bss.last_tick.12633:0000000000000000 last_tick.12633
 
 UNDEFINED SYMBOLS
 memset
@@ -366,14 +423,18 @@ MX_USB_DEVICE_Init
 MX_DAC_Init
 MX_RTC_Init
 MX_CRC_Init
-MX_USART3_UART_Init
+MX_USART2_UART_Init
+MX_SPI3_Init
 adns3080_init
 ser_imu_enable
 cdc_rx_tick
-HAL_GPIO_TogglePin
-adns3080_motion
+HAL_GetTick
 ser_imu_get
+adns3080_motion
 snprintf
 CDC_Transmit_FS
+HAL_GPIO_TogglePin
 HAL_PWR_EnterSLEEPMode
 ser_imu_frame_flag
+hspi2
+hspi3

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc10krmB.s 			page 1
+ARM GAS  /tmp/ccWlpaok.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc10krmB.s 			page 1
   58              		@ args = 0, pretend = 0, frame = 0
   59              		@ frame_needed = 0, uses_anonymous_args = 0
   60              		@ link register save eliminated.
-ARM GAS  /tmp/cc10krmB.s 			page 2
+ARM GAS  /tmp/ccWlpaok.s 			page 2
 
 
   61 0000 084B     		ldr	r3, .L5
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc10krmB.s 			page 1
  118              		.section	.text.FLASH_Program_Byte,"ax",%progbits
  119              		.align	1
  120              		.syntax unified
-ARM GAS  /tmp/cc10krmB.s 			page 3
+ARM GAS  /tmp/ccWlpaok.s 			page 3
 
 
  121              		.thumb
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc10krmB.s 			page 1
  178              	.L15:
  179 0022 134B     		ldr	r3, .L38
  180 0024 DA68     		ldr	r2, [r3, #12]
-ARM GAS  /tmp/cc10krmB.s 			page 4
+ARM GAS  /tmp/ccWlpaok.s 			page 4
 
 
  181 0026 9006     		lsls	r0, r2, #26
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc10krmB.s 			page 1
  237 0006 1649     		ldr	r1, .L49
  238 0008 0C7D     		ldrb	r4, [r1, #20]	@ zero_extendqisi2
  239 000a 012C     		cmp	r4, #1
-ARM GAS  /tmp/cc10krmB.s 			page 5
+ARM GAS  /tmp/ccWlpaok.s 			page 5
 
 
  240 000c 25D0     		beq	.L47
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc10krmB.s 			page 1
  295              		.thumb
  296              		.thumb_func
  297              		.fpu fpv5-sp-d16
-ARM GAS  /tmp/cc10krmB.s 			page 6
+ARM GAS  /tmp/ccWlpaok.s 			page 6
 
 
  299              	HAL_FLASH_EndOfOperationCallback:
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc10krmB.s 			page 1
  357 0040 46D1     		bne	.L63
  358 0042 6B68     		ldr	r3, [r5, #4]
  359 0044 013B     		subs	r3, r3, #1
-ARM GAS  /tmp/cc10krmB.s 			page 7
+ARM GAS  /tmp/ccWlpaok.s 			page 7
 
 
  360 0046 6B60     		str	r3, [r5, #4]
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cc10krmB.s 			page 1
  414 00be D0E7     		b	.L54
  415              	.L55:
  416 00c0 0020     		movs	r0, #0
-ARM GAS  /tmp/cc10krmB.s 			page 8
+ARM GAS  /tmp/ccWlpaok.s 			page 8
 
 
  417              	.L68:
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cc10krmB.s 			page 1
  474              		.global	HAL_FLASH_Lock
  475              		.syntax unified
  476              		.thumb
-ARM GAS  /tmp/cc10krmB.s 			page 9
+ARM GAS  /tmp/ccWlpaok.s 			page 9
 
 
  477              		.thumb_func
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cc10krmB.s 			page 1
  536              		@ frame_needed = 0, uses_anonymous_args = 0
  537              		@ link register save eliminated.
  538 0000 034A     		ldr	r2, .L85
-ARM GAS  /tmp/cc10krmB.s 			page 10
+ARM GAS  /tmp/ccWlpaok.s 			page 10
 
 
  539 0002 0020     		movs	r0, #0
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cc10krmB.s 			page 1
  597 0026 03E0     		b	.L94
  598              	.L96:
  599 0028 6A1C     		adds	r2, r5, #1
-ARM GAS  /tmp/cc10krmB.s 			page 11
+ARM GAS  /tmp/ccWlpaok.s 			page 11
 
 
  600 002a F2D0     		beq	.L92
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cc10krmB.s 			page 1
  656 002b 13       		.byte	(.L110-.L108)/2
  657 002c 18       		.byte	(.L109-.L108)/2
  658 002d 1D       		.byte	(.L107-.L108)/2
-ARM GAS  /tmp/cc10krmB.s 			page 12
+ARM GAS  /tmp/ccWlpaok.s 			page 12
 
 
  659              		.p2align 1
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cc10krmB.s 			page 1
  715 0006 5369     		ldr	r3, [r2, #20]
  716 0008 43F00203 		orr	r3, r3, #2
  717 000c 5361     		str	r3, [r2, #20]
-ARM GAS  /tmp/cc10krmB.s 			page 13
+ARM GAS  /tmp/ccWlpaok.s 			page 13
 
 
  718 000e FFF7FEBF 		b	FLASH_WaitForLastOperation
@@ -728,67 +728,67 @@ ARM GAS  /tmp/cc10krmB.s 			page 1
  722 0014 003C0240 		.word	1073888256
  724              		.comm	pFlash,28,4
  725              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/cc10krmB.s 			page 14
+ARM GAS  /tmp/ccWlpaok.s 			page 14
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f7xx_hal_flash.c
-     /tmp/cc10krmB.s:15     .text.FLASH_Program_DoubleWord:0000000000000000 $t
-     /tmp/cc10krmB.s:22     .text.FLASH_Program_DoubleWord:0000000000000000 FLASH_Program_DoubleWord
-     /tmp/cc10krmB.s:48     .text.FLASH_Program_DoubleWord:0000000000000028 $d
-     /tmp/cc10krmB.s:51     .text.FLASH_Program_Word:0000000000000000 $t
-     /tmp/cc10krmB.s:57     .text.FLASH_Program_Word:0000000000000000 FLASH_Program_Word
-     /tmp/cc10krmB.s:82     .text.FLASH_Program_Word:0000000000000024 $d
-     /tmp/cc10krmB.s:85     .text.FLASH_Program_HalfWord:0000000000000000 $t
-     /tmp/cc10krmB.s:91     .text.FLASH_Program_HalfWord:0000000000000000 FLASH_Program_HalfWord
-     /tmp/cc10krmB.s:116    .text.FLASH_Program_HalfWord:0000000000000024 $d
-     /tmp/cc10krmB.s:119    .text.FLASH_Program_Byte:0000000000000000 $t
-     /tmp/cc10krmB.s:125    .text.FLASH_Program_Byte:0000000000000000 FLASH_Program_Byte
-     /tmp/cc10krmB.s:149    .text.FLASH_Program_Byte:0000000000000020 $d
-     /tmp/cc10krmB.s:152    .text.FLASH_SetErrorCode:0000000000000000 $t
-     /tmp/cc10krmB.s:158    .text.FLASH_SetErrorCode:0000000000000000 FLASH_SetErrorCode
-     /tmp/cc10krmB.s:220    .text.FLASH_SetErrorCode:0000000000000070 $d
+     /tmp/ccWlpaok.s:15     .text.FLASH_Program_DoubleWord:0000000000000000 $t
+     /tmp/ccWlpaok.s:22     .text.FLASH_Program_DoubleWord:0000000000000000 FLASH_Program_DoubleWord
+     /tmp/ccWlpaok.s:48     .text.FLASH_Program_DoubleWord:0000000000000028 $d
+     /tmp/ccWlpaok.s:51     .text.FLASH_Program_Word:0000000000000000 $t
+     /tmp/ccWlpaok.s:57     .text.FLASH_Program_Word:0000000000000000 FLASH_Program_Word
+     /tmp/ccWlpaok.s:82     .text.FLASH_Program_Word:0000000000000024 $d
+     /tmp/ccWlpaok.s:85     .text.FLASH_Program_HalfWord:0000000000000000 $t
+     /tmp/ccWlpaok.s:91     .text.FLASH_Program_HalfWord:0000000000000000 FLASH_Program_HalfWord
+     /tmp/ccWlpaok.s:116    .text.FLASH_Program_HalfWord:0000000000000024 $d
+     /tmp/ccWlpaok.s:119    .text.FLASH_Program_Byte:0000000000000000 $t
+     /tmp/ccWlpaok.s:125    .text.FLASH_Program_Byte:0000000000000000 FLASH_Program_Byte
+     /tmp/ccWlpaok.s:149    .text.FLASH_Program_Byte:0000000000000020 $d
+     /tmp/ccWlpaok.s:152    .text.FLASH_SetErrorCode:0000000000000000 $t
+     /tmp/ccWlpaok.s:158    .text.FLASH_SetErrorCode:0000000000000000 FLASH_SetErrorCode
+     /tmp/ccWlpaok.s:220    .text.FLASH_SetErrorCode:0000000000000070 $d
                             *COM*:000000000000001c pFlash
-     /tmp/cc10krmB.s:224    .text.HAL_FLASH_Program_IT:0000000000000000 $t
-     /tmp/cc10krmB.s:231    .text.HAL_FLASH_Program_IT:0000000000000000 HAL_FLASH_Program_IT
-     /tmp/cc10krmB.s:259    .text.HAL_FLASH_Program_IT:0000000000000036 $d
-     /tmp/cc10krmB.s:263    .text.HAL_FLASH_Program_IT:000000000000003a $t
-     /tmp/cc10krmB.s:288    .text.HAL_FLASH_Program_IT:0000000000000060 $d
-     /tmp/cc10krmB.s:292    .text.HAL_FLASH_EndOfOperationCallback:0000000000000000 $t
-     /tmp/cc10krmB.s:299    .text.HAL_FLASH_EndOfOperationCallback:0000000000000000 HAL_FLASH_EndOfOperationCallback
-     /tmp/cc10krmB.s:306    .text.HAL_FLASH_OperationErrorCallback:0000000000000000 $t
-     /tmp/cc10krmB.s:313    .text.HAL_FLASH_OperationErrorCallback:0000000000000000 HAL_FLASH_OperationErrorCallback
-     /tmp/cc10krmB.s:320    .text.HAL_FLASH_IRQHandler:0000000000000000 $t
-     /tmp/cc10krmB.s:327    .text.HAL_FLASH_IRQHandler:0000000000000000 HAL_FLASH_IRQHandler
-     /tmp/cc10krmB.s:437    .text.HAL_FLASH_IRQHandler:00000000000000dc $d
-     /tmp/cc10krmB.s:441    .text.HAL_FLASH_Unlock:0000000000000000 $t
-     /tmp/cc10krmB.s:448    .text.HAL_FLASH_Unlock:0000000000000000 HAL_FLASH_Unlock
-     /tmp/cc10krmB.s:469    .text.HAL_FLASH_Unlock:000000000000001c $d
-     /tmp/cc10krmB.s:473    .text.HAL_FLASH_Lock:0000000000000000 $t
-     /tmp/cc10krmB.s:480    .text.HAL_FLASH_Lock:0000000000000000 HAL_FLASH_Lock
-     /tmp/cc10krmB.s:493    .text.HAL_FLASH_Lock:0000000000000010 $d
-     /tmp/cc10krmB.s:496    .text.HAL_FLASH_OB_Unlock:0000000000000000 $t
-     /tmp/cc10krmB.s:503    .text.HAL_FLASH_OB_Unlock:0000000000000000 HAL_FLASH_OB_Unlock
-     /tmp/cc10krmB.s:523    .text.HAL_FLASH_OB_Unlock:000000000000001c $d
-     /tmp/cc10krmB.s:527    .text.HAL_FLASH_OB_Lock:0000000000000000 $t
-     /tmp/cc10krmB.s:534    .text.HAL_FLASH_OB_Lock:0000000000000000 HAL_FLASH_OB_Lock
-     /tmp/cc10krmB.s:547    .text.HAL_FLASH_OB_Lock:0000000000000010 $d
-     /tmp/cc10krmB.s:550    .text.HAL_FLASH_GetError:0000000000000000 $t
-     /tmp/cc10krmB.s:557    .text.HAL_FLASH_GetError:0000000000000000 HAL_FLASH_GetError
-     /tmp/cc10krmB.s:567    .text.HAL_FLASH_GetError:0000000000000008 $d
-     /tmp/cc10krmB.s:570    .text.FLASH_WaitForLastOperation:0000000000000000 $t
-     /tmp/cc10krmB.s:577    .text.FLASH_WaitForLastOperation:0000000000000000 FLASH_WaitForLastOperation
-     /tmp/cc10krmB.s:623    .text.FLASH_WaitForLastOperation:0000000000000050 $d
-     /tmp/cc10krmB.s:627    .text.HAL_FLASH_Program:0000000000000000 $t
-     /tmp/cc10krmB.s:634    .text.HAL_FLASH_Program:0000000000000000 HAL_FLASH_Program
-     /tmp/cc10krmB.s:655    .text.HAL_FLASH_Program:000000000000002a $d
-     /tmp/cc10krmB.s:659    .text.HAL_FLASH_Program:000000000000002e $t
-     /tmp/cc10krmB.s:698    .text.HAL_FLASH_Program:0000000000000074 $d
-     /tmp/cc10krmB.s:702    .text.HAL_FLASH_OB_Launch:0000000000000000 $t
-     /tmp/cc10krmB.s:709    .text.HAL_FLASH_OB_Launch:0000000000000000 HAL_FLASH_OB_Launch
-     /tmp/cc10krmB.s:722    .text.HAL_FLASH_OB_Launch:0000000000000014 $d
+     /tmp/ccWlpaok.s:224    .text.HAL_FLASH_Program_IT:0000000000000000 $t
+     /tmp/ccWlpaok.s:231    .text.HAL_FLASH_Program_IT:0000000000000000 HAL_FLASH_Program_IT
+     /tmp/ccWlpaok.s:259    .text.HAL_FLASH_Program_IT:0000000000000036 $d
+     /tmp/ccWlpaok.s:263    .text.HAL_FLASH_Program_IT:000000000000003a $t
+     /tmp/ccWlpaok.s:288    .text.HAL_FLASH_Program_IT:0000000000000060 $d
+     /tmp/ccWlpaok.s:292    .text.HAL_FLASH_EndOfOperationCallback:0000000000000000 $t
+     /tmp/ccWlpaok.s:299    .text.HAL_FLASH_EndOfOperationCallback:0000000000000000 HAL_FLASH_EndOfOperationCallback
+     /tmp/ccWlpaok.s:306    .text.HAL_FLASH_OperationErrorCallback:0000000000000000 $t
+     /tmp/ccWlpaok.s:313    .text.HAL_FLASH_OperationErrorCallback:0000000000000000 HAL_FLASH_OperationErrorCallback
+     /tmp/ccWlpaok.s:320    .text.HAL_FLASH_IRQHandler:0000000000000000 $t
+     /tmp/ccWlpaok.s:327    .text.HAL_FLASH_IRQHandler:0000000000000000 HAL_FLASH_IRQHandler
+     /tmp/ccWlpaok.s:437    .text.HAL_FLASH_IRQHandler:00000000000000dc $d
+     /tmp/ccWlpaok.s:441    .text.HAL_FLASH_Unlock:0000000000000000 $t
+     /tmp/ccWlpaok.s:448    .text.HAL_FLASH_Unlock:0000000000000000 HAL_FLASH_Unlock
+     /tmp/ccWlpaok.s:469    .text.HAL_FLASH_Unlock:000000000000001c $d
+     /tmp/ccWlpaok.s:473    .text.HAL_FLASH_Lock:0000000000000000 $t
+     /tmp/ccWlpaok.s:480    .text.HAL_FLASH_Lock:0000000000000000 HAL_FLASH_Lock
+     /tmp/ccWlpaok.s:493    .text.HAL_FLASH_Lock:0000000000000010 $d
+     /tmp/ccWlpaok.s:496    .text.HAL_FLASH_OB_Unlock:0000000000000000 $t
+     /tmp/ccWlpaok.s:503    .text.HAL_FLASH_OB_Unlock:0000000000000000 HAL_FLASH_OB_Unlock
+     /tmp/ccWlpaok.s:523    .text.HAL_FLASH_OB_Unlock:000000000000001c $d
+     /tmp/ccWlpaok.s:527    .text.HAL_FLASH_OB_Lock:0000000000000000 $t
+     /tmp/ccWlpaok.s:534    .text.HAL_FLASH_OB_Lock:0000000000000000 HAL_FLASH_OB_Lock
+     /tmp/ccWlpaok.s:547    .text.HAL_FLASH_OB_Lock:0000000000000010 $d
+     /tmp/ccWlpaok.s:550    .text.HAL_FLASH_GetError:0000000000000000 $t
+     /tmp/ccWlpaok.s:557    .text.HAL_FLASH_GetError:0000000000000000 HAL_FLASH_GetError
+     /tmp/ccWlpaok.s:567    .text.HAL_FLASH_GetError:0000000000000008 $d
+     /tmp/ccWlpaok.s:570    .text.FLASH_WaitForLastOperation:0000000000000000 $t
+     /tmp/ccWlpaok.s:577    .text.FLASH_WaitForLastOperation:0000000000000000 FLASH_WaitForLastOperation
+     /tmp/ccWlpaok.s:623    .text.FLASH_WaitForLastOperation:0000000000000050 $d
+     /tmp/ccWlpaok.s:627    .text.HAL_FLASH_Program:0000000000000000 $t
+     /tmp/ccWlpaok.s:634    .text.HAL_FLASH_Program:0000000000000000 HAL_FLASH_Program
+     /tmp/ccWlpaok.s:655    .text.HAL_FLASH_Program:000000000000002a $d
+     /tmp/ccWlpaok.s:659    .text.HAL_FLASH_Program:000000000000002e $t
+     /tmp/ccWlpaok.s:698    .text.HAL_FLASH_Program:0000000000000074 $d
+     /tmp/ccWlpaok.s:702    .text.HAL_FLASH_OB_Launch:0000000000000000 $t
+     /tmp/ccWlpaok.s:709    .text.HAL_FLASH_OB_Launch:0000000000000000 HAL_FLASH_OB_Launch
+     /tmp/ccWlpaok.s:722    .text.HAL_FLASH_OB_Launch:0000000000000014 $d
 
-ARM GAS  /tmp/cc10krmB.s 			page 15
+ARM GAS  /tmp/ccWlpaok.s 			page 15
 
 
 UNDEFINED SYMBOLS

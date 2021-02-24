@@ -9,10 +9,13 @@
 			"path": "/home/marco/enterprises/vehicle_natural_selection/odom_board/scripts"
 		}
 	],
+	"settings":
+	{
 		"sync-rsync.sites": [
 			{
 				"localPath": "/home/marco/enterprises/vehicle_natural_selection/odom_board/scripts",
 				"remotePath": "pi@nanopc-t4.local:/home/pi/code/odom"
 			}
 		]
+	}
 }

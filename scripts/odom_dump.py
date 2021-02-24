@@ -3,13 +3,18 @@
 import sys
 import struct
 import serial
+import signal
+import atexit
 
 class OdomDump( object ):
 
-    DEV_NAME = '/dev/serial/by-id/usb-tensor-robotics_IMU_OPTICALFLOW_3159365B3438-if00'
+    DEV_NAME = '/dev/serial/by-id/usb-tensor-robotics_OF_IMU_3159365B3438-if00'
 
     def __init__(self) -> None:
         
+        atexit.register(self._exit)
+        signal.signal(signal.SIGINT, sys.exit)
+
         try:
             self.dev = serial.Serial(self.DEV_NAME, 2000000, timeout=0.05)
             self.dev.write(b'mode1')
@@ -17,6 +22,10 @@ class OdomDump( object ):
             print('failed to open dev')
             sys.exit(-1)
     
+    def _exit(self):
+        print('\033[?25h')
+        print('bye..')
+
     def loop(self) -> None:
 
         try:
@@ -36,23 +45,38 @@ class OdomDump( object ):
                 sys.exit(-1)
 
             try:
-                imu_data, odom_data = data.split(b'|')
+                data = data.split(b',')
+                if len(data) != 24:
+                    # print(data)
+                    continue
+                tick_delta, data = data[0], data[1:]
+                imu_data, odom_data = data[:9], data[9:]
             except Exception as ex:
                 print(ex, data)
                 continue
             
             try:
-                imu_data = list(map(int, imu_data.split(b',')))
+                imu_data = list(map(int, imu_data))
             except Exception as ex:
                 print(ex, imu_data)
                 continue
-            imu_data[0] /= 100
-            imu_data[1] /= 100
-            imu_data[2] /= 10
 
-            odom_data = odom_data.split(b',')
-            odom_data[0] = int(odom_data[0], 16)
-            odom_data[1:] = list(map(int, odom_data[1:]))
+            imu_data[3] /= 10
+            imu_data[4] /= 10
+            imu_data[5] /= 10
+
+            imu_data[6] /= 100
+            imu_data[7] /= 100
+            imu_data[8] /= 10
+
+
+            odom0_data, odom1_data = odom_data[:7], odom_data[7:]
+
+            odom0_data[0] = int(odom0_data[0], 16)
+            odom0_data[1:] = list(map(int, odom0_data[1:]))
+
+            odom1_data[0] = int(odom1_data[0], 16)
+            odom1_data[1:] = list(map(int, odom1_data[1:]))
 
             # print(imu_data, odom_data, end='\r')
             for i in imu_data:
@@ -63,13 +87,21 @@ class OdomDump( object ):
             
             print('--'*4)
 
-            for i in odom_data:
+            for i in odom0_data:
+                if i < 0:
+                    print(i, ' '*4)
+                else:
+                    print('', i, ' '*4)
+
+            print('--'*4)
+
+            for i in odom1_data:
                 if i < 0:
                     print(i, ' '*4)
                 else:
                     print('', i, ' '*4)
             
-            print('\033[%dA' %(12)) # move cursor N line up
+            print('\033[%dA' %(26)) # move cursor N line up
 
 
 

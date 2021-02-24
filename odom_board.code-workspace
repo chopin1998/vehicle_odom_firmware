@@ -29,7 +29,8 @@
 			"spi.h": "c",
 			"random": "cpp",
 			"atomic": "cpp",
-			"*.tcc": "cpp"
+			"*.tcc": "cpp",
+			"*.ipp": "c"
 		},
 		"python.analysis.extraPaths": [
 			"/opt/ros/foxy/lib/python3.8/site-packages"

@@ -76,8 +76,8 @@ void Error_Handler(void);
 #define LED_0_GPIO_Port GPIOA
 #define SPI2_RST_Pin GPIO_PIN_6
 #define SPI2_RST_GPIO_Port GPIOC
-#define IMU_RST_Pin GPIO_PIN_14
-#define IMU_RST_GPIO_Port GPIOA
+#define SPI3_RST_Pin GPIO_PIN_14
+#define SPI3_RST_GPIO_Port GPIOA
 /* USER CODE BEGIN Private defines */
 
 enum {MODE_IDLE=0, MODE_ODOM};

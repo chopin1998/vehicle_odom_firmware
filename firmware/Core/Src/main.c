@@ -25,7 +25,7 @@
 #include "rtc.h"
 #include "spi.h"
 #include "usart.h"
-#include "usbd_cdc_if.h"
+#include "usb_device.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -107,7 +107,8 @@ int main(void)
   MX_DAC_Init();
   MX_RTC_Init();
   MX_CRC_Init();
-  MX_USART3_UART_Init();
+  MX_USART2_UART_Init();
+  MX_SPI3_Init();
   /* USER CODE BEGIN 2 */
 
   LL_DAC_Enable(DAC, LL_DAC_CHANNEL_2);
@@ -124,7 +125,7 @@ int main(void)
   adns3080_init();
   ser_imu_enable();
   odom.mode = MODE_IDLE;
-  
+
   for (;;)
   {
     /* USER CODE END WHILE */
@@ -138,33 +139,48 @@ int main(void)
 
     switch (odom.mode)
     {
-      case MODE_ODOM:
+    case MODE_ODOM:
 
-        if (ser_imu_frame_flag)
-        {
-          ser_imu_frame_flag = 0;
-          HAL_GPIO_TogglePin(LED_0_GPIO_Port, LED_0_Pin);
+      if (ser_imu_frame_flag)
+      {
+        ser_imu_frame_flag = 0;
 
-          motion_t m;
-          adns3080_motion(&m);
+        static uint32_t last_tick;
+        uint16_t tick_delta = HAL_GetTick() - last_tick;
+        last_tick = HAL_GetTick();
 
-          int16_t euler[3] = {0, 0, 0};
-          ser_imu_get(&euler);
+        int16_t accel[3], gyro[3], euler[3];
+        ser_imu_get(accel, gyro, euler);
 
-          len = snprintf(buf, 128, "%d,%d,%d|0x%02x,%d,%d,%d,%d,%d,%d\n", euler[0], euler[1], euler[2], m.motion, m.dx, m.dy, m.squal, m.shutter_upper, m.shutter_lower, m.max_pixel);
+        motion_t m1, m2;
+        adns3080_motion(&hspi2 ,&m1);
+        adns3080_motion(&hspi3, &m2);
 
-          CDC_Transmit_FS(buf, len);
-        }
+        // len = snprintf(buf, 128, "%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,0x%02x,%d,%d,%d,%d,%d,%d\n", tick_delta, accel[0], accel[1], accel[2], gyro[0], gyro[1], gyro[2], euler[0], euler[1], euler[2], m1.motion, m1.dx, m1.dy, m1.squal, m1.shutter_upper, m1.shutter_lower, m1.max_pixel);
+        len = snprintf(buf, 128, "%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,0x%02x,%d,%d,%d,%d,%d,%d,0x%02x,%d,%d,%d,%d,%d,%d\n",
+                                tick_delta, accel[0], accel[1], accel[2], gyro[0], gyro[1], gyro[2], euler[0], euler[1], euler[2],
+                                m1.motion, m1.dx, m1.dy, m1.squal, m1.shutter_upper, m1.shutter_lower, m1.max_pixel,
+                                m2.motion, m2.dx, m2.dy, m2.squal, m2.shutter_upper, m2.shutter_lower, m2.max_pixel
+                                );
+        // len = snprintf(buf, 128, "%d,%d,%d | %d,%d,%d | %d,%d,%d\n",
+        //                         accel[0], accel[1], accel[2],
+        //                         gyro[0], gyro[1], gyro[2],
+        //                         euler[0], euler[1], euler[2]);
+        CDC_Transmit_FS(buf, len);
+        HAL_GPIO_TogglePin(LED_0_GPIO_Port, LED_0_Pin);
+
+        // CDC_Transmit_FS(ser_imu_last_data, 22);
+      }
 
       break;
-      case MODE_IDLE:
+    case MODE_IDLE:
 
-        break;
-      default:
+      break;
+    default:
 
-        len = snprintf(buf, 64, "invalid odom mode: %d\n", odom.mode);
-        CDC_Transmit_FS(buf, len);
-        odom.mode = MODE_IDLE;
+      len = snprintf(buf, 64, "invalid odom mode: %d\n", odom.mode);
+      CDC_Transmit_FS(buf, len);
+      odom.mode = MODE_IDLE;
 
       break;
     }
@@ -223,10 +239,10 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_RTC|RCC_PERIPHCLK_USART3
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_RTC|RCC_PERIPHCLK_USART2
                               |RCC_PERIPHCLK_CLK48;
   PeriphClkInitStruct.RTCClockSelection = RCC_RTCCLKSOURCE_LSI;
-  PeriphClkInitStruct.Usart3ClockSelection = RCC_USART3CLKSOURCE_PCLK1;
+  PeriphClkInitStruct.Usart2ClockSelection = RCC_USART2CLKSOURCE_PCLK1;
   PeriphClkInitStruct.Clk48ClockSelection = RCC_CLK48SOURCE_PLL;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {

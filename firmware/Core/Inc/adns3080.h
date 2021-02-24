@@ -45,13 +45,13 @@ typedef struct {
 } motion_t;
 
 void adns3080_init(void);
-unsigned char adns3080_read_reg(unsigned char addr);
-void adns3080_write_reg(unsigned char addr, unsigned char val);
-void ands3080_reset(void);
+unsigned char adns3080_read_reg(SPI_HandleTypeDef *dev, unsigned char addr);
+void adns3080_write_reg(SPI_HandleTypeDef *dev, unsigned char addr, unsigned char val);
+void ands3080_reset(SPI_HandleTypeDef *dev);
 
 
-void adns3080_motion(motion_t *motion);
+void adns3080_motion(SPI_HandleTypeDef *dev, motion_t *motion);
 
-void adns3080_capture(void);
+void adns3080_capture(SPI_HandleTypeDef *dev);
 
 #endif

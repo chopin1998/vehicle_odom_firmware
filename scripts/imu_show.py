@@ -29,7 +29,7 @@ class Window(QWidget):
         self.init_timer()
 
     def init_dev(self):
-        DEV_NAME = '/dev/serial/by-id/usb-tensor-robotics_IMU_OPTICALFLOW_3159365B3438-if00'
+        DEV_NAME = '/dev/serial/by-id/usb-tensor-robotics_OF_IMU_3159365B3438-if00'
         try:
             self.ser = serial.Serial(DEV_NAME, 2000000, timeout=0.1)
             self.ser.flush()
@@ -44,29 +44,17 @@ class Window(QWidget):
 
     def timer_slot(self):
 
-        if not self.ser.in_waiting:
-            return
-        try:
-            data = self.ser.read(self.ser.in_waiting)
-        except Exception as ex:
-            print(ex)
-            sys.exit(-1)
-        
-        # if not data.startswith(b'\x5a\xa5'):
-        #     self.ser.flush()
-        #     return
-        
-        # data = data[7:7+6]
+        data = self.ser.readline()
 
         # print(data)
-        data = list(struct.unpack('hhh', data))
-        data[0] /= 100
-        data[1] /= 100
-        data[2] /= 10
+        data = data.split(b',')
+        x = float(data[7]) / 100
+        y = float(data[8]) / 100
+        z = float(data[9]) / 10
 
-        self.glWidget.setXRotation(data[0])
-        self.glWidget.setYRotation(data[1])
-        self.glWidget.setZRotation(data[2])
+        self.glWidget.setXRotation(x)
+        self.glWidget.setYRotation(y)
+        self.glWidget.setZRotation(z)
         
         print(data)
 
