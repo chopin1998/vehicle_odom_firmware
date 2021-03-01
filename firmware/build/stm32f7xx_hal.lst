@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc5nTj9S.s 			page 1
+ARM GAS  /tmp/ccTftbh9.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc5nTj9S.s 			page 1
   60 000e 5A62     		str	r2, [r3, #36]
   61 0010 5C62     		str	r4, [r3, #36]
   62 0012 1A61     		str	r2, [r3, #16]
-ARM GAS  /tmp/cc5nTj9S.s 			page 2
+ARM GAS  /tmp/ccTftbh9.s 			page 2
 
 
   63 0014 1C61     		str	r4, [r3, #16]
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc5nTj9S.s 			page 1
  120              		.section	.text.HAL_Init,"ax",%progbits
  121              		.align	1
  122              		.global	HAL_Init
-ARM GAS  /tmp/cc5nTj9S.s 			page 3
+ARM GAS  /tmp/ccTftbh9.s 			page 3
 
 
  123              		.syntax unified
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc5nTj9S.s 			page 1
  181              		.thumb_func
  182              		.fpu fpv5-sp-d16
  184              	HAL_GetTick:
-ARM GAS  /tmp/cc5nTj9S.s 			page 4
+ARM GAS  /tmp/ccTftbh9.s 			page 4
 
 
  185              		@ args = 0, pretend = 0, frame = 0
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc5nTj9S.s 			page 1
  243              	.L31:
  244 001e 00BF     		.align	2
  245              	.L30:
-ARM GAS  /tmp/cc5nTj9S.s 			page 5
+ARM GAS  /tmp/ccTftbh9.s 			page 5
 
 
  246 0020 00000000 		.word	.LANCHOR0
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc5nTj9S.s 			page 1
  305              		.thumb_func
  306              		.fpu fpv5-sp-d16
  308              	HAL_SuspendTick:
-ARM GAS  /tmp/cc5nTj9S.s 			page 6
+ARM GAS  /tmp/ccTftbh9.s 			page 6
 
 
  309              		@ args = 0, pretend = 0, frame = 0
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc5nTj9S.s 			page 1
  368              		.thumb_func
  369              		.fpu fpv5-sp-d16
  371              	HAL_GetREVID:
-ARM GAS  /tmp/cc5nTj9S.s 			page 7
+ARM GAS  /tmp/ccTftbh9.s 			page 7
 
 
  372              		@ args = 0, pretend = 0, frame = 0
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cc5nTj9S.s 			page 1
  431              		.fpu fpv5-sp-d16
  433              	HAL_GetUIDw1:
  434              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/cc5nTj9S.s 			page 8
+ARM GAS  /tmp/ccTftbh9.s 			page 8
 
 
  435              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cc5nTj9S.s 			page 1
  495              	HAL_DBGMCU_DisableDBGSleepMode:
  496              		@ args = 0, pretend = 0, frame = 0
  497              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/cc5nTj9S.s 			page 9
+ARM GAS  /tmp/ccTftbh9.s 			page 9
 
 
  498              		@ link register save eliminated.
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cc5nTj9S.s 			page 1
  557              		.thumb
  558              		.thumb_func
  559              		.fpu fpv5-sp-d16
-ARM GAS  /tmp/cc5nTj9S.s 			page 10
+ARM GAS  /tmp/ccTftbh9.s 			page 10
 
 
  561              	HAL_DBGMCU_EnableDBGStandbyMode:
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cc5nTj9S.s 			page 1
  620              		.align	1
  621              		.global	HAL_DisableCompensationCell
  622              		.syntax unified
-ARM GAS  /tmp/cc5nTj9S.s 			page 11
+ARM GAS  /tmp/ccTftbh9.s 			page 11
 
 
  623              		.thumb
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cc5nTj9S.s 			page 1
  682              	.L96:
  683 000c 00380140 		.word	1073821696
  685              		.global	uwTickFreq
-ARM GAS  /tmp/cc5nTj9S.s 			page 12
+ARM GAS  /tmp/ccTftbh9.s 			page 12
 
 
  686              		.global	uwTickPrio
@@ -673,103 +673,103 @@ ARM GAS  /tmp/cc5nTj9S.s 			page 1
  699              	uwTickPrio:
  700 0000 10000000 		.word	16
  701              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/cc5nTj9S.s 			page 13
+ARM GAS  /tmp/ccTftbh9.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f7xx_hal.c
-     /tmp/cc5nTj9S.s:15     .text.HAL_MspInit:0000000000000000 $t
-     /tmp/cc5nTj9S.s:23     .text.HAL_MspInit:0000000000000000 HAL_MspInit
-     /tmp/cc5nTj9S.s:30     .text.HAL_MspDeInit:0000000000000000 $t
-     /tmp/cc5nTj9S.s:37     .text.HAL_MspDeInit:0000000000000000 HAL_MspDeInit
-     /tmp/cc5nTj9S.s:44     .text.HAL_DeInit:0000000000000000 $t
-     /tmp/cc5nTj9S.s:51     .text.HAL_DeInit:0000000000000000 HAL_DeInit
-     /tmp/cc5nTj9S.s:74     .text.HAL_DeInit:0000000000000028 $d
-     /tmp/cc5nTj9S.s:77     .text.HAL_InitTick:0000000000000000 $t
-     /tmp/cc5nTj9S.s:84     .text.HAL_InitTick:0000000000000000 HAL_InitTick
-     /tmp/cc5nTj9S.s:116    .text.HAL_InitTick:000000000000003c $d
-     /tmp/cc5nTj9S.s:121    .text.HAL_Init:0000000000000000 $t
-     /tmp/cc5nTj9S.s:128    .text.HAL_Init:0000000000000000 HAL_Init
-     /tmp/cc5nTj9S.s:149    .text.HAL_Init:0000000000000028 $d
-     /tmp/cc5nTj9S.s:152    .text.HAL_IncTick:0000000000000000 $t
-     /tmp/cc5nTj9S.s:159    .text.HAL_IncTick:0000000000000000 HAL_IncTick
-     /tmp/cc5nTj9S.s:173    .text.HAL_IncTick:0000000000000010 $d
+     /tmp/ccTftbh9.s:15     .text.HAL_MspInit:0000000000000000 $t
+     /tmp/ccTftbh9.s:23     .text.HAL_MspInit:0000000000000000 HAL_MspInit
+     /tmp/ccTftbh9.s:30     .text.HAL_MspDeInit:0000000000000000 $t
+     /tmp/ccTftbh9.s:37     .text.HAL_MspDeInit:0000000000000000 HAL_MspDeInit
+     /tmp/ccTftbh9.s:44     .text.HAL_DeInit:0000000000000000 $t
+     /tmp/ccTftbh9.s:51     .text.HAL_DeInit:0000000000000000 HAL_DeInit
+     /tmp/ccTftbh9.s:74     .text.HAL_DeInit:0000000000000028 $d
+     /tmp/ccTftbh9.s:77     .text.HAL_InitTick:0000000000000000 $t
+     /tmp/ccTftbh9.s:84     .text.HAL_InitTick:0000000000000000 HAL_InitTick
+     /tmp/ccTftbh9.s:116    .text.HAL_InitTick:000000000000003c $d
+     /tmp/ccTftbh9.s:121    .text.HAL_Init:0000000000000000 $t
+     /tmp/ccTftbh9.s:128    .text.HAL_Init:0000000000000000 HAL_Init
+     /tmp/ccTftbh9.s:149    .text.HAL_Init:0000000000000028 $d
+     /tmp/ccTftbh9.s:152    .text.HAL_IncTick:0000000000000000 $t
+     /tmp/ccTftbh9.s:159    .text.HAL_IncTick:0000000000000000 HAL_IncTick
+     /tmp/ccTftbh9.s:173    .text.HAL_IncTick:0000000000000010 $d
                             *COM*:0000000000000004 uwTick
-     /tmp/cc5nTj9S.s:177    .text.HAL_GetTick:0000000000000000 $t
-     /tmp/cc5nTj9S.s:184    .text.HAL_GetTick:0000000000000000 HAL_GetTick
-     /tmp/cc5nTj9S.s:194    .text.HAL_GetTick:0000000000000008 $d
-     /tmp/cc5nTj9S.s:197    .text.HAL_GetTickPrio:0000000000000000 $t
-     /tmp/cc5nTj9S.s:204    .text.HAL_GetTickPrio:0000000000000000 HAL_GetTickPrio
-     /tmp/cc5nTj9S.s:214    .text.HAL_GetTickPrio:0000000000000008 $d
-     /tmp/cc5nTj9S.s:217    .text.HAL_SetTickFreq:0000000000000000 $t
-     /tmp/cc5nTj9S.s:224    .text.HAL_SetTickFreq:0000000000000000 HAL_SetTickFreq
-     /tmp/cc5nTj9S.s:246    .text.HAL_SetTickFreq:0000000000000020 $d
-     /tmp/cc5nTj9S.s:250    .text.HAL_GetTickFreq:0000000000000000 $t
-     /tmp/cc5nTj9S.s:257    .text.HAL_GetTickFreq:0000000000000000 HAL_GetTickFreq
-     /tmp/cc5nTj9S.s:267    .text.HAL_GetTickFreq:0000000000000008 $d
-     /tmp/cc5nTj9S.s:270    .text.HAL_Delay:0000000000000000 $t
-     /tmp/cc5nTj9S.s:277    .text.HAL_Delay:0000000000000000 HAL_Delay
-     /tmp/cc5nTj9S.s:298    .text.HAL_Delay:0000000000000020 $d
-     /tmp/cc5nTj9S.s:301    .text.HAL_SuspendTick:0000000000000000 $t
-     /tmp/cc5nTj9S.s:308    .text.HAL_SuspendTick:0000000000000000 HAL_SuspendTick
-     /tmp/cc5nTj9S.s:320    .text.HAL_SuspendTick:000000000000000c $d
-     /tmp/cc5nTj9S.s:323    .text.HAL_ResumeTick:0000000000000000 $t
-     /tmp/cc5nTj9S.s:330    .text.HAL_ResumeTick:0000000000000000 HAL_ResumeTick
-     /tmp/cc5nTj9S.s:342    .text.HAL_ResumeTick:000000000000000c $d
-     /tmp/cc5nTj9S.s:345    .text.HAL_GetHalVersion:0000000000000000 $t
-     /tmp/cc5nTj9S.s:352    .text.HAL_GetHalVersion:0000000000000000 HAL_GetHalVersion
-     /tmp/cc5nTj9S.s:361    .text.HAL_GetHalVersion:0000000000000004 $d
-     /tmp/cc5nTj9S.s:364    .text.HAL_GetREVID:0000000000000000 $t
-     /tmp/cc5nTj9S.s:371    .text.HAL_GetREVID:0000000000000000 HAL_GetREVID
-     /tmp/cc5nTj9S.s:382    .text.HAL_GetREVID:0000000000000008 $d
-     /tmp/cc5nTj9S.s:385    .text.HAL_GetDEVID:0000000000000000 $t
-     /tmp/cc5nTj9S.s:392    .text.HAL_GetDEVID:0000000000000000 HAL_GetDEVID
-     /tmp/cc5nTj9S.s:403    .text.HAL_GetDEVID:000000000000000c $d
-     /tmp/cc5nTj9S.s:406    .text.HAL_GetUIDw0:0000000000000000 $t
-     /tmp/cc5nTj9S.s:413    .text.HAL_GetUIDw0:0000000000000000 HAL_GetUIDw0
-     /tmp/cc5nTj9S.s:423    .text.HAL_GetUIDw0:0000000000000008 $d
-     /tmp/cc5nTj9S.s:426    .text.HAL_GetUIDw1:0000000000000000 $t
-     /tmp/cc5nTj9S.s:433    .text.HAL_GetUIDw1:0000000000000000 HAL_GetUIDw1
-     /tmp/cc5nTj9S.s:443    .text.HAL_GetUIDw1:0000000000000008 $d
-     /tmp/cc5nTj9S.s:446    .text.HAL_GetUIDw2:0000000000000000 $t
-     /tmp/cc5nTj9S.s:453    .text.HAL_GetUIDw2:0000000000000000 HAL_GetUIDw2
-ARM GAS  /tmp/cc5nTj9S.s 			page 14
+     /tmp/ccTftbh9.s:177    .text.HAL_GetTick:0000000000000000 $t
+     /tmp/ccTftbh9.s:184    .text.HAL_GetTick:0000000000000000 HAL_GetTick
+     /tmp/ccTftbh9.s:194    .text.HAL_GetTick:0000000000000008 $d
+     /tmp/ccTftbh9.s:197    .text.HAL_GetTickPrio:0000000000000000 $t
+     /tmp/ccTftbh9.s:204    .text.HAL_GetTickPrio:0000000000000000 HAL_GetTickPrio
+     /tmp/ccTftbh9.s:214    .text.HAL_GetTickPrio:0000000000000008 $d
+     /tmp/ccTftbh9.s:217    .text.HAL_SetTickFreq:0000000000000000 $t
+     /tmp/ccTftbh9.s:224    .text.HAL_SetTickFreq:0000000000000000 HAL_SetTickFreq
+     /tmp/ccTftbh9.s:246    .text.HAL_SetTickFreq:0000000000000020 $d
+     /tmp/ccTftbh9.s:250    .text.HAL_GetTickFreq:0000000000000000 $t
+     /tmp/ccTftbh9.s:257    .text.HAL_GetTickFreq:0000000000000000 HAL_GetTickFreq
+     /tmp/ccTftbh9.s:267    .text.HAL_GetTickFreq:0000000000000008 $d
+     /tmp/ccTftbh9.s:270    .text.HAL_Delay:0000000000000000 $t
+     /tmp/ccTftbh9.s:277    .text.HAL_Delay:0000000000000000 HAL_Delay
+     /tmp/ccTftbh9.s:298    .text.HAL_Delay:0000000000000020 $d
+     /tmp/ccTftbh9.s:301    .text.HAL_SuspendTick:0000000000000000 $t
+     /tmp/ccTftbh9.s:308    .text.HAL_SuspendTick:0000000000000000 HAL_SuspendTick
+     /tmp/ccTftbh9.s:320    .text.HAL_SuspendTick:000000000000000c $d
+     /tmp/ccTftbh9.s:323    .text.HAL_ResumeTick:0000000000000000 $t
+     /tmp/ccTftbh9.s:330    .text.HAL_ResumeTick:0000000000000000 HAL_ResumeTick
+     /tmp/ccTftbh9.s:342    .text.HAL_ResumeTick:000000000000000c $d
+     /tmp/ccTftbh9.s:345    .text.HAL_GetHalVersion:0000000000000000 $t
+     /tmp/ccTftbh9.s:352    .text.HAL_GetHalVersion:0000000000000000 HAL_GetHalVersion
+     /tmp/ccTftbh9.s:361    .text.HAL_GetHalVersion:0000000000000004 $d
+     /tmp/ccTftbh9.s:364    .text.HAL_GetREVID:0000000000000000 $t
+     /tmp/ccTftbh9.s:371    .text.HAL_GetREVID:0000000000000000 HAL_GetREVID
+     /tmp/ccTftbh9.s:382    .text.HAL_GetREVID:0000000000000008 $d
+     /tmp/ccTftbh9.s:385    .text.HAL_GetDEVID:0000000000000000 $t
+     /tmp/ccTftbh9.s:392    .text.HAL_GetDEVID:0000000000000000 HAL_GetDEVID
+     /tmp/ccTftbh9.s:403    .text.HAL_GetDEVID:000000000000000c $d
+     /tmp/ccTftbh9.s:406    .text.HAL_GetUIDw0:0000000000000000 $t
+     /tmp/ccTftbh9.s:413    .text.HAL_GetUIDw0:0000000000000000 HAL_GetUIDw0
+     /tmp/ccTftbh9.s:423    .text.HAL_GetUIDw0:0000000000000008 $d
+     /tmp/ccTftbh9.s:426    .text.HAL_GetUIDw1:0000000000000000 $t
+     /tmp/ccTftbh9.s:433    .text.HAL_GetUIDw1:0000000000000000 HAL_GetUIDw1
+     /tmp/ccTftbh9.s:443    .text.HAL_GetUIDw1:0000000000000008 $d
+     /tmp/ccTftbh9.s:446    .text.HAL_GetUIDw2:0000000000000000 $t
+     /tmp/ccTftbh9.s:453    .text.HAL_GetUIDw2:0000000000000000 HAL_GetUIDw2
+ARM GAS  /tmp/ccTftbh9.s 			page 14
 
 
-     /tmp/cc5nTj9S.s:463    .text.HAL_GetUIDw2:0000000000000008 $d
-     /tmp/cc5nTj9S.s:466    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 $t
-     /tmp/cc5nTj9S.s:473    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 HAL_DBGMCU_EnableDBGSleepMode
-     /tmp/cc5nTj9S.s:485    .text.HAL_DBGMCU_EnableDBGSleepMode:000000000000000c $d
-     /tmp/cc5nTj9S.s:488    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 $t
-     /tmp/cc5nTj9S.s:495    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 HAL_DBGMCU_DisableDBGSleepMode
-     /tmp/cc5nTj9S.s:507    .text.HAL_DBGMCU_DisableDBGSleepMode:000000000000000c $d
-     /tmp/cc5nTj9S.s:510    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 $t
-     /tmp/cc5nTj9S.s:517    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 HAL_DBGMCU_EnableDBGStopMode
-     /tmp/cc5nTj9S.s:529    .text.HAL_DBGMCU_EnableDBGStopMode:000000000000000c $d
-     /tmp/cc5nTj9S.s:532    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 $t
-     /tmp/cc5nTj9S.s:539    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 HAL_DBGMCU_DisableDBGStopMode
-     /tmp/cc5nTj9S.s:551    .text.HAL_DBGMCU_DisableDBGStopMode:000000000000000c $d
-     /tmp/cc5nTj9S.s:554    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 $t
-     /tmp/cc5nTj9S.s:561    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 HAL_DBGMCU_EnableDBGStandbyMode
-     /tmp/cc5nTj9S.s:573    .text.HAL_DBGMCU_EnableDBGStandbyMode:000000000000000c $d
-     /tmp/cc5nTj9S.s:576    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 $t
-     /tmp/cc5nTj9S.s:583    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 HAL_DBGMCU_DisableDBGStandbyMode
-     /tmp/cc5nTj9S.s:595    .text.HAL_DBGMCU_DisableDBGStandbyMode:000000000000000c $d
-     /tmp/cc5nTj9S.s:598    .text.HAL_EnableCompensationCell:0000000000000000 $t
-     /tmp/cc5nTj9S.s:605    .text.HAL_EnableCompensationCell:0000000000000000 HAL_EnableCompensationCell
-     /tmp/cc5nTj9S.s:617    .text.HAL_EnableCompensationCell:000000000000000c $d
-     /tmp/cc5nTj9S.s:620    .text.HAL_DisableCompensationCell:0000000000000000 $t
-     /tmp/cc5nTj9S.s:627    .text.HAL_DisableCompensationCell:0000000000000000 HAL_DisableCompensationCell
-     /tmp/cc5nTj9S.s:639    .text.HAL_DisableCompensationCell:000000000000000c $d
-     /tmp/cc5nTj9S.s:642    .text.HAL_EnableFMCMemorySwapping:0000000000000000 $t
-     /tmp/cc5nTj9S.s:649    .text.HAL_EnableFMCMemorySwapping:0000000000000000 HAL_EnableFMCMemorySwapping
-     /tmp/cc5nTj9S.s:661    .text.HAL_EnableFMCMemorySwapping:000000000000000c $d
-     /tmp/cc5nTj9S.s:664    .text.HAL_DisableFMCMemorySwapping:0000000000000000 $t
-     /tmp/cc5nTj9S.s:671    .text.HAL_DisableFMCMemorySwapping:0000000000000000 HAL_DisableFMCMemorySwapping
-     /tmp/cc5nTj9S.s:683    .text.HAL_DisableFMCMemorySwapping:000000000000000c $d
-     /tmp/cc5nTj9S.s:692    .data.uwTickFreq:0000000000000000 uwTickFreq
-     /tmp/cc5nTj9S.s:699    .data.uwTickPrio:0000000000000000 uwTickPrio
-     /tmp/cc5nTj9S.s:695    .data.uwTickPrio:0000000000000000 $d
+     /tmp/ccTftbh9.s:463    .text.HAL_GetUIDw2:0000000000000008 $d
+     /tmp/ccTftbh9.s:466    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 $t
+     /tmp/ccTftbh9.s:473    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 HAL_DBGMCU_EnableDBGSleepMode
+     /tmp/ccTftbh9.s:485    .text.HAL_DBGMCU_EnableDBGSleepMode:000000000000000c $d
+     /tmp/ccTftbh9.s:488    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 $t
+     /tmp/ccTftbh9.s:495    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 HAL_DBGMCU_DisableDBGSleepMode
+     /tmp/ccTftbh9.s:507    .text.HAL_DBGMCU_DisableDBGSleepMode:000000000000000c $d
+     /tmp/ccTftbh9.s:510    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 $t
+     /tmp/ccTftbh9.s:517    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 HAL_DBGMCU_EnableDBGStopMode
+     /tmp/ccTftbh9.s:529    .text.HAL_DBGMCU_EnableDBGStopMode:000000000000000c $d
+     /tmp/ccTftbh9.s:532    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 $t
+     /tmp/ccTftbh9.s:539    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 HAL_DBGMCU_DisableDBGStopMode
+     /tmp/ccTftbh9.s:551    .text.HAL_DBGMCU_DisableDBGStopMode:000000000000000c $d
+     /tmp/ccTftbh9.s:554    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 $t
+     /tmp/ccTftbh9.s:561    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 HAL_DBGMCU_EnableDBGStandbyMode
+     /tmp/ccTftbh9.s:573    .text.HAL_DBGMCU_EnableDBGStandbyMode:000000000000000c $d
+     /tmp/ccTftbh9.s:576    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 $t
+     /tmp/ccTftbh9.s:583    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 HAL_DBGMCU_DisableDBGStandbyMode
+     /tmp/ccTftbh9.s:595    .text.HAL_DBGMCU_DisableDBGStandbyMode:000000000000000c $d
+     /tmp/ccTftbh9.s:598    .text.HAL_EnableCompensationCell:0000000000000000 $t
+     /tmp/ccTftbh9.s:605    .text.HAL_EnableCompensationCell:0000000000000000 HAL_EnableCompensationCell
+     /tmp/ccTftbh9.s:617    .text.HAL_EnableCompensationCell:000000000000000c $d
+     /tmp/ccTftbh9.s:620    .text.HAL_DisableCompensationCell:0000000000000000 $t
+     /tmp/ccTftbh9.s:627    .text.HAL_DisableCompensationCell:0000000000000000 HAL_DisableCompensationCell
+     /tmp/ccTftbh9.s:639    .text.HAL_DisableCompensationCell:000000000000000c $d
+     /tmp/ccTftbh9.s:642    .text.HAL_EnableFMCMemorySwapping:0000000000000000 $t
+     /tmp/ccTftbh9.s:649    .text.HAL_EnableFMCMemorySwapping:0000000000000000 HAL_EnableFMCMemorySwapping
+     /tmp/ccTftbh9.s:661    .text.HAL_EnableFMCMemorySwapping:000000000000000c $d
+     /tmp/ccTftbh9.s:664    .text.HAL_DisableFMCMemorySwapping:0000000000000000 $t
+     /tmp/ccTftbh9.s:671    .text.HAL_DisableFMCMemorySwapping:0000000000000000 HAL_DisableFMCMemorySwapping
+     /tmp/ccTftbh9.s:683    .text.HAL_DisableFMCMemorySwapping:000000000000000c $d
+     /tmp/ccTftbh9.s:692    .data.uwTickFreq:0000000000000000 uwTickFreq
+     /tmp/ccTftbh9.s:699    .data.uwTickPrio:0000000000000000 uwTickPrio
+     /tmp/ccTftbh9.s:695    .data.uwTickPrio:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_SYSTICK_Config

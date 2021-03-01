@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccUnP0xS.s 			page 1
+ARM GAS  /tmp/ccyZDALa.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccUnP0xS.s 			page 1
   57              		.section	.text.MX_SPI3_Init,"ax",%progbits
   58              		.align	1
   59              		.global	MX_SPI3_Init
-ARM GAS  /tmp/ccUnP0xS.s 			page 2
+ARM GAS  /tmp/ccyZDALa.s 			page 2
 
 
   60              		.syntax unified
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccUnP0xS.s 			page 1
  117 0012 3368     		ldr	r3, [r6]
  118 0014 414A     		ldr	r2, .L23
  119 0016 9342     		cmp	r3, r2
-ARM GAS  /tmp/ccUnP0xS.s 			page 3
+ARM GAS  /tmp/ccyZDALa.s 			page 3
 
 
  120 0018 38D1     		bne	.L10
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccUnP0xS.s 			page 1
  174 009a 1A6C     		ldr	r2, [r3, #64]
  175 009c 05A9     		add	r1, sp, #20
  176 009e 2548     		ldr	r0, .L23+24
-ARM GAS  /tmp/ccUnP0xS.s 			page 4
+ARM GAS  /tmp/ccyZDALa.s 			page 4
 
 
  177 00a0 42F40042 		orr	r2, r2, #32768
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccUnP0xS.s 			page 1
  232              		.section	.text.HAL_SPI_MspDeInit,"ax",%progbits
  233              		.align	1
  234              		.global	HAL_SPI_MspDeInit
-ARM GAS  /tmp/ccUnP0xS.s 			page 5
+ARM GAS  /tmp/ccyZDALa.s 			page 5
 
 
  235              		.syntax unified
@@ -295,27 +295,27 @@ ARM GAS  /tmp/ccUnP0xS.s 			page 1
  288              		.comm	hspi2,100,4
  289              		.comm	odom,1,1
  290              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccUnP0xS.s 			page 6
+ARM GAS  /tmp/ccyZDALa.s 			page 6
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 spi.c
-     /tmp/ccUnP0xS.s:15     .text.MX_SPI2_Init:0000000000000000 $t
-     /tmp/ccUnP0xS.s:23     .text.MX_SPI2_Init:0000000000000000 MX_SPI2_Init
-     /tmp/ccUnP0xS.s:54     .text.MX_SPI2_Init:0000000000000048 $d
+     /tmp/ccyZDALa.s:15     .text.MX_SPI2_Init:0000000000000000 $t
+     /tmp/ccyZDALa.s:23     .text.MX_SPI2_Init:0000000000000000 MX_SPI2_Init
+     /tmp/ccyZDALa.s:54     .text.MX_SPI2_Init:0000000000000048 $d
                             *COM*:0000000000000064 hspi2
-     /tmp/ccUnP0xS.s:58     .text.MX_SPI3_Init:0000000000000000 $t
-     /tmp/ccUnP0xS.s:65     .text.MX_SPI3_Init:0000000000000000 MX_SPI3_Init
-     /tmp/ccUnP0xS.s:96     .text.MX_SPI3_Init:0000000000000048 $d
+     /tmp/ccyZDALa.s:58     .text.MX_SPI3_Init:0000000000000000 $t
+     /tmp/ccyZDALa.s:65     .text.MX_SPI3_Init:0000000000000000 MX_SPI3_Init
+     /tmp/ccyZDALa.s:96     .text.MX_SPI3_Init:0000000000000048 $d
                             *COM*:0000000000000064 hspi3
-     /tmp/ccUnP0xS.s:100    .text.HAL_SPI_MspInit:0000000000000000 $t
-     /tmp/ccUnP0xS.s:107    .text.HAL_SPI_MspInit:0000000000000000 HAL_SPI_MspInit
-     /tmp/ccUnP0xS.s:221    .text.HAL_SPI_MspInit:000000000000011c $d
+     /tmp/ccyZDALa.s:100    .text.HAL_SPI_MspInit:0000000000000000 $t
+     /tmp/ccyZDALa.s:107    .text.HAL_SPI_MspInit:0000000000000000 HAL_SPI_MspInit
+     /tmp/ccyZDALa.s:221    .text.HAL_SPI_MspInit:000000000000011c $d
                             *COM*:0000000000000060 hdma_spi2_rx
                             *COM*:0000000000000060 hdma_spi3_rx
-     /tmp/ccUnP0xS.s:233    .text.HAL_SPI_MspDeInit:0000000000000000 $t
-     /tmp/ccUnP0xS.s:240    .text.HAL_SPI_MspDeInit:0000000000000000 HAL_SPI_MspDeInit
-     /tmp/ccUnP0xS.s:279    .text.HAL_SPI_MspDeInit:0000000000000054 $d
+     /tmp/ccyZDALa.s:233    .text.HAL_SPI_MspDeInit:0000000000000000 $t
+     /tmp/ccyZDALa.s:240    .text.HAL_SPI_MspDeInit:0000000000000000 HAL_SPI_MspDeInit
+     /tmp/ccyZDALa.s:279    .text.HAL_SPI_MspDeInit:0000000000000054 $d
                             *COM*:0000000000000001 odom
 
 UNDEFINED SYMBOLS

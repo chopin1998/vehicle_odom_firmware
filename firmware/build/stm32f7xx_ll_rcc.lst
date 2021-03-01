@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccygRLH8.s 			page 1
+ARM GAS  /tmp/ccVwyDjn.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccygRLH8.s 			page 1
   59              		.thumb
   60              		.thumb_func
   61              		.fpu fpv5-sp-d16
-ARM GAS  /tmp/ccygRLH8.s 			page 2
+ARM GAS  /tmp/ccVwyDjn.s 			page 2
 
 
   63              	LL_RCC_DeInit:
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccygRLH8.s 			page 1
  117 0076 5A6F     		ldr	r2, [r3, #116]
  118 0078 42F08072 		orr	r2, r2, #16777216
  119 007c 5A67     		str	r2, [r3, #116]
-ARM GAS  /tmp/ccygRLH8.s 			page 3
+ARM GAS  /tmp/ccVwyDjn.s 			page 3
 
 
  120 007e 03B0     		add	sp, sp, #12
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccygRLH8.s 			page 1
  179              		.section	.text.RCC_GetPCLK2ClockFreq,"ax",%progbits
  180              		.align	1
  181              		.global	RCC_GetPCLK2ClockFreq
-ARM GAS  /tmp/ccygRLH8.s 			page 4
+ARM GAS  /tmp/ccVwyDjn.s 			page 4
 
 
  182              		.syntax unified
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccygRLH8.s 			page 1
  239 0038 00127A00 		.word	8000000
  240 003c 0024F400 		.word	16000000
  242              		.section	.text.RCC_GetSystemClockFreq,"ax",%progbits
-ARM GAS  /tmp/ccygRLH8.s 			page 5
+ARM GAS  /tmp/ccVwyDjn.s 			page 5
 
 
  243              		.align	1
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccygRLH8.s 			page 1
  301              		.global	LL_RCC_GetUSARTClockFreq
  302              		.syntax unified
  303              		.thumb
-ARM GAS  /tmp/ccygRLH8.s 			page 6
+ARM GAS  /tmp/ccVwyDjn.s 			page 6
 
 
  304              		.thumb_func
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccygRLH8.s 			page 1
  359 0074 E1D0     		beq	.L42
  360 0076 043A     		subs	r2, r2, #4
  361              	.L66:
-ARM GAS  /tmp/ccygRLH8.s 			page 7
+ARM GAS  /tmp/ccVwyDjn.s 			page 7
 
 
  362 0078 9342     		cmp	r3, r2
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccygRLH8.s 			page 1
  418              		@ args = 0, pretend = 0, frame = 0
  419              		@ frame_needed = 0, uses_anonymous_args = 0
  420 0000 C028     		cmp	r0, #192
-ARM GAS  /tmp/ccygRLH8.s 			page 8
+ARM GAS  /tmp/ccVwyDjn.s 			page 8
 
 
  421 0002 08B5     		push	{r3, lr}
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccygRLH8.s 			page 1
  475 0086 154A     		ldr	r2, .L97+12
  476 0088 D3F89030 		ldr	r3, [r3, #144]
  477 008c 03F44053 		and	r3, r3, #12288
-ARM GAS  /tmp/ccygRLH8.s 			page 9
+ARM GAS  /tmp/ccVwyDjn.s 			page 9
 
 
  478 0090 43F04053 		orr	r3, r3, #805306368
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccygRLH8.s 			page 1
  534              	.L111:
  535 001e 9342     		cmp	r3, r2
  536 0020 0BD0     		beq	.L102
-ARM GAS  /tmp/ccygRLH8.s 			page 10
+ARM GAS  /tmp/ccVwyDjn.s 			page 10
 
 
  537 0022 FFF7FEFF 		bl	RCC_GetSystemClockFreq
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccygRLH8.s 			page 1
  592              		.syntax unified
  593              		.thumb
  594              		.thumb_func
-ARM GAS  /tmp/ccygRLH8.s 			page 11
+ARM GAS  /tmp/ccVwyDjn.s 			page 11
 
 
  595              		.fpu fpv5-sp-d16
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccygRLH8.s 			page 1
  651              		.fpu fpv5-sp-d16
  653              	RCC_PLL_GetFreqDomain_48M:
  654              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccygRLH8.s 			page 12
+ARM GAS  /tmp/ccVwyDjn.s 			page 12
 
 
  655              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccygRLH8.s 			page 1
  711 003a B0FBF3F0 		udiv	r0, r0, r3
  712 003e 10BD     		pop	{r4, pc}
  713              	.L135:
-ARM GAS  /tmp/ccygRLH8.s 			page 13
+ARM GAS  /tmp/ccVwyDjn.s 			page 13
 
 
  714              		.align	2
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccygRLH8.s 			page 1
  772 0006 D3F89020 		ldr	r2, [r3, #144]
  773 000a 0ED1     		bne	.L142
  774 000c D200     		lsls	r2, r2, #3
-ARM GAS  /tmp/ccygRLH8.s 			page 14
+ARM GAS  /tmp/ccVwyDjn.s 			page 14
 
 
  775 000e 12D4     		bmi	.L143
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccygRLH8.s 			page 1
  831              		.align	2
  832              	.L165:
  833 0020 00380240 		.word	1073887232
-ARM GAS  /tmp/ccygRLH8.s 			page 15
+ARM GAS  /tmp/ccVwyDjn.s 			page 15
 
 
  835              		.section	.text.LL_RCC_GetUSBClockFreq,"ax",%progbits
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccygRLH8.s 			page 1
  893              		.thumb_func
  894              		.fpu fpv5-sp-d16
  896              	LL_RCC_GetSAIClockFreq:
-ARM GAS  /tmp/ccygRLH8.s 			page 16
+ARM GAS  /tmp/ccVwyDjn.s 			page 16
 
 
  897              		@ args = 0, pretend = 0, frame = 0
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccygRLH8.s 			page 1
  951              	.L185:
  952 007c 4BF68030 		movw	r0, #48000
  953 0080 7047     		bx	lr
-ARM GAS  /tmp/ccygRLH8.s 			page 17
+ARM GAS  /tmp/ccVwyDjn.s 			page 17
 
 
  954              	.L186:
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccygRLH8.s 			page 1
  1012              		@ link register save eliminated.
  1013 0000 B0F5000F 		cmp	r0, #8388608
  1014 0004 09D1     		bne	.L196
-ARM GAS  /tmp/ccygRLH8.s 			page 18
+ARM GAS  /tmp/ccVwyDjn.s 			page 18
 
 
  1015 0006 074B     		ldr	r3, .L199
@@ -1042,81 +1042,81 @@ ARM GAS  /tmp/ccygRLH8.s 			page 1
  1033 0024 00380240 		.word	1073887232
  1034 0028 0080BB00 		.word	12288000
  1036              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccygRLH8.s 			page 19
+ARM GAS  /tmp/ccVwyDjn.s 			page 19
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f7xx_ll_rcc.c
-     /tmp/ccygRLH8.s:15     .text.LL_RCC_HSI_IsReady:0000000000000000 $t
-     /tmp/ccygRLH8.s:22     .text.LL_RCC_HSI_IsReady:0000000000000000 LL_RCC_HSI_IsReady
-     /tmp/ccygRLH8.s:33     .text.LL_RCC_HSI_IsReady:000000000000000c $d
-     /tmp/ccygRLH8.s:36     .text.LL_RCC_LSE_IsReady:0000000000000000 $t
-     /tmp/ccygRLH8.s:42     .text.LL_RCC_LSE_IsReady:0000000000000000 LL_RCC_LSE_IsReady
-     /tmp/ccygRLH8.s:53     .text.LL_RCC_LSE_IsReady:000000000000000c $d
-     /tmp/ccygRLH8.s:56     .text.LL_RCC_DeInit:0000000000000000 $t
-     /tmp/ccygRLH8.s:63     .text.LL_RCC_DeInit:0000000000000000 LL_RCC_DeInit
-     /tmp/ccygRLH8.s:126    .text.LL_RCC_DeInit:0000000000000084 $d
-     /tmp/ccygRLH8.s:130    .text.RCC_GetHCLKClockFreq:0000000000000000 $t
-     /tmp/ccygRLH8.s:137    .text.RCC_GetHCLKClockFreq:0000000000000000 RCC_GetHCLKClockFreq
-     /tmp/ccygRLH8.s:151    .text.RCC_GetHCLKClockFreq:0000000000000010 $d
-     /tmp/ccygRLH8.s:155    .text.RCC_GetPCLK1ClockFreq:0000000000000000 $t
-     /tmp/ccygRLH8.s:162    .text.RCC_GetPCLK1ClockFreq:0000000000000000 RCC_GetPCLK1ClockFreq
-     /tmp/ccygRLH8.s:176    .text.RCC_GetPCLK1ClockFreq:0000000000000010 $d
-     /tmp/ccygRLH8.s:180    .text.RCC_GetPCLK2ClockFreq:0000000000000000 $t
-     /tmp/ccygRLH8.s:187    .text.RCC_GetPCLK2ClockFreq:0000000000000000 RCC_GetPCLK2ClockFreq
-     /tmp/ccygRLH8.s:201    .text.RCC_GetPCLK2ClockFreq:0000000000000010 $d
-     /tmp/ccygRLH8.s:205    .text.RCC_PLL_GetFreqDomain_SYS:0000000000000000 $t
-     /tmp/ccygRLH8.s:212    .text.RCC_PLL_GetFreqDomain_SYS:0000000000000000 RCC_PLL_GetFreqDomain_SYS
-     /tmp/ccygRLH8.s:238    .text.RCC_PLL_GetFreqDomain_SYS:0000000000000034 $d
-     /tmp/ccygRLH8.s:243    .text.RCC_GetSystemClockFreq:0000000000000000 $t
-     /tmp/ccygRLH8.s:250    .text.RCC_GetSystemClockFreq:0000000000000000 RCC_GetSystemClockFreq
-     /tmp/ccygRLH8.s:271    .text.RCC_GetSystemClockFreq:000000000000001c $d
-     /tmp/ccygRLH8.s:276    .text.LL_RCC_GetSystemClocksFreq:0000000000000000 $t
-     /tmp/ccygRLH8.s:283    .text.LL_RCC_GetSystemClocksFreq:0000000000000000 LL_RCC_GetSystemClocksFreq
-     /tmp/ccygRLH8.s:300    .text.LL_RCC_GetUSARTClockFreq:0000000000000000 $t
-     /tmp/ccygRLH8.s:307    .text.LL_RCC_GetUSARTClockFreq:0000000000000000 LL_RCC_GetUSARTClockFreq
-     /tmp/ccygRLH8.s:402    .text.LL_RCC_GetUSARTClockFreq:00000000000000d8 $d
-     /tmp/ccygRLH8.s:410    .text.LL_RCC_GetUARTClockFreq:0000000000000000 $t
-     /tmp/ccygRLH8.s:417    .text.LL_RCC_GetUARTClockFreq:0000000000000000 LL_RCC_GetUARTClockFreq
-     /tmp/ccygRLH8.s:505    .text.LL_RCC_GetUARTClockFreq:00000000000000d0 $d
-     /tmp/ccygRLH8.s:513    .text.LL_RCC_GetI2CClockFreq:0000000000000000 $t
-     /tmp/ccygRLH8.s:520    .text.LL_RCC_GetI2CClockFreq:0000000000000000 LL_RCC_GetI2CClockFreq
-     /tmp/ccygRLH8.s:583    .text.LL_RCC_GetI2CClockFreq:0000000000000088 $d
-     /tmp/ccygRLH8.s:590    .text.LL_RCC_GetLPTIMClockFreq:0000000000000000 $t
-     /tmp/ccygRLH8.s:597    .text.LL_RCC_GetLPTIMClockFreq:0000000000000000 LL_RCC_GetLPTIMClockFreq
-     /tmp/ccygRLH8.s:642    .text.LL_RCC_GetLPTIMClockFreq:0000000000000060 $d
-     /tmp/ccygRLH8.s:646    .text.RCC_PLL_GetFreqDomain_48M:0000000000000000 $t
-     /tmp/ccygRLH8.s:653    .text.RCC_PLL_GetFreqDomain_48M:0000000000000000 RCC_PLL_GetFreqDomain_48M
-     /tmp/ccygRLH8.s:677    .text.RCC_PLL_GetFreqDomain_48M:0000000000000030 $d
-     /tmp/ccygRLH8.s:682    .text.RCC_PLLSAI_GetFreqDomain_SAI:0000000000000000 $t
-     /tmp/ccygRLH8.s:689    .text.RCC_PLLSAI_GetFreqDomain_SAI:0000000000000000 RCC_PLLSAI_GetFreqDomain_SAI
-     /tmp/ccygRLH8.s:716    .text.RCC_PLLSAI_GetFreqDomain_SAI:0000000000000040 $d
-     /tmp/ccygRLH8.s:721    .text.RCC_PLLSAI_GetFreqDomain_48M:0000000000000000 $t
-     /tmp/ccygRLH8.s:728    .text.RCC_PLLSAI_GetFreqDomain_48M:0000000000000000 RCC_PLLSAI_GetFreqDomain_48M
-     /tmp/ccygRLH8.s:754    .text.RCC_PLLSAI_GetFreqDomain_48M:0000000000000038 $d
-     /tmp/ccygRLH8.s:759    .text.LL_RCC_GetSDMMCClockFreq:0000000000000000 $t
-     /tmp/ccygRLH8.s:766    .text.LL_RCC_GetSDMMCClockFreq:0000000000000000 LL_RCC_GetSDMMCClockFreq
-     /tmp/ccygRLH8.s:801    .text.LL_RCC_GetSDMMCClockFreq:0000000000000040 $d
-     /tmp/ccygRLH8.s:804    .text.LL_RCC_GetRNGClockFreq:0000000000000000 $t
-     /tmp/ccygRLH8.s:811    .text.LL_RCC_GetRNGClockFreq:0000000000000000 LL_RCC_GetRNGClockFreq
-     /tmp/ccygRLH8.s:833    .text.LL_RCC_GetRNGClockFreq:0000000000000020 $d
-     /tmp/ccygRLH8.s:836    .text.LL_RCC_GetUSBClockFreq:0000000000000000 $t
-     /tmp/ccygRLH8.s:843    .text.LL_RCC_GetUSBClockFreq:0000000000000000 LL_RCC_GetUSBClockFreq
-ARM GAS  /tmp/ccygRLH8.s 			page 20
+     /tmp/ccVwyDjn.s:15     .text.LL_RCC_HSI_IsReady:0000000000000000 $t
+     /tmp/ccVwyDjn.s:22     .text.LL_RCC_HSI_IsReady:0000000000000000 LL_RCC_HSI_IsReady
+     /tmp/ccVwyDjn.s:33     .text.LL_RCC_HSI_IsReady:000000000000000c $d
+     /tmp/ccVwyDjn.s:36     .text.LL_RCC_LSE_IsReady:0000000000000000 $t
+     /tmp/ccVwyDjn.s:42     .text.LL_RCC_LSE_IsReady:0000000000000000 LL_RCC_LSE_IsReady
+     /tmp/ccVwyDjn.s:53     .text.LL_RCC_LSE_IsReady:000000000000000c $d
+     /tmp/ccVwyDjn.s:56     .text.LL_RCC_DeInit:0000000000000000 $t
+     /tmp/ccVwyDjn.s:63     .text.LL_RCC_DeInit:0000000000000000 LL_RCC_DeInit
+     /tmp/ccVwyDjn.s:126    .text.LL_RCC_DeInit:0000000000000084 $d
+     /tmp/ccVwyDjn.s:130    .text.RCC_GetHCLKClockFreq:0000000000000000 $t
+     /tmp/ccVwyDjn.s:137    .text.RCC_GetHCLKClockFreq:0000000000000000 RCC_GetHCLKClockFreq
+     /tmp/ccVwyDjn.s:151    .text.RCC_GetHCLKClockFreq:0000000000000010 $d
+     /tmp/ccVwyDjn.s:155    .text.RCC_GetPCLK1ClockFreq:0000000000000000 $t
+     /tmp/ccVwyDjn.s:162    .text.RCC_GetPCLK1ClockFreq:0000000000000000 RCC_GetPCLK1ClockFreq
+     /tmp/ccVwyDjn.s:176    .text.RCC_GetPCLK1ClockFreq:0000000000000010 $d
+     /tmp/ccVwyDjn.s:180    .text.RCC_GetPCLK2ClockFreq:0000000000000000 $t
+     /tmp/ccVwyDjn.s:187    .text.RCC_GetPCLK2ClockFreq:0000000000000000 RCC_GetPCLK2ClockFreq
+     /tmp/ccVwyDjn.s:201    .text.RCC_GetPCLK2ClockFreq:0000000000000010 $d
+     /tmp/ccVwyDjn.s:205    .text.RCC_PLL_GetFreqDomain_SYS:0000000000000000 $t
+     /tmp/ccVwyDjn.s:212    .text.RCC_PLL_GetFreqDomain_SYS:0000000000000000 RCC_PLL_GetFreqDomain_SYS
+     /tmp/ccVwyDjn.s:238    .text.RCC_PLL_GetFreqDomain_SYS:0000000000000034 $d
+     /tmp/ccVwyDjn.s:243    .text.RCC_GetSystemClockFreq:0000000000000000 $t
+     /tmp/ccVwyDjn.s:250    .text.RCC_GetSystemClockFreq:0000000000000000 RCC_GetSystemClockFreq
+     /tmp/ccVwyDjn.s:271    .text.RCC_GetSystemClockFreq:000000000000001c $d
+     /tmp/ccVwyDjn.s:276    .text.LL_RCC_GetSystemClocksFreq:0000000000000000 $t
+     /tmp/ccVwyDjn.s:283    .text.LL_RCC_GetSystemClocksFreq:0000000000000000 LL_RCC_GetSystemClocksFreq
+     /tmp/ccVwyDjn.s:300    .text.LL_RCC_GetUSARTClockFreq:0000000000000000 $t
+     /tmp/ccVwyDjn.s:307    .text.LL_RCC_GetUSARTClockFreq:0000000000000000 LL_RCC_GetUSARTClockFreq
+     /tmp/ccVwyDjn.s:402    .text.LL_RCC_GetUSARTClockFreq:00000000000000d8 $d
+     /tmp/ccVwyDjn.s:410    .text.LL_RCC_GetUARTClockFreq:0000000000000000 $t
+     /tmp/ccVwyDjn.s:417    .text.LL_RCC_GetUARTClockFreq:0000000000000000 LL_RCC_GetUARTClockFreq
+     /tmp/ccVwyDjn.s:505    .text.LL_RCC_GetUARTClockFreq:00000000000000d0 $d
+     /tmp/ccVwyDjn.s:513    .text.LL_RCC_GetI2CClockFreq:0000000000000000 $t
+     /tmp/ccVwyDjn.s:520    .text.LL_RCC_GetI2CClockFreq:0000000000000000 LL_RCC_GetI2CClockFreq
+     /tmp/ccVwyDjn.s:583    .text.LL_RCC_GetI2CClockFreq:0000000000000088 $d
+     /tmp/ccVwyDjn.s:590    .text.LL_RCC_GetLPTIMClockFreq:0000000000000000 $t
+     /tmp/ccVwyDjn.s:597    .text.LL_RCC_GetLPTIMClockFreq:0000000000000000 LL_RCC_GetLPTIMClockFreq
+     /tmp/ccVwyDjn.s:642    .text.LL_RCC_GetLPTIMClockFreq:0000000000000060 $d
+     /tmp/ccVwyDjn.s:646    .text.RCC_PLL_GetFreqDomain_48M:0000000000000000 $t
+     /tmp/ccVwyDjn.s:653    .text.RCC_PLL_GetFreqDomain_48M:0000000000000000 RCC_PLL_GetFreqDomain_48M
+     /tmp/ccVwyDjn.s:677    .text.RCC_PLL_GetFreqDomain_48M:0000000000000030 $d
+     /tmp/ccVwyDjn.s:682    .text.RCC_PLLSAI_GetFreqDomain_SAI:0000000000000000 $t
+     /tmp/ccVwyDjn.s:689    .text.RCC_PLLSAI_GetFreqDomain_SAI:0000000000000000 RCC_PLLSAI_GetFreqDomain_SAI
+     /tmp/ccVwyDjn.s:716    .text.RCC_PLLSAI_GetFreqDomain_SAI:0000000000000040 $d
+     /tmp/ccVwyDjn.s:721    .text.RCC_PLLSAI_GetFreqDomain_48M:0000000000000000 $t
+     /tmp/ccVwyDjn.s:728    .text.RCC_PLLSAI_GetFreqDomain_48M:0000000000000000 RCC_PLLSAI_GetFreqDomain_48M
+     /tmp/ccVwyDjn.s:754    .text.RCC_PLLSAI_GetFreqDomain_48M:0000000000000038 $d
+     /tmp/ccVwyDjn.s:759    .text.LL_RCC_GetSDMMCClockFreq:0000000000000000 $t
+     /tmp/ccVwyDjn.s:766    .text.LL_RCC_GetSDMMCClockFreq:0000000000000000 LL_RCC_GetSDMMCClockFreq
+     /tmp/ccVwyDjn.s:801    .text.LL_RCC_GetSDMMCClockFreq:0000000000000040 $d
+     /tmp/ccVwyDjn.s:804    .text.LL_RCC_GetRNGClockFreq:0000000000000000 $t
+     /tmp/ccVwyDjn.s:811    .text.LL_RCC_GetRNGClockFreq:0000000000000000 LL_RCC_GetRNGClockFreq
+     /tmp/ccVwyDjn.s:833    .text.LL_RCC_GetRNGClockFreq:0000000000000020 $d
+     /tmp/ccVwyDjn.s:836    .text.LL_RCC_GetUSBClockFreq:0000000000000000 $t
+     /tmp/ccVwyDjn.s:843    .text.LL_RCC_GetUSBClockFreq:0000000000000000 LL_RCC_GetUSBClockFreq
+ARM GAS  /tmp/ccVwyDjn.s 			page 20
 
 
-     /tmp/ccygRLH8.s:850    .text.RCC_PLLI2S_GetFreqDomain_SAI:0000000000000000 $t
-     /tmp/ccygRLH8.s:857    .text.RCC_PLLI2S_GetFreqDomain_SAI:0000000000000000 RCC_PLLI2S_GetFreqDomain_SAI
-     /tmp/ccygRLH8.s:884    .text.RCC_PLLI2S_GetFreqDomain_SAI:0000000000000040 $d
-     /tmp/ccygRLH8.s:889    .text.LL_RCC_GetSAIClockFreq:0000000000000000 $t
-     /tmp/ccygRLH8.s:896    .text.LL_RCC_GetSAIClockFreq:0000000000000000 LL_RCC_GetSAIClockFreq
-     /tmp/ccygRLH8.s:961    .text.LL_RCC_GetSAIClockFreq:0000000000000088 $d
-     /tmp/ccygRLH8.s:966    .text.RCC_PLLI2S_GetFreqDomain_I2S:0000000000000000 $t
-     /tmp/ccygRLH8.s:973    .text.RCC_PLLI2S_GetFreqDomain_I2S:0000000000000000 RCC_PLLI2S_GetFreqDomain_I2S
-     /tmp/ccygRLH8.s:997    .text.RCC_PLLI2S_GetFreqDomain_I2S:0000000000000034 $d
-     /tmp/ccygRLH8.s:1002   .text.LL_RCC_GetI2SClockFreq:0000000000000000 $t
-     /tmp/ccygRLH8.s:1009   .text.LL_RCC_GetI2SClockFreq:0000000000000000 LL_RCC_GetI2SClockFreq
-     /tmp/ccygRLH8.s:1033   .text.LL_RCC_GetI2SClockFreq:0000000000000024 $d
+     /tmp/ccVwyDjn.s:850    .text.RCC_PLLI2S_GetFreqDomain_SAI:0000000000000000 $t
+     /tmp/ccVwyDjn.s:857    .text.RCC_PLLI2S_GetFreqDomain_SAI:0000000000000000 RCC_PLLI2S_GetFreqDomain_SAI
+     /tmp/ccVwyDjn.s:884    .text.RCC_PLLI2S_GetFreqDomain_SAI:0000000000000040 $d
+     /tmp/ccVwyDjn.s:889    .text.LL_RCC_GetSAIClockFreq:0000000000000000 $t
+     /tmp/ccVwyDjn.s:896    .text.LL_RCC_GetSAIClockFreq:0000000000000000 LL_RCC_GetSAIClockFreq
+     /tmp/ccVwyDjn.s:961    .text.LL_RCC_GetSAIClockFreq:0000000000000088 $d
+     /tmp/ccVwyDjn.s:966    .text.RCC_PLLI2S_GetFreqDomain_I2S:0000000000000000 $t
+     /tmp/ccVwyDjn.s:973    .text.RCC_PLLI2S_GetFreqDomain_I2S:0000000000000000 RCC_PLLI2S_GetFreqDomain_I2S
+     /tmp/ccVwyDjn.s:997    .text.RCC_PLLI2S_GetFreqDomain_I2S:0000000000000034 $d
+     /tmp/ccVwyDjn.s:1002   .text.LL_RCC_GetI2SClockFreq:0000000000000000 $t
+     /tmp/ccVwyDjn.s:1009   .text.LL_RCC_GetI2SClockFreq:0000000000000000 LL_RCC_GetI2SClockFreq
+     /tmp/ccVwyDjn.s:1033   .text.LL_RCC_GetI2SClockFreq:0000000000000024 $d
 
 UNDEFINED SYMBOLS
 AHBPrescTable

@@ -69,7 +69,6 @@ class OdomDump( object ):
             imu_data[7] /= 100
             imu_data[8] /= 10
 
-
             odom0_data, odom1_data = odom_data[:7], odom_data[7:]
 
             odom0_data[0] = int(odom0_data[0], 16)
@@ -79,6 +78,8 @@ class OdomDump( object ):
             odom1_data[1:] = list(map(int, odom1_data[1:]))
 
             # print(imu_data, odom_data, end='\r')
+            print('tick delta: %s' %int(tick_delta))
+            print('=='*4)
             for i in imu_data:
                 if i < 0:
                     print(i, ' '*4)
@@ -101,7 +102,7 @@ class OdomDump( object ):
                 else:
                     print('', i, ' '*4)
             
-            print('\033[%dA' %(26)) # move cursor N line up
+            print('\033[%dA' %(28)) # move cursor N line up
 
 
 

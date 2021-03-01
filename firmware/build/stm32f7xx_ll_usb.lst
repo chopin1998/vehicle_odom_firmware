@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccwc0UrA.s 			page 1
+ARM GAS  /tmp/ccYumfzJ.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
   57              		.thumb
   58              		.thumb_func
   59              		.fpu fpv5-sp-d16
-ARM GAS  /tmp/ccwc0UrA.s 			page 2
+ARM GAS  /tmp/ccYumfzJ.s 			page 2
 
 
   61              	USB_CoreInit:
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  115 0074 C368     		ldr	r3, [r0, #12]
  116 0076 23F48403 		bic	r3, r3, #4325376
  117 007a 23F04003 		bic	r3, r3, #64
-ARM GAS  /tmp/ccwc0UrA.s 			page 3
+ARM GAS  /tmp/ccYumfzJ.s 			page 3
 
 
  118 007e C360     		str	r3, [r0, #12]
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  173              		.fpu fpv5-sp-d16
  175              	USB_SetTurnaroundTime:
  176              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccwc0UrA.s 			page 4
+ARM GAS  /tmp/ccYumfzJ.s 			page 4
 
 
  177              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  231 0086 0723     		movls	r3, #7
  232 0088 0623     		movhi	r3, #6
  233              	.L35:
-ARM GAS  /tmp/ccwc0UrA.s 			page 5
+ARM GAS  /tmp/ccYumfzJ.s 			page 5
 
 
  234 008a C268     		ldr	r2, [r0, #12]
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  290              		@ frame_needed = 0, uses_anonymous_args = 0
  291              		@ link register save eliminated.
  292 0000 8368     		ldr	r3, [r0, #8]
-ARM GAS  /tmp/ccwc0UrA.s 			page 6
+ARM GAS  /tmp/ccYumfzJ.s 			page 6
 
 
  293 0002 43F00103 		orr	r3, r3, #1
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  352              		.align	1
  353              		.global	USB_FlushTxFifo
  354              		.syntax unified
-ARM GAS  /tmp/ccwc0UrA.s 			page 7
+ARM GAS  /tmp/ccYumfzJ.s 			page 7
 
 
  355              		.thumb
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  412 001c 410D0300 		.word	200001
  414              		.section	.text.USB_SetDevSpeed,"ax",%progbits
  415              		.align	1
-ARM GAS  /tmp/ccwc0UrA.s 			page 8
+ARM GAS  /tmp/ccYumfzJ.s 			page 8
 
 
  416              		.global	USB_SetDevSpeed
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  473 004a 2368     		ldr	r3, [r4]
  474 004c 43F08003 		orr	r3, r3, #128
  475 0050 2360     		str	r3, [r4]
-ARM GAS  /tmp/ccwc0UrA.s 			page 9
+ARM GAS  /tmp/ccYumfzJ.s 			page 9
 
 
  476              	.L76:
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  530 00d4 1BB9     		cbnz	r3, .L92
  531 00d6 A369     		ldr	r3, [r4, #24]
  532 00d8 43F01003 		orr	r3, r3, #16
-ARM GAS  /tmp/ccwc0UrA.s 			page 10
+ARM GAS  /tmp/ccYumfzJ.s 			page 10
 
 
  533 00dc A361     		str	r3, [r4, #24]
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  587 0146 D3F80090 		ldr	r9, [r3]
  588 014a B9F1000F 		cmp	r9, #0
  589 014e 0BDA     		bge	.L88
-ARM GAS  /tmp/ccwc0UrA.s 			page 11
+ARM GAS  /tmp/ccYumfzJ.s 			page 11
 
 
  590 0150 3AB9     		cbnz	r2, .L89
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  648 0012 9D40     		lsls	r5, r5, r3
  649 0014 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
  650 0016 012B     		cmp	r3, #1
-ARM GAS  /tmp/ccwc0UrA.s 			page 12
+ARM GAS  /tmp/ccYumfzJ.s 			page 12
 
 
  651 0018 E369     		ldr	r3, [r4, #28]
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  707 0016 D5F80039 		ldr	r3, [r5, #2304]
  708 001a 1A04     		lsls	r2, r3, #16
  709 001c 10D4     		bmi	.L117
-ARM GAS  /tmp/ccwc0UrA.s 			page 13
+ARM GAS  /tmp/ccYumfzJ.s 			page 13
 
 
  710 001e 8A68     		ldr	r2, [r1, #8]
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  766 0016 D3F80029 		ldr	r2, [r3, #2304]
  767 001a 002A     		cmp	r2, #0
  768 001c 0BDA     		bge	.L123
-ARM GAS  /tmp/ccwc0UrA.s 			page 14
+ARM GAS  /tmp/ccYumfzJ.s 			page 14
 
 
  769 001e D3F80029 		ldr	r2, [r3, #2304]
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  824              		.align	1
  825              		.global	USB_DeactivateDedicatedEndpoint
  826              		.syntax unified
-ARM GAS  /tmp/ccwc0UrA.s 			page 15
+ARM GAS  /tmp/ccYumfzJ.s 			page 15
 
 
  827              		.thumb
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  883              		.global	USB_EP0StartXfer
  884              		.syntax unified
  885              		.thumb
-ARM GAS  /tmp/ccwc0UrA.s 			page 16
+ARM GAS  /tmp/ccYumfzJ.s 			page 16
 
 
  886              		.thumb_func
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  941 0076 C5F31205 		ubfx	r5, r5, #0, #19
  942 007a 3D43     		orrs	r5, r5, r7
  943 007c D8E7     		b	.L156
-ARM GAS  /tmp/ccwc0UrA.s 			page 17
+ARM GAS  /tmp/ccYumfzJ.s 			page 17
 
 
  944              	.L139:
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  999              		.fpu fpv5-sp-d16
  1001              	USB_WritePacket:
  1002              		@ args = 4, pretend = 0, frame = 0
-ARM GAS  /tmp/ccwc0UrA.s 			page 18
+ARM GAS  /tmp/ccYumfzJ.s 			page 18
 
 
  1003              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  1059 004e 03B1     		cbz	r3, .L170
  1060 0050 6B61     		str	r3, [r5, #20]
  1061              	.L170:
-ARM GAS  /tmp/ccwc0UrA.s 			page 19
+ARM GAS  /tmp/ccYumfzJ.s 			page 19
 
 
  1062 0052 012E     		cmp	r6, #1
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  1116 00fe 07F00F02 		and	r2, r7, #15
  1117 0102 0127     		movs	r7, #1
  1118 0104 D0F83438 		ldr	r3, [r0, #2100]
-ARM GAS  /tmp/ccwc0UrA.s 			page 20
+ARM GAS  /tmp/ccYumfzJ.s 			page 20
 
 
  1119 0108 9740     		lsls	r7, r7, r2
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  1173 0194 C4F8003B 		str	r3, [r4, #2816]
  1174 0198 70E7     		b	.L173
  1175              	.L177:
-ARM GAS  /tmp/ccwc0UrA.s 			page 21
+ARM GAS  /tmp/ccYumfzJ.s 			page 21
 
 
  1176 019a 2B44     		add	r3, r3, r5
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  1234              		@ link register save eliminated.
  1235 0000 4A78     		ldrb	r2, [r1, #1]	@ zero_extendqisi2
  1236 0002 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
-ARM GAS  /tmp/ccwc0UrA.s 			page 22
+ARM GAS  /tmp/ccYumfzJ.s 			page 22
 
 
  1237 0004 012A     		cmp	r2, #1
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  1293 0024 D0F80039 		ldr	r3, [r0, #2304]
  1294 0028 43F08053 		orr	r3, r3, #268435456
  1295 002c C0F80039 		str	r3, [r0, #2304]
-ARM GAS  /tmp/ccwc0UrA.s 			page 23
+ARM GAS  /tmp/ccYumfzJ.s 			page 23
 
 
  1296              	.L214:
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  1354              	USB_SetDevAddress:
  1355              		@ args = 0, pretend = 0, frame = 0
  1356              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccwc0UrA.s 			page 24
+ARM GAS  /tmp/ccYumfzJ.s 			page 24
 
 
  1357              		@ link register save eliminated.
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  1417              	USB_ReadInterrupts:
  1418              		@ args = 0, pretend = 0, frame = 0
  1419              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccwc0UrA.s 			page 25
+ARM GAS  /tmp/ccYumfzJ.s 			page 25
 
 
  1420              		@ link register save eliminated.
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  1480 000e 1040     		ands	r0, r0, r2
  1481 0010 7047     		bx	lr
  1483              		.section	.text.USB_ReadDevInEPInterrupt,"ax",%progbits
-ARM GAS  /tmp/ccwc0UrA.s 			page 26
+ARM GAS  /tmp/ccYumfzJ.s 			page 26
 
 
  1484              		.align	1
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  1544              		.syntax unified
  1545              		.thumb
  1546              		.thumb_func
-ARM GAS  /tmp/ccwc0UrA.s 			page 27
+ARM GAS  /tmp/ccYumfzJ.s 			page 27
 
 
  1547              		.fpu fpv5-sp-d16
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  1604              	.L236:
  1605              		.align	2
  1606              	.L235:
-ARM GAS  /tmp/ccwc0UrA.s 			page 28
+ARM GAS  /tmp/ccYumfzJ.s 			page 28
 
 
  1607 0048 0A30544F 		.word	1330917386
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  1665 001c C0F84034 		str	r3, [r0, #1088]
  1666 0020 6420     		movs	r0, #100
  1667 0022 FFF7FEFF 		bl	HAL_Delay
-ARM GAS  /tmp/ccwc0UrA.s 			page 29
+ARM GAS  /tmp/ccYumfzJ.s 			page 29
 
 
  1668 0026 019B     		ldr	r3, [sp, #4]
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  1725              		.thumb_func
  1726              		.fpu fpv5-sp-d16
  1728              	USB_HostInit:
-ARM GAS  /tmp/ccwc0UrA.s 			page 30
+ARM GAS  /tmp/ccYumfzJ.s 			page 30
 
 
  1729              		@ args = 56, pretend = 16, frame = 0
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  1783 0082 089B     		ldr	r3, [sp, #32]
  1784 0084 1BB9     		cbnz	r3, .L256
  1785 0086 A369     		ldr	r3, [r4, #24]
-ARM GAS  /tmp/ccwc0UrA.s 			page 31
+ARM GAS  /tmp/ccYumfzJ.s 			page 31
 
 
  1786 0088 43F01003 		orr	r3, r3, #16
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  1842              		@ sp needed
  1843 0014 7047     		bx	lr
  1845              		.section	.text.USB_GetCurrentFrame,"ax",%progbits
-ARM GAS  /tmp/ccwc0UrA.s 			page 32
+ARM GAS  /tmp/ccYumfzJ.s 			page 32
 
 
  1846              		.align	1
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  1903              	.L280:
  1904 0042 0020     		movs	r0, #0
  1905              	.L265:
-ARM GAS  /tmp/ccwc0UrA.s 			page 33
+ARM GAS  /tmp/ccYumfzJ.s 			page 33
 
 
  1906 0044 01F00F04 		and	r4, r1, #15
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  1960 00dc 40F22520 		movw	r0, #549
  1961 00e0 BCF1000F 		cmp	ip, #0
  1962 00e4 E060     		str	r0, [r4, #12]
-ARM GAS  /tmp/ccwc0UrA.s 			page 34
+ARM GAS  /tmp/ccYumfzJ.s 			page 34
 
 
  1963 00e6 ACDA     		bge	.L280
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  2021              	.L288:
  2022 004e 013B     		subs	r3, r3, #1
  2023 0050 02D0     		beq	.L287
-ARM GAS  /tmp/ccwc0UrA.s 			page 35
+ARM GAS  /tmp/ccYumfzJ.s 			page 35
 
 
  2024 0052 1168     		ldr	r1, [r2]
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  2080 0020 00000880 		.word	-2146959360
  2082              		.section	.text.USB_HC_StartXfer,"ax",%progbits
  2083              		.align	1
-ARM GAS  /tmp/ccwc0UrA.s 			page 36
+ARM GAS  /tmp/ccYumfzJ.s 			page 36
 
 
  2084              		.global	USB_HC_StartXfer
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  2139 0066 4343     		muls	r3, r0, r3
  2140 0068 0B61     		str	r3, [r1, #16]
  2141              	.L306:
-ARM GAS  /tmp/ccwc0UrA.s 			page 37
+ARM GAS  /tmp/ccYumfzJ.s 			page 37
 
 
  2142 006a 91F80AC0 		ldrb	ip, [r1, #10]	@ zero_extendqisi2
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  2196              	.L314:
  2197 010a 0120     		movs	r0, #1
  2198 010c A8E7     		b	.L305
-ARM GAS  /tmp/ccwc0UrA.s 			page 38
+ARM GAS  /tmp/ccYumfzJ.s 			page 38
 
 
  2199              	.L308:
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  2255 0014 FFF7FEFF 		bl	USB_FlushRxFifo
  2256 0018 04F5A063 		add	r3, r4, #1280
  2257 001c 04F5E060 		add	r0, r4, #1792
-ARM GAS  /tmp/ccwc0UrA.s 			page 39
+ARM GAS  /tmp/ccYumfzJ.s 			page 39
 
 
  2258 0020 1946     		mov	r1, r3
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  2315              		.section	.text.USB_DeActivateRemoteWakeup,"ax",%progbits
  2316              		.align	1
  2317              		.global	USB_DeActivateRemoteWakeup
-ARM GAS  /tmp/ccwc0UrA.s 			page 40
+ARM GAS  /tmp/ccYumfzJ.s 			page 40
 
 
  2318              		.syntax unified
@@ -2360,132 +2360,132 @@ ARM GAS  /tmp/ccwc0UrA.s 			page 1
  2338              	tmpreg.9167:
  2339 0000 00000000 		.space	4
  2340              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccwc0UrA.s 			page 41
+ARM GAS  /tmp/ccYumfzJ.s 			page 41
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f7xx_ll_usb.c
-     /tmp/ccwc0UrA.s:15     .text.USB_CoreReset:0000000000000000 $t
-     /tmp/ccwc0UrA.s:22     .text.USB_CoreReset:0000000000000000 USB_CoreReset
-     /tmp/ccwc0UrA.s:51     .text.USB_CoreReset:000000000000002c $d
-     /tmp/ccwc0UrA.s:54     .text.USB_CoreInit:0000000000000000 $t
-     /tmp/ccwc0UrA.s:61     .text.USB_CoreInit:0000000000000000 USB_CoreInit
-     /tmp/ccwc0UrA.s:164    .text.USB_CoreInit:00000000000000e4 $d
-     /tmp/ccwc0UrA.s:168    .text.USB_SetTurnaroundTime:0000000000000000 $t
-     /tmp/ccwc0UrA.s:175    .text.USB_SetTurnaroundTime:0000000000000000 USB_SetTurnaroundTime
-     /tmp/ccwc0UrA.s:269    .text.USB_SetTurnaroundTime:00000000000000c0 $d
-     /tmp/ccwc0UrA.s:281    .text.USB_EnableGlobalInt:0000000000000000 $t
-     /tmp/ccwc0UrA.s:288    .text.USB_EnableGlobalInt:0000000000000000 USB_EnableGlobalInt
-     /tmp/ccwc0UrA.s:299    .text.USB_DisableGlobalInt:0000000000000000 $t
-     /tmp/ccwc0UrA.s:306    .text.USB_DisableGlobalInt:0000000000000000 USB_DisableGlobalInt
-     /tmp/ccwc0UrA.s:317    .text.USB_SetCurrentMode:0000000000000000 $t
-     /tmp/ccwc0UrA.s:324    .text.USB_SetCurrentMode:0000000000000000 USB_SetCurrentMode
-     /tmp/ccwc0UrA.s:352    .text.USB_FlushTxFifo:0000000000000000 $t
-     /tmp/ccwc0UrA.s:359    .text.USB_FlushTxFifo:0000000000000000 USB_FlushTxFifo
-     /tmp/ccwc0UrA.s:381    .text.USB_FlushTxFifo:0000000000000020 $d
-     /tmp/ccwc0UrA.s:384    .text.USB_FlushRxFifo:0000000000000000 $t
-     /tmp/ccwc0UrA.s:391    .text.USB_FlushRxFifo:0000000000000000 USB_FlushRxFifo
-     /tmp/ccwc0UrA.s:412    .text.USB_FlushRxFifo:000000000000001c $d
-     /tmp/ccwc0UrA.s:415    .text.USB_SetDevSpeed:0000000000000000 $t
-     /tmp/ccwc0UrA.s:422    .text.USB_SetDevSpeed:0000000000000000 USB_SetDevSpeed
-     /tmp/ccwc0UrA.s:433    .text.USB_DevInit:0000000000000000 $t
-     /tmp/ccwc0UrA.s:440    .text.USB_DevInit:0000000000000000 USB_DevInit
-     /tmp/ccwc0UrA.s:607    .text.USB_DevInit:000000000000016c $d
-     /tmp/ccwc0UrA.s:610    .text.USB_GetDevSpeed:0000000000000000 $t
-     /tmp/ccwc0UrA.s:617    .text.USB_GetDevSpeed:0000000000000000 USB_GetDevSpeed
-     /tmp/ccwc0UrA.s:632    .text.USB_ActivateEndpoint:0000000000000000 $t
-     /tmp/ccwc0UrA.s:639    .text.USB_ActivateEndpoint:0000000000000000 USB_ActivateEndpoint
-     /tmp/ccwc0UrA.s:689    .text.USB_ActivateDedicatedEndpoint:0000000000000000 $t
-     /tmp/ccwc0UrA.s:696    .text.USB_ActivateDedicatedEndpoint:0000000000000000 USB_ActivateDedicatedEndpoint
-     /tmp/ccwc0UrA.s:748    .text.USB_DeactivateEndpoint:0000000000000000 $t
-     /tmp/ccwc0UrA.s:755    .text.USB_DeactivateEndpoint:0000000000000000 USB_DeactivateEndpoint
-     /tmp/ccwc0UrA.s:820    .text.USB_DeactivateEndpoint:000000000000009c $d
-     /tmp/ccwc0UrA.s:824    .text.USB_DeactivateDedicatedEndpoint:0000000000000000 $t
-     /tmp/ccwc0UrA.s:831    .text.USB_DeactivateDedicatedEndpoint:0000000000000000 USB_DeactivateDedicatedEndpoint
-     /tmp/ccwc0UrA.s:882    .text.USB_EP0StartXfer:0000000000000000 $t
-     /tmp/ccwc0UrA.s:889    .text.USB_EP0StartXfer:0000000000000000 USB_EP0StartXfer
-     /tmp/ccwc0UrA.s:990    .text.USB_EP0StartXfer:00000000000000e8 $d
-     /tmp/ccwc0UrA.s:994    .text.USB_WritePacket:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1001   .text.USB_WritePacket:0000000000000000 USB_WritePacket
-     /tmp/ccwc0UrA.s:1024   .text.USB_EPStartXfer:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1031   .text.USB_EPStartXfer:0000000000000000 USB_EPStartXfer
-     /tmp/ccwc0UrA.s:1193   .text.USB_EPStartXfer:00000000000001c8 $d
-     /tmp/ccwc0UrA.s:1198   .text.USB_ReadPacket:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1205   .text.USB_ReadPacket:0000000000000000 USB_ReadPacket
-     /tmp/ccwc0UrA.s:1224   .text.USB_EPSetStall:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1231   .text.USB_EPSetStall:0000000000000000 USB_EPSetStall
-     /tmp/ccwc0UrA.s:1269   .text.USB_EPClearStall:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1276   .text.USB_EPClearStall:0000000000000000 USB_EPClearStall
-     /tmp/ccwc0UrA.s:1311   .text.USB_StopDevice:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1318   .text.USB_StopDevice:0000000000000000 USB_StopDevice
-     /tmp/ccwc0UrA.s:1347   .text.USB_SetDevAddress:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1354   .text.USB_SetDevAddress:0000000000000000 USB_SetDevAddress
-ARM GAS  /tmp/ccwc0UrA.s 			page 42
+     /tmp/ccYumfzJ.s:15     .text.USB_CoreReset:0000000000000000 $t
+     /tmp/ccYumfzJ.s:22     .text.USB_CoreReset:0000000000000000 USB_CoreReset
+     /tmp/ccYumfzJ.s:51     .text.USB_CoreReset:000000000000002c $d
+     /tmp/ccYumfzJ.s:54     .text.USB_CoreInit:0000000000000000 $t
+     /tmp/ccYumfzJ.s:61     .text.USB_CoreInit:0000000000000000 USB_CoreInit
+     /tmp/ccYumfzJ.s:164    .text.USB_CoreInit:00000000000000e4 $d
+     /tmp/ccYumfzJ.s:168    .text.USB_SetTurnaroundTime:0000000000000000 $t
+     /tmp/ccYumfzJ.s:175    .text.USB_SetTurnaroundTime:0000000000000000 USB_SetTurnaroundTime
+     /tmp/ccYumfzJ.s:269    .text.USB_SetTurnaroundTime:00000000000000c0 $d
+     /tmp/ccYumfzJ.s:281    .text.USB_EnableGlobalInt:0000000000000000 $t
+     /tmp/ccYumfzJ.s:288    .text.USB_EnableGlobalInt:0000000000000000 USB_EnableGlobalInt
+     /tmp/ccYumfzJ.s:299    .text.USB_DisableGlobalInt:0000000000000000 $t
+     /tmp/ccYumfzJ.s:306    .text.USB_DisableGlobalInt:0000000000000000 USB_DisableGlobalInt
+     /tmp/ccYumfzJ.s:317    .text.USB_SetCurrentMode:0000000000000000 $t
+     /tmp/ccYumfzJ.s:324    .text.USB_SetCurrentMode:0000000000000000 USB_SetCurrentMode
+     /tmp/ccYumfzJ.s:352    .text.USB_FlushTxFifo:0000000000000000 $t
+     /tmp/ccYumfzJ.s:359    .text.USB_FlushTxFifo:0000000000000000 USB_FlushTxFifo
+     /tmp/ccYumfzJ.s:381    .text.USB_FlushTxFifo:0000000000000020 $d
+     /tmp/ccYumfzJ.s:384    .text.USB_FlushRxFifo:0000000000000000 $t
+     /tmp/ccYumfzJ.s:391    .text.USB_FlushRxFifo:0000000000000000 USB_FlushRxFifo
+     /tmp/ccYumfzJ.s:412    .text.USB_FlushRxFifo:000000000000001c $d
+     /tmp/ccYumfzJ.s:415    .text.USB_SetDevSpeed:0000000000000000 $t
+     /tmp/ccYumfzJ.s:422    .text.USB_SetDevSpeed:0000000000000000 USB_SetDevSpeed
+     /tmp/ccYumfzJ.s:433    .text.USB_DevInit:0000000000000000 $t
+     /tmp/ccYumfzJ.s:440    .text.USB_DevInit:0000000000000000 USB_DevInit
+     /tmp/ccYumfzJ.s:607    .text.USB_DevInit:000000000000016c $d
+     /tmp/ccYumfzJ.s:610    .text.USB_GetDevSpeed:0000000000000000 $t
+     /tmp/ccYumfzJ.s:617    .text.USB_GetDevSpeed:0000000000000000 USB_GetDevSpeed
+     /tmp/ccYumfzJ.s:632    .text.USB_ActivateEndpoint:0000000000000000 $t
+     /tmp/ccYumfzJ.s:639    .text.USB_ActivateEndpoint:0000000000000000 USB_ActivateEndpoint
+     /tmp/ccYumfzJ.s:689    .text.USB_ActivateDedicatedEndpoint:0000000000000000 $t
+     /tmp/ccYumfzJ.s:696    .text.USB_ActivateDedicatedEndpoint:0000000000000000 USB_ActivateDedicatedEndpoint
+     /tmp/ccYumfzJ.s:748    .text.USB_DeactivateEndpoint:0000000000000000 $t
+     /tmp/ccYumfzJ.s:755    .text.USB_DeactivateEndpoint:0000000000000000 USB_DeactivateEndpoint
+     /tmp/ccYumfzJ.s:820    .text.USB_DeactivateEndpoint:000000000000009c $d
+     /tmp/ccYumfzJ.s:824    .text.USB_DeactivateDedicatedEndpoint:0000000000000000 $t
+     /tmp/ccYumfzJ.s:831    .text.USB_DeactivateDedicatedEndpoint:0000000000000000 USB_DeactivateDedicatedEndpoint
+     /tmp/ccYumfzJ.s:882    .text.USB_EP0StartXfer:0000000000000000 $t
+     /tmp/ccYumfzJ.s:889    .text.USB_EP0StartXfer:0000000000000000 USB_EP0StartXfer
+     /tmp/ccYumfzJ.s:990    .text.USB_EP0StartXfer:00000000000000e8 $d
+     /tmp/ccYumfzJ.s:994    .text.USB_WritePacket:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1001   .text.USB_WritePacket:0000000000000000 USB_WritePacket
+     /tmp/ccYumfzJ.s:1024   .text.USB_EPStartXfer:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1031   .text.USB_EPStartXfer:0000000000000000 USB_EPStartXfer
+     /tmp/ccYumfzJ.s:1193   .text.USB_EPStartXfer:00000000000001c8 $d
+     /tmp/ccYumfzJ.s:1198   .text.USB_ReadPacket:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1205   .text.USB_ReadPacket:0000000000000000 USB_ReadPacket
+     /tmp/ccYumfzJ.s:1224   .text.USB_EPSetStall:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1231   .text.USB_EPSetStall:0000000000000000 USB_EPSetStall
+     /tmp/ccYumfzJ.s:1269   .text.USB_EPClearStall:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1276   .text.USB_EPClearStall:0000000000000000 USB_EPClearStall
+     /tmp/ccYumfzJ.s:1311   .text.USB_StopDevice:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1318   .text.USB_StopDevice:0000000000000000 USB_StopDevice
+     /tmp/ccYumfzJ.s:1347   .text.USB_SetDevAddress:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1354   .text.USB_SetDevAddress:0000000000000000 USB_SetDevAddress
+ARM GAS  /tmp/ccYumfzJ.s 			page 42
 
 
-     /tmp/ccwc0UrA.s:1370   .text.USB_DevConnect:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1377   .text.USB_DevConnect:0000000000000000 USB_DevConnect
-     /tmp/ccwc0UrA.s:1390   .text.USB_DevDisconnect:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1397   .text.USB_DevDisconnect:0000000000000000 USB_DevDisconnect
-     /tmp/ccwc0UrA.s:1410   .text.USB_ReadInterrupts:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1417   .text.USB_ReadInterrupts:0000000000000000 USB_ReadInterrupts
-     /tmp/ccwc0UrA.s:1427   .text.USB_ReadDevAllOutEpInterrupt:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1434   .text.USB_ReadDevAllOutEpInterrupt:0000000000000000 USB_ReadDevAllOutEpInterrupt
-     /tmp/ccwc0UrA.s:1446   .text.USB_ReadDevAllInEpInterrupt:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1453   .text.USB_ReadDevAllInEpInterrupt:0000000000000000 USB_ReadDevAllInEpInterrupt
-     /tmp/ccwc0UrA.s:1465   .text.USB_ReadDevOutEPInterrupt:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1472   .text.USB_ReadDevOutEPInterrupt:0000000000000000 USB_ReadDevOutEPInterrupt
-     /tmp/ccwc0UrA.s:1484   .text.USB_ReadDevInEPInterrupt:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1491   .text.USB_ReadDevInEPInterrupt:0000000000000000 USB_ReadDevInEPInterrupt
-     /tmp/ccwc0UrA.s:1509   .text.USB_ClearInterrupts:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1516   .text.USB_ClearInterrupts:0000000000000000 USB_ClearInterrupts
-     /tmp/ccwc0UrA.s:1526   .text.USB_GetMode:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1533   .text.USB_GetMode:0000000000000000 USB_GetMode
-     /tmp/ccwc0UrA.s:1542   .text.USB_ActivateSetup:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1549   .text.USB_ActivateSetup:0000000000000000 USB_ActivateSetup
-     /tmp/ccwc0UrA.s:1564   .text.USB_EP0_OutStart:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1571   .text.USB_EP0_OutStart:0000000000000000 USB_EP0_OutStart
-     /tmp/ccwc0UrA.s:1607   .text.USB_EP0_OutStart:0000000000000048 $d
-     /tmp/ccwc0UrA.s:1610   .text.USB_InitFSLSPClkSel:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1617   .text.USB_InitFSLSPClkSel:0000000000000000 USB_InitFSLSPClkSel
-     /tmp/ccwc0UrA.s:1644   .text.USB_ResetPort:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1651   .text.USB_ResetPort:0000000000000000 USB_ResetPort
-     /tmp/ccwc0UrA.s:1679   .text.USB_DriveVbus:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1686   .text.USB_DriveVbus:0000000000000000 USB_DriveVbus
-     /tmp/ccwc0UrA.s:1721   .text.USB_HostInit:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1728   .text.USB_HostInit:0000000000000000 USB_HostInit
-     /tmp/ccwc0UrA.s:1818   .text.USB_HostInit:00000000000000c4 $d
-     /tmp/ccwc0UrA.s:1823   .text.USB_GetHostSpeed:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1830   .text.USB_GetHostSpeed:0000000000000000 USB_GetHostSpeed
-     /tmp/ccwc0UrA.s:1846   .text.USB_GetCurrentFrame:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1853   .text.USB_GetCurrentFrame:0000000000000000 USB_GetCurrentFrame
-     /tmp/ccwc0UrA.s:1863   .text.USB_HC_Init:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1870   .text.USB_HC_Init:0000000000000000 USB_HC_Init
-     /tmp/ccwc0UrA.s:1885   .text.USB_HC_Init:0000000000000024 $d
-     /tmp/ccwc0UrA.s:1889   .text.USB_HC_Init:0000000000000028 $t
-     /tmp/ccwc0UrA.s:1972   .text.USB_HC_ReadInterrupt:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1979   .text.USB_HC_ReadInterrupt:0000000000000000 USB_HC_ReadInterrupt
-     /tmp/ccwc0UrA.s:1989   .text.USB_HC_Halt:0000000000000000 $t
-     /tmp/ccwc0UrA.s:1996   .text.USB_HC_Halt:0000000000000000 USB_HC_Halt
-     /tmp/ccwc0UrA.s:2057   .text.USB_DoPing:0000000000000000 $t
-     /tmp/ccwc0UrA.s:2064   .text.USB_DoPing:0000000000000000 USB_DoPing
-     /tmp/ccwc0UrA.s:2080   .text.USB_DoPing:0000000000000020 $d
-     /tmp/ccwc0UrA.s:2083   .text.USB_HC_StartXfer:0000000000000000 $t
-     /tmp/ccwc0UrA.s:2090   .text.USB_HC_StartXfer:0000000000000000 USB_HC_StartXfer
-     /tmp/ccwc0UrA.s:2191   .text.USB_HC_StartXfer:0000000000000106 $d
-     /tmp/ccwc0UrA.s:2195   .text.USB_HC_StartXfer:000000000000010a $t
-     /tmp/ccwc0UrA.s:2234   .text.USB_HC_StartXfer:0000000000000154 $d
-     /tmp/ccwc0UrA.s:2237   .text.USB_StopHost:0000000000000000 $t
-     /tmp/ccwc0UrA.s:2244   .text.USB_StopHost:0000000000000000 USB_StopHost
-     /tmp/ccwc0UrA.s:2293   .text.USB_ActivateRemoteWakeup:0000000000000000 $t
-     /tmp/ccwc0UrA.s:2300   .text.USB_ActivateRemoteWakeup:0000000000000000 USB_ActivateRemoteWakeup
-     /tmp/ccwc0UrA.s:2316   .text.USB_DeActivateRemoteWakeup:0000000000000000 $t
-ARM GAS  /tmp/ccwc0UrA.s 			page 43
+     /tmp/ccYumfzJ.s:1370   .text.USB_DevConnect:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1377   .text.USB_DevConnect:0000000000000000 USB_DevConnect
+     /tmp/ccYumfzJ.s:1390   .text.USB_DevDisconnect:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1397   .text.USB_DevDisconnect:0000000000000000 USB_DevDisconnect
+     /tmp/ccYumfzJ.s:1410   .text.USB_ReadInterrupts:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1417   .text.USB_ReadInterrupts:0000000000000000 USB_ReadInterrupts
+     /tmp/ccYumfzJ.s:1427   .text.USB_ReadDevAllOutEpInterrupt:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1434   .text.USB_ReadDevAllOutEpInterrupt:0000000000000000 USB_ReadDevAllOutEpInterrupt
+     /tmp/ccYumfzJ.s:1446   .text.USB_ReadDevAllInEpInterrupt:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1453   .text.USB_ReadDevAllInEpInterrupt:0000000000000000 USB_ReadDevAllInEpInterrupt
+     /tmp/ccYumfzJ.s:1465   .text.USB_ReadDevOutEPInterrupt:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1472   .text.USB_ReadDevOutEPInterrupt:0000000000000000 USB_ReadDevOutEPInterrupt
+     /tmp/ccYumfzJ.s:1484   .text.USB_ReadDevInEPInterrupt:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1491   .text.USB_ReadDevInEPInterrupt:0000000000000000 USB_ReadDevInEPInterrupt
+     /tmp/ccYumfzJ.s:1509   .text.USB_ClearInterrupts:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1516   .text.USB_ClearInterrupts:0000000000000000 USB_ClearInterrupts
+     /tmp/ccYumfzJ.s:1526   .text.USB_GetMode:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1533   .text.USB_GetMode:0000000000000000 USB_GetMode
+     /tmp/ccYumfzJ.s:1542   .text.USB_ActivateSetup:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1549   .text.USB_ActivateSetup:0000000000000000 USB_ActivateSetup
+     /tmp/ccYumfzJ.s:1564   .text.USB_EP0_OutStart:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1571   .text.USB_EP0_OutStart:0000000000000000 USB_EP0_OutStart
+     /tmp/ccYumfzJ.s:1607   .text.USB_EP0_OutStart:0000000000000048 $d
+     /tmp/ccYumfzJ.s:1610   .text.USB_InitFSLSPClkSel:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1617   .text.USB_InitFSLSPClkSel:0000000000000000 USB_InitFSLSPClkSel
+     /tmp/ccYumfzJ.s:1644   .text.USB_ResetPort:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1651   .text.USB_ResetPort:0000000000000000 USB_ResetPort
+     /tmp/ccYumfzJ.s:1679   .text.USB_DriveVbus:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1686   .text.USB_DriveVbus:0000000000000000 USB_DriveVbus
+     /tmp/ccYumfzJ.s:1721   .text.USB_HostInit:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1728   .text.USB_HostInit:0000000000000000 USB_HostInit
+     /tmp/ccYumfzJ.s:1818   .text.USB_HostInit:00000000000000c4 $d
+     /tmp/ccYumfzJ.s:1823   .text.USB_GetHostSpeed:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1830   .text.USB_GetHostSpeed:0000000000000000 USB_GetHostSpeed
+     /tmp/ccYumfzJ.s:1846   .text.USB_GetCurrentFrame:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1853   .text.USB_GetCurrentFrame:0000000000000000 USB_GetCurrentFrame
+     /tmp/ccYumfzJ.s:1863   .text.USB_HC_Init:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1870   .text.USB_HC_Init:0000000000000000 USB_HC_Init
+     /tmp/ccYumfzJ.s:1885   .text.USB_HC_Init:0000000000000024 $d
+     /tmp/ccYumfzJ.s:1889   .text.USB_HC_Init:0000000000000028 $t
+     /tmp/ccYumfzJ.s:1972   .text.USB_HC_ReadInterrupt:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1979   .text.USB_HC_ReadInterrupt:0000000000000000 USB_HC_ReadInterrupt
+     /tmp/ccYumfzJ.s:1989   .text.USB_HC_Halt:0000000000000000 $t
+     /tmp/ccYumfzJ.s:1996   .text.USB_HC_Halt:0000000000000000 USB_HC_Halt
+     /tmp/ccYumfzJ.s:2057   .text.USB_DoPing:0000000000000000 $t
+     /tmp/ccYumfzJ.s:2064   .text.USB_DoPing:0000000000000000 USB_DoPing
+     /tmp/ccYumfzJ.s:2080   .text.USB_DoPing:0000000000000020 $d
+     /tmp/ccYumfzJ.s:2083   .text.USB_HC_StartXfer:0000000000000000 $t
+     /tmp/ccYumfzJ.s:2090   .text.USB_HC_StartXfer:0000000000000000 USB_HC_StartXfer
+     /tmp/ccYumfzJ.s:2191   .text.USB_HC_StartXfer:0000000000000106 $d
+     /tmp/ccYumfzJ.s:2195   .text.USB_HC_StartXfer:000000000000010a $t
+     /tmp/ccYumfzJ.s:2234   .text.USB_HC_StartXfer:0000000000000154 $d
+     /tmp/ccYumfzJ.s:2237   .text.USB_StopHost:0000000000000000 $t
+     /tmp/ccYumfzJ.s:2244   .text.USB_StopHost:0000000000000000 USB_StopHost
+     /tmp/ccYumfzJ.s:2293   .text.USB_ActivateRemoteWakeup:0000000000000000 $t
+     /tmp/ccYumfzJ.s:2300   .text.USB_ActivateRemoteWakeup:0000000000000000 USB_ActivateRemoteWakeup
+     /tmp/ccYumfzJ.s:2316   .text.USB_DeActivateRemoteWakeup:0000000000000000 $t
+ARM GAS  /tmp/ccYumfzJ.s 			page 43
 
 
-     /tmp/ccwc0UrA.s:2323   .text.USB_DeActivateRemoteWakeup:0000000000000000 USB_DeActivateRemoteWakeup
-     /tmp/ccwc0UrA.s:2334   .bss.tmpreg.9167:0000000000000000 $d
-     /tmp/ccwc0UrA.s:2338   .bss.tmpreg.9167:0000000000000000 tmpreg.9167
+     /tmp/ccYumfzJ.s:2323   .text.USB_DeActivateRemoteWakeup:0000000000000000 USB_DeActivateRemoteWakeup
+     /tmp/ccYumfzJ.s:2334   .bss.tmpreg.9167:0000000000000000 $d
+     /tmp/ccYumfzJ.s:2338   .bss.tmpreg.9167:0000000000000000 tmpreg.9167
 
 UNDEFINED SYMBOLS
 HAL_Delay

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccDnq4GO.s 			page 1
+ARM GAS  /tmp/ccZxLLF1.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccDnq4GO.s 			page 1
   58 001c DFE813F0 		tbh	[pc, r3, lsl #1]
   59              	.L8:
   60 0020 0901     		.2byte	(.L14-.L8)/2
-ARM GAS  /tmp/ccDnq4GO.s 			page 2
+ARM GAS  /tmp/ccZxLLF1.s 			page 2
 
 
   61 0022 2701     		.2byte	(.L13-.L8)/2
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccDnq4GO.s 			page 1
  115 0074 2046     		mov	r0, r4
  116 0076 FFF7FEFF 		bl	USBD_CtlError.constprop.1
  117 007a 73E0     		b	.L48
-ARM GAS  /tmp/ccDnq4GO.s 			page 3
+ARM GAS  /tmp/ccZxLLF1.s 			page 3
 
 
  118              	.L22:
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccDnq4GO.s 			page 1
  172 00de C8E7     		b	.L105
  173              	.L32:
  174 00e0 D0F8B432 		ldr	r3, [r0, #692]
-ARM GAS  /tmp/ccDnq4GO.s 			page 4
+ARM GAS  /tmp/ccZxLLF1.s 			page 4
 
 
  175 00e4 9B68     		ldr	r3, [r3, #8]
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccDnq4GO.s 			page 1
  229 0158 FFF7FEFF 		bl	USBD_CtlSendStatus
  230 015c 25B1     		cbz	r5, .L37
  231 015e 0223     		movs	r3, #2
-ARM GAS  /tmp/ccDnq4GO.s 			page 5
+ARM GAS  /tmp/ccZxLLF1.s 			page 5
 
 
  232 0160 84F89C32 		strb	r3, [r4, #668]
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccDnq4GO.s 			page 1
  286 01ce FFF7FEFF 		bl	USBD_CtlSendStatus
  287 01d2 36E7     		b	.L6
  288              	.L44:
-ARM GAS  /tmp/ccDnq4GO.s 			page 6
+ARM GAS  /tmp/ccZxLLF1.s 			page 6
 
 
  289 01d4 4168     		ldr	r1, [r0, #4]
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccDnq4GO.s 			page 1
  343 0254 1346     		movne	r3, r2
  344 0256 41F80C3F 		str	r3, [r1, #12]!
  345 025a E6E7     		b	.L99
-ARM GAS  /tmp/ccDnq4GO.s 			page 7
+ARM GAS  /tmp/ccZxLLF1.s 			page 7
 
 
  346              	.L12:
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccDnq4GO.s 			page 1
  402 002c 2046     		mov	r0, r4
  403 002e 9B68     		ldr	r3, [r3, #8]
  404 0030 9847     		blx	r3
-ARM GAS  /tmp/ccDnq4GO.s 			page 8
+ARM GAS  /tmp/ccZxLLF1.s 			page 8
 
 
  405 0032 F388     		ldrh	r3, [r6, #6]
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccDnq4GO.s 			page 1
  461 0040 2946     		mov	r1, r5
  462 0042 2046     		mov	r0, r4
  463 0044 9B68     		ldr	r3, [r3, #8]
-ARM GAS  /tmp/ccDnq4GO.s 			page 9
+ARM GAS  /tmp/ccZxLLF1.s 			page 9
 
 
  464 0046 BDE87040 		pop	{r4, r5, r6, lr}
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccDnq4GO.s 			page 1
  518 00be 03FB0202 		mla	r2, r3, r2, r0
  519 00c2 1FD0     		beq	.L142
  520 00c4 928C     		ldrh	r2, [r2, #36]
-ARM GAS  /tmp/ccDnq4GO.s 			page 10
+ARM GAS  /tmp/ccZxLLF1.s 			page 10
 
 
  521 00c6 002A     		cmp	r2, #0
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccDnq4GO.s 			page 1
  577              		@ frame_needed = 0, uses_anonymous_args = 0
  578              		@ link register save eliminated.
  579 0000 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
-ARM GAS  /tmp/ccDnq4GO.s 			page 11
+ARM GAS  /tmp/ccZxLLF1.s 			page 11
 
 
  580 0002 0370     		strb	r3, [r0]
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccDnq4GO.s 			page 1
  638 0012 5B00     		lsls	r3, r3, #1
  639 0014 1380     		strh	r3, [r2]	@ movhi
  640 0016 0B70     		strb	r3, [r1]
-ARM GAS  /tmp/ccDnq4GO.s 			page 12
+ARM GAS  /tmp/ccZxLLF1.s 			page 12
 
 
  641 0018 0323     		movs	r3, #3
@@ -686,36 +686,36 @@ ARM GAS  /tmp/ccDnq4GO.s 			page 1
  666              	cfgidx.12823:
  667 0000 00       		.space	1
  668              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccDnq4GO.s 			page 13
+ARM GAS  /tmp/ccZxLLF1.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 usbd_ctlreq.c
-     /tmp/ccDnq4GO.s:15     .text.USBD_CtlError.constprop.1:0000000000000000 $t
-     /tmp/ccDnq4GO.s:22     .text.USBD_CtlError.constprop.1:0000000000000000 USBD_CtlError.constprop.1
-     /tmp/ccDnq4GO.s:35     .text.USBD_StdDevReq:0000000000000000 $t
-     /tmp/ccDnq4GO.s:42     .text.USBD_StdDevReq:0000000000000000 USBD_StdDevReq
-     /tmp/ccDnq4GO.s:60     .text.USBD_StdDevReq:0000000000000020 $d
-     /tmp/ccDnq4GO.s:70     .text.USBD_StdDevReq:0000000000000034 $t
-     /tmp/ccDnq4GO.s:93     .text.USBD_StdDevReq:000000000000005c $d
-     /tmp/ccDnq4GO.s:162    .text.USBD_StdDevReq:00000000000000d2 $d
-     /tmp/ccDnq4GO.s:168    .text.USBD_StdDevReq:00000000000000d8 $t
-     /tmp/ccDnq4GO.s:369    .text.USBD_StdDevReq:000000000000028c $d
-     /tmp/ccDnq4GO.s:372    .text.USBD_StdItfReq:0000000000000000 $t
-     /tmp/ccDnq4GO.s:379    .text.USBD_StdItfReq:0000000000000000 USBD_StdItfReq
-     /tmp/ccDnq4GO.s:421    .text.USBD_StdEPReq:0000000000000000 $t
-     /tmp/ccDnq4GO.s:428    .text.USBD_StdEPReq:0000000000000000 USBD_StdEPReq
-     /tmp/ccDnq4GO.s:568    .text.USBD_ParseSetupRequest:0000000000000000 $t
-     /tmp/ccDnq4GO.s:575    .text.USBD_ParseSetupRequest:0000000000000000 USBD_ParseSetupRequest
-     /tmp/ccDnq4GO.s:598    .text.USBD_CtlError:0000000000000000 $t
-     /tmp/ccDnq4GO.s:605    .text.USBD_CtlError:0000000000000000 USBD_CtlError
-     /tmp/ccDnq4GO.s:618    .text.USBD_GetString:0000000000000000 $t
-     /tmp/ccDnq4GO.s:625    .text.USBD_GetString:0000000000000000 USBD_GetString
+     /tmp/ccZxLLF1.s:15     .text.USBD_CtlError.constprop.1:0000000000000000 $t
+     /tmp/ccZxLLF1.s:22     .text.USBD_CtlError.constprop.1:0000000000000000 USBD_CtlError.constprop.1
+     /tmp/ccZxLLF1.s:35     .text.USBD_StdDevReq:0000000000000000 $t
+     /tmp/ccZxLLF1.s:42     .text.USBD_StdDevReq:0000000000000000 USBD_StdDevReq
+     /tmp/ccZxLLF1.s:60     .text.USBD_StdDevReq:0000000000000020 $d
+     /tmp/ccZxLLF1.s:70     .text.USBD_StdDevReq:0000000000000034 $t
+     /tmp/ccZxLLF1.s:93     .text.USBD_StdDevReq:000000000000005c $d
+     /tmp/ccZxLLF1.s:162    .text.USBD_StdDevReq:00000000000000d2 $d
+     /tmp/ccZxLLF1.s:168    .text.USBD_StdDevReq:00000000000000d8 $t
+     /tmp/ccZxLLF1.s:369    .text.USBD_StdDevReq:000000000000028c $d
+     /tmp/ccZxLLF1.s:372    .text.USBD_StdItfReq:0000000000000000 $t
+     /tmp/ccZxLLF1.s:379    .text.USBD_StdItfReq:0000000000000000 USBD_StdItfReq
+     /tmp/ccZxLLF1.s:421    .text.USBD_StdEPReq:0000000000000000 $t
+     /tmp/ccZxLLF1.s:428    .text.USBD_StdEPReq:0000000000000000 USBD_StdEPReq
+     /tmp/ccZxLLF1.s:568    .text.USBD_ParseSetupRequest:0000000000000000 $t
+     /tmp/ccZxLLF1.s:575    .text.USBD_ParseSetupRequest:0000000000000000 USBD_ParseSetupRequest
+     /tmp/ccZxLLF1.s:598    .text.USBD_CtlError:0000000000000000 $t
+     /tmp/ccZxLLF1.s:605    .text.USBD_CtlError:0000000000000000 USBD_CtlError
+     /tmp/ccZxLLF1.s:618    .text.USBD_GetString:0000000000000000 $t
+     /tmp/ccZxLLF1.s:625    .text.USBD_GetString:0000000000000000 USBD_GetString
                             *COM*:0000000000000001 odom
-     /tmp/ccDnq4GO.s:666    .bss.cfgidx.12823:0000000000000000 cfgidx.12823
-     /tmp/ccDnq4GO.s:667    .bss.cfgidx.12823:0000000000000000 $d
-     /tmp/ccDnq4GO.s:108    .text.USBD_StdDevReq:000000000000006b $d
-     /tmp/ccDnq4GO.s:108    .text.USBD_StdDevReq:000000000000006c $t
+     /tmp/ccZxLLF1.s:666    .bss.cfgidx.12823:0000000000000000 cfgidx.12823
+     /tmp/ccZxLLF1.s:667    .bss.cfgidx.12823:0000000000000000 $d
+     /tmp/ccZxLLF1.s:108    .text.USBD_StdDevReq:000000000000006b $d
+     /tmp/ccZxLLF1.s:108    .text.USBD_StdDevReq:000000000000006c $t
 
 UNDEFINED SYMBOLS
 USBD_LL_StallEP
