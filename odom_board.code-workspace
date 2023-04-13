@@ -30,7 +30,8 @@
 			"random": "cpp",
 			"atomic": "cpp",
 			"*.tcc": "cpp",
-			"*.ipp": "c"
+			"*.ipp": "c",
+			"adns3080.h": "c"
 		},
 		"python.analysis.extraPaths": [
 			"/opt/ros/foxy/lib/python3.8/site-packages"

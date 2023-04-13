@@ -10,16 +10,16 @@ void adns3080_reset(SPI_HandleTypeDef *dev)
     if (dev->Instance == SPI2)
     {
         HAL_GPIO_WritePin(SPI2_RST_GPIO_Port, SPI2_RST_Pin, 1);
-        dwt_delay_us(64);
+        dwt_delay_us(128);
         HAL_GPIO_WritePin(SPI2_RST_GPIO_Port, SPI2_RST_Pin, 0);
     }
     else
     {
         HAL_GPIO_WritePin(SPI3_RST_GPIO_Port, SPI3_RST_Pin, 1);
-        dwt_delay_us(64);
+        dwt_delay_us(128);
         HAL_GPIO_WritePin(SPI3_RST_GPIO_Port, SPI3_RST_Pin, 0);
     }
-    HAL_Delay(36);
+    dwt_delay_us(128);
 
     adns3080_write_reg(dev, A_CONF, 0x19); // 1600cpi
 }
