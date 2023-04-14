@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccMysbdm.s 			page 1
+ARM GAS  /tmp/ccGnKQ2d.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -32,15 +32,15 @@ ARM GAS  /tmp/ccMysbdm.s 			page 1
   30 0008 0446     		mov	r4, r0
   31 000a 0028     		cmp	r0, #0
   32 000c 33D0     		beq	.L3
-  33 000e 436F     		ldr	r3, [r0, #116]
+  33 000e C36F     		ldr	r3, [r0, #124]
   34 0010 1BB9     		cbnz	r3, .L4
-  35 0012 80F87030 		strb	r3, [r0, #112]
+  35 0012 80F87830 		strb	r3, [r0, #120]
   36 0016 FFF7FEFF 		bl	HAL_UART_MspInit
   37              	.L4:
   38 001a 2268     		ldr	r2, [r4]
   39 001c 2423     		movs	r3, #36
   40 001e 2046     		mov	r0, r4
-  41 0020 6367     		str	r3, [r4, #116]
+  41 0020 E367     		str	r3, [r4, #124]
   42 0022 1368     		ldr	r3, [r2]
   43 0024 23F00103 		bic	r3, r3, #1
   44 0028 1360     		str	r3, [r2]
@@ -53,22 +53,22 @@ ARM GAS  /tmp/ccMysbdm.s 			page 1
   51 0038 FFF7FEFF 		bl	UART_AdvFeatureConfig
   52              	.L6:
   53 003c 2068     		ldr	r0, [r4]
-  54 003e 2D04     		lsls	r5, r5, #16
-  55 0040 8368     		ldr	r3, [r0, #8]
-  56 0042 45EA4655 		orr	r5, r5, r6, lsl #21
-  57 0046 43F48043 		orr	r3, r3, #16384
-  58 004a 8360     		str	r3, [r0, #8]
-ARM GAS  /tmp/ccMysbdm.s 			page 2
+  54 003e 8368     		ldr	r3, [r0, #8]
+  55 0040 43F48043 		orr	r3, r3, #16384
+  56 0044 8360     		str	r3, [r0, #8]
+  57 0046 8368     		ldr	r3, [r0, #8]
+  58 0048 23F40043 		bic	r3, r3, #32768
+ARM GAS  /tmp/ccGnKQ2d.s 			page 2
 
 
-  59 004c 8168     		ldr	r1, [r0, #8]
-  60 004e 21F40041 		bic	r1, r1, #32768
-  61 0052 3943     		orrs	r1, r1, r7
-  62 0054 8160     		str	r1, [r0, #8]
-  63 0056 0368     		ldr	r3, [r0]
-  64 0058 23F07F73 		bic	r3, r3, #66846720
-  65 005c 23F44033 		bic	r3, r3, #196608
-  66 0060 1D43     		orrs	r5, r5, r3
+  59 004c 3B43     		orrs	r3, r3, r7
+  60 004e 8360     		str	r3, [r0, #8]
+  61 0050 2B04     		lsls	r3, r5, #16
+  62 0052 0268     		ldr	r2, [r0]
+  63 0054 43EA4655 		orr	r5, r3, r6, lsl #21
+  64 0058 22F07F72 		bic	r2, r2, #66846720
+  65 005c 22F44032 		bic	r2, r2, #196608
+  66 0060 1543     		orrs	r5, r5, r2
   67 0062 0560     		str	r5, [r0]
   68 0064 0368     		ldr	r3, [r0]
   69 0066 43F00103 		orr	r3, r3, #1
@@ -90,40 +90,334 @@ ARM GAS  /tmp/ccMysbdm.s 			page 1
   87              		@ args = 0, pretend = 0, frame = 0
   88              		@ frame_needed = 0, uses_anonymous_args = 0
   89              		@ link register save eliminated.
-  90 0000 10B4     		push	{r4}
-  91 0002 98B1     		cbz	r0, .L14
-  92 0004 0368     		ldr	r3, [r0]
-  93 0006 2422     		movs	r2, #36
-  94 0008 4267     		str	r2, [r0, #116]
-  95 000a 1C68     		ldr	r4, [r3]
-  96 000c 24F00104 		bic	r4, r4, #1
-  97 0010 1C60     		str	r4, [r3]
-  98 0012 5A68     		ldr	r2, [r3, #4]
-  99 0014 5DF8044B 		ldr	r4, [sp], #4
- 100 0018 22F01002 		bic	r2, r2, #16
- 101 001c 0A43     		orrs	r2, r2, r1
- 102 001e 5A60     		str	r2, [r3, #4]
- 103 0020 1A68     		ldr	r2, [r3]
- 104 0022 42F00102 		orr	r2, r2, #1
- 105 0026 1A60     		str	r2, [r3]
- 106 0028 FFF7FEBF 		b	UART_CheckIdleState
- 107              	.L14:
- 108 002c 0120     		movs	r0, #1
- 109 002e 5DF8044B 		ldr	r4, [sp], #4
- 110 0032 7047     		bx	lr
- 112              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccMysbdm.s 			page 3
+  90 0000 88B1     		cbz	r0, .L14
+  91 0002 0368     		ldr	r3, [r0]
+  92 0004 2422     		movs	r2, #36
+  93 0006 C267     		str	r2, [r0, #124]
+  94 0008 1A68     		ldr	r2, [r3]
+  95 000a 22F00102 		bic	r2, r2, #1
+  96 000e 1A60     		str	r2, [r3]
+  97 0010 5A68     		ldr	r2, [r3, #4]
+  98 0012 22F01002 		bic	r2, r2, #16
+  99 0016 1143     		orrs	r1, r1, r2
+ 100 0018 5960     		str	r1, [r3, #4]
+ 101 001a 1A68     		ldr	r2, [r3]
+ 102 001c 42F00102 		orr	r2, r2, #1
+ 103 0020 1A60     		str	r2, [r3]
+ 104 0022 FFF7FEBF 		b	UART_CheckIdleState
+ 105              	.L14:
+ 106 0026 0120     		movs	r0, #1
+ 107 0028 7047     		bx	lr
+ 109              		.section	.text.HAL_UARTEx_ReceiveToIdle,"ax",%progbits
+ 110              		.align	1
+ 111              		.global	HAL_UARTEx_ReceiveToIdle
+ 112              		.syntax unified
+ 113              		.thumb
+ 114              		.thumb_func
+ 115              		.fpu fpv5-sp-d16
+ 117              	HAL_UARTEx_ReceiveToIdle:
+ 118              		@ args = 4, pretend = 0, frame = 0
+ 119              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/ccGnKQ2d.s 			page 3
+
+
+ 120 0000 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 121 0004 1E46     		mov	r6, r3
+ 122 0006 D0F88030 		ldr	r3, [r0, #128]
+ 123 000a 0446     		mov	r4, r0
+ 124 000c 0D46     		mov	r5, r1
+ 125 000e 202B     		cmp	r3, #32
+ 126 0010 1746     		mov	r7, r2
+ 127 0012 DDF82880 		ldr	r8, [sp, #40]
+ 128 0016 40F08880 		bne	.L32
+ 129 001a 0029     		cmp	r1, #0
+ 130 001c 00F08780 		beq	.L34
+ 131 0020 002A     		cmp	r2, #0
+ 132 0022 00F08480 		beq	.L34
+ 133 0026 4FF0000A 		mov	r10, #0
+ 134 002a 2223     		movs	r3, #34
+ 135 002c C0F884A0 		str	r10, [r0, #132]
+ 136 0030 C0F88030 		str	r3, [r0, #128]
+ 137 0034 0123     		movs	r3, #1
+ 138 0036 0366     		str	r3, [r0, #96]
+ 139 0038 C0F864A0 		str	r10, [r0, #100]
+ 140 003c FFF7FEFF 		bl	HAL_GetTick
+ 141 0040 A368     		ldr	r3, [r4, #8]
+ 142 0042 8146     		mov	r9, r0
+ 143 0044 A4F85870 		strh	r7, [r4, #88]	@ movhi
+ 144 0048 B3F5805F 		cmp	r3, #4096
+ 145 004c A4F85A70 		strh	r7, [r4, #90]	@ movhi
+ 146 0050 22D1     		bne	.L17
+ 147 0052 2269     		ldr	r2, [r4, #16]
+ 148 0054 F2B9     		cbnz	r2, .L18
+ 149 0056 40F2FF12 		movw	r2, #511
+ 150              	.L55:
+ 151 005a A4F85C20 		strh	r2, [r4, #92]	@ movhi
+ 152              	.L19:
+ 153 005e B3F5805F 		cmp	r3, #4096
+ 154 0062 B4F85CA0 		ldrh	r10, [r4, #92]
+ 155 0066 28D1     		bne	.L36
+ 156 0068 2369     		ldr	r3, [r4, #16]
+ 157 006a 33BB     		cbnz	r3, .L36
+ 158 006c 2F46     		mov	r7, r5
+ 159 006e 1D46     		mov	r5, r3
+ 160              	.L23:
+ 161 0070 0023     		movs	r3, #0
+ 162 0072 4FF0100B 		mov	fp, #16
+ 163 0076 3380     		strh	r3, [r6]	@ movhi
+ 164              	.L24:
+ 165 0078 B4F85A20 		ldrh	r2, [r4, #90]
+ 166 007c 90B2     		uxth	r0, r2
+ 167 007e F0B9     		cbnz	r0, .L31
+ 168 0080 B4F85A10 		ldrh	r1, [r4, #90]
+ 169 0084 B4F85830 		ldrh	r3, [r4, #88]
+ 170 0088 5B1A     		subs	r3, r3, r1
+ 171 008a 3380     		strh	r3, [r6]	@ movhi
+ 172 008c 2023     		movs	r3, #32
+ 173 008e C4F88030 		str	r3, [r4, #128]
+ 174 0092 22E0     		b	.L16
+ 175              	.L18:
+ 176 0094 FF22     		movs	r2, #255
+ARM GAS  /tmp/ccGnKQ2d.s 			page 4
+
+
+ 177 0096 E0E7     		b	.L55
+ 178              	.L17:
+ 179 0098 23B9     		cbnz	r3, .L20
+ 180 009a 2269     		ldr	r2, [r4, #16]
+ 181 009c 002A     		cmp	r2, #0
+ 182 009e F9D0     		beq	.L18
+ 183              	.L22:
+ 184 00a0 7F22     		movs	r2, #127
+ 185 00a2 DAE7     		b	.L55
+ 186              	.L20:
+ 187 00a4 B3F1805F 		cmp	r3, #268435456
+ 188 00a8 04D1     		bne	.L21
+ 189 00aa 2269     		ldr	r2, [r4, #16]
+ 190 00ac 002A     		cmp	r2, #0
+ 191 00ae F7D0     		beq	.L22
+ 192 00b0 3F22     		movs	r2, #63
+ 193 00b2 D2E7     		b	.L55
+ 194              	.L21:
+ 195 00b4 A4F85CA0 		strh	r10, [r4, #92]	@ movhi
+ 196 00b8 D1E7     		b	.L19
+ 197              	.L36:
+ 198 00ba 0027     		movs	r7, #0
+ 199 00bc D8E7     		b	.L23
+ 200              	.L31:
+ 201 00be 2368     		ldr	r3, [r4]
+ 202 00c0 DA69     		ldr	r2, [r3, #28]
+ 203 00c2 D106     		lsls	r1, r2, #27
+ 204 00c4 0BD5     		bpl	.L25
+ 205 00c6 3288     		ldrh	r2, [r6]
+ 206 00c8 C3F820B0 		str	fp, [r3, #32]
+ 207 00cc 3AB1     		cbz	r2, .L25
+ 208 00ce 0223     		movs	r3, #2
+ 209 00d0 0020     		movs	r0, #0
+ 210 00d2 6366     		str	r3, [r4, #100]
+ 211 00d4 2023     		movs	r3, #32
+ 212 00d6 C4F88030 		str	r3, [r4, #128]
+ 213              	.L16:
+ 214 00da BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 215              	.L25:
+ 216 00de DA69     		ldr	r2, [r3, #28]
+ 217 00e0 9206     		lsls	r2, r2, #26
+ 218 00e2 0ED5     		bpl	.L26
+ 219 00e4 5B6A     		ldr	r3, [r3, #36]
+ 220 00e6 0AEA0303 		and	r3, r10, r3
+ 221 00ea DDB9     		cbnz	r5, .L27
+ 222 00ec 27F8023B 		strh	r3, [r7], #2	@ movhi
+ 223              	.L28:
+ 224 00f0 3388     		ldrh	r3, [r6]
+ 225 00f2 0133     		adds	r3, r3, #1
+ 226 00f4 3380     		strh	r3, [r6]	@ movhi
+ 227 00f6 B4F85A30 		ldrh	r3, [r4, #90]
+ 228 00fa 013B     		subs	r3, r3, #1
+ 229 00fc 9BB2     		uxth	r3, r3
+ 230 00fe A4F85A30 		strh	r3, [r4, #90]	@ movhi
+ 231              	.L26:
+ 232 0102 B8F1FF3F 		cmp	r8, #-1
+ 233 0106 B7D0     		beq	.L24
+ARM GAS  /tmp/ccGnKQ2d.s 			page 5
+
+
+ 234 0108 FFF7FEFF 		bl	HAL_GetTick
+ 235 010c A0EB0900 		sub	r0, r0, r9
+ 236 0110 4045     		cmp	r0, r8
+ 237 0112 02D8     		bhi	.L30
+ 238 0114 B8F1000F 		cmp	r8, #0
+ 239 0118 AED1     		bne	.L24
+ 240              	.L30:
+ 241 011a 2023     		movs	r3, #32
+ 242 011c 0320     		movs	r0, #3
+ 243 011e C4F88030 		str	r3, [r4, #128]
+ 244 0122 DAE7     		b	.L16
+ 245              	.L27:
+ 246 0124 05F8013B 		strb	r3, [r5], #1
+ 247 0128 E2E7     		b	.L28
+ 248              	.L32:
+ 249 012a 0220     		movs	r0, #2
+ 250 012c D5E7     		b	.L16
+ 251              	.L34:
+ 252 012e 0120     		movs	r0, #1
+ 253 0130 D3E7     		b	.L16
+ 255              		.section	.text.HAL_UARTEx_ReceiveToIdle_IT,"ax",%progbits
+ 256              		.align	1
+ 257              		.global	HAL_UARTEx_ReceiveToIdle_IT
+ 258              		.syntax unified
+ 259              		.thumb
+ 260              		.thumb_func
+ 261              		.fpu fpv5-sp-d16
+ 263              	HAL_UARTEx_ReceiveToIdle_IT:
+ 264              		@ args = 0, pretend = 0, frame = 0
+ 265              		@ frame_needed = 0, uses_anonymous_args = 0
+ 266 0000 70B5     		push	{r4, r5, r6, lr}
+ 267 0002 D0F88060 		ldr	r6, [r0, #128]
+ 268 0006 0446     		mov	r4, r0
+ 269 0008 202E     		cmp	r6, #32
+ 270 000a 1CD1     		bne	.L61
+ 271 000c 09B9     		cbnz	r1, .L58
+ 272              	.L59:
+ 273 000e 0120     		movs	r0, #1
+ 274              	.L57:
+ 275 0010 70BD     		pop	{r4, r5, r6, pc}
+ 276              	.L58:
+ 277 0012 002A     		cmp	r2, #0
+ 278 0014 FBD0     		beq	.L59
+ 279 0016 0123     		movs	r3, #1
+ 280 0018 0366     		str	r3, [r0, #96]
+ 281 001a 0023     		movs	r3, #0
+ 282 001c 4366     		str	r3, [r0, #100]
+ 283 001e FFF7FEFF 		bl	UART_Start_Receive_IT
+ 284 0022 0028     		cmp	r0, #0
+ 285 0024 F4D1     		bne	.L57
+ 286 0026 236E     		ldr	r3, [r4, #96]
+ 287 0028 012B     		cmp	r3, #1
+ 288 002a F0D1     		bne	.L59
+ 289 002c 1022     		movs	r2, #16
+ 290 002e 2368     		ldr	r3, [r4]
+ 291 0030 1A62     		str	r2, [r3, #32]
+ 292 0032 2268     		ldr	r2, [r4]
+ARM GAS  /tmp/ccGnKQ2d.s 			page 6
+
+
+ 293              	.L60:
+ 294              		.syntax unified
+ 295              	@ 1072 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 296 0034 52E8003F 		ldrex r3, [r2]
+ 297              	@ 0 "" 2
+ 298              		.thumb
+ 299              		.syntax unified
+ 300 0038 43F01003 		orr	r3, r3, #16
+ 301              		.syntax unified
+ 302              	@ 1123 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 303 003c 42E80031 		strex r1, r3, [r2]
+ 304              	@ 0 "" 2
+ 305              		.thumb
+ 306              		.syntax unified
+ 307 0040 0029     		cmp	r1, #0
+ 308 0042 F7D1     		bne	.L60
+ 309 0044 E4E7     		b	.L57
+ 310              	.L61:
+ 311 0046 0220     		movs	r0, #2
+ 312 0048 E2E7     		b	.L57
+ 314              		.section	.text.HAL_UARTEx_ReceiveToIdle_DMA,"ax",%progbits
+ 315              		.align	1
+ 316              		.global	HAL_UARTEx_ReceiveToIdle_DMA
+ 317              		.syntax unified
+ 318              		.thumb
+ 319              		.thumb_func
+ 320              		.fpu fpv5-sp-d16
+ 322              	HAL_UARTEx_ReceiveToIdle_DMA:
+ 323              		@ args = 0, pretend = 0, frame = 0
+ 324              		@ frame_needed = 0, uses_anonymous_args = 0
+ 325 0000 70B5     		push	{r4, r5, r6, lr}
+ 326 0002 D0F88060 		ldr	r6, [r0, #128]
+ 327 0006 0446     		mov	r4, r0
+ 328 0008 202E     		cmp	r6, #32
+ 329 000a 1CD1     		bne	.L71
+ 330 000c 09B9     		cbnz	r1, .L68
+ 331              	.L69:
+ 332 000e 0120     		movs	r0, #1
+ 333              	.L67:
+ 334 0010 70BD     		pop	{r4, r5, r6, pc}
+ 335              	.L68:
+ 336 0012 002A     		cmp	r2, #0
+ 337 0014 FBD0     		beq	.L69
+ 338 0016 0123     		movs	r3, #1
+ 339 0018 0366     		str	r3, [r0, #96]
+ 340 001a 0023     		movs	r3, #0
+ 341 001c 4366     		str	r3, [r0, #100]
+ 342 001e FFF7FEFF 		bl	UART_Start_Receive_DMA
+ 343 0022 0028     		cmp	r0, #0
+ 344 0024 F4D1     		bne	.L67
+ 345 0026 236E     		ldr	r3, [r4, #96]
+ 346 0028 012B     		cmp	r3, #1
+ 347 002a F0D1     		bne	.L69
+ 348 002c 1022     		movs	r2, #16
+ 349 002e 2368     		ldr	r3, [r4]
+ 350 0030 1A62     		str	r2, [r3, #32]
+ 351 0032 2268     		ldr	r2, [r4]
+ARM GAS  /tmp/ccGnKQ2d.s 			page 7
+
+
+ 352              	.L70:
+ 353              		.syntax unified
+ 354              	@ 1072 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 355 0034 52E8003F 		ldrex r3, [r2]
+ 356              	@ 0 "" 2
+ 357              		.thumb
+ 358              		.syntax unified
+ 359 0038 43F01003 		orr	r3, r3, #16
+ 360              		.syntax unified
+ 361              	@ 1123 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 362 003c 42E80031 		strex r1, r3, [r2]
+ 363              	@ 0 "" 2
+ 364              		.thumb
+ 365              		.syntax unified
+ 366 0040 0029     		cmp	r1, #0
+ 367 0042 F7D1     		bne	.L70
+ 368 0044 E4E7     		b	.L67
+ 369              	.L71:
+ 370 0046 0220     		movs	r0, #2
+ 371 0048 E2E7     		b	.L67
+ 373              		.section	.text.HAL_UARTEx_GetRxEventType,"ax",%progbits
+ 374              		.align	1
+ 375              		.global	HAL_UARTEx_GetRxEventType
+ 376              		.syntax unified
+ 377              		.thumb
+ 378              		.thumb_func
+ 379              		.fpu fpv5-sp-d16
+ 381              	HAL_UARTEx_GetRxEventType:
+ 382              		@ args = 0, pretend = 0, frame = 0
+ 383              		@ frame_needed = 0, uses_anonymous_args = 0
+ 384              		@ link register save eliminated.
+ 385 0000 406E     		ldr	r0, [r0, #100]
+ 386 0002 7047     		bx	lr
+ 388              		.ident	"GCC: (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+ARM GAS  /tmp/ccGnKQ2d.s 			page 8
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f7xx_hal_uart_ex.c
-     /tmp/ccMysbdm.s:15     .text.HAL_RS485Ex_Init:0000000000000000 $t
-     /tmp/ccMysbdm.s:23     .text.HAL_RS485Ex_Init:0000000000000000 HAL_RS485Ex_Init
-     /tmp/ccMysbdm.s:79     .text.HAL_MultiProcessorEx_AddressLength_Set:0000000000000000 $t
-     /tmp/ccMysbdm.s:86     .text.HAL_MultiProcessorEx_AddressLength_Set:0000000000000000 HAL_MultiProcessorEx_AddressLength_Set
+     /tmp/ccGnKQ2d.s:15     .text.HAL_RS485Ex_Init:0000000000000000 $t
+     /tmp/ccGnKQ2d.s:23     .text.HAL_RS485Ex_Init:0000000000000000 HAL_RS485Ex_Init
+     /tmp/ccGnKQ2d.s:79     .text.HAL_MultiProcessorEx_AddressLength_Set:0000000000000000 $t
+     /tmp/ccGnKQ2d.s:86     .text.HAL_MultiProcessorEx_AddressLength_Set:0000000000000000 HAL_MultiProcessorEx_AddressLength_Set
+     /tmp/ccGnKQ2d.s:110    .text.HAL_UARTEx_ReceiveToIdle:0000000000000000 $t
+     /tmp/ccGnKQ2d.s:117    .text.HAL_UARTEx_ReceiveToIdle:0000000000000000 HAL_UARTEx_ReceiveToIdle
+     /tmp/ccGnKQ2d.s:256    .text.HAL_UARTEx_ReceiveToIdle_IT:0000000000000000 $t
+     /tmp/ccGnKQ2d.s:263    .text.HAL_UARTEx_ReceiveToIdle_IT:0000000000000000 HAL_UARTEx_ReceiveToIdle_IT
+     /tmp/ccGnKQ2d.s:315    .text.HAL_UARTEx_ReceiveToIdle_DMA:0000000000000000 $t
+     /tmp/ccGnKQ2d.s:322    .text.HAL_UARTEx_ReceiveToIdle_DMA:0000000000000000 HAL_UARTEx_ReceiveToIdle_DMA
+     /tmp/ccGnKQ2d.s:374    .text.HAL_UARTEx_GetRxEventType:0000000000000000 $t
+     /tmp/ccGnKQ2d.s:381    .text.HAL_UARTEx_GetRxEventType:0000000000000000 HAL_UARTEx_GetRxEventType
 
 UNDEFINED SYMBOLS
 HAL_UART_MspInit
 UART_SetConfig
 UART_AdvFeatureConfig
 UART_CheckIdleState
+HAL_GetTick
+UART_Start_Receive_IT
+UART_Start_Receive_DMA

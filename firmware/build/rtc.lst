@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccTxnH1T.s 			page 1
+ARM GAS  /tmp/ccJ4i0BL.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -44,7 +44,7 @@ ARM GAS  /tmp/ccTxnH1T.s 			page 1
   42              	.L4:
   43 002a 00BF     		.align	2
   44              	.L3:
-  45 002c 00000000 		.word	hrtc
+  45 002c 00000000 		.word	.LANCHOR0
   46 0030 00280040 		.word	1073752064
   48              		.section	.text.HAL_RTC_MspInit,"ax",%progbits
   49              		.align	1
@@ -54,73 +54,103 @@ ARM GAS  /tmp/ccTxnH1T.s 			page 1
   53              		.thumb_func
   54              		.fpu fpv5-sp-d16
   56              	HAL_RTC_MspInit:
-  57              		@ args = 0, pretend = 0, frame = 0
+  57              		@ args = 0, pretend = 0, frame = 128
   58              		@ frame_needed = 0, uses_anonymous_args = 0
-  59              		@ link register save eliminated.
-  60 0000 0268     		ldr	r2, [r0]
-ARM GAS  /tmp/ccTxnH1T.s 			page 2
+  59 0000 10B5     		push	{r4, lr}
+  60 0002 A0B0     		sub	sp, sp, #128
+ARM GAS  /tmp/ccJ4i0BL.s 			page 2
 
 
-  61 0002 044B     		ldr	r3, .L7
-  62 0004 9A42     		cmp	r2, r3
-  63 0006 04D1     		bne	.L5
-  64 0008 034A     		ldr	r2, .L7+4
-  65 000a 136F     		ldr	r3, [r2, #112]
-  66 000c 43F40043 		orr	r3, r3, #32768
-  67 0010 1367     		str	r3, [r2, #112]
-  68              	.L5:
-  69 0012 7047     		bx	lr
-  70              	.L8:
-  71              		.align	2
-  72              	.L7:
-  73 0014 00280040 		.word	1073752064
-  74 0018 00380240 		.word	1073887232
-  76              		.section	.text.HAL_RTC_MspDeInit,"ax",%progbits
-  77              		.align	1
-  78              		.global	HAL_RTC_MspDeInit
-  79              		.syntax unified
-  80              		.thumb
-  81              		.thumb_func
-  82              		.fpu fpv5-sp-d16
-  84              	HAL_RTC_MspDeInit:
-  85              		@ args = 0, pretend = 0, frame = 0
-  86              		@ frame_needed = 0, uses_anonymous_args = 0
-  87              		@ link register save eliminated.
-  88 0000 0268     		ldr	r2, [r0]
-  89 0002 044B     		ldr	r3, .L11
-  90 0004 9A42     		cmp	r2, r3
-  91 0006 04D1     		bne	.L9
-  92 0008 034A     		ldr	r2, .L11+4
-  93 000a 136F     		ldr	r3, [r2, #112]
-  94 000c 23F40043 		bic	r3, r3, #32768
-  95 0010 1367     		str	r3, [r2, #112]
-  96              	.L9:
-  97 0012 7047     		bx	lr
-  98              	.L12:
-  99              		.align	2
- 100              	.L11:
- 101 0014 00280040 		.word	1073752064
- 102 0018 00380240 		.word	1073887232
- 104              		.comm	hrtc,32,4
- 105              		.comm	odom,1,1
- 106              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccTxnH1T.s 			page 3
+  61 0004 0446     		mov	r4, r0
+  62 0006 8022     		movs	r2, #128
+  63 0008 0021     		movs	r1, #0
+  64 000a 6846     		mov	r0, sp
+  65 000c FFF7FEFF 		bl	memset
+  66 0010 2268     		ldr	r2, [r4]
+  67 0012 0A4B     		ldr	r3, .L11
+  68 0014 9A42     		cmp	r2, r3
+  69 0016 0FD1     		bne	.L5
+  70 0018 2023     		movs	r3, #32
+  71 001a 6846     		mov	r0, sp
+  72 001c 0093     		str	r3, [sp]
+  73 001e 4FF40073 		mov	r3, #512
+  74 0022 0A93     		str	r3, [sp, #40]
+  75 0024 FFF7FEFF 		bl	HAL_RCCEx_PeriphCLKConfig
+  76 0028 08B1     		cbz	r0, .L7
+  77 002a FFF7FEFF 		bl	Error_Handler
+  78              	.L7:
+  79 002e 044A     		ldr	r2, .L11+4
+  80 0030 136F     		ldr	r3, [r2, #112]
+  81 0032 43F40043 		orr	r3, r3, #32768
+  82 0036 1367     		str	r3, [r2, #112]
+  83              	.L5:
+  84 0038 20B0     		add	sp, sp, #128
+  85              		@ sp needed
+  86 003a 10BD     		pop	{r4, pc}
+  87              	.L12:
+  88              		.align	2
+  89              	.L11:
+  90 003c 00280040 		.word	1073752064
+  91 0040 00380240 		.word	1073887232
+  93              		.section	.text.HAL_RTC_MspDeInit,"ax",%progbits
+  94              		.align	1
+  95              		.global	HAL_RTC_MspDeInit
+  96              		.syntax unified
+  97              		.thumb
+  98              		.thumb_func
+  99              		.fpu fpv5-sp-d16
+ 101              	HAL_RTC_MspDeInit:
+ 102              		@ args = 0, pretend = 0, frame = 0
+ 103              		@ frame_needed = 0, uses_anonymous_args = 0
+ 104              		@ link register save eliminated.
+ 105 0000 0268     		ldr	r2, [r0]
+ 106 0002 044B     		ldr	r3, .L15
+ 107 0004 9A42     		cmp	r2, r3
+ 108 0006 04D1     		bne	.L13
+ 109 0008 034A     		ldr	r2, .L15+4
+ 110 000a 136F     		ldr	r3, [r2, #112]
+ 111 000c 23F40043 		bic	r3, r3, #32768
+ 112 0010 1367     		str	r3, [r2, #112]
+ 113              	.L13:
+ 114 0012 7047     		bx	lr
+ 115              	.L16:
+ 116              		.align	2
+ 117              	.L15:
+ 118 0014 00280040 		.word	1073752064
+ 119 0018 00380240 		.word	1073887232
+ARM GAS  /tmp/ccJ4i0BL.s 			page 3
+
+
+ 121              		.global	hrtc
+ 122              		.section	.bss.hrtc,"aw",%nobits
+ 123              		.align	2
+ 124              		.set	.LANCHOR0,. + 0
+ 127              	hrtc:
+ 128 0000 00000000 		.space	32
+ 128      00000000 
+ 128      00000000 
+ 128      00000000 
+ 128      00000000 
+ 129              		.ident	"GCC: (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+ARM GAS  /tmp/ccJ4i0BL.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 rtc.c
-     /tmp/ccTxnH1T.s:15     .text.MX_RTC_Init:0000000000000000 $t
-     /tmp/ccTxnH1T.s:23     .text.MX_RTC_Init:0000000000000000 MX_RTC_Init
-     /tmp/ccTxnH1T.s:45     .text.MX_RTC_Init:000000000000002c $d
-                            *COM*:0000000000000020 hrtc
-     /tmp/ccTxnH1T.s:49     .text.HAL_RTC_MspInit:0000000000000000 $t
-     /tmp/ccTxnH1T.s:56     .text.HAL_RTC_MspInit:0000000000000000 HAL_RTC_MspInit
-     /tmp/ccTxnH1T.s:73     .text.HAL_RTC_MspInit:0000000000000014 $d
-     /tmp/ccTxnH1T.s:77     .text.HAL_RTC_MspDeInit:0000000000000000 $t
-     /tmp/ccTxnH1T.s:84     .text.HAL_RTC_MspDeInit:0000000000000000 HAL_RTC_MspDeInit
-     /tmp/ccTxnH1T.s:101    .text.HAL_RTC_MspDeInit:0000000000000014 $d
-                            *COM*:0000000000000001 odom
+     /tmp/ccJ4i0BL.s:15     .text.MX_RTC_Init:0000000000000000 $t
+     /tmp/ccJ4i0BL.s:23     .text.MX_RTC_Init:0000000000000000 MX_RTC_Init
+     /tmp/ccJ4i0BL.s:45     .text.MX_RTC_Init:000000000000002c $d
+     /tmp/ccJ4i0BL.s:49     .text.HAL_RTC_MspInit:0000000000000000 $t
+     /tmp/ccJ4i0BL.s:56     .text.HAL_RTC_MspInit:0000000000000000 HAL_RTC_MspInit
+     /tmp/ccJ4i0BL.s:90     .text.HAL_RTC_MspInit:000000000000003c $d
+     /tmp/ccJ4i0BL.s:94     .text.HAL_RTC_MspDeInit:0000000000000000 $t
+     /tmp/ccJ4i0BL.s:101    .text.HAL_RTC_MspDeInit:0000000000000000 HAL_RTC_MspDeInit
+     /tmp/ccJ4i0BL.s:118    .text.HAL_RTC_MspDeInit:0000000000000014 $d
+     /tmp/ccJ4i0BL.s:127    .bss.hrtc:0000000000000000 hrtc
+     /tmp/ccJ4i0BL.s:123    .bss.hrtc:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_RTC_Init
 Error_Handler
+memset
+HAL_RCCEx_PeriphCLKConfig

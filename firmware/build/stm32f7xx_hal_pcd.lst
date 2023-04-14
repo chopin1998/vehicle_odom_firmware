@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccVz3jM7.s 			page 1
+ARM GAS  /tmp/cc2VSDCt.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -41,24 +41,24 @@ ARM GAS  /tmp/ccVz3jM7.s 			page 1
   41 0002 0446     		mov	r4, r0
   42 0004 8BB0     		sub	sp, sp, #44
   43 0006 60B3     		cbz	r0, .L13
-  44 0008 90F8BD33 		ldrb	r3, [r0, #957]	@ zero_extendqisi2
+  44 0008 90F8BD34 		ldrb	r3, [r0, #1213]	@ zero_extendqisi2
   45 000c 0568     		ldr	r5, [r0]
   46 000e 03F0FF02 		and	r2, r3, #255
   47 0012 1BB9     		cbnz	r3, .L4
-  48 0014 80F8BC23 		strb	r2, [r0, #956]
+  48 0014 80F8BC24 		strb	r2, [r0, #1212]
   49 0018 FFF7FEFF 		bl	HAL_PCD_MspInit
   50              	.L4:
   51 001c 0323     		movs	r3, #3
   52 001e 6E46     		mov	r6, sp
   53 0020 271D     		adds	r7, r4, #4
-  54 0022 84F8BD33 		strb	r3, [r4, #957]
+  54 0022 84F8BD34 		strb	r3, [r4, #1213]
   55 0026 EB6B     		ldr	r3, [r5, #60]
   56 0028 2546     		mov	r5, r4
   57 002a 13F48073 		ands	r3, r3, #256
   58 002e 55F8100B 		ldr	r0, [r5], #16
   59 0032 08BF     		it	eq
   60 0034 2361     		streq	r3, [r4, #16]
-ARM GAS  /tmp/ccVz3jM7.s 			page 2
+ARM GAS  /tmp/cc2VSDCt.s 			page 2
 
 
   61 0036 FFF7FEFF 		bl	USB_DisableGlobalInt
@@ -75,7 +75,7 @@ ARM GAS  /tmp/ccVz3jM7.s 			page 1
   72 0058 0646     		mov	r6, r0
   73 005a 20B1     		cbz	r0, .L6
   74 005c 0223     		movs	r3, #2
-  75 005e 84F8BD33 		strb	r3, [r4, #957]
+  75 005e 84F8BD34 		strb	r3, [r4, #1213]
   76              	.L13:
   77 0062 0125     		movs	r5, #1
   78 0064 52E0     		b	.L3
@@ -85,7 +85,7 @@ ARM GAS  /tmp/ccVz3jM7.s 			page 1
   82 006a FFF7FEFF 		bl	USB_SetCurrentMode
   83 006e 3046     		mov	r0, r6
   84 0070 D4F804C0 		ldr	ip, [r4, #4]
-  85 0074 1C26     		movs	r6, #28
+  85 0074 2426     		movs	r6, #36
   86 0076 4FF0010E 		mov	lr, #1
   87 007a 0146     		mov	r1, r0
   88              	.L7:
@@ -94,7 +94,7 @@ ARM GAS  /tmp/ccVz3jM7.s 			page 1
   91 0080 9445     		cmp	ip, r2
   92 0082 1BD8     		bhi	.L8
   93 0084 0023     		movs	r3, #0
-  94 0086 1C26     		movs	r6, #28
+  94 0086 2426     		movs	r6, #36
   95 0088 1946     		mov	r1, r3
   96              	.L9:
   97 008a D8B2     		uxtb	r0, r3
@@ -115,31 +115,31 @@ ARM GAS  /tmp/ccVz3jM7.s 			page 1
  112 00b0 0546     		mov	r5, r0
  113 00b2 F0B1     		cbz	r0, .L11
  114 00b4 0222     		movs	r2, #2
- 115 00b6 84F8BD23 		strb	r2, [r4, #957]
+ 115 00b6 84F8BD24 		strb	r2, [r4, #1213]
  116 00ba D2E7     		b	.L13
  117              	.L8:
-ARM GAS  /tmp/ccVz3jM7.s 			page 3
+ARM GAS  /tmp/cc2VSDCt.s 			page 3
 
 
  118 00bc 06FB0243 		mla	r3, r6, r2, r4
  119 00c0 83F83DE0 		strb	lr, [r3, #61]
  120 00c4 83F83C20 		strb	r2, [r3, #60]
- 121 00c8 A3F84220 		strh	r2, [r3, #66]	@ movhi
- 122 00cc 83F83F10 		strb	r1, [r3, #63]
- 123 00d0 1965     		str	r1, [r3, #80]
- 124 00d2 C3E91111 		strd	r1, r1, [r3, #68]
+ 121 00c8 A3F84420 		strh	r2, [r3, #68]	@ movhi
+ 122 00cc 83F84010 		strb	r1, [r3, #64]
+ 123 00d0 5965     		str	r1, [r3, #84]
+ 124 00d2 C3E91211 		strd	r1, r1, [r3, #72]
  125 00d6 D1E7     		b	.L7
  126              	.L10:
  127 00d8 06FB0042 		mla	r2, r6, r0, r4
- 128 00dc 82F8FD11 		strb	r1, [r2, #509]
- 129 00e0 82F8FC01 		strb	r0, [r2, #508]
- 130 00e4 82F8FF11 		strb	r1, [r2, #511]
- 131 00e8 C2F81012 		str	r1, [r2, #528]
- 132 00ec C2E98111 		strd	r1, r1, [r2, #516]
+ 128 00dc 82F87D12 		strb	r1, [r2, #637]
+ 129 00e0 82F87C02 		strb	r0, [r2, #636]
+ 130 00e4 82F88012 		strb	r1, [r2, #640]
+ 131 00e8 C2F89412 		str	r1, [r2, #660]
+ 132 00ec C2E9A211 		strd	r1, r1, [r2, #648]
  133 00f0 CBE7     		b	.L9
  134              	.L11:
  135 00f2 84F83800 		strb	r0, [r4, #56]
- 136 00f6 84F8BD33 		strb	r3, [r4, #957]
+ 136 00f6 84F8BD34 		strb	r3, [r4, #1213]
  137 00fa 636A     		ldr	r3, [r4, #36]
  138 00fc 012B     		cmp	r3, #1
  139 00fe 02D1     		bne	.L12
@@ -165,1420 +165,1626 @@ ARM GAS  /tmp/ccVz3jM7.s 			page 1
  161              		@ frame_needed = 0, uses_anonymous_args = 0
  162              		@ link register save eliminated.
  163 0000 7047     		bx	lr
- 165              		.section	.text.HAL_PCD_Start,"ax",%progbits
+ 165              		.section	.text.HAL_PCD_DeInit,"ax",%progbits
  166              		.align	1
- 167              		.global	HAL_PCD_Start
+ 167              		.global	HAL_PCD_DeInit
  168              		.syntax unified
  169              		.thumb
  170              		.thumb_func
  171              		.fpu fpv5-sp-d16
- 173              	HAL_PCD_Start:
+ 173              	HAL_PCD_DeInit:
  174              		@ args = 0, pretend = 0, frame = 0
  175              		@ frame_needed = 0, uses_anonymous_args = 0
- 176 0000 90F8BC33 		ldrb	r3, [r0, #956]	@ zero_extendqisi2
- 177 0004 012B     		cmp	r3, #1
- 178 0006 10B5     		push	{r4, lr}
-ARM GAS  /tmp/ccVz3jM7.s 			page 4
+ 176 0000 38B5     		push	{r3, r4, r5, lr}
+ 177 0002 0446     		mov	r4, r0
+ 178 0004 10B9     		cbnz	r0, .L16
+ARM GAS  /tmp/cc2VSDCt.s 			page 4
 
 
- 179 0008 0446     		mov	r4, r0
- 180 000a 0CD0     		beq	.L17
- 181 000c 0123     		movs	r3, #1
- 182 000e 80F8BC33 		strb	r3, [r0, #956]
- 183 0012 0068     		ldr	r0, [r0]
- 184 0014 FFF7FEFF 		bl	USB_DevConnect
- 185 0018 2068     		ldr	r0, [r4]
- 186 001a FFF7FEFF 		bl	USB_EnableGlobalInt
- 187 001e 0020     		movs	r0, #0
- 188 0020 84F8BC03 		strb	r0, [r4, #956]
- 189              	.L16:
- 190 0024 10BD     		pop	{r4, pc}
- 191              	.L17:
- 192 0026 0220     		movs	r0, #2
- 193 0028 FCE7     		b	.L16
- 195              		.section	.text.HAL_PCD_Stop,"ax",%progbits
- 196              		.align	1
- 197              		.global	HAL_PCD_Stop
- 198              		.syntax unified
- 199              		.thumb
- 200              		.thumb_func
- 201              		.fpu fpv5-sp-d16
- 203              	HAL_PCD_Stop:
- 204              		@ args = 0, pretend = 0, frame = 0
- 205              		@ frame_needed = 0, uses_anonymous_args = 0
- 206 0000 90F8BC33 		ldrb	r3, [r0, #956]	@ zero_extendqisi2
- 207 0004 012B     		cmp	r3, #1
- 208 0006 70B5     		push	{r4, r5, r6, lr}
- 209 0008 0446     		mov	r4, r0
- 210 000a 16D0     		beq	.L21
- 211 000c 0126     		movs	r6, #1
- 212 000e 80F8BC63 		strb	r6, [r0, #956]
- 213 0012 0068     		ldr	r0, [r0]
- 214 0014 FFF7FEFF 		bl	USB_DisableGlobalInt
- 215 0018 2068     		ldr	r0, [r4]
- 216 001a FFF7FEFF 		bl	USB_StopDevice
- 217 001e 0546     		mov	r5, r0
- 218 0020 28B1     		cbz	r0, .L20
- 219 0022 0023     		movs	r3, #0
- 220 0024 3546     		mov	r5, r6
- 221 0026 84F8BC33 		strb	r3, [r4, #956]
- 222              	.L19:
- 223 002a 2846     		mov	r0, r5
- 224 002c 70BD     		pop	{r4, r5, r6, pc}
- 225              	.L20:
- 226 002e 2068     		ldr	r0, [r4]
- 227 0030 FFF7FEFF 		bl	USB_DevDisconnect
- 228 0034 84F8BC53 		strb	r5, [r4, #956]
- 229 0038 F7E7     		b	.L19
- 230              	.L21:
- 231 003a 0225     		movs	r5, #2
- 232 003c F5E7     		b	.L19
- 234              		.section	.text.HAL_PCD_DeInit,"ax",%progbits
- 235              		.align	1
- 236              		.global	HAL_PCD_DeInit
- 237              		.syntax unified
- 238              		.thumb
-ARM GAS  /tmp/ccVz3jM7.s 			page 5
+ 179              	.L18:
+ 180 0006 0125     		movs	r5, #1
+ 181              	.L17:
+ 182 0008 2846     		mov	r0, r5
+ 183 000a 38BD     		pop	{r3, r4, r5, pc}
+ 184              	.L16:
+ 185 000c 0323     		movs	r3, #3
+ 186 000e 80F8BD34 		strb	r3, [r0, #1213]
+ 187 0012 0068     		ldr	r0, [r0]
+ 188 0014 FFF7FEFF 		bl	USB_StopDevice
+ 189 0018 0546     		mov	r5, r0
+ 190 001a 0028     		cmp	r0, #0
+ 191 001c F3D1     		bne	.L18
+ 192 001e 2046     		mov	r0, r4
+ 193 0020 FFF7FEFF 		bl	HAL_PCD_MspDeInit
+ 194 0024 84F8BD54 		strb	r5, [r4, #1213]
+ 195 0028 EEE7     		b	.L17
+ 197              		.section	.text.HAL_PCD_Start,"ax",%progbits
+ 198              		.align	1
+ 199              		.global	HAL_PCD_Start
+ 200              		.syntax unified
+ 201              		.thumb
+ 202              		.thumb_func
+ 203              		.fpu fpv5-sp-d16
+ 205              	HAL_PCD_Start:
+ 206              		@ args = 0, pretend = 0, frame = 0
+ 207              		@ frame_needed = 0, uses_anonymous_args = 0
+ 208 0000 10B5     		push	{r4, lr}
+ 209 0002 90F8BC34 		ldrb	r3, [r0, #1212]	@ zero_extendqisi2
+ 210 0006 0446     		mov	r4, r0
+ 211 0008 012B     		cmp	r3, #1
+ 212 000a 0CD0     		beq	.L21
+ 213 000c 0123     		movs	r3, #1
+ 214 000e 80F8BC34 		strb	r3, [r0, #1212]
+ 215 0012 0068     		ldr	r0, [r0]
+ 216 0014 FFF7FEFF 		bl	USB_EnableGlobalInt
+ 217 0018 2068     		ldr	r0, [r4]
+ 218 001a FFF7FEFF 		bl	USB_DevConnect
+ 219 001e 0020     		movs	r0, #0
+ 220 0020 84F8BC04 		strb	r0, [r4, #1212]
+ 221              	.L20:
+ 222 0024 10BD     		pop	{r4, pc}
+ 223              	.L21:
+ 224 0026 0220     		movs	r0, #2
+ 225 0028 FCE7     		b	.L20
+ 227              		.section	.text.HAL_PCD_Stop,"ax",%progbits
+ 228              		.align	1
+ 229              		.global	HAL_PCD_Stop
+ 230              		.syntax unified
+ 231              		.thumb
+ 232              		.thumb_func
+ 233              		.fpu fpv5-sp-d16
+ 235              	HAL_PCD_Stop:
+ 236              		@ args = 0, pretend = 0, frame = 0
+ 237              		@ frame_needed = 0, uses_anonymous_args = 0
+ 238 0000 10B5     		push	{r4, lr}
+ 239 0002 90F8BC34 		ldrb	r3, [r0, #1212]	@ zero_extendqisi2
+ARM GAS  /tmp/cc2VSDCt.s 			page 5
 
 
- 239              		.thumb_func
- 240              		.fpu fpv5-sp-d16
- 242              	HAL_PCD_DeInit:
- 243              		@ args = 0, pretend = 0, frame = 0
- 244              		@ frame_needed = 0, uses_anonymous_args = 0
- 245 0000 10B5     		push	{r4, lr}
- 246 0002 0446     		mov	r4, r0
- 247 0004 58B1     		cbz	r0, .L24
- 248 0006 0323     		movs	r3, #3
- 249 0008 80F8BD33 		strb	r3, [r0, #957]
- 250 000c FFF7FEFF 		bl	HAL_PCD_Stop
- 251 0010 2046     		mov	r0, r4
- 252 0012 FFF7FEFF 		bl	HAL_PCD_MspDeInit
- 253 0016 0020     		movs	r0, #0
- 254 0018 84F8BD03 		strb	r0, [r4, #957]
- 255              	.L23:
- 256 001c 10BD     		pop	{r4, pc}
- 257              	.L24:
- 258 001e 0120     		movs	r0, #1
- 259 0020 FCE7     		b	.L23
- 261              		.section	.text.HAL_PCD_DataOutStageCallback,"ax",%progbits
- 262              		.align	1
- 263              		.weak	HAL_PCD_DataOutStageCallback
- 264              		.syntax unified
- 265              		.thumb
- 266              		.thumb_func
- 267              		.fpu fpv5-sp-d16
- 269              	HAL_PCD_DataOutStageCallback:
- 270              		@ args = 0, pretend = 0, frame = 0
- 271              		@ frame_needed = 0, uses_anonymous_args = 0
- 272              		@ link register save eliminated.
- 273 0000 7047     		bx	lr
- 275              		.section	.text.HAL_PCD_DataInStageCallback,"ax",%progbits
- 276              		.align	1
- 277              		.weak	HAL_PCD_DataInStageCallback
- 278              		.syntax unified
- 279              		.thumb
- 280              		.thumb_func
- 281              		.fpu fpv5-sp-d16
- 283              	HAL_PCD_DataInStageCallback:
- 284              		@ args = 0, pretend = 0, frame = 0
- 285              		@ frame_needed = 0, uses_anonymous_args = 0
- 286              		@ link register save eliminated.
- 287 0000 7047     		bx	lr
- 289              		.section	.text.HAL_PCD_SetupStageCallback,"ax",%progbits
- 290              		.align	1
- 291              		.weak	HAL_PCD_SetupStageCallback
- 292              		.syntax unified
- 293              		.thumb
- 294              		.thumb_func
- 295              		.fpu fpv5-sp-d16
- 297              	HAL_PCD_SetupStageCallback:
- 298              		@ args = 0, pretend = 0, frame = 0
- 299              		@ frame_needed = 0, uses_anonymous_args = 0
- 300              		@ link register save eliminated.
- 301 0000 7047     		bx	lr
- 303              		.section	.text.HAL_PCD_SOFCallback,"ax",%progbits
-ARM GAS  /tmp/ccVz3jM7.s 			page 6
+ 240 0006 0446     		mov	r4, r0
+ 241 0008 012B     		cmp	r3, #1
+ 242 000a 10D0     		beq	.L24
+ 243 000c 0123     		movs	r3, #1
+ 244 000e 80F8BC34 		strb	r3, [r0, #1212]
+ 245 0012 0068     		ldr	r0, [r0]
+ 246 0014 FFF7FEFF 		bl	USB_DisableGlobalInt
+ 247 0018 2068     		ldr	r0, [r4]
+ 248 001a FFF7FEFF 		bl	USB_DevDisconnect
+ 249 001e 1021     		movs	r1, #16
+ 250 0020 2068     		ldr	r0, [r4]
+ 251 0022 FFF7FEFF 		bl	USB_FlushTxFifo
+ 252 0026 0020     		movs	r0, #0
+ 253 0028 84F8BC04 		strb	r0, [r4, #1212]
+ 254              	.L23:
+ 255 002c 10BD     		pop	{r4, pc}
+ 256              	.L24:
+ 257 002e 0220     		movs	r0, #2
+ 258 0030 FCE7     		b	.L23
+ 260              		.section	.text.HAL_PCD_WKUP_IRQHandler,"ax",%progbits
+ 261              		.align	1
+ 262              		.global	HAL_PCD_WKUP_IRQHandler
+ 263              		.syntax unified
+ 264              		.thumb
+ 265              		.thumb_func
+ 266              		.fpu fpv5-sp-d16
+ 268              	HAL_PCD_WKUP_IRQHandler:
+ 269              		@ args = 0, pretend = 0, frame = 0
+ 270              		@ frame_needed = 0, uses_anonymous_args = 0
+ 271              		@ link register save eliminated.
+ 272 0000 0368     		ldr	r3, [r0]
+ 273 0002 DB6B     		ldr	r3, [r3, #60]
+ 274 0004 13F4807F 		tst	r3, #256
+ 275 0008 034B     		ldr	r3, .L29
+ 276 000a 0CBF     		ite	eq
+ 277 000c 4FF48022 		moveq	r2, #262144
+ 278 0010 4FF48012 		movne	r2, #1048576
+ 279 0014 5A61     		str	r2, [r3, #20]
+ 280 0016 7047     		bx	lr
+ 281              	.L30:
+ 282              		.align	2
+ 283              	.L29:
+ 284 0018 003C0140 		.word	1073822720
+ 286              		.section	.text.HAL_PCD_DataOutStageCallback,"ax",%progbits
+ 287              		.align	1
+ 288              		.weak	HAL_PCD_DataOutStageCallback
+ 289              		.syntax unified
+ 290              		.thumb
+ 291              		.thumb_func
+ 292              		.fpu fpv5-sp-d16
+ 294              	HAL_PCD_DataOutStageCallback:
+ 295              		@ args = 0, pretend = 0, frame = 0
+ 296              		@ frame_needed = 0, uses_anonymous_args = 0
+ 297              		@ link register save eliminated.
+ 298 0000 7047     		bx	lr
+ 300              		.section	.text.HAL_PCD_DataInStageCallback,"ax",%progbits
+ 301              		.align	1
+ARM GAS  /tmp/cc2VSDCt.s 			page 6
 
 
- 304              		.align	1
- 305              		.weak	HAL_PCD_SOFCallback
- 306              		.syntax unified
- 307              		.thumb
- 308              		.thumb_func
- 309              		.fpu fpv5-sp-d16
- 311              	HAL_PCD_SOFCallback:
- 312              		@ args = 0, pretend = 0, frame = 0
- 313              		@ frame_needed = 0, uses_anonymous_args = 0
- 314              		@ link register save eliminated.
- 315 0000 7047     		bx	lr
- 317              		.section	.text.HAL_PCD_ResetCallback,"ax",%progbits
- 318              		.align	1
- 319              		.weak	HAL_PCD_ResetCallback
- 320              		.syntax unified
- 321              		.thumb
- 322              		.thumb_func
- 323              		.fpu fpv5-sp-d16
- 325              	HAL_PCD_ResetCallback:
- 326              		@ args = 0, pretend = 0, frame = 0
- 327              		@ frame_needed = 0, uses_anonymous_args = 0
- 328              		@ link register save eliminated.
- 329 0000 7047     		bx	lr
- 331              		.section	.text.HAL_PCD_SuspendCallback,"ax",%progbits
- 332              		.align	1
- 333              		.weak	HAL_PCD_SuspendCallback
- 334              		.syntax unified
- 335              		.thumb
- 336              		.thumb_func
- 337              		.fpu fpv5-sp-d16
- 339              	HAL_PCD_SuspendCallback:
- 340              		@ args = 0, pretend = 0, frame = 0
- 341              		@ frame_needed = 0, uses_anonymous_args = 0
- 342              		@ link register save eliminated.
- 343 0000 7047     		bx	lr
- 345              		.section	.text.HAL_PCD_ResumeCallback,"ax",%progbits
- 346              		.align	1
- 347              		.weak	HAL_PCD_ResumeCallback
- 348              		.syntax unified
- 349              		.thumb
- 350              		.thumb_func
- 351              		.fpu fpv5-sp-d16
- 353              	HAL_PCD_ResumeCallback:
- 354              		@ args = 0, pretend = 0, frame = 0
- 355              		@ frame_needed = 0, uses_anonymous_args = 0
- 356              		@ link register save eliminated.
- 357 0000 7047     		bx	lr
- 359              		.section	.text.HAL_PCD_ISOOUTIncompleteCallback,"ax",%progbits
- 360              		.align	1
- 361              		.weak	HAL_PCD_ISOOUTIncompleteCallback
- 362              		.syntax unified
- 363              		.thumb
- 364              		.thumb_func
- 365              		.fpu fpv5-sp-d16
- 367              	HAL_PCD_ISOOUTIncompleteCallback:
- 368              		@ args = 0, pretend = 0, frame = 0
- 369              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccVz3jM7.s 			page 7
+ 302              		.weak	HAL_PCD_DataInStageCallback
+ 303              		.syntax unified
+ 304              		.thumb
+ 305              		.thumb_func
+ 306              		.fpu fpv5-sp-d16
+ 308              	HAL_PCD_DataInStageCallback:
+ 309              		@ args = 0, pretend = 0, frame = 0
+ 310              		@ frame_needed = 0, uses_anonymous_args = 0
+ 311              		@ link register save eliminated.
+ 312 0000 7047     		bx	lr
+ 314              		.section	.text.HAL_PCD_SetupStageCallback,"ax",%progbits
+ 315              		.align	1
+ 316              		.weak	HAL_PCD_SetupStageCallback
+ 317              		.syntax unified
+ 318              		.thumb
+ 319              		.thumb_func
+ 320              		.fpu fpv5-sp-d16
+ 322              	HAL_PCD_SetupStageCallback:
+ 323              		@ args = 0, pretend = 0, frame = 0
+ 324              		@ frame_needed = 0, uses_anonymous_args = 0
+ 325              		@ link register save eliminated.
+ 326 0000 7047     		bx	lr
+ 328              		.section	.text.HAL_PCD_SOFCallback,"ax",%progbits
+ 329              		.align	1
+ 330              		.weak	HAL_PCD_SOFCallback
+ 331              		.syntax unified
+ 332              		.thumb
+ 333              		.thumb_func
+ 334              		.fpu fpv5-sp-d16
+ 336              	HAL_PCD_SOFCallback:
+ 337              		@ args = 0, pretend = 0, frame = 0
+ 338              		@ frame_needed = 0, uses_anonymous_args = 0
+ 339              		@ link register save eliminated.
+ 340 0000 7047     		bx	lr
+ 342              		.section	.text.HAL_PCD_ResetCallback,"ax",%progbits
+ 343              		.align	1
+ 344              		.weak	HAL_PCD_ResetCallback
+ 345              		.syntax unified
+ 346              		.thumb
+ 347              		.thumb_func
+ 348              		.fpu fpv5-sp-d16
+ 350              	HAL_PCD_ResetCallback:
+ 351              		@ args = 0, pretend = 0, frame = 0
+ 352              		@ frame_needed = 0, uses_anonymous_args = 0
+ 353              		@ link register save eliminated.
+ 354 0000 7047     		bx	lr
+ 356              		.section	.text.HAL_PCD_SuspendCallback,"ax",%progbits
+ 357              		.align	1
+ 358              		.weak	HAL_PCD_SuspendCallback
+ 359              		.syntax unified
+ 360              		.thumb
+ 361              		.thumb_func
+ 362              		.fpu fpv5-sp-d16
+ 364              	HAL_PCD_SuspendCallback:
+ 365              		@ args = 0, pretend = 0, frame = 0
+ 366              		@ frame_needed = 0, uses_anonymous_args = 0
+ 367              		@ link register save eliminated.
+ARM GAS  /tmp/cc2VSDCt.s 			page 7
 
 
- 370              		@ link register save eliminated.
- 371 0000 7047     		bx	lr
- 373              		.section	.text.HAL_PCD_ISOINIncompleteCallback,"ax",%progbits
- 374              		.align	1
- 375              		.weak	HAL_PCD_ISOINIncompleteCallback
- 376              		.syntax unified
- 377              		.thumb
- 378              		.thumb_func
- 379              		.fpu fpv5-sp-d16
- 381              	HAL_PCD_ISOINIncompleteCallback:
- 382              		@ args = 0, pretend = 0, frame = 0
- 383              		@ frame_needed = 0, uses_anonymous_args = 0
- 384              		@ link register save eliminated.
- 385 0000 7047     		bx	lr
- 387              		.section	.text.HAL_PCD_ConnectCallback,"ax",%progbits
- 388              		.align	1
- 389              		.weak	HAL_PCD_ConnectCallback
- 390              		.syntax unified
- 391              		.thumb
- 392              		.thumb_func
- 393              		.fpu fpv5-sp-d16
- 395              	HAL_PCD_ConnectCallback:
- 396              		@ args = 0, pretend = 0, frame = 0
- 397              		@ frame_needed = 0, uses_anonymous_args = 0
- 398              		@ link register save eliminated.
- 399 0000 7047     		bx	lr
- 401              		.section	.text.HAL_PCD_DisconnectCallback,"ax",%progbits
- 402              		.align	1
- 403              		.weak	HAL_PCD_DisconnectCallback
- 404              		.syntax unified
- 405              		.thumb
- 406              		.thumb_func
- 407              		.fpu fpv5-sp-d16
- 409              	HAL_PCD_DisconnectCallback:
- 410              		@ args = 0, pretend = 0, frame = 0
- 411              		@ frame_needed = 0, uses_anonymous_args = 0
- 412              		@ link register save eliminated.
- 413 0000 7047     		bx	lr
- 415              		.section	.text.HAL_PCD_IRQHandler,"ax",%progbits
- 416              		.align	1
- 417              		.global	HAL_PCD_IRQHandler
- 418              		.syntax unified
- 419              		.thumb
- 420              		.thumb_func
- 421              		.fpu fpv5-sp-d16
- 423              	HAL_PCD_IRQHandler:
- 424              		@ args = 0, pretend = 0, frame = 16
- 425              		@ frame_needed = 0, uses_anonymous_args = 0
- 426 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
- 427 0004 D0F800A0 		ldr	r10, [r0]
- 428 0008 87B0     		sub	sp, sp, #28
- 429 000a 0446     		mov	r4, r0
- 430 000c 5046     		mov	r0, r10
- 431 000e FFF7FEFF 		bl	USB_GetMode
- 432 0012 0290     		str	r0, [sp, #8]
- 433 0014 0028     		cmp	r0, #0
- 434 0016 40F03C81 		bne	.L36
-ARM GAS  /tmp/ccVz3jM7.s 			page 8
+ 368 0000 7047     		bx	lr
+ 370              		.section	.text.HAL_PCD_ResumeCallback,"ax",%progbits
+ 371              		.align	1
+ 372              		.weak	HAL_PCD_ResumeCallback
+ 373              		.syntax unified
+ 374              		.thumb
+ 375              		.thumb_func
+ 376              		.fpu fpv5-sp-d16
+ 378              	HAL_PCD_ResumeCallback:
+ 379              		@ args = 0, pretend = 0, frame = 0
+ 380              		@ frame_needed = 0, uses_anonymous_args = 0
+ 381              		@ link register save eliminated.
+ 382 0000 7047     		bx	lr
+ 384              		.section	.text.HAL_PCD_ISOOUTIncompleteCallback,"ax",%progbits
+ 385              		.align	1
+ 386              		.weak	HAL_PCD_ISOOUTIncompleteCallback
+ 387              		.syntax unified
+ 388              		.thumb
+ 389              		.thumb_func
+ 390              		.fpu fpv5-sp-d16
+ 392              	HAL_PCD_ISOOUTIncompleteCallback:
+ 393              		@ args = 0, pretend = 0, frame = 0
+ 394              		@ frame_needed = 0, uses_anonymous_args = 0
+ 395              		@ link register save eliminated.
+ 396 0000 7047     		bx	lr
+ 398              		.section	.text.HAL_PCD_ISOINIncompleteCallback,"ax",%progbits
+ 399              		.align	1
+ 400              		.weak	HAL_PCD_ISOINIncompleteCallback
+ 401              		.syntax unified
+ 402              		.thumb
+ 403              		.thumb_func
+ 404              		.fpu fpv5-sp-d16
+ 406              	HAL_PCD_ISOINIncompleteCallback:
+ 407              		@ args = 0, pretend = 0, frame = 0
+ 408              		@ frame_needed = 0, uses_anonymous_args = 0
+ 409              		@ link register save eliminated.
+ 410 0000 7047     		bx	lr
+ 412              		.section	.text.HAL_PCD_ConnectCallback,"ax",%progbits
+ 413              		.align	1
+ 414              		.weak	HAL_PCD_ConnectCallback
+ 415              		.syntax unified
+ 416              		.thumb
+ 417              		.thumb_func
+ 418              		.fpu fpv5-sp-d16
+ 420              	HAL_PCD_ConnectCallback:
+ 421              		@ args = 0, pretend = 0, frame = 0
+ 422              		@ frame_needed = 0, uses_anonymous_args = 0
+ 423              		@ link register save eliminated.
+ 424 0000 7047     		bx	lr
+ 426              		.section	.text.HAL_PCD_DisconnectCallback,"ax",%progbits
+ 427              		.align	1
+ 428              		.weak	HAL_PCD_DisconnectCallback
+ 429              		.syntax unified
+ 430              		.thumb
+ 431              		.thumb_func
+ 432              		.fpu fpv5-sp-d16
+ 434              	HAL_PCD_DisconnectCallback:
+ARM GAS  /tmp/cc2VSDCt.s 			page 8
 
 
- 435 001a 2068     		ldr	r0, [r4]
- 436 001c FFF7FEFF 		bl	USB_ReadInterrupts
- 437 0020 0028     		cmp	r0, #0
- 438 0022 00F03681 		beq	.L36
- 439 0026 2068     		ldr	r0, [r4]
- 440 0028 FFF7FEFF 		bl	USB_ReadInterrupts
- 441 002c 8707     		lsls	r7, r0, #30
- 442 002e 04D5     		bpl	.L40
- 443 0030 2268     		ldr	r2, [r4]
- 444 0032 5369     		ldr	r3, [r2, #20]
- 445 0034 03F00203 		and	r3, r3, #2
- 446 0038 5361     		str	r3, [r2, #20]
- 447              	.L40:
- 448 003a 2068     		ldr	r0, [r4]
- 449 003c FFF7FEFF 		bl	USB_ReadInterrupts
- 450 0040 C606     		lsls	r6, r0, #27
- 451 0042 2BD5     		bpl	.L41
- 452 0044 2268     		ldr	r2, [r4]
- 453 0046 9369     		ldr	r3, [r2, #24]
- 454 0048 23F01003 		bic	r3, r3, #16
- 455 004c 9361     		str	r3, [r2, #24]
- 456 004e DAF82050 		ldr	r5, [r10, #32]
- 457 0052 C5F34343 		ubfx	r3, r5, #17, #4
- 458 0056 05F00F07 		and	r7, r5, #15
- 459 005a 022B     		cmp	r3, #2
- 460 005c 40F01C81 		bne	.L42
- 461 0060 47F6F073 		movw	r3, #32752
- 462 0064 1D42     		tst	r5, r3
- 463 0066 14D0     		beq	.L43
- 464 0068 1C26     		movs	r6, #28
- 465 006a C5F30A15 		ubfx	r5, r5, #4, #11
- 466 006e 5046     		mov	r0, r10
- 467 0070 06FB0746 		mla	r6, r6, r7, r4
- 468 0074 2A46     		mov	r2, r5
- 469 0076 D6F80812 		ldr	r1, [r6, #520]
- 470 007a FFF7FEFF 		bl	USB_ReadPacket
- 471 007e D6F80832 		ldr	r3, [r6, #520]
- 472 0082 2B44     		add	r3, r3, r5
- 473 0084 C6F80832 		str	r3, [r6, #520]
- 474              	.L191:
- 475 0088 D6F81432 		ldr	r3, [r6, #532]
- 476 008c 1D44     		add	r5, r5, r3
- 477 008e C6F81452 		str	r5, [r6, #532]
- 478              	.L43:
- 479 0092 2268     		ldr	r2, [r4]
- 480 0094 9369     		ldr	r3, [r2, #24]
- 481 0096 43F01003 		orr	r3, r3, #16
- 482 009a 9361     		str	r3, [r2, #24]
- 483              	.L41:
- 484 009c 2068     		ldr	r0, [r4]
- 485 009e FFF7FEFF 		bl	USB_ReadInterrupts
- 486 00a2 0503     		lsls	r5, r0, #12
- 487 00a4 00F10781 		bmi	.L44
- 488              	.L70:
- 489 00a8 2068     		ldr	r0, [r4]
- 490 00aa FFF7FEFF 		bl	USB_ReadInterrupts
- 491 00ae 4003     		lsls	r0, r0, #13
-ARM GAS  /tmp/ccVz3jM7.s 			page 9
+ 435              		@ args = 0, pretend = 0, frame = 0
+ 436              		@ frame_needed = 0, uses_anonymous_args = 0
+ 437              		@ link register save eliminated.
+ 438 0000 7047     		bx	lr
+ 440              		.section	.text.HAL_PCD_DevConnect,"ax",%progbits
+ 441              		.align	1
+ 442              		.global	HAL_PCD_DevConnect
+ 443              		.syntax unified
+ 444              		.thumb
+ 445              		.thumb_func
+ 446              		.fpu fpv5-sp-d16
+ 448              	HAL_PCD_DevConnect:
+ 449              		@ args = 0, pretend = 0, frame = 0
+ 450              		@ frame_needed = 0, uses_anonymous_args = 0
+ 451 0000 10B5     		push	{r4, lr}
+ 452 0002 90F8BC34 		ldrb	r3, [r0, #1212]	@ zero_extendqisi2
+ 453 0006 0446     		mov	r4, r0
+ 454 0008 012B     		cmp	r3, #1
+ 455 000a 09D0     		beq	.L44
+ 456 000c 0123     		movs	r3, #1
+ 457 000e 80F8BC34 		strb	r3, [r0, #1212]
+ 458 0012 0068     		ldr	r0, [r0]
+ 459 0014 FFF7FEFF 		bl	USB_DevConnect
+ 460 0018 0020     		movs	r0, #0
+ 461 001a 84F8BC04 		strb	r0, [r4, #1212]
+ 462              	.L43:
+ 463 001e 10BD     		pop	{r4, pc}
+ 464              	.L44:
+ 465 0020 0220     		movs	r0, #2
+ 466 0022 FCE7     		b	.L43
+ 468              		.section	.text.HAL_PCD_DevDisconnect,"ax",%progbits
+ 469              		.align	1
+ 470              		.global	HAL_PCD_DevDisconnect
+ 471              		.syntax unified
+ 472              		.thumb
+ 473              		.thumb_func
+ 474              		.fpu fpv5-sp-d16
+ 476              	HAL_PCD_DevDisconnect:
+ 477              		@ args = 0, pretend = 0, frame = 0
+ 478              		@ frame_needed = 0, uses_anonymous_args = 0
+ 479 0000 10B5     		push	{r4, lr}
+ 480 0002 90F8BC34 		ldrb	r3, [r0, #1212]	@ zero_extendqisi2
+ 481 0006 0446     		mov	r4, r0
+ 482 0008 012B     		cmp	r3, #1
+ 483 000a 09D0     		beq	.L47
+ 484 000c 0123     		movs	r3, #1
+ 485 000e 80F8BC34 		strb	r3, [r0, #1212]
+ 486 0012 0068     		ldr	r0, [r0]
+ 487 0014 FFF7FEFF 		bl	USB_DevDisconnect
+ 488 0018 0020     		movs	r0, #0
+ 489 001a 84F8BC04 		strb	r0, [r4, #1212]
+ 490              	.L46:
+ 491 001e 10BD     		pop	{r4, pc}
+ 492              	.L47:
+ 493 0020 0220     		movs	r0, #2
+ 494 0022 FCE7     		b	.L46
+ 496              		.section	.text.HAL_PCD_SetAddress,"ax",%progbits
+ARM GAS  /tmp/cc2VSDCt.s 			page 9
 
 
- 492 00b0 0CD5     		bpl	.L46
- 493 00b2 2546     		mov	r5, r4
- 494 00b4 0AF51069 		add	r9, r10, #2304
- 495 00b8 4FF00008 		mov	r8, #0
- 496 00bc 2068     		ldr	r0, [r4]
- 497 00be FFF7FEFF 		bl	USB_ReadDevAllInEpInterrupt
- 498 00c2 0390     		str	r0, [sp, #12]
- 499              	.L73:
- 500 00c4 039B     		ldr	r3, [sp, #12]
- 501 00c6 002B     		cmp	r3, #0
- 502 00c8 40F09681 		bne	.L89
- 503              	.L46:
- 504 00cc 2068     		ldr	r0, [r4]
- 505 00ce FFF7FEFF 		bl	USB_ReadInterrupts
- 506 00d2 0028     		cmp	r0, #0
- 507 00d4 15DA     		bge	.L72
- 508 00d6 DAF80438 		ldr	r3, [r10, #2052]
- 509 00da 23F00103 		bic	r3, r3, #1
- 510 00de CAF80438 		str	r3, [r10, #2052]
- 511 00e2 94F8F433 		ldrb	r3, [r4, #1012]	@ zero_extendqisi2
- 512 00e6 012B     		cmp	r3, #1
- 513 00e8 40F01782 		bne	.L90
- 514 00ec 0021     		movs	r1, #0
- 515 00ee 2046     		mov	r0, r4
- 516 00f0 84F8F413 		strb	r1, [r4, #1012]
- 517 00f4 FFF7FEFF 		bl	HAL_PCDEx_LPM_Callback
- 518              	.L91:
- 519 00f8 2268     		ldr	r2, [r4]
- 520 00fa 5369     		ldr	r3, [r2, #20]
- 521 00fc 03F00043 		and	r3, r3, #-2147483648
- 522 0100 5361     		str	r3, [r2, #20]
- 523              	.L72:
- 524 0102 2068     		ldr	r0, [r4]
- 525 0104 FFF7FEFF 		bl	USB_ReadInterrupts
- 526 0108 0005     		lsls	r0, r0, #20
- 527 010a 0BD5     		bpl	.L92
- 528 010c DAF80838 		ldr	r3, [r10, #2056]
- 529 0110 D907     		lsls	r1, r3, #31
- 530 0112 02D5     		bpl	.L93
- 531 0114 2046     		mov	r0, r4
- 532 0116 FFF7FEFF 		bl	HAL_PCD_SuspendCallback
- 533              	.L93:
- 534 011a 2268     		ldr	r2, [r4]
- 535 011c 5369     		ldr	r3, [r2, #20]
- 536 011e 03F40063 		and	r3, r3, #2048
- 537 0122 5361     		str	r3, [r2, #20]
- 538              	.L92:
- 539 0124 2068     		ldr	r0, [r4]
- 540 0126 FFF7FEFF 		bl	USB_ReadInterrupts
- 541 012a 0201     		lsls	r2, r0, #4
- 542 012c 14D5     		bpl	.L94
- 543 012e 2368     		ldr	r3, [r4]
- 544 0130 5A69     		ldr	r2, [r3, #20]
- 545 0132 02F00062 		and	r2, r2, #134217728
- 546 0136 5A61     		str	r2, [r3, #20]
- 547 0138 94F8F423 		ldrb	r2, [r4, #1012]	@ zero_extendqisi2
- 548 013c 002A     		cmp	r2, #0
-ARM GAS  /tmp/ccVz3jM7.s 			page 10
+ 497              		.align	1
+ 498              		.global	HAL_PCD_SetAddress
+ 499              		.syntax unified
+ 500              		.thumb
+ 501              		.thumb_func
+ 502              		.fpu fpv5-sp-d16
+ 504              	HAL_PCD_SetAddress:
+ 505              		@ args = 0, pretend = 0, frame = 0
+ 506              		@ frame_needed = 0, uses_anonymous_args = 0
+ 507 0000 10B5     		push	{r4, lr}
+ 508 0002 90F8BC24 		ldrb	r2, [r0, #1212]	@ zero_extendqisi2
+ 509 0006 0446     		mov	r4, r0
+ 510 0008 012A     		cmp	r2, #1
+ 511 000a 0BD0     		beq	.L50
+ 512 000c 0122     		movs	r2, #1
+ 513 000e 80F83810 		strb	r1, [r0, #56]
+ 514 0012 80F8BC24 		strb	r2, [r0, #1212]
+ 515 0016 0068     		ldr	r0, [r0]
+ 516 0018 FFF7FEFF 		bl	USB_SetDevAddress
+ 517 001c 0020     		movs	r0, #0
+ 518 001e 84F8BC04 		strb	r0, [r4, #1212]
+ 519              	.L49:
+ 520 0022 10BD     		pop	{r4, pc}
+ 521              	.L50:
+ 522 0024 0220     		movs	r0, #2
+ 523 0026 FCE7     		b	.L49
+ 525              		.section	.text.HAL_PCD_EP_Open,"ax",%progbits
+ 526              		.align	1
+ 527              		.global	HAL_PCD_EP_Open
+ 528              		.syntax unified
+ 529              		.thumb
+ 530              		.thumb_func
+ 531              		.fpu fpv5-sp-d16
+ 533              	HAL_PCD_EP_Open:
+ 534              		@ args = 0, pretend = 0, frame = 0
+ 535              		@ frame_needed = 0, uses_anonymous_args = 0
+ 536 0000 70B5     		push	{r4, r5, r6, lr}
+ 537 0002 01F00F06 		and	r6, r1, #15
+ 538 0006 11F0800F 		tst	r1, #128
+ 539 000a 0546     		mov	r5, r0
+ 540 000c 4FF02400 		mov	r0, #36
+ 541 0010 06EBC604 		add	r4, r6, r6, lsl #3
+ 542 0014 4FEA8404 		lsl	r4, r4, #2
+ 543 0018 1FD0     		beq	.L52
+ 544 001a 04F13C01 		add	r1, r4, #60
+ 545 001e 00FB0650 		mla	r0, r0, r6, r5
+ 546 0022 0124     		movs	r4, #1
+ 547 0024 2944     		add	r1, r1, r5
+ 548 0026 80F83D40 		strb	r4, [r0, #61]
+ 549              	.L53:
+ 550 002a CA60     		str	r2, [r1, #12]
+ 551 002c 4A78     		ldrb	r2, [r1, #1]	@ zero_extendqisi2
+ 552 002e 0E70     		strb	r6, [r1]
+ 553 0030 0B71     		strb	r3, [r1, #4]
+ 554 0032 02B1     		cbz	r2, .L54
+ 555 0034 0E81     		strh	r6, [r1, #8]	@ movhi
+ 556              	.L54:
+ARM GAS  /tmp/cc2VSDCt.s 			page 10
 
 
- 549 013e 40F0F081 		bne	.L95
- 550 0142 5B6D     		ldr	r3, [r3, #84]
- 551 0144 0121     		movs	r1, #1
- 552 0146 2046     		mov	r0, r4
- 553 0148 C3F38303 		ubfx	r3, r3, #2, #4
- 554 014c 84F8F413 		strb	r1, [r4, #1012]
- 555 0150 C4F8F833 		str	r3, [r4, #1016]
- 556 0154 FFF7FEFF 		bl	HAL_PCDEx_LPM_Callback
- 557              	.L94:
- 558 0158 2068     		ldr	r0, [r4]
- 559 015a FFF7FEFF 		bl	USB_ReadInterrupts
- 560 015e C304     		lsls	r3, r0, #19
- 561 0160 35D5     		bpl	.L96
- 562 0162 0AF50065 		add	r5, r10, #2048
- 563 0166 6B68     		ldr	r3, [r5, #4]
- 564 0168 1021     		movs	r1, #16
- 565 016a 2068     		ldr	r0, [r4]
- 566 016c 23F00103 		bic	r3, r3, #1
- 567 0170 6B60     		str	r3, [r5, #4]
- 568 0172 FFF7FEFF 		bl	USB_FlushTxFifo
- 569 0176 6068     		ldr	r0, [r4, #4]
- 570 0178 0AF51063 		add	r3, r10, #2304
- 571 017c 4FF67F31 		movw	r1, #64383
- 572              	.L97:
- 573 0180 029A     		ldr	r2, [sp, #8]
- 574 0182 9042     		cmp	r0, r2
- 575 0184 40F0D181 		bne	.L98
- 576 0188 EB69     		ldr	r3, [r5, #28]
- 577 018a 43F00113 		orr	r3, r3, #65537
- 578 018e EB61     		str	r3, [r5, #28]
- 579 0190 236B     		ldr	r3, [r4, #48]
- 580 0192 002B     		cmp	r3, #0
- 581 0194 00F0E981 		beq	.L99
- 582 0198 D5F88430 		ldr	r3, [r5, #132]
- 583 019c 43F00B03 		orr	r3, r3, #11
- 584 01a0 C5F88430 		str	r3, [r5, #132]
- 585 01a4 6B6C     		ldr	r3, [r5, #68]
- 586 01a6 43F00B03 		orr	r3, r3, #11
- 587 01aa 6B64     		str	r3, [r5, #68]
- 588              	.L100:
- 589 01ac DAF80038 		ldr	r3, [r10, #2048]
- 590 01b0 04F57172 		add	r2, r4, #964
- 591 01b4 217C     		ldrb	r1, [r4, #16]	@ zero_extendqisi2
- 592 01b6 23F4FE63 		bic	r3, r3, #2032
- 593 01ba 2068     		ldr	r0, [r4]
- 594 01bc CAF80038 		str	r3, [r10, #2048]
- 595 01c0 FFF7FEFF 		bl	USB_EP0_OutStart
- 596 01c4 2268     		ldr	r2, [r4]
- 597 01c6 5369     		ldr	r3, [r2, #20]
- 598 01c8 03F48053 		and	r3, r3, #4096
- 599 01cc 5361     		str	r3, [r2, #20]
- 600              	.L96:
- 601 01ce 2068     		ldr	r0, [r4]
- 602 01d0 FFF7FEFF 		bl	USB_ReadInterrupts
- 603 01d4 8704     		lsls	r7, r0, #18
- 604 01d6 16D5     		bpl	.L101
- 605 01d8 2068     		ldr	r0, [r4]
-ARM GAS  /tmp/ccVz3jM7.s 			page 11
+ 557 0036 022B     		cmp	r3, #2
+ 558 0038 04BF     		itt	eq
+ 559 003a 0023     		moveq	r3, #0
+ 560 003c 4B71     		strbeq	r3, [r1, #5]
+ 561 003e 95F8BC34 		ldrb	r3, [r5, #1212]	@ zero_extendqisi2
+ 562 0042 012B     		cmp	r3, #1
+ 563 0044 12D0     		beq	.L57
+ 564 0046 0123     		movs	r3, #1
+ 565 0048 2868     		ldr	r0, [r5]
+ 566 004a 85F8BC34 		strb	r3, [r5, #1212]
+ 567 004e FFF7FEFF 		bl	USB_ActivateEndpoint
+ 568 0052 0020     		movs	r0, #0
+ 569 0054 85F8BC04 		strb	r0, [r5, #1212]
+ 570              	.L56:
+ 571 0058 70BD     		pop	{r4, r5, r6, pc}
+ 572              	.L52:
+ 573 005a 04F51F71 		add	r1, r4, #636
+ 574 005e 00FB0650 		mla	r0, r0, r6, r5
+ 575 0062 0024     		movs	r4, #0
+ 576 0064 2944     		add	r1, r1, r5
+ 577 0066 80F87D42 		strb	r4, [r0, #637]
+ 578 006a DEE7     		b	.L53
+ 579              	.L57:
+ 580 006c 0220     		movs	r0, #2
+ 581 006e F3E7     		b	.L56
+ 583              		.section	.text.HAL_PCD_EP_Close,"ax",%progbits
+ 584              		.align	1
+ 585              		.global	HAL_PCD_EP_Close
+ 586              		.syntax unified
+ 587              		.thumb
+ 588              		.thumb_func
+ 589              		.fpu fpv5-sp-d16
+ 591              	HAL_PCD_EP_Close:
+ 592              		@ args = 0, pretend = 0, frame = 0
+ 593              		@ frame_needed = 0, uses_anonymous_args = 0
+ 594 0000 10B5     		push	{r4, lr}
+ 595 0002 0446     		mov	r4, r0
+ 596 0004 01F00F00 		and	r0, r1, #15
+ 597 0008 11F0800F 		tst	r1, #128
+ 598 000c 4FF02402 		mov	r2, #36
+ 599 0010 00EBC003 		add	r3, r0, r0, lsl #3
+ 600 0014 4FEA8303 		lsl	r3, r3, #2
+ 601 0018 16D0     		beq	.L62
+ 602 001a 03F13C01 		add	r1, r3, #60
+ 603 001e 02FB0042 		mla	r2, r2, r0, r4
+ 604 0022 0123     		movs	r3, #1
+ 605 0024 2144     		add	r1, r1, r4
+ 606 0026 82F83D30 		strb	r3, [r2, #61]
+ 607              	.L63:
+ 608 002a 0870     		strb	r0, [r1]
+ 609 002c 94F8BC34 		ldrb	r3, [r4, #1212]	@ zero_extendqisi2
+ 610 0030 012B     		cmp	r3, #1
+ 611 0032 12D0     		beq	.L65
+ 612 0034 0123     		movs	r3, #1
+ 613 0036 2068     		ldr	r0, [r4]
+ 614 0038 84F8BC34 		strb	r3, [r4, #1212]
+ 615 003c FFF7FEFF 		bl	USB_DeactivateEndpoint
+ARM GAS  /tmp/cc2VSDCt.s 			page 11
 
 
- 606 01da FFF7FEFF 		bl	USB_ActivateSetup
- 607 01de 2068     		ldr	r0, [r4]
- 608 01e0 FFF7FEFF 		bl	USB_GetDevSpeed
- 609 01e4 2568     		ldr	r5, [r4]
- 610 01e6 E060     		str	r0, [r4, #12]
- 611 01e8 FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
- 612 01ec 227B     		ldrb	r2, [r4, #12]	@ zero_extendqisi2
- 613 01ee 0146     		mov	r1, r0
- 614 01f0 2846     		mov	r0, r5
- 615 01f2 FFF7FEFF 		bl	USB_SetTurnaroundTime
- 616 01f6 2046     		mov	r0, r4
- 617 01f8 FFF7FEFF 		bl	HAL_PCD_ResetCallback
- 618 01fc 2268     		ldr	r2, [r4]
- 619 01fe 5369     		ldr	r3, [r2, #20]
- 620 0200 03F40053 		and	r3, r3, #8192
- 621 0204 5361     		str	r3, [r2, #20]
- 622              	.L101:
- 623 0206 2068     		ldr	r0, [r4]
- 624 0208 FFF7FEFF 		bl	USB_ReadInterrupts
- 625 020c 0607     		lsls	r6, r0, #28
- 626 020e 07D5     		bpl	.L102
- 627 0210 2046     		mov	r0, r4
- 628 0212 FFF7FEFF 		bl	HAL_PCD_SOFCallback
- 629 0216 2268     		ldr	r2, [r4]
- 630 0218 5369     		ldr	r3, [r2, #20]
- 631 021a 03F00803 		and	r3, r3, #8
- 632 021e 5361     		str	r3, [r2, #20]
- 633              	.L102:
- 634 0220 2068     		ldr	r0, [r4]
- 635 0222 FFF7FEFF 		bl	USB_ReadInterrupts
- 636 0226 C502     		lsls	r5, r0, #11
- 637 0228 08D5     		bpl	.L103
- 638 022a 0021     		movs	r1, #0
- 639 022c 2046     		mov	r0, r4
- 640 022e FFF7FEFF 		bl	HAL_PCD_ISOINIncompleteCallback
- 641 0232 2268     		ldr	r2, [r4]
- 642 0234 5369     		ldr	r3, [r2, #20]
- 643 0236 03F48013 		and	r3, r3, #1048576
- 644 023a 5361     		str	r3, [r2, #20]
- 645              	.L103:
- 646 023c 2068     		ldr	r0, [r4]
- 647 023e FFF7FEFF 		bl	USB_ReadInterrupts
- 648 0242 8002     		lsls	r0, r0, #10
- 649 0244 08D5     		bpl	.L104
- 650 0246 0021     		movs	r1, #0
- 651 0248 2046     		mov	r0, r4
- 652 024a FFF7FEFF 		bl	HAL_PCD_ISOOUTIncompleteCallback
- 653 024e 2268     		ldr	r2, [r4]
- 654 0250 5369     		ldr	r3, [r2, #20]
- 655 0252 03F40013 		and	r3, r3, #2097152
- 656 0256 5361     		str	r3, [r2, #20]
- 657              	.L104:
- 658 0258 2068     		ldr	r0, [r4]
- 659 025a FFF7FEFF 		bl	USB_ReadInterrupts
- 660 025e 4100     		lsls	r1, r0, #1
- 661 0260 07D5     		bpl	.L105
- 662 0262 2046     		mov	r0, r4
-ARM GAS  /tmp/ccVz3jM7.s 			page 12
+ 616 0040 0020     		movs	r0, #0
+ 617 0042 84F8BC04 		strb	r0, [r4, #1212]
+ 618              	.L64:
+ 619 0046 10BD     		pop	{r4, pc}
+ 620              	.L62:
+ 621 0048 03F51F71 		add	r1, r3, #636
+ 622 004c 02FB0042 		mla	r2, r2, r0, r4
+ 623 0050 0023     		movs	r3, #0
+ 624 0052 2144     		add	r1, r1, r4
+ 625 0054 82F87D32 		strb	r3, [r2, #637]
+ 626 0058 E7E7     		b	.L63
+ 627              	.L65:
+ 628 005a 0220     		movs	r0, #2
+ 629 005c F3E7     		b	.L64
+ 631              		.section	.text.HAL_PCD_EP_Receive,"ax",%progbits
+ 632              		.align	1
+ 633              		.global	HAL_PCD_EP_Receive
+ 634              		.syntax unified
+ 635              		.thumb
+ 636              		.thumb_func
+ 637              		.fpu fpv5-sp-d16
+ 639              	HAL_PCD_EP_Receive:
+ 640              		@ args = 0, pretend = 0, frame = 0
+ 641              		@ frame_needed = 0, uses_anonymous_args = 0
+ 642 0000 38B5     		push	{r3, r4, r5, lr}
+ 643 0002 01F00F05 		and	r5, r1, #15
+ 644 0006 2424     		movs	r4, #36
+ 645 0008 04FB0501 		mla	r1, r4, r5, r0
+ 646 000c 04FB0504 		mla	r4, r4, r5, r0
+ 647 0010 01F51F71 		add	r1, r1, #636
+ 648 0014 C4F89432 		str	r3, [r4, #660]
+ 649 0018 0023     		movs	r3, #0
+ 650 001a C4F88C22 		str	r2, [r4, #652]
+ 651 001e C4F89C32 		str	r3, [r4, #668]
+ 652 0022 84F87D32 		strb	r3, [r4, #637]
+ 653 0026 84F87C52 		strb	r5, [r4, #636]
+ 654 002a 0369     		ldr	r3, [r0, #16]
+ 655 002c 0068     		ldr	r0, [r0]
+ 656 002e 012B     		cmp	r3, #1
+ 657 0030 08BF     		it	eq
+ 658 0032 C4F89022 		streq	r2, [r4, #656]
+ 659 0036 DAB2     		uxtb	r2, r3
+ 660 0038 1DB9     		cbnz	r5, .L68
+ 661 003a FFF7FEFF 		bl	USB_EP0StartXfer
+ 662              	.L69:
+ 663 003e 0020     		movs	r0, #0
+ 664 0040 38BD     		pop	{r3, r4, r5, pc}
+ 665              	.L68:
+ 666 0042 FFF7FEFF 		bl	USB_EPStartXfer
+ 667 0046 FAE7     		b	.L69
+ 669              		.section	.text.HAL_PCD_EP_GetRxCount,"ax",%progbits
+ 670              		.align	1
+ 671              		.global	HAL_PCD_EP_GetRxCount
+ 672              		.syntax unified
+ 673              		.thumb
+ 674              		.thumb_func
+ 675              		.fpu fpv5-sp-d16
+ARM GAS  /tmp/cc2VSDCt.s 			page 12
 
 
- 663 0264 FFF7FEFF 		bl	HAL_PCD_ConnectCallback
- 664 0268 2268     		ldr	r2, [r4]
- 665 026a 5369     		ldr	r3, [r2, #20]
- 666 026c 03F08043 		and	r3, r3, #1073741824
- 667 0270 5361     		str	r3, [r2, #20]
- 668              	.L105:
- 669 0272 2068     		ldr	r0, [r4]
- 670 0274 FFF7FEFF 		bl	USB_ReadInterrupts
- 671 0278 4207     		lsls	r2, r0, #29
- 672 027a 0AD5     		bpl	.L36
- 673 027c 2368     		ldr	r3, [r4]
- 674 027e 5D68     		ldr	r5, [r3, #4]
- 675 0280 6B07     		lsls	r3, r5, #29
- 676 0282 02D5     		bpl	.L106
- 677 0284 2046     		mov	r0, r4
- 678 0286 FFF7FEFF 		bl	HAL_PCD_DisconnectCallback
- 679              	.L106:
- 680 028a 2268     		ldr	r2, [r4]
- 681 028c 5368     		ldr	r3, [r2, #4]
- 682 028e 2B43     		orrs	r3, r3, r5
- 683 0290 5360     		str	r3, [r2, #4]
- 684              	.L36:
- 685 0292 07B0     		add	sp, sp, #28
- 686              		@ sp needed
- 687 0294 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
- 688              	.L42:
- 689 0298 062B     		cmp	r3, #6
- 690 029a 7FF4FAAE 		bne	.L43
- 691 029e 1C26     		movs	r6, #28
- 692 02a0 0822     		movs	r2, #8
- 693 02a2 04F57171 		add	r1, r4, #964
- 694 02a6 5046     		mov	r0, r10
- 695 02a8 FFF7FEFF 		bl	USB_ReadPacket
- 696 02ac 06FB0746 		mla	r6, r6, r7, r4
- 697 02b0 C5F30A15 		ubfx	r5, r5, #4, #11
- 698 02b4 E8E6     		b	.L191
- 699              	.L44:
- 700 02b6 2068     		ldr	r0, [r4]
- 701 02b8 0AF53066 		add	r6, r10, #2816
- 702 02bc FFF7FEFF 		bl	USB_ReadDevAllOutEpInterrupt
- 703 02c0 04F50177 		add	r7, r4, #516
- 704 02c4 8146     		mov	r9, r0
- 705 02c6 0025     		movs	r5, #0
- 706              	.L47:
- 707 02c8 B9F1000F 		cmp	r9, #0
- 708 02cc 3FF4ECAE 		beq	.L70
- 709 02d0 19F0010F 		tst	r9, #1
- 710 02d4 57D0     		beq	.L49
- 711 02d6 5FFA85FB 		uxtb	fp, r5
- 712 02da 2068     		ldr	r0, [r4]
- 713 02dc 5946     		mov	r1, fp
- 714 02de FFF7FEFF 		bl	USB_ReadDevOutEPInterrupt
- 715 02e2 10F0010F 		tst	r0, #1
- 716 02e6 8046     		mov	r8, r0
- 717 02e8 1AD0     		beq	.L51
- 718 02ea 0123     		movs	r3, #1
- 719 02ec 2068     		ldr	r0, [r4]
-ARM GAS  /tmp/ccVz3jM7.s 			page 13
+ 677              	HAL_PCD_EP_GetRxCount:
+ 678              		@ args = 0, pretend = 0, frame = 0
+ 679              		@ frame_needed = 0, uses_anonymous_args = 0
+ 680              		@ link register save eliminated.
+ 681 0000 01F00F01 		and	r1, r1, #15
+ 682 0004 2423     		movs	r3, #36
+ 683 0006 03FB0100 		mla	r0, r3, r1, r0
+ 684 000a D0F89C02 		ldr	r0, [r0, #668]
+ 685 000e 7047     		bx	lr
+ 687              		.section	.text.HAL_PCD_EP_Transmit,"ax",%progbits
+ 688              		.align	1
+ 689              		.global	HAL_PCD_EP_Transmit
+ 690              		.syntax unified
+ 691              		.thumb
+ 692              		.thumb_func
+ 693              		.fpu fpv5-sp-d16
+ 695              	HAL_PCD_EP_Transmit:
+ 696              		@ args = 0, pretend = 0, frame = 0
+ 697              		@ frame_needed = 0, uses_anonymous_args = 0
+ 698 0000 38B5     		push	{r3, r4, r5, lr}
+ 699 0002 01F00F05 		and	r5, r1, #15
+ 700 0006 2424     		movs	r4, #36
+ 701 0008 04FB0501 		mla	r1, r4, r5, r0
+ 702 000c 04FB0504 		mla	r4, r4, r5, r0
+ 703 0010 3C31     		adds	r1, r1, #60
+ 704 0012 6365     		str	r3, [r4, #84]
+ 705 0014 0023     		movs	r3, #0
+ 706 0016 E264     		str	r2, [r4, #76]
+ 707 0018 E365     		str	r3, [r4, #92]
+ 708 001a 0123     		movs	r3, #1
+ 709 001c 84F83C50 		strb	r5, [r4, #60]
+ 710 0020 84F83D30 		strb	r3, [r4, #61]
+ 711 0024 0369     		ldr	r3, [r0, #16]
+ 712 0026 0068     		ldr	r0, [r0]
+ 713 0028 012B     		cmp	r3, #1
+ 714 002a 08BF     		it	eq
+ 715 002c 2265     		streq	r2, [r4, #80]
+ 716 002e DAB2     		uxtb	r2, r3
+ 717 0030 1DB9     		cbnz	r5, .L73
+ 718 0032 FFF7FEFF 		bl	USB_EP0StartXfer
+ 719              	.L74:
+ 720 0036 0020     		movs	r0, #0
+ 721 0038 38BD     		pop	{r3, r4, r5, pc}
+ 722              	.L73:
+ 723 003a FFF7FEFF 		bl	USB_EPStartXfer
+ 724 003e FAE7     		b	.L74
+ 726              		.section	.text.HAL_PCD_EP_SetStall,"ax",%progbits
+ 727              		.align	1
+ 728              		.global	HAL_PCD_EP_SetStall
+ 729              		.syntax unified
+ 730              		.thumb
+ 731              		.thumb_func
+ 732              		.fpu fpv5-sp-d16
+ 734              	HAL_PCD_EP_SetStall:
+ 735              		@ args = 0, pretend = 0, frame = 0
+ 736              		@ frame_needed = 0, uses_anonymous_args = 0
+ 737 0000 38B5     		push	{r3, r4, r5, lr}
+ARM GAS  /tmp/cc2VSDCt.s 			page 13
 
 
- 720 02ee 2169     		ldr	r1, [r4, #16]
- 721 02f0 B360     		str	r3, [r6, #8]
- 722 02f2 00F53063 		add	r3, r0, #2816
- 723 02f6 0129     		cmp	r1, #1
- 724 02f8 D0F840C0 		ldr	ip, [r0, #64]
- 725 02fc 03EB4513 		add	r3, r3, r5, lsl #5
- 726 0300 9A68     		ldr	r2, [r3, #8]
- 727 0302 61D1     		bne	.L52
- 728 0304 1107     		lsls	r1, r2, #28
- 729 0306 07D5     		bpl	.L53
- 730 0308 9D49     		ldr	r1, .L195
- 731 030a 8C45     		cmp	ip, r1
- 732 030c 08D9     		bls	.L51
- 733 030e 1004     		lsls	r0, r2, #16
- 734 0310 06D5     		bpl	.L51
- 735              	.L192:
- 736 0312 4FF40042 		mov	r2, #32768
- 737 0316 02E0     		b	.L193
- 738              	.L53:
- 739 0318 9106     		lsls	r1, r2, #26
- 740 031a 3AD5     		bpl	.L55
- 741 031c 2022     		movs	r2, #32
- 742              	.L193:
- 743 031e 9A60     		str	r2, [r3, #8]
- 744              	.L51:
- 745 0320 18F0080F 		tst	r8, #8
- 746 0324 1FD0     		beq	.L63
- 747 0326 2368     		ldr	r3, [r4]
- 748 0328 0822     		movs	r2, #8
- 749 032a 9549     		ldr	r1, .L195
- 750 032c B260     		str	r2, [r6, #8]
- 751 032e D3F840B0 		ldr	fp, [r3, #64]
- 752 0332 03F53063 		add	r3, r3, #2816
- 753 0336 8B45     		cmp	fp, r1
- 754 0338 03EB4513 		add	r3, r3, r5, lsl #5
- 755 033c 9A68     		ldr	r2, [r3, #8]
- 756 033e 04D9     		bls	.L64
- 757 0340 1204     		lsls	r2, r2, #16
- 758 0342 02D5     		bpl	.L64
- 759 0344 4FF40042 		mov	r2, #32768
- 760 0348 9A60     		str	r2, [r3, #8]
- 761              	.L64:
- 762 034a 2046     		mov	r0, r4
- 763 034c FFF7FEFF 		bl	HAL_PCD_SetupStageCallback
- 764 0350 8B4B     		ldr	r3, .L195
- 765 0352 9B45     		cmp	fp, r3
- 766 0354 07D9     		bls	.L63
- 767 0356 2169     		ldr	r1, [r4, #16]
- 768 0358 0129     		cmp	r1, #1
- 769 035a 04D1     		bne	.L63
- 770 035c 04F57172 		add	r2, r4, #964
- 771 0360 2068     		ldr	r0, [r4]
- 772 0362 FFF7FEFF 		bl	USB_EP0_OutStart
- 773              	.L63:
- 774 0366 18F0100F 		tst	r8, #16
- 775 036a 01D0     		beq	.L66
- 776 036c 1023     		movs	r3, #16
-ARM GAS  /tmp/ccVz3jM7.s 			page 14
+ 738 0002 01F00F05 		and	r5, r1, #15
+ 739 0006 4368     		ldr	r3, [r0, #4]
+ 740 0008 0446     		mov	r4, r0
+ 741 000a 9D42     		cmp	r5, r3
+ 742 000c 2CD8     		bhi	.L80
+ 743 000e 11F0800F 		tst	r1, #128
+ 744 0012 4FF02400 		mov	r0, #36
+ 745 0016 1ED0     		beq	.L77
+ 746 0018 00FB0541 		mla	r1, r0, r5, r4
+ 747 001c 0123     		movs	r3, #1
+ 748 001e 00FB0542 		mla	r2, r0, r5, r4
+ 749 0022 3C31     		adds	r1, r1, #60
+ 750 0024 82F83D30 		strb	r3, [r2, #61]
+ 751              	.L78:
+ 752 0028 0123     		movs	r3, #1
+ 753 002a 0D70     		strb	r5, [r1]
+ 754 002c 8B70     		strb	r3, [r1, #2]
+ 755 002e 94F8BC24 		ldrb	r2, [r4, #1212]	@ zero_extendqisi2
+ 756 0032 9A42     		cmp	r2, r3
+ 757 0034 1AD0     		beq	.L81
+ 758 0036 2068     		ldr	r0, [r4]
+ 759 0038 84F8BC34 		strb	r3, [r4, #1212]
+ 760 003c FFF7FEFF 		bl	USB_EPSetStall
+ 761 0040 2DB9     		cbnz	r5, .L79
+ 762 0042 04F2C442 		addw	r2, r4, #1220
+ 763 0046 217C     		ldrb	r1, [r4, #16]	@ zero_extendqisi2
+ 764 0048 2068     		ldr	r0, [r4]
+ 765 004a FFF7FEFF 		bl	USB_EP0_OutStart
+ 766              	.L79:
+ 767 004e 0020     		movs	r0, #0
+ 768 0050 84F8BC04 		strb	r0, [r4, #1212]
+ 769              	.L76:
+ 770 0054 38BD     		pop	{r3, r4, r5, pc}
+ 771              	.L77:
+ 772 0056 00FB0143 		mla	r3, r0, r1, r4
+ 773 005a 1A46     		mov	r2, r3
+ 774 005c 03F51F71 		add	r1, r3, #636
+ 775 0060 0023     		movs	r3, #0
+ 776 0062 82F87D32 		strb	r3, [r2, #637]
+ 777 0066 DFE7     		b	.L78
+ 778              	.L80:
+ 779 0068 0120     		movs	r0, #1
+ 780 006a F3E7     		b	.L76
+ 781              	.L81:
+ 782 006c 0220     		movs	r0, #2
+ 783 006e F1E7     		b	.L76
+ 785              		.section	.text.HAL_PCD_EP_ClrStall,"ax",%progbits
+ 786              		.align	1
+ 787              		.global	HAL_PCD_EP_ClrStall
+ 788              		.syntax unified
+ 789              		.thumb
+ 790              		.thumb_func
+ 791              		.fpu fpv5-sp-d16
+ 793              	HAL_PCD_EP_ClrStall:
+ 794              		@ args = 0, pretend = 0, frame = 0
+ 795              		@ frame_needed = 0, uses_anonymous_args = 0
+ 796 0000 38B5     		push	{r3, r4, r5, lr}
+ARM GAS  /tmp/cc2VSDCt.s 			page 14
 
 
- 777 036e B360     		str	r3, [r6, #8]
- 778              	.L66:
- 779 0370 18F0200F 		tst	r8, #32
- 780 0374 01D0     		beq	.L67
- 781 0376 2023     		movs	r3, #32
- 782 0378 B360     		str	r3, [r6, #8]
- 783              	.L67:
- 784 037a 18F4005F 		tst	r8, #8192
- 785 037e 02D0     		beq	.L49
- 786 0380 4FF40053 		mov	r3, #8192
- 787 0384 B360     		str	r3, [r6, #8]
- 788              	.L49:
- 789 0386 0135     		adds	r5, r5, #1
- 790 0388 4FEA5909 		lsr	r9, r9, #1
- 791 038c 2036     		adds	r6, r6, #32
- 792 038e 1C37     		adds	r7, r7, #28
- 793 0390 9AE7     		b	.L47
- 794              	.L55:
- 795 0392 12F0280F 		tst	r2, #40
- 796 0396 C3D1     		bne	.L51
- 797 0398 7949     		ldr	r1, .L195
- 798 039a 8C45     		cmp	ip, r1
- 799 039c 01D9     		bls	.L56
- 800 039e 1204     		lsls	r2, r2, #16
- 801 03a0 B7D4     		bmi	.L192
- 802              	.L56:
- 803 03a2 1B69     		ldr	r3, [r3, #16]
- 804 03a4 3A68     		ldr	r2, [r7]
- 805 03a6 C3F31203 		ubfx	r3, r3, #0, #19
- 806 03aa D31A     		subs	r3, r2, r3
- 807 03ac 3B61     		str	r3, [r7, #16]
- 808 03ae 7B68     		ldr	r3, [r7, #4]
- 809 03b0 1A44     		add	r2, r2, r3
- 810 03b2 7A60     		str	r2, [r7, #4]
- 811 03b4 8DB9     		cbnz	r5, .L61
- 812 03b6 D4F81032 		ldr	r3, [r4, #528]
- 813 03ba 73B9     		cbnz	r3, .L61
- 814 03bc 04F57172 		add	r2, r4, #964
- 815 03c0 0121     		movs	r1, #1
- 816              	.L194:
- 817 03c2 FFF7FEFF 		bl	USB_EP0_OutStart
- 818 03c6 08E0     		b	.L61
- 819              	.L52:
- 820 03c8 6E49     		ldr	r1, .L195+4
- 821 03ca 8C45     		cmp	ip, r1
- 822 03cc 0AD1     		bne	.L58
- 823 03ce 1004     		lsls	r0, r2, #16
- 824 03d0 9FD4     		bmi	.L192
- 825 03d2 9106     		lsls	r1, r2, #26
- 826 03d4 01D5     		bpl	.L61
- 827 03d6 2022     		movs	r2, #32
- 828 03d8 9A60     		str	r2, [r3, #8]
- 829              	.L61:
- 830 03da 5946     		mov	r1, fp
- 831 03dc 2046     		mov	r0, r4
- 832 03de FFF7FEFF 		bl	HAL_PCD_DataOutStageCallback
- 833 03e2 9DE7     		b	.L51
-ARM GAS  /tmp/ccVz3jM7.s 			page 15
+ 797 0002 01F00F02 		and	r2, r1, #15
+ 798 0006 4368     		ldr	r3, [r0, #4]
+ 799 0008 0446     		mov	r4, r0
+ 800 000a 9A42     		cmp	r2, r3
+ 801 000c 2AD8     		bhi	.L86
+ 802 000e 02EBC203 		add	r3, r2, r2, lsl #3
+ 803 0012 11F0800F 		tst	r1, #128
+ 804 0016 4FF02400 		mov	r0, #36
+ 805 001a 4FEA8303 		lsl	r3, r3, #2
+ 806 001e 18D0     		beq	.L84
+ 807 0020 03F13C01 		add	r1, r3, #60
+ 808 0024 00FB0240 		mla	r0, r0, r2, r4
+ 809 0028 0123     		movs	r3, #1
+ 810 002a 2144     		add	r1, r1, r4
+ 811 002c 80F83D30 		strb	r3, [r0, #61]
+ 812              	.L85:
+ 813 0030 0025     		movs	r5, #0
+ 814 0032 0A70     		strb	r2, [r1]
+ 815 0034 8D70     		strb	r5, [r1, #2]
+ 816 0036 94F8BC34 		ldrb	r3, [r4, #1212]	@ zero_extendqisi2
+ 817 003a 012B     		cmp	r3, #1
+ 818 003c 14D0     		beq	.L87
+ 819 003e 0123     		movs	r3, #1
+ 820 0040 2068     		ldr	r0, [r4]
+ 821 0042 84F8BC34 		strb	r3, [r4, #1212]
+ 822 0046 FFF7FEFF 		bl	USB_EPClearStall
+ 823 004a 2846     		mov	r0, r5
+ 824 004c 84F8BC54 		strb	r5, [r4, #1212]
+ 825              	.L83:
+ 826 0050 38BD     		pop	{r3, r4, r5, pc}
+ 827              	.L84:
+ 828 0052 03F51F71 		add	r1, r3, #636
+ 829 0056 00FB0240 		mla	r0, r0, r2, r4
+ 830 005a 0023     		movs	r3, #0
+ 831 005c 2144     		add	r1, r1, r4
+ 832 005e 80F87D32 		strb	r3, [r0, #637]
+ 833 0062 E5E7     		b	.L85
+ 834              	.L86:
+ 835 0064 0120     		movs	r0, #1
+ 836 0066 F3E7     		b	.L83
+ 837              	.L87:
+ 838 0068 0220     		movs	r0, #2
+ 839 006a F1E7     		b	.L83
+ 841              		.section	.text.HAL_PCD_EP_Abort,"ax",%progbits
+ 842              		.align	1
+ 843              		.global	HAL_PCD_EP_Abort
+ 844              		.syntax unified
+ 845              		.thumb
+ 846              		.thumb_func
+ 847              		.fpu fpv5-sp-d16
+ 849              	HAL_PCD_EP_Abort:
+ 850              		@ args = 0, pretend = 0, frame = 0
+ 851              		@ frame_needed = 0, uses_anonymous_args = 0
+ 852              		@ link register save eliminated.
+ 853 0000 01F00F03 		and	r3, r1, #15
+ 854 0004 0A06     		lsls	r2, r1, #24
+ 855 0006 03EBC303 		add	r3, r3, r3, lsl #3
+ARM GAS  /tmp/cc2VSDCt.s 			page 15
 
 
- 834              	.L58:
- 835 03e4 002D     		cmp	r5, #0
- 836 03e6 F8D1     		bne	.L61
- 837 03e8 D4F81032 		ldr	r3, [r4, #528]
- 838 03ec 002B     		cmp	r3, #0
- 839 03ee F4D1     		bne	.L61
- 840 03f0 04F57172 		add	r2, r4, #964
- 841 03f4 2946     		mov	r1, r5
- 842 03f6 E4E7     		b	.L194
- 843              	.L89:
- 844 03f8 039B     		ldr	r3, [sp, #12]
- 845 03fa DE07     		lsls	r6, r3, #31
- 846 03fc 40F18480 		bpl	.L75
- 847 0400 5FFA88FB 		uxtb	fp, r8
- 848 0404 2068     		ldr	r0, [r4]
- 849 0406 5946     		mov	r1, fp
- 850 0408 FFF7FEFF 		bl	USB_ReadDevInEPInterrupt
- 851 040c 0646     		mov	r6, r0
- 852 040e F007     		lsls	r0, r6, #31
- 853 0410 21D5     		bpl	.L76
- 854 0412 0120     		movs	r0, #1
- 855 0414 08F00F02 		and	r2, r8, #15
- 856 0418 DAF83438 		ldr	r3, [r10, #2100]
- 857 041c 00FA02F2 		lsl	r2, r0, r2
- 858 0420 2169     		ldr	r1, [r4, #16]
- 859 0422 23EA0203 		bic	r3, r3, r2
- 860 0426 8142     		cmp	r1, r0
- 861 0428 CAF83438 		str	r3, [r10, #2100]
- 862 042c C9F80800 		str	r0, [r9, #8]
- 863 0430 0DD1     		bne	.L78
- 864 0432 D5E91123 		ldrd	r2, r3, [r5, #68]
- 865 0436 1344     		add	r3, r3, r2
- 866 0438 AB64     		str	r3, [r5, #72]
- 867 043a B8F1000F 		cmp	r8, #0
- 868 043e 06D1     		bne	.L78
- 869 0440 236D     		ldr	r3, [r4, #80]
- 870 0442 23B9     		cbnz	r3, .L78
- 871 0444 04F57172 		add	r2, r4, #964
- 872 0448 2068     		ldr	r0, [r4]
- 873 044a FFF7FEFF 		bl	USB_EP0_OutStart
- 874              	.L78:
- 875 044e 5946     		mov	r1, fp
- 876 0450 2046     		mov	r0, r4
- 877 0452 FFF7FEFF 		bl	HAL_PCD_DataInStageCallback
- 878              	.L76:
- 879 0456 3107     		lsls	r1, r6, #28
- 880 0458 02D5     		bpl	.L80
- 881 045a 0823     		movs	r3, #8
- 882 045c C9F80830 		str	r3, [r9, #8]
- 883              	.L80:
- 884 0460 F206     		lsls	r2, r6, #27
- 885 0462 02D5     		bpl	.L81
- 886 0464 1023     		movs	r3, #16
- 887 0466 C9F80830 		str	r3, [r9, #8]
- 888              	.L81:
- 889 046a 7306     		lsls	r3, r6, #25
- 890 046c 02D5     		bpl	.L82
-ARM GAS  /tmp/ccVz3jM7.s 			page 16
+ 856 000a 4FEA8303 		lsl	r3, r3, #2
+ 857 000e 4CBF     		ite	mi
+ 858 0010 03F13C01 		addmi	r1, r3, #60
+ 859 0014 03F51F71 		addpl	r1, r3, #636
+ 860 0018 0144     		add	r1, r1, r0
+ 861 001a 0068     		ldr	r0, [r0]
+ 862 001c FFF7FEBF 		b	USB_EPStopXfer
+ 864              		.section	.text.HAL_PCD_IRQHandler,"ax",%progbits
+ 865              		.align	1
+ 866              		.global	HAL_PCD_IRQHandler
+ 867              		.syntax unified
+ 868              		.thumb
+ 869              		.thumb_func
+ 870              		.fpu fpv5-sp-d16
+ 872              	HAL_PCD_IRQHandler:
+ 873              		@ args = 0, pretend = 0, frame = 24
+ 874              		@ frame_needed = 0, uses_anonymous_args = 0
+ 875 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 876 0004 0668     		ldr	r6, [r0]
+ 877 0006 89B0     		sub	sp, sp, #36
+ 878 0008 0446     		mov	r4, r0
+ 879 000a 3046     		mov	r0, r6
+ 880 000c FFF7FEFF 		bl	USB_GetMode
+ 881 0010 0390     		str	r0, [sp, #12]
+ 882 0012 0028     		cmp	r0, #0
+ 883 0014 40F06F81 		bne	.L92
+ 884 0018 2068     		ldr	r0, [r4]
+ 885 001a FFF7FEFF 		bl	USB_ReadInterrupts
+ 886 001e 0028     		cmp	r0, #0
+ 887 0020 00F06981 		beq	.L92
+ 888 0024 D6F80838 		ldr	r3, [r6, #2056]
+ 889 0028 06F50065 		add	r5, r6, #2048
+ 890 002c 2068     		ldr	r0, [r4]
+ 891 002e C3F30D23 		ubfx	r3, r3, #8, #14
+ 892 0032 C4F8FC34 		str	r3, [r4, #1276]
+ 893 0036 FFF7FEFF 		bl	USB_ReadInterrupts
+ 894 003a 8107     		lsls	r1, r0, #30
+ 895 003c 04D5     		bpl	.L96
+ 896 003e 2268     		ldr	r2, [r4]
+ 897 0040 5369     		ldr	r3, [r2, #20]
+ 898 0042 03F00203 		and	r3, r3, #2
+ 899 0046 5361     		str	r3, [r2, #20]
+ 900              	.L96:
+ 901 0048 2068     		ldr	r0, [r4]
+ 902 004a FFF7FEFF 		bl	USB_ReadInterrupts
+ 903 004e C206     		lsls	r2, r0, #27
+ 904 0050 2CD5     		bpl	.L97
+ 905 0052 2268     		ldr	r2, [r4]
+ 906 0054 9369     		ldr	r3, [r2, #24]
+ 907 0056 23F01003 		bic	r3, r3, #16
+ 908 005a 9361     		str	r3, [r2, #24]
+ 909 005c D6F82080 		ldr	r8, [r6, #32]
+ 910 0060 C8F34343 		ubfx	r3, r8, #17, #4
+ 911 0064 08F00F07 		and	r7, r8, #15
+ 912 0068 022B     		cmp	r3, #2
+ 913 006a 40F04781 		bne	.L98
+ 914 006e 47F6F073 		movw	r3, #32752
+ARM GAS  /tmp/cc2VSDCt.s 			page 16
 
 
- 891 046e 4023     		movs	r3, #64
- 892 0470 C9F80830 		str	r3, [r9, #8]
- 893              	.L82:
- 894 0474 B707     		lsls	r7, r6, #30
- 895 0476 02D5     		bpl	.L83
- 896 0478 0223     		movs	r3, #2
- 897 047a C9F80830 		str	r3, [r9, #8]
- 898              	.L83:
- 899 047e 3606     		lsls	r6, r6, #24
- 900 0480 42D5     		bpl	.L75
- 901 0482 D5E91463 		ldrd	r6, r3, [r5, #80]
- 902 0486 B342     		cmp	r3, r6
- 903 0488 3ED8     		bhi	.L75
- 904 048a F61A     		subs	r6, r6, r3
- 905 048c 6B6C     		ldr	r3, [r5, #68]
- 906 048e 2268     		ldr	r2, [r4]
- 907 0490 9E42     		cmp	r6, r3
- 908 0492 0492     		str	r2, [sp, #16]
- 909 0494 28BF     		it	cs
- 910 0496 1E46     		movcs	r6, r3
- 911 0498 02F51063 		add	r3, r2, #2304
- 912 049c 0336     		adds	r6, r6, #3
- 913 049e 03EB4813 		add	r3, r3, r8, lsl #5
- 914 04a2 B608     		lsrs	r6, r6, #2
- 915 04a4 0593     		str	r3, [sp, #20]
- 916              	.L85:
- 917 04a6 059B     		ldr	r3, [sp, #20]
- 918 04a8 9A69     		ldr	r2, [r3, #24]
- 919 04aa 92B2     		uxth	r2, r2
- 920 04ac B242     		cmp	r2, r6
- 921 04ae D5E91473 		ldrd	r7, r3, [r5, #80]
- 922 04b2 27D3     		bcc	.L86
- 923 04b4 9F42     		cmp	r7, r3
- 924 04b6 00D9     		bls	.L87
- 925 04b8 77B9     		cbnz	r7, .L88
- 926              	.L87:
- 927 04ba 049B     		ldr	r3, [sp, #16]
- 928 04bc 08F00F02 		and	r2, r8, #15
- 929 04c0 0121     		movs	r1, #1
- 930 04c2 03F5006B 		add	fp, r3, #2048
- 931 04c6 D3F83438 		ldr	r3, [r3, #2100]
- 932 04ca 01FA02F2 		lsl	r2, r1, r2
- 933 04ce 23EA0203 		bic	r3, r3, r2
- 934 04d2 CBF83430 		str	r3, [fp, #52]
- 935 04d6 17E0     		b	.L75
- 936              	.L88:
- 937 04d8 FF1A     		subs	r7, r7, r3
- 938 04da 6B6C     		ldr	r3, [r5, #68]
- 939 04dc 5A46     		mov	r2, fp
- 940 04de 0498     		ldr	r0, [sp, #16]
- 941 04e0 9F42     		cmp	r7, r3
- 942 04e2 28BF     		it	cs
- 943 04e4 1F46     		movcs	r7, r3
- 944 04e6 237C     		ldrb	r3, [r4, #16]	@ zero_extendqisi2
- 945 04e8 0093     		str	r3, [sp]
- 946 04ea BBB2     		uxth	r3, r7
- 947 04ec A96C     		ldr	r1, [r5, #72]
-ARM GAS  /tmp/ccVz3jM7.s 			page 17
+ 915 0072 18EA030F 		tst	r8, r3
+ 916 0076 14D0     		beq	.L99
+ 917 0078 2423     		movs	r3, #36
+ 918 007a C8F30A19 		ubfx	r9, r8, #4, #11
+ 919 007e 3046     		mov	r0, r6
+ 920 0080 03FB0747 		mla	r7, r3, r7, r4
+ 921 0084 4A46     		mov	r2, r9
+ 922 0086 D7F88C12 		ldr	r1, [r7, #652]
+ 923 008a FFF7FEFF 		bl	USB_ReadPacket
+ 924 008e D7F88C32 		ldr	r3, [r7, #652]
+ 925 0092 4B44     		add	r3, r3, r9
+ 926 0094 C7F88C32 		str	r3, [r7, #652]
+ 927 0098 D7F89C32 		ldr	r3, [r7, #668]
+ 928 009c 4B44     		add	r3, r3, r9
+ 929              	.L270:
+ 930 009e C7F89C32 		str	r3, [r7, #668]
+ 931              	.L99:
+ 932 00a2 2268     		ldr	r2, [r4]
+ 933 00a4 9369     		ldr	r3, [r2, #24]
+ 934 00a6 43F01003 		orr	r3, r3, #16
+ 935 00aa 9361     		str	r3, [r2, #24]
+ 936              	.L97:
+ 937 00ac 2068     		ldr	r0, [r4]
+ 938 00ae FFF7FEFF 		bl	USB_ReadInterrupts
+ 939 00b2 0303     		lsls	r3, r0, #12
+ 940 00b4 00F13481 		bmi	.L100
+ 941              	.L130:
+ 942 00b8 2068     		ldr	r0, [r4]
+ 943 00ba FFF7FEFF 		bl	USB_ReadInterrupts
+ 944 00be 4703     		lsls	r7, r0, #13
+ 945 00c0 0CD5     		bpl	.L102
+ 946 00c2 2746     		mov	r7, r4
+ 947 00c4 06F5106A 		add	r10, r6, #2304
+ 948 00c8 4FF00009 		mov	r9, #0
+ 949 00cc 2068     		ldr	r0, [r4]
+ 950 00ce FFF7FEFF 		bl	USB_ReadDevAllInEpInterrupt
+ 951 00d2 0490     		str	r0, [sp, #16]
+ 952              	.L133:
+ 953 00d4 049B     		ldr	r3, [sp, #16]
+ 954 00d6 002B     		cmp	r3, #0
+ 955 00d8 40F0EA81 		bne	.L150
+ 956              	.L102:
+ 957 00dc 2068     		ldr	r0, [r4]
+ 958 00de FFF7FEFF 		bl	USB_ReadInterrupts
+ 959 00e2 0028     		cmp	r0, #0
+ 960 00e4 13DA     		bge	.L132
+ 961 00e6 6B68     		ldr	r3, [r5, #4]
+ 962 00e8 23F00103 		bic	r3, r3, #1
+ 963 00ec 6B60     		str	r3, [r5, #4]
+ 964 00ee 94F8F434 		ldrb	r3, [r4, #1268]	@ zero_extendqisi2
+ 965 00f2 012B     		cmp	r3, #1
+ 966 00f4 40F08582 		bne	.L151
+ 967 00f8 0021     		movs	r1, #0
+ 968 00fa 2046     		mov	r0, r4
+ 969 00fc 84F8F414 		strb	r1, [r4, #1268]
+ 970 0100 FFF7FEFF 		bl	HAL_PCDEx_LPM_Callback
+ 971              	.L152:
+ARM GAS  /tmp/cc2VSDCt.s 			page 17
 
 
- 948 04ee FE1C     		adds	r6, r7, #3
- 949 04f0 FFF7FEFF 		bl	USB_WritePacket
- 950 04f4 AB6C     		ldr	r3, [r5, #72]
- 951 04f6 B608     		lsrs	r6, r6, #2
- 952 04f8 3B44     		add	r3, r3, r7
- 953 04fa AB64     		str	r3, [r5, #72]
- 954 04fc 6B6D     		ldr	r3, [r5, #84]
- 955 04fe 1F44     		add	r7, r7, r3
- 956 0500 6F65     		str	r7, [r5, #84]
- 957 0502 D0E7     		b	.L85
- 958              	.L86:
- 959 0504 9F42     		cmp	r7, r3
- 960 0506 D8D9     		bls	.L87
- 961              	.L75:
- 962 0508 039B     		ldr	r3, [sp, #12]
- 963 050a 08F10108 		add	r8, r8, #1
- 964 050e 1C35     		adds	r5, r5, #28
- 965 0510 09F12009 		add	r9, r9, #32
- 966 0514 5B08     		lsrs	r3, r3, #1
- 967 0516 0393     		str	r3, [sp, #12]
- 968 0518 D4E5     		b	.L73
- 969              	.L90:
- 970 051a 2046     		mov	r0, r4
- 971 051c FFF7FEFF 		bl	HAL_PCD_ResumeCallback
- 972 0520 EAE5     		b	.L91
- 973              	.L95:
- 974 0522 2046     		mov	r0, r4
- 975 0524 FFF7FEFF 		bl	HAL_PCD_SuspendCallback
- 976 0528 16E6     		b	.L94
- 977              	.L98:
- 978 052a 9960     		str	r1, [r3, #8]
- 979 052c 2033     		adds	r3, r3, #32
- 980 052e 53F8202C 		ldr	r2, [r3, #-32]
- 981 0532 22F40012 		bic	r2, r2, #2097152
- 982 0536 43F8202C 		str	r2, [r3, #-32]
- 983 053a 53F8202C 		ldr	r2, [r3, #-32]
- 984 053e 42F00062 		orr	r2, r2, #134217728
- 985 0542 43F8202C 		str	r2, [r3, #-32]
- 986 0546 C3F8E811 		str	r1, [r3, #488]
- 987 054a D3F8E021 		ldr	r2, [r3, #480]
- 988 054e 22F40012 		bic	r2, r2, #2097152
- 989 0552 C3F8E021 		str	r2, [r3, #480]
- 990 0556 D3F8E021 		ldr	r2, [r3, #480]
- 991 055a 42F00062 		orr	r2, r2, #134217728
- 992 055e C3F8E021 		str	r2, [r3, #480]
- 993 0562 029A     		ldr	r2, [sp, #8]
- 994 0564 0132     		adds	r2, r2, #1
- 995 0566 0292     		str	r2, [sp, #8]
- 996 0568 0AE6     		b	.L97
- 997              	.L99:
- 998 056a 6B69     		ldr	r3, [r5, #20]
- 999 056c 43F40053 		orr	r3, r3, #8192
- 1000 0570 43F02B03 		orr	r3, r3, #43
- 1001 0574 6B61     		str	r3, [r5, #20]
- 1002 0576 2B69     		ldr	r3, [r5, #16]
- 1003 0578 43F00B03 		orr	r3, r3, #11
- 1004 057c 2B61     		str	r3, [r5, #16]
-ARM GAS  /tmp/ccVz3jM7.s 			page 18
+ 972 0104 2268     		ldr	r2, [r4]
+ 973 0106 5369     		ldr	r3, [r2, #20]
+ 974 0108 03F00043 		and	r3, r3, #-2147483648
+ 975 010c 5361     		str	r3, [r2, #20]
+ 976              	.L132:
+ 977 010e 2068     		ldr	r0, [r4]
+ 978 0110 FFF7FEFF 		bl	USB_ReadInterrupts
+ 979 0114 0005     		lsls	r0, r0, #20
+ 980 0116 0AD5     		bpl	.L153
+ 981 0118 AB68     		ldr	r3, [r5, #8]
+ 982 011a D907     		lsls	r1, r3, #31
+ 983 011c 02D5     		bpl	.L154
+ 984 011e 2046     		mov	r0, r4
+ 985 0120 FFF7FEFF 		bl	HAL_PCD_SuspendCallback
+ 986              	.L154:
+ 987 0124 2268     		ldr	r2, [r4]
+ 988 0126 5369     		ldr	r3, [r2, #20]
+ 989 0128 03F40063 		and	r3, r3, #2048
+ 990 012c 5361     		str	r3, [r2, #20]
+ 991              	.L153:
+ 992 012e 2068     		ldr	r0, [r4]
+ 993 0130 FFF7FEFF 		bl	USB_ReadInterrupts
+ 994 0134 0201     		lsls	r2, r0, #4
+ 995 0136 14D5     		bpl	.L155
+ 996 0138 2368     		ldr	r3, [r4]
+ 997 013a 5A69     		ldr	r2, [r3, #20]
+ 998 013c 02F00062 		and	r2, r2, #134217728
+ 999 0140 5A61     		str	r2, [r3, #20]
+ 1000 0142 94F8F424 		ldrb	r2, [r4, #1268]	@ zero_extendqisi2
+ 1001 0146 002A     		cmp	r2, #0
+ 1002 0148 40F05F82 		bne	.L156
+ 1003 014c 0121     		movs	r1, #1
+ 1004 014e 2046     		mov	r0, r4
+ 1005 0150 84F8F414 		strb	r1, [r4, #1268]
+ 1006 0154 5B6D     		ldr	r3, [r3, #84]
+ 1007 0156 C3F38303 		ubfx	r3, r3, #2, #4
+ 1008 015a C4F8F834 		str	r3, [r4, #1272]
+ 1009 015e FFF7FEFF 		bl	HAL_PCDEx_LPM_Callback
+ 1010              	.L155:
+ 1011 0162 2068     		ldr	r0, [r4]
+ 1012 0164 FFF7FEFF 		bl	USB_ReadInterrupts
+ 1013 0168 C304     		lsls	r3, r0, #19
+ 1014 016a 33D5     		bpl	.L157
+ 1015 016c 6B68     		ldr	r3, [r5, #4]
+ 1016 016e 1021     		movs	r1, #16
+ 1017 0170 2068     		ldr	r0, [r4]
+ 1018 0172 23F00103 		bic	r3, r3, #1
+ 1019 0176 6B60     		str	r3, [r5, #4]
+ 1020 0178 FFF7FEFF 		bl	USB_FlushTxFifo
+ 1021 017c 06F51063 		add	r3, r6, #2304
+ 1022 0180 4FF67F31 		movw	r1, #64383
+ 1023              	.L158:
+ 1024 0184 6268     		ldr	r2, [r4, #4]
+ 1025 0186 0398     		ldr	r0, [sp, #12]
+ 1026 0188 8242     		cmp	r2, r0
+ 1027 018a 00F24782 		bhi	.L159
+ 1028 018e EB69     		ldr	r3, [r5, #28]
+ARM GAS  /tmp/cc2VSDCt.s 			page 18
 
 
- 1005 057e 15E6     		b	.L100
- 1006              	.L196:
- 1007              		.align	2
- 1008              	.L195:
- 1009 0580 0A30544F 		.word	1330917386
- 1010 0584 0A31544F 		.word	1330917642
- 1012              		.section	.text.HAL_PCD_DevConnect,"ax",%progbits
- 1013              		.align	1
- 1014              		.global	HAL_PCD_DevConnect
- 1015              		.syntax unified
- 1016              		.thumb
- 1017              		.thumb_func
- 1018              		.fpu fpv5-sp-d16
- 1020              	HAL_PCD_DevConnect:
- 1021              		@ args = 0, pretend = 0, frame = 0
- 1022              		@ frame_needed = 0, uses_anonymous_args = 0
- 1023 0000 90F8BC33 		ldrb	r3, [r0, #956]	@ zero_extendqisi2
- 1024 0004 012B     		cmp	r3, #1
- 1025 0006 10B5     		push	{r4, lr}
- 1026 0008 0446     		mov	r4, r0
- 1027 000a 09D0     		beq	.L199
- 1028 000c 0123     		movs	r3, #1
- 1029 000e 80F8BC33 		strb	r3, [r0, #956]
- 1030 0012 0068     		ldr	r0, [r0]
- 1031 0014 FFF7FEFF 		bl	USB_DevConnect
- 1032 0018 0020     		movs	r0, #0
- 1033 001a 84F8BC03 		strb	r0, [r4, #956]
- 1034              	.L198:
- 1035 001e 10BD     		pop	{r4, pc}
- 1036              	.L199:
- 1037 0020 0220     		movs	r0, #2
- 1038 0022 FCE7     		b	.L198
- 1040              		.section	.text.HAL_PCD_DevDisconnect,"ax",%progbits
- 1041              		.align	1
- 1042              		.global	HAL_PCD_DevDisconnect
- 1043              		.syntax unified
- 1044              		.thumb
- 1045              		.thumb_func
- 1046              		.fpu fpv5-sp-d16
- 1048              	HAL_PCD_DevDisconnect:
- 1049              		@ args = 0, pretend = 0, frame = 0
- 1050              		@ frame_needed = 0, uses_anonymous_args = 0
- 1051 0000 90F8BC33 		ldrb	r3, [r0, #956]	@ zero_extendqisi2
- 1052 0004 012B     		cmp	r3, #1
- 1053 0006 10B5     		push	{r4, lr}
- 1054 0008 0446     		mov	r4, r0
- 1055 000a 09D0     		beq	.L202
- 1056 000c 0123     		movs	r3, #1
- 1057 000e 80F8BC33 		strb	r3, [r0, #956]
- 1058 0012 0068     		ldr	r0, [r0]
- 1059 0014 FFF7FEFF 		bl	USB_DevDisconnect
- 1060 0018 0020     		movs	r0, #0
- 1061 001a 84F8BC03 		strb	r0, [r4, #956]
- 1062              	.L201:
- 1063 001e 10BD     		pop	{r4, pc}
- 1064              	.L202:
- 1065 0020 0220     		movs	r0, #2
-ARM GAS  /tmp/ccVz3jM7.s 			page 19
+ 1029 0190 43F00113 		orr	r3, r3, #65537
+ 1030 0194 EB61     		str	r3, [r5, #28]
+ 1031 0196 236B     		ldr	r3, [r4, #48]
+ 1032 0198 002B     		cmp	r3, #0
+ 1033 019a 00F05982 		beq	.L160
+ 1034 019e D5F88430 		ldr	r3, [r5, #132]
+ 1035 01a2 43F00B03 		orr	r3, r3, #11
+ 1036 01a6 C5F88430 		str	r3, [r5, #132]
+ 1037 01aa 6B6C     		ldr	r3, [r5, #68]
+ 1038 01ac 43F00B03 		orr	r3, r3, #11
+ 1039 01b0 6B64     		str	r3, [r5, #68]
+ 1040              	.L161:
+ 1041 01b2 D6F80038 		ldr	r3, [r6, #2048]
+ 1042 01b6 04F2C442 		addw	r2, r4, #1220
+ 1043 01ba 217C     		ldrb	r1, [r4, #16]	@ zero_extendqisi2
+ 1044 01bc 23F4FE63 		bic	r3, r3, #2032
+ 1045 01c0 2068     		ldr	r0, [r4]
+ 1046 01c2 C6F80038 		str	r3, [r6, #2048]
+ 1047 01c6 FFF7FEFF 		bl	USB_EP0_OutStart
+ 1048 01ca 2268     		ldr	r2, [r4]
+ 1049 01cc 5369     		ldr	r3, [r2, #20]
+ 1050 01ce 03F48053 		and	r3, r3, #4096
+ 1051 01d2 5361     		str	r3, [r2, #20]
+ 1052              	.L157:
+ 1053 01d4 2068     		ldr	r0, [r4]
+ 1054 01d6 FFF7FEFF 		bl	USB_ReadInterrupts
+ 1055 01da 8704     		lsls	r7, r0, #18
+ 1056 01dc 16D5     		bpl	.L162
+ 1057 01de 2068     		ldr	r0, [r4]
+ 1058 01e0 FFF7FEFF 		bl	USB_ActivateSetup
+ 1059 01e4 2068     		ldr	r0, [r4]
+ 1060 01e6 FFF7FEFF 		bl	USB_GetDevSpeed
+ 1061 01ea 2768     		ldr	r7, [r4]
+ 1062 01ec E060     		str	r0, [r4, #12]
+ 1063 01ee FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
+ 1064 01f2 227B     		ldrb	r2, [r4, #12]	@ zero_extendqisi2
+ 1065 01f4 0146     		mov	r1, r0
+ 1066 01f6 3846     		mov	r0, r7
+ 1067 01f8 FFF7FEFF 		bl	USB_SetTurnaroundTime
+ 1068 01fc 2046     		mov	r0, r4
+ 1069 01fe FFF7FEFF 		bl	HAL_PCD_ResetCallback
+ 1070 0202 2268     		ldr	r2, [r4]
+ 1071 0204 5369     		ldr	r3, [r2, #20]
+ 1072 0206 03F40053 		and	r3, r3, #8192
+ 1073 020a 5361     		str	r3, [r2, #20]
+ 1074              	.L162:
+ 1075 020c 2068     		ldr	r0, [r4]
+ 1076 020e FFF7FEFF 		bl	USB_ReadInterrupts
+ 1077 0212 0007     		lsls	r0, r0, #28
+ 1078 0214 07D5     		bpl	.L163
+ 1079 0216 2046     		mov	r0, r4
+ 1080 0218 FFF7FEFF 		bl	HAL_PCD_SOFCallback
+ 1081 021c 2268     		ldr	r2, [r4]
+ 1082 021e 5369     		ldr	r3, [r2, #20]
+ 1083 0220 03F00803 		and	r3, r3, #8
+ 1084 0224 5361     		str	r3, [r2, #20]
+ 1085              	.L163:
+ARM GAS  /tmp/cc2VSDCt.s 			page 19
 
 
- 1066 0022 FCE7     		b	.L201
- 1068              		.section	.text.HAL_PCD_SetAddress,"ax",%progbits
- 1069              		.align	1
- 1070              		.global	HAL_PCD_SetAddress
- 1071              		.syntax unified
- 1072              		.thumb
- 1073              		.thumb_func
- 1074              		.fpu fpv5-sp-d16
- 1076              	HAL_PCD_SetAddress:
- 1077              		@ args = 0, pretend = 0, frame = 0
- 1078              		@ frame_needed = 0, uses_anonymous_args = 0
- 1079 0000 90F8BC23 		ldrb	r2, [r0, #956]	@ zero_extendqisi2
- 1080 0004 012A     		cmp	r2, #1
- 1081 0006 10B5     		push	{r4, lr}
- 1082 0008 0446     		mov	r4, r0
- 1083 000a 0BD0     		beq	.L205
- 1084 000c 0122     		movs	r2, #1
- 1085 000e 80F8BC23 		strb	r2, [r0, #956]
- 1086 0012 84F83810 		strb	r1, [r4, #56]
- 1087 0016 0068     		ldr	r0, [r0]
- 1088 0018 FFF7FEFF 		bl	USB_SetDevAddress
- 1089 001c 0020     		movs	r0, #0
- 1090 001e 84F8BC03 		strb	r0, [r4, #956]
- 1091              	.L204:
- 1092 0022 10BD     		pop	{r4, pc}
- 1093              	.L205:
- 1094 0024 0220     		movs	r0, #2
- 1095 0026 FCE7     		b	.L204
- 1097              		.section	.text.HAL_PCD_EP_Open,"ax",%progbits
- 1098              		.align	1
- 1099              		.global	HAL_PCD_EP_Open
- 1100              		.syntax unified
- 1101              		.thumb
- 1102              		.thumb_func
- 1103              		.fpu fpv5-sp-d16
- 1105              	HAL_PCD_EP_Open:
- 1106              		@ args = 0, pretend = 0, frame = 0
- 1107              		@ frame_needed = 0, uses_anonymous_args = 0
- 1108 0000 70B5     		push	{r4, r5, r6, lr}
- 1109 0002 01F00F05 		and	r5, r1, #15
- 1110 0006 0446     		mov	r4, r0
- 1111 0008 11F0800F 		tst	r1, #128
- 1112 000c 4FF01C06 		mov	r6, #28
- 1113 0010 C5EBC500 		rsb	r0, r5, r5, lsl #3
- 1114 0014 4FEA8000 		lsl	r0, r0, #2
- 1115 0018 1FD0     		beq	.L207
- 1116 001a 00F13C01 		add	r1, r0, #60
- 1117 001e 06FB0546 		mla	r6, r6, r5, r4
- 1118 0022 0120     		movs	r0, #1
- 1119 0024 2144     		add	r1, r1, r4
- 1120 0026 86F83D00 		strb	r0, [r6, #61]
- 1121              	.L208:
- 1122 002a 8A60     		str	r2, [r1, #8]
- 1123 002c 4A78     		ldrb	r2, [r1, #1]	@ zero_extendqisi2
- 1124 002e 0D70     		strb	r5, [r1]
- 1125 0030 CB70     		strb	r3, [r1, #3]
- 1126 0032 02B1     		cbz	r2, .L209
-ARM GAS  /tmp/ccVz3jM7.s 			page 20
+ 1086 0226 2068     		ldr	r0, [r4]
+ 1087 0228 FFF7FEFF 		bl	USB_ReadInterrupts
+ 1088 022c 0106     		lsls	r1, r0, #24
+ 1089 022e 00F11A82 		bmi	.L164
+ 1090              	.L170:
+ 1091 0232 2068     		ldr	r0, [r4]
+ 1092 0234 FFF7FEFF 		bl	USB_ReadInterrupts
+ 1093 0238 C202     		lsls	r2, r0, #11
+ 1094 023a 0CD5     		bpl	.L165
+ 1095 023c A046     		mov	r8, r4
+ 1096 023e 06F51269 		add	r9, r6, #2336
+ 1097 0242 0127     		movs	r7, #1
+ 1098              	.L166:
+ 1099 0244 6368     		ldr	r3, [r4, #4]
+ 1100 0246 BB42     		cmp	r3, r7
+ 1101 0248 00F22682 		bhi	.L172
+ 1102 024c 2268     		ldr	r2, [r4]
+ 1103 024e 5369     		ldr	r3, [r2, #20]
+ 1104 0250 03F48013 		and	r3, r3, #1048576
+ 1105 0254 5361     		str	r3, [r2, #20]
+ 1106              	.L165:
+ 1107 0256 2068     		ldr	r0, [r4]
+ 1108 0258 FFF7FEFF 		bl	USB_ReadInterrupts
+ 1109 025c 8302     		lsls	r3, r0, #10
+ 1110 025e 2DD5     		bpl	.L173
+ 1111 0260 D4F804E0 		ldr	lr, [r4, #4]
+ 1112 0264 2346     		mov	r3, r4
+ 1113 0266 06F53260 		add	r0, r6, #2848
+ 1114 026a 0121     		movs	r1, #1
+ 1115              	.L174:
+ 1116 026c 8E45     		cmp	lr, r1
+ 1117 026e 20D9     		bls	.L176
+ 1118 0270 93F8A4C2 		ldrb	ip, [r3, #676]	@ zero_extendqisi2
+ 1119 0274 0268     		ldr	r2, [r0]
+ 1120 0276 BCF1010F 		cmp	ip, #1
+ 1121 027a 40F02382 		bne	.L175
+ 1122 027e 002A     		cmp	r2, #0
+ 1123 0280 80F22082 		bge	.L175
+ 1124 0284 D4F8FC74 		ldr	r7, [r4, #1276]
+ 1125 0288 02F48032 		and	r2, r2, #65536
+ 1126 028c 07F00107 		and	r7, r7, #1
+ 1127 0290 BA42     		cmp	r2, r7
+ 1128 0292 40F01782 		bne	.L175
+ 1129 0296 83F8A3C2 		strb	ip, [r3, #675]
+ 1130 029a B269     		ldr	r2, [r6, #24]
+ 1131 029c 42F08002 		orr	r2, r2, #128
+ 1132 02a0 B261     		str	r2, [r6, #24]
+ 1133 02a2 7269     		ldr	r2, [r6, #20]
+ 1134 02a4 1706     		lsls	r7, r2, #24
+ 1135 02a6 00F10D82 		bmi	.L175
+ 1136 02aa 6B68     		ldr	r3, [r5, #4]
+ 1137 02ac 43F40073 		orr	r3, r3, #512
+ 1138 02b0 6B60     		str	r3, [r5, #4]
+ 1139              	.L176:
+ 1140 02b2 2268     		ldr	r2, [r4]
+ 1141 02b4 5369     		ldr	r3, [r2, #20]
+ 1142 02b6 03F40013 		and	r3, r3, #2097152
+ARM GAS  /tmp/cc2VSDCt.s 			page 20
 
 
- 1127 0034 CD80     		strh	r5, [r1, #6]	@ movhi
- 1128              	.L209:
- 1129 0036 022B     		cmp	r3, #2
- 1130 0038 04BF     		itt	eq
- 1131 003a 0023     		moveq	r3, #0
- 1132 003c 0B71     		strbeq	r3, [r1, #4]
- 1133 003e 94F8BC33 		ldrb	r3, [r4, #956]	@ zero_extendqisi2
- 1134 0042 012B     		cmp	r3, #1
- 1135 0044 12D0     		beq	.L212
- 1136 0046 0123     		movs	r3, #1
- 1137 0048 2068     		ldr	r0, [r4]
- 1138 004a 84F8BC33 		strb	r3, [r4, #956]
- 1139 004e FFF7FEFF 		bl	USB_ActivateEndpoint
- 1140 0052 0020     		movs	r0, #0
- 1141 0054 84F8BC03 		strb	r0, [r4, #956]
- 1142              	.L211:
- 1143 0058 70BD     		pop	{r4, r5, r6, pc}
- 1144              	.L207:
- 1145 005a 00F5FE71 		add	r1, r0, #508
- 1146 005e 06FB0546 		mla	r6, r6, r5, r4
- 1147 0062 0020     		movs	r0, #0
- 1148 0064 2144     		add	r1, r1, r4
- 1149 0066 86F8FD01 		strb	r0, [r6, #509]
- 1150 006a DEE7     		b	.L208
- 1151              	.L212:
- 1152 006c 0220     		movs	r0, #2
- 1153 006e F3E7     		b	.L211
- 1155              		.section	.text.HAL_PCD_EP_Close,"ax",%progbits
- 1156              		.align	1
- 1157              		.global	HAL_PCD_EP_Close
- 1158              		.syntax unified
- 1159              		.thumb
- 1160              		.thumb_func
- 1161              		.fpu fpv5-sp-d16
- 1163              	HAL_PCD_EP_Close:
- 1164              		@ args = 0, pretend = 0, frame = 0
- 1165              		@ frame_needed = 0, uses_anonymous_args = 0
- 1166 0000 10B5     		push	{r4, lr}
- 1167 0002 0446     		mov	r4, r0
- 1168 0004 01F00F00 		and	r0, r1, #15
- 1169 0008 11F0800F 		tst	r1, #128
- 1170 000c 4FF01C02 		mov	r2, #28
- 1171 0010 C0EBC003 		rsb	r3, r0, r0, lsl #3
- 1172 0014 4FEA8303 		lsl	r3, r3, #2
- 1173 0018 16D0     		beq	.L217
- 1174 001a 03F13C01 		add	r1, r3, #60
- 1175 001e 02FB0042 		mla	r2, r2, r0, r4
- 1176 0022 0123     		movs	r3, #1
- 1177 0024 2144     		add	r1, r1, r4
- 1178 0026 82F83D30 		strb	r3, [r2, #61]
- 1179              	.L218:
- 1180 002a 0870     		strb	r0, [r1]
- 1181 002c 94F8BC33 		ldrb	r3, [r4, #956]	@ zero_extendqisi2
- 1182 0030 012B     		cmp	r3, #1
- 1183 0032 12D0     		beq	.L220
- 1184 0034 0123     		movs	r3, #1
- 1185 0036 2068     		ldr	r0, [r4]
-ARM GAS  /tmp/ccVz3jM7.s 			page 21
+ 1143 02ba 5361     		str	r3, [r2, #20]
+ 1144              	.L173:
+ 1145 02bc 2068     		ldr	r0, [r4]
+ 1146 02be FFF7FEFF 		bl	USB_ReadInterrupts
+ 1147 02c2 4100     		lsls	r1, r0, #1
+ 1148 02c4 07D5     		bpl	.L178
+ 1149 02c6 2046     		mov	r0, r4
+ 1150 02c8 FFF7FEFF 		bl	HAL_PCD_ConnectCallback
+ 1151 02cc 2268     		ldr	r2, [r4]
+ 1152 02ce 5369     		ldr	r3, [r2, #20]
+ 1153 02d0 03F08043 		and	r3, r3, #1073741824
+ 1154 02d4 5361     		str	r3, [r2, #20]
+ 1155              	.L178:
+ 1156 02d6 2068     		ldr	r0, [r4]
+ 1157 02d8 FFF7FEFF 		bl	USB_ReadInterrupts
+ 1158 02dc 4207     		lsls	r2, r0, #29
+ 1159 02de 0AD5     		bpl	.L92
+ 1160 02e0 2368     		ldr	r3, [r4]
+ 1161 02e2 5D68     		ldr	r5, [r3, #4]
+ 1162 02e4 6B07     		lsls	r3, r5, #29
+ 1163 02e6 02D5     		bpl	.L179
+ 1164 02e8 2046     		mov	r0, r4
+ 1165 02ea FFF7FEFF 		bl	HAL_PCD_DisconnectCallback
+ 1166              	.L179:
+ 1167 02ee 2268     		ldr	r2, [r4]
+ 1168 02f0 5368     		ldr	r3, [r2, #4]
+ 1169 02f2 2B43     		orrs	r3, r3, r5
+ 1170 02f4 5360     		str	r3, [r2, #4]
+ 1171              	.L92:
+ 1172 02f6 09B0     		add	sp, sp, #36
+ 1173              		@ sp needed
+ 1174 02f8 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 1175              	.L98:
+ 1176 02fc 062B     		cmp	r3, #6
+ 1177 02fe 7FF4D0AE 		bne	.L99
+ 1178 0302 0822     		movs	r2, #8
+ 1179 0304 04F2C441 		addw	r1, r4, #1220
+ 1180 0308 3046     		mov	r0, r6
+ 1181 030a C8F30A18 		ubfx	r8, r8, #4, #11
+ 1182 030e FFF7FEFF 		bl	USB_ReadPacket
+ 1183 0312 2423     		movs	r3, #36
+ 1184 0314 03FB0747 		mla	r7, r3, r7, r4
+ 1185 0318 D7F89C32 		ldr	r3, [r7, #668]
+ 1186 031c 4344     		add	r3, r3, r8
+ 1187 031e BEE6     		b	.L270
+ 1188              	.L100:
+ 1189 0320 06F53068 		add	r8, r6, #2816
+ 1190 0324 A246     		mov	r10, r4
+ 1191 0326 0027     		movs	r7, #0
+ 1192 0328 2068     		ldr	r0, [r4]
+ 1193 032a FFF7FEFF 		bl	USB_ReadDevAllOutEpInterrupt
+ 1194 032e 0490     		str	r0, [sp, #16]
+ 1195              	.L103:
+ 1196 0330 049B     		ldr	r3, [sp, #16]
+ 1197 0332 002B     		cmp	r3, #0
+ 1198 0334 3FF4C0AE 		beq	.L130
+ 1199 0338 049B     		ldr	r3, [sp, #16]
+ARM GAS  /tmp/cc2VSDCt.s 			page 21
 
 
- 1186 0038 84F8BC33 		strb	r3, [r4, #956]
- 1187 003c FFF7FEFF 		bl	USB_DeactivateEndpoint
- 1188 0040 0020     		movs	r0, #0
- 1189 0042 84F8BC03 		strb	r0, [r4, #956]
- 1190              	.L219:
- 1191 0046 10BD     		pop	{r4, pc}
- 1192              	.L217:
- 1193 0048 03F5FE71 		add	r1, r3, #508
- 1194 004c 02FB0042 		mla	r2, r2, r0, r4
- 1195 0050 0023     		movs	r3, #0
- 1196 0052 2144     		add	r1, r1, r4
- 1197 0054 82F8FD31 		strb	r3, [r2, #509]
- 1198 0058 E7E7     		b	.L218
- 1199              	.L220:
- 1200 005a 0220     		movs	r0, #2
- 1201 005c F3E7     		b	.L219
- 1203              		.section	.text.HAL_PCD_EP_Receive,"ax",%progbits
- 1204              		.align	1
- 1205              		.global	HAL_PCD_EP_Receive
- 1206              		.syntax unified
- 1207              		.thumb
- 1208              		.thumb_func
- 1209              		.fpu fpv5-sp-d16
- 1211              	HAL_PCD_EP_Receive:
- 1212              		@ args = 0, pretend = 0, frame = 0
- 1213              		@ frame_needed = 0, uses_anonymous_args = 0
- 1214 0000 38B5     		push	{r3, r4, r5, lr}
- 1215 0002 01F00F05 		and	r5, r1, #15
- 1216 0006 1C24     		movs	r4, #28
- 1217 0008 04FB0501 		mla	r1, r4, r5, r0
- 1218 000c 04FB0504 		mla	r4, r4, r5, r0
- 1219 0010 01F5FE71 		add	r1, r1, #508
- 1220 0014 C4F81032 		str	r3, [r4, #528]
- 1221 0018 0023     		movs	r3, #0
- 1222 001a C4F80822 		str	r2, [r4, #520]
- 1223 001e C4F81432 		str	r3, [r4, #532]
- 1224 0022 84F8FD31 		strb	r3, [r4, #509]
- 1225 0026 84F8FC51 		strb	r5, [r4, #508]
- 1226 002a 0369     		ldr	r3, [r0, #16]
- 1227 002c 0068     		ldr	r0, [r0]
- 1228 002e 012B     		cmp	r3, #1
- 1229 0030 08BF     		it	eq
- 1230 0032 C4F80C22 		streq	r2, [r4, #524]
- 1231 0036 DAB2     		uxtb	r2, r3
- 1232 0038 1DB9     		cbnz	r5, .L223
- 1233 003a FFF7FEFF 		bl	USB_EP0StartXfer
- 1234              	.L224:
- 1235 003e 0020     		movs	r0, #0
- 1236 0040 38BD     		pop	{r3, r4, r5, pc}
- 1237              	.L223:
- 1238 0042 FFF7FEFF 		bl	USB_EPStartXfer
- 1239 0046 FAE7     		b	.L224
- 1241              		.section	.text.HAL_PCD_EP_GetRxCount,"ax",%progbits
- 1242              		.align	1
- 1243              		.global	HAL_PCD_EP_GetRxCount
- 1244              		.syntax unified
- 1245              		.thumb
-ARM GAS  /tmp/ccVz3jM7.s 			page 22
+ 1200 033a D807     		lsls	r0, r3, #31
+ 1201 033c 76D5     		bpl	.L105
+ 1202 033e 5FFA87FB 		uxtb	fp, r7
+ 1203 0342 2068     		ldr	r0, [r4]
+ 1204 0344 5946     		mov	r1, fp
+ 1205 0346 FFF7FEFF 		bl	USB_ReadDevOutEPInterrupt
+ 1206 034a 10F0010F 		tst	r0, #1
+ 1207 034e 8146     		mov	r9, r0
+ 1208 0350 1CD0     		beq	.L107
+ 1209 0352 0123     		movs	r3, #1
+ 1210 0354 2068     		ldr	r0, [r4]
+ 1211 0356 2169     		ldr	r1, [r4, #16]
+ 1212 0358 C8F80830 		str	r3, [r8, #8]
+ 1213 035c 00F53063 		add	r3, r0, #2816
+ 1214 0360 0129     		cmp	r1, #1
+ 1215 0362 D0F840C0 		ldr	ip, [r0, #64]
+ 1216 0366 03EB4713 		add	r3, r3, r7, lsl #5
+ 1217 036a 9A68     		ldr	r2, [r3, #8]
+ 1218 036c 40F08B80 		bne	.L108
+ 1219 0370 1107     		lsls	r1, r2, #28
+ 1220 0372 07D5     		bpl	.L109
+ 1221 0374 A749     		ldr	r1, .L274
+ 1222 0376 8C45     		cmp	ip, r1
+ 1223 0378 08D9     		bls	.L107
+ 1224 037a 1004     		lsls	r0, r2, #16
+ 1225 037c 06D5     		bpl	.L107
+ 1226              	.L271:
+ 1227 037e 4FF40042 		mov	r2, #32768
+ 1228 0382 02E0     		b	.L272
+ 1229              	.L109:
+ 1230 0384 9106     		lsls	r1, r2, #26
+ 1231 0386 5AD5     		bpl	.L111
+ 1232 0388 2022     		movs	r2, #32
+ 1233              	.L272:
+ 1234 038a 9A60     		str	r2, [r3, #8]
+ 1235              	.L107:
+ 1236 038c 19F0080F 		tst	r9, #8
+ 1237 0390 21D0     		beq	.L120
+ 1238 0392 0823     		movs	r3, #8
+ 1239 0394 9F48     		ldr	r0, .L274
+ 1240 0396 C8F80830 		str	r3, [r8, #8]
+ 1241 039a 2368     		ldr	r3, [r4]
+ 1242 039c 1A6C     		ldr	r2, [r3, #64]
+ 1243 039e 03F53063 		add	r3, r3, #2816
+ 1244 03a2 8242     		cmp	r2, r0
+ 1245 03a4 03EB4713 		add	r3, r3, r7, lsl #5
+ 1246 03a8 9968     		ldr	r1, [r3, #8]
+ 1247 03aa 04D9     		bls	.L121
+ 1248 03ac 0904     		lsls	r1, r1, #16
+ 1249 03ae 02D5     		bpl	.L121
+ 1250 03b0 4FF40041 		mov	r1, #32768
+ 1251 03b4 9960     		str	r1, [r3, #8]
+ 1252              	.L121:
+ 1253 03b6 2046     		mov	r0, r4
+ 1254 03b8 0592     		str	r2, [sp, #20]
+ 1255 03ba FFF7FEFF 		bl	HAL_PCD_SetupStageCallback
+ 1256 03be 954B     		ldr	r3, .L274
+ARM GAS  /tmp/cc2VSDCt.s 			page 22
 
 
- 1246              		.thumb_func
- 1247              		.fpu fpv5-sp-d16
- 1249              	HAL_PCD_EP_GetRxCount:
- 1250              		@ args = 0, pretend = 0, frame = 0
- 1251              		@ frame_needed = 0, uses_anonymous_args = 0
- 1252              		@ link register save eliminated.
- 1253 0000 1C23     		movs	r3, #28
- 1254 0002 01F00F01 		and	r1, r1, #15
- 1255 0006 03FB0101 		mla	r1, r3, r1, r0
- 1256 000a D1F81402 		ldr	r0, [r1, #532]
- 1257 000e 7047     		bx	lr
- 1259              		.section	.text.HAL_PCD_EP_Transmit,"ax",%progbits
- 1260              		.align	1
- 1261              		.global	HAL_PCD_EP_Transmit
- 1262              		.syntax unified
- 1263              		.thumb
- 1264              		.thumb_func
- 1265              		.fpu fpv5-sp-d16
- 1267              	HAL_PCD_EP_Transmit:
- 1268              		@ args = 0, pretend = 0, frame = 0
- 1269              		@ frame_needed = 0, uses_anonymous_args = 0
- 1270 0000 38B5     		push	{r3, r4, r5, lr}
- 1271 0002 01F00F05 		and	r5, r1, #15
- 1272 0006 1C24     		movs	r4, #28
- 1273 0008 04FB0501 		mla	r1, r4, r5, r0
- 1274 000c 04FB0504 		mla	r4, r4, r5, r0
- 1275 0010 3C31     		adds	r1, r1, #60
- 1276 0012 2365     		str	r3, [r4, #80]
- 1277 0014 0023     		movs	r3, #0
- 1278 0016 A264     		str	r2, [r4, #72]
- 1279 0018 6365     		str	r3, [r4, #84]
- 1280 001a 0123     		movs	r3, #1
- 1281 001c 84F83C50 		strb	r5, [r4, #60]
- 1282 0020 84F83D30 		strb	r3, [r4, #61]
- 1283 0024 0369     		ldr	r3, [r0, #16]
- 1284 0026 0068     		ldr	r0, [r0]
- 1285 0028 012B     		cmp	r3, #1
- 1286 002a 08BF     		it	eq
- 1287 002c E264     		streq	r2, [r4, #76]
- 1288 002e DAB2     		uxtb	r2, r3
- 1289 0030 1DB9     		cbnz	r5, .L228
- 1290 0032 FFF7FEFF 		bl	USB_EP0StartXfer
- 1291              	.L229:
- 1292 0036 0020     		movs	r0, #0
- 1293 0038 38BD     		pop	{r3, r4, r5, pc}
- 1294              	.L228:
- 1295 003a FFF7FEFF 		bl	USB_EPStartXfer
- 1296 003e FAE7     		b	.L229
- 1298              		.section	.text.HAL_PCD_EP_SetStall,"ax",%progbits
- 1299              		.align	1
- 1300              		.global	HAL_PCD_EP_SetStall
- 1301              		.syntax unified
- 1302              		.thumb
- 1303              		.thumb_func
- 1304              		.fpu fpv5-sp-d16
- 1306              	HAL_PCD_EP_SetStall:
- 1307              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccVz3jM7.s 			page 23
+ 1257 03c0 059A     		ldr	r2, [sp, #20]
+ 1258 03c2 9A42     		cmp	r2, r3
+ 1259 03c4 07D9     		bls	.L120
+ 1260 03c6 2169     		ldr	r1, [r4, #16]
+ 1261 03c8 0129     		cmp	r1, #1
+ 1262 03ca 04D1     		bne	.L120
+ 1263 03cc 04F2C442 		addw	r2, r4, #1220
+ 1264 03d0 2068     		ldr	r0, [r4]
+ 1265 03d2 FFF7FEFF 		bl	USB_EP0_OutStart
+ 1266              	.L120:
+ 1267 03d6 19F0100F 		tst	r9, #16
+ 1268 03da 02D0     		beq	.L123
+ 1269 03dc 1023     		movs	r3, #16
+ 1270 03de C8F80830 		str	r3, [r8, #8]
+ 1271              	.L123:
+ 1272 03e2 19F0020F 		tst	r9, #2
+ 1273 03e6 14D0     		beq	.L124
+ 1274 03e8 7369     		ldr	r3, [r6, #20]
+ 1275 03ea 1A06     		lsls	r2, r3, #24
+ 1276 03ec 03D5     		bpl	.L125
+ 1277 03ee 6B68     		ldr	r3, [r5, #4]
+ 1278 03f0 43F48063 		orr	r3, r3, #1024
+ 1279 03f4 6B60     		str	r3, [r5, #4]
+ 1280              	.L125:
+ 1281 03f6 9AF87F32 		ldrb	r3, [r10, #639]	@ zero_extendqisi2
+ 1282 03fa 012B     		cmp	r3, #1
+ 1283 03fc 06D1     		bne	.L126
+ 1284 03fe 0023     		movs	r3, #0
+ 1285 0400 5946     		mov	r1, fp
+ 1286 0402 2046     		mov	r0, r4
+ 1287 0404 8AF87F32 		strb	r3, [r10, #639]
+ 1288 0408 FFF7FEFF 		bl	HAL_PCD_ISOOUTIncompleteCallback
+ 1289              	.L126:
+ 1290 040c 0223     		movs	r3, #2
+ 1291 040e C8F80830 		str	r3, [r8, #8]
+ 1292              	.L124:
+ 1293 0412 19F0200F 		tst	r9, #32
+ 1294 0416 02D0     		beq	.L127
+ 1295 0418 2023     		movs	r3, #32
+ 1296 041a C8F80830 		str	r3, [r8, #8]
+ 1297              	.L127:
+ 1298 041e 19F4005F 		tst	r9, #8192
+ 1299 0422 03D0     		beq	.L105
+ 1300 0424 4FF40053 		mov	r3, #8192
+ 1301 0428 C8F80830 		str	r3, [r8, #8]
+ 1302              	.L105:
+ 1303 042c 049B     		ldr	r3, [sp, #16]
+ 1304 042e 0137     		adds	r7, r7, #1
+ 1305 0430 08F12008 		add	r8, r8, #32
+ 1306 0434 0AF1240A 		add	r10, r10, #36
+ 1307 0438 5B08     		lsrs	r3, r3, #1
+ 1308 043a 0493     		str	r3, [sp, #16]
+ 1309 043c 78E7     		b	.L103
+ 1310              	.L111:
+ 1311 043e 12F0280F 		tst	r2, #40
+ 1312 0442 A3D1     		bne	.L107
+ 1313 0444 7349     		ldr	r1, .L274
+ARM GAS  /tmp/cc2VSDCt.s 			page 23
 
 
- 1308              		@ frame_needed = 0, uses_anonymous_args = 0
- 1309 0000 38B5     		push	{r3, r4, r5, lr}
- 1310 0002 01F00F05 		and	r5, r1, #15
- 1311 0006 4368     		ldr	r3, [r0, #4]
- 1312 0008 0446     		mov	r4, r0
- 1313 000a 9D42     		cmp	r5, r3
- 1314 000c 2ED8     		bhi	.L235
- 1315 000e 11F0800F 		tst	r1, #128
- 1316 0012 4FF01C02 		mov	r2, #28
- 1317 0016 1FD0     		beq	.L232
- 1318 0018 02FB0503 		mla	r3, r2, r5, r0
- 1319 001c 02FB0501 		mla	r1, r2, r5, r0
- 1320 0020 0122     		movs	r2, #1
- 1321 0022 3C33     		adds	r3, r3, #60
- 1322 0024 81F83D20 		strb	r2, [r1, #61]
- 1323              	.L233:
- 1324 0028 0122     		movs	r2, #1
- 1325 002a 1D70     		strb	r5, [r3]
- 1326 002c 9A70     		strb	r2, [r3, #2]
- 1327 002e 94F8BC13 		ldrb	r1, [r4, #956]	@ zero_extendqisi2
- 1328 0032 9142     		cmp	r1, r2
- 1329 0034 1CD0     		beq	.L236
- 1330 0036 84F8BC23 		strb	r2, [r4, #956]
- 1331 003a 1946     		mov	r1, r3
- 1332 003c 2068     		ldr	r0, [r4]
- 1333 003e FFF7FEFF 		bl	USB_EPSetStall
- 1334 0042 2DB9     		cbnz	r5, .L234
- 1335 0044 04F57172 		add	r2, r4, #964
- 1336 0048 217C     		ldrb	r1, [r4, #16]	@ zero_extendqisi2
- 1337 004a 2068     		ldr	r0, [r4]
- 1338 004c FFF7FEFF 		bl	USB_EP0_OutStart
- 1339              	.L234:
- 1340 0050 0020     		movs	r0, #0
- 1341 0052 84F8BC03 		strb	r0, [r4, #956]
- 1342              	.L231:
- 1343 0056 38BD     		pop	{r3, r4, r5, pc}
- 1344              	.L232:
- 1345 0058 02FB0103 		mla	r3, r2, r1, r0
- 1346 005c 02FB0101 		mla	r1, r2, r1, r0
- 1347 0060 0022     		movs	r2, #0
- 1348 0062 03F5FE73 		add	r3, r3, #508
- 1349 0066 81F8FD21 		strb	r2, [r1, #509]
- 1350 006a DDE7     		b	.L233
- 1351              	.L235:
- 1352 006c 0120     		movs	r0, #1
- 1353 006e F2E7     		b	.L231
- 1354              	.L236:
- 1355 0070 0220     		movs	r0, #2
- 1356 0072 F0E7     		b	.L231
- 1358              		.section	.text.HAL_PCD_EP_ClrStall,"ax",%progbits
- 1359              		.align	1
- 1360              		.global	HAL_PCD_EP_ClrStall
- 1361              		.syntax unified
- 1362              		.thumb
- 1363              		.thumb_func
- 1364              		.fpu fpv5-sp-d16
- 1366              	HAL_PCD_EP_ClrStall:
-ARM GAS  /tmp/ccVz3jM7.s 			page 24
+ 1314 0446 8C45     		cmp	ip, r1
+ 1315 0448 01D9     		bls	.L112
+ 1316 044a 1204     		lsls	r2, r2, #16
+ 1317 044c 97D4     		bmi	.L271
+ 1318              	.L112:
+ 1319 044e 1A69     		ldr	r2, [r3, #16]
+ 1320 0450 DAF89832 		ldr	r3, [r10, #664]
+ 1321 0454 C2F31202 		ubfx	r2, r2, #0, #19
+ 1322 0458 9B1A     		subs	r3, r3, r2
+ 1323 045a CAF89C32 		str	r3, [r10, #668]
+ 1324 045e 6FB9     		cbnz	r7, .L118
+ 1325 0460 D4F89422 		ldr	r2, [r4, #660]
+ 1326 0464 2AB9     		cbnz	r2, .L114
+ 1327 0466 04F2C442 		addw	r2, r4, #1220
+ 1328 046a 0121     		movs	r1, #1
+ 1329              	.L273:
+ 1330 046c FFF7FEFF 		bl	USB_EP0_OutStart
+ 1331 0470 04E0     		b	.L118
+ 1332              	.L114:
+ 1333 0472 D4F88C22 		ldr	r2, [r4, #652]
+ 1334 0476 1344     		add	r3, r3, r2
+ 1335 0478 C4F88C32 		str	r3, [r4, #652]
+ 1336              	.L118:
+ 1337 047c 5946     		mov	r1, fp
+ 1338 047e 2046     		mov	r0, r4
+ 1339 0480 FFF7FEFF 		bl	HAL_PCD_DataOutStageCallback
+ 1340 0484 82E7     		b	.L107
+ 1341              	.L108:
+ 1342 0486 6449     		ldr	r1, .L274+4
+ 1343 0488 8C45     		cmp	ip, r1
+ 1344 048a 07D1     		bne	.L115
+ 1345 048c 1104     		lsls	r1, r2, #16
+ 1346 048e 3FF576AF 		bmi	.L271
+ 1347 0492 9006     		lsls	r0, r2, #26
+ 1348 0494 F2D5     		bpl	.L118
+ 1349 0496 2022     		movs	r2, #32
+ 1350 0498 9A60     		str	r2, [r3, #8]
+ 1351 049a EFE7     		b	.L118
+ 1352              	.L115:
+ 1353 049c 002F     		cmp	r7, #0
+ 1354 049e EDD1     		bne	.L118
+ 1355 04a0 D4F89432 		ldr	r3, [r4, #660]
+ 1356 04a4 002B     		cmp	r3, #0
+ 1357 04a6 E9D1     		bne	.L118
+ 1358 04a8 04F2C442 		addw	r2, r4, #1220
+ 1359 04ac 3946     		mov	r1, r7
+ 1360 04ae DDE7     		b	.L273
+ 1361              	.L150:
+ 1362 04b0 049B     		ldr	r3, [sp, #16]
+ 1363 04b2 DB07     		lsls	r3, r3, #31
+ 1364 04b4 40F19C80 		bpl	.L135
+ 1365 04b8 5FFA89FB 		uxtb	fp, r9
+ 1366 04bc 2068     		ldr	r0, [r4]
+ 1367 04be 5946     		mov	r1, fp
+ 1368 04c0 FFF7FEFF 		bl	USB_ReadDevInEPInterrupt
+ 1369 04c4 10F0010F 		tst	r0, #1
+ 1370 04c8 8046     		mov	r8, r0
+ARM GAS  /tmp/cc2VSDCt.s 			page 24
 
 
- 1367              		@ args = 0, pretend = 0, frame = 0
- 1368              		@ frame_needed = 0, uses_anonymous_args = 0
- 1369 0000 38B5     		push	{r3, r4, r5, lr}
- 1370 0002 01F00F02 		and	r2, r1, #15
- 1371 0006 4368     		ldr	r3, [r0, #4]
- 1372 0008 0446     		mov	r4, r0
- 1373 000a 9A42     		cmp	r2, r3
- 1374 000c 2AD8     		bhi	.L241
- 1375 000e C2EBC203 		rsb	r3, r2, r2, lsl #3
- 1376 0012 11F0800F 		tst	r1, #128
- 1377 0016 4FF01C00 		mov	r0, #28
- 1378 001a 4FEA8303 		lsl	r3, r3, #2
- 1379 001e 18D0     		beq	.L239
- 1380 0020 03F13C01 		add	r1, r3, #60
- 1381 0024 00FB0240 		mla	r0, r0, r2, r4
- 1382 0028 0123     		movs	r3, #1
- 1383 002a 2144     		add	r1, r1, r4
- 1384 002c 80F83D30 		strb	r3, [r0, #61]
- 1385              	.L240:
- 1386 0030 0025     		movs	r5, #0
- 1387 0032 0A70     		strb	r2, [r1]
- 1388 0034 8D70     		strb	r5, [r1, #2]
- 1389 0036 94F8BC33 		ldrb	r3, [r4, #956]	@ zero_extendqisi2
- 1390 003a 012B     		cmp	r3, #1
- 1391 003c 14D0     		beq	.L242
- 1392 003e 0123     		movs	r3, #1
- 1393 0040 2068     		ldr	r0, [r4]
- 1394 0042 84F8BC33 		strb	r3, [r4, #956]
- 1395 0046 FFF7FEFF 		bl	USB_EPClearStall
- 1396 004a 2846     		mov	r0, r5
- 1397 004c 84F8BC53 		strb	r5, [r4, #956]
- 1398              	.L238:
- 1399 0050 38BD     		pop	{r3, r4, r5, pc}
- 1400              	.L239:
- 1401 0052 03F5FE71 		add	r1, r3, #508
- 1402 0056 00FB0240 		mla	r0, r0, r2, r4
- 1403 005a 0023     		movs	r3, #0
- 1404 005c 2144     		add	r1, r1, r4
- 1405 005e 80F8FD31 		strb	r3, [r0, #509]
- 1406 0062 E5E7     		b	.L240
- 1407              	.L241:
- 1408 0064 0120     		movs	r0, #1
- 1409 0066 F3E7     		b	.L238
- 1410              	.L242:
- 1411 0068 0220     		movs	r0, #2
- 1412 006a F1E7     		b	.L238
- 1414              		.section	.text.HAL_PCD_EP_Flush,"ax",%progbits
- 1415              		.align	1
- 1416              		.global	HAL_PCD_EP_Flush
- 1417              		.syntax unified
- 1418              		.thumb
- 1419              		.thumb_func
- 1420              		.fpu fpv5-sp-d16
- 1422              	HAL_PCD_EP_Flush:
- 1423              		@ args = 0, pretend = 0, frame = 0
- 1424              		@ frame_needed = 0, uses_anonymous_args = 0
- 1425 0000 90F8BC33 		ldrb	r3, [r0, #956]	@ zero_extendqisi2
-ARM GAS  /tmp/ccVz3jM7.s 			page 25
+ 1371 04ca 20D0     		beq	.L136
+ 1372 04cc 0121     		movs	r1, #1
+ 1373 04ce 09F00F02 		and	r2, r9, #15
+ 1374 04d2 6B6B     		ldr	r3, [r5, #52]
+ 1375 04d4 01FA02F2 		lsl	r2, r1, r2
+ 1376 04d8 23EA0203 		bic	r3, r3, r2
+ 1377 04dc 6B63     		str	r3, [r5, #52]
+ 1378 04de 0B46     		mov	r3, r1
+ 1379 04e0 CAF80810 		str	r1, [r10, #8]
+ 1380 04e4 2169     		ldr	r1, [r4, #16]
+ 1381 04e6 9942     		cmp	r1, r3
+ 1382 04e8 0DD1     		bne	.L138
+ 1383 04ea D7E91223 		ldrd	r2, r3, [r7, #72]
+ 1384 04ee 1344     		add	r3, r3, r2
+ 1385 04f0 FB64     		str	r3, [r7, #76]
+ 1386 04f2 B9F1000F 		cmp	r9, #0
+ 1387 04f6 06D1     		bne	.L138
+ 1388 04f8 636D     		ldr	r3, [r4, #84]
+ 1389 04fa 23B9     		cbnz	r3, .L138
+ 1390 04fc 04F2C442 		addw	r2, r4, #1220
+ 1391 0500 2068     		ldr	r0, [r4]
+ 1392 0502 FFF7FEFF 		bl	USB_EP0_OutStart
+ 1393              	.L138:
+ 1394 0506 5946     		mov	r1, fp
+ 1395 0508 2046     		mov	r0, r4
+ 1396 050a FFF7FEFF 		bl	HAL_PCD_DataInStageCallback
+ 1397              	.L136:
+ 1398 050e 18F0080F 		tst	r8, #8
+ 1399 0512 02D0     		beq	.L140
+ 1400 0514 0823     		movs	r3, #8
+ 1401 0516 CAF80830 		str	r3, [r10, #8]
+ 1402              	.L140:
+ 1403 051a 18F0100F 		tst	r8, #16
+ 1404 051e 02D0     		beq	.L141
+ 1405 0520 1023     		movs	r3, #16
+ 1406 0522 CAF80830 		str	r3, [r10, #8]
+ 1407              	.L141:
+ 1408 0526 18F0400F 		tst	r8, #64
+ 1409 052a 02D0     		beq	.L142
+ 1410 052c 4023     		movs	r3, #64
+ 1411 052e CAF80830 		str	r3, [r10, #8]
+ 1412              	.L142:
+ 1413 0532 18F0020F 		tst	r8, #2
+ 1414 0536 12D0     		beq	.L143
+ 1415 0538 4946     		mov	r1, r9
+ 1416 053a 3046     		mov	r0, r6
+ 1417 053c FFF7FEFF 		bl	USB_FlushTxFifo
+ 1418 0540 97F83F30 		ldrb	r3, [r7, #63]	@ zero_extendqisi2
+ 1419 0544 012B     		cmp	r3, #1
+ 1420 0546 07D1     		bne	.L144
+ 1421 0548 4FF00003 		mov	r3, #0
+ 1422 054c 5946     		mov	r1, fp
+ 1423 054e 2046     		mov	r0, r4
+ 1424 0550 87F83F30 		strb	r3, [r7, #63]
+ 1425 0554 FFF7FEFF 		bl	HAL_PCD_ISOINIncompleteCallback
+ 1426              	.L144:
+ 1427 0558 0223     		movs	r3, #2
+ARM GAS  /tmp/cc2VSDCt.s 			page 25
 
 
- 1426 0004 012B     		cmp	r3, #1
- 1427 0006 10B5     		push	{r4, lr}
- 1428 0008 0446     		mov	r4, r0
- 1429 000a 10D0     		beq	.L247
- 1430 000c 0123     		movs	r3, #1
- 1431 000e 80F8BC33 		strb	r3, [r0, #956]
- 1432 0012 0B06     		lsls	r3, r1, #24
- 1433 0014 0068     		ldr	r0, [r0]
- 1434 0016 07D5     		bpl	.L245
- 1435 0018 01F00F01 		and	r1, r1, #15
- 1436 001c FFF7FEFF 		bl	USB_FlushTxFifo
- 1437              	.L246:
- 1438 0020 0020     		movs	r0, #0
- 1439 0022 84F8BC03 		strb	r0, [r4, #956]
- 1440              	.L244:
- 1441 0026 10BD     		pop	{r4, pc}
- 1442              	.L245:
- 1443 0028 FFF7FEFF 		bl	USB_FlushRxFifo
- 1444 002c F8E7     		b	.L246
- 1445              	.L247:
- 1446 002e 0220     		movs	r0, #2
- 1447 0030 F9E7     		b	.L244
- 1449              		.section	.text.HAL_PCD_ActivateRemoteWakeup,"ax",%progbits
- 1450              		.align	1
- 1451              		.global	HAL_PCD_ActivateRemoteWakeup
- 1452              		.syntax unified
- 1453              		.thumb
- 1454              		.thumb_func
- 1455              		.fpu fpv5-sp-d16
- 1457              	HAL_PCD_ActivateRemoteWakeup:
- 1458              		@ args = 0, pretend = 0, frame = 0
- 1459              		@ frame_needed = 0, uses_anonymous_args = 0
- 1460              		@ link register save eliminated.
- 1461 0000 0068     		ldr	r0, [r0]
- 1462 0002 FFF7FEBF 		b	USB_ActivateRemoteWakeup
- 1464              		.section	.text.HAL_PCD_DeActivateRemoteWakeup,"ax",%progbits
- 1465              		.align	1
- 1466              		.global	HAL_PCD_DeActivateRemoteWakeup
- 1467              		.syntax unified
- 1468              		.thumb
- 1469              		.thumb_func
- 1470              		.fpu fpv5-sp-d16
- 1472              	HAL_PCD_DeActivateRemoteWakeup:
- 1473              		@ args = 0, pretend = 0, frame = 0
- 1474              		@ frame_needed = 0, uses_anonymous_args = 0
- 1475              		@ link register save eliminated.
- 1476 0000 0068     		ldr	r0, [r0]
- 1477 0002 FFF7FEBF 		b	USB_DeActivateRemoteWakeup
- 1479              		.section	.text.HAL_PCD_GetState,"ax",%progbits
- 1480              		.align	1
- 1481              		.global	HAL_PCD_GetState
- 1482              		.syntax unified
- 1483              		.thumb
- 1484              		.thumb_func
- 1485              		.fpu fpv5-sp-d16
- 1487              	HAL_PCD_GetState:
- 1488              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccVz3jM7.s 			page 26
+ 1428 055a CAF80830 		str	r3, [r10, #8]
+ 1429              	.L143:
+ 1430 055e 18F0800F 		tst	r8, #128
+ 1431 0562 45D0     		beq	.L135
+ 1432 0564 FA6D     		ldr	r2, [r7, #92]
+ 1433 0566 7B6D     		ldr	r3, [r7, #84]
+ 1434 0568 9A42     		cmp	r2, r3
+ 1435 056a 41D8     		bhi	.L135
+ 1436 056c 9B1A     		subs	r3, r3, r2
+ 1437 056e BA6C     		ldr	r2, [r7, #72]
+ 1438 0570 2168     		ldr	r1, [r4]
+ 1439 0572 9342     		cmp	r3, r2
+ 1440 0574 0591     		str	r1, [sp, #20]
+ 1441 0576 28BF     		it	cs
+ 1442 0578 1346     		movcs	r3, r2
+ 1443 057a 0333     		adds	r3, r3, #3
+ 1444 057c 9B08     		lsrs	r3, r3, #2
+ 1445 057e 0693     		str	r3, [sp, #24]
+ 1446 0580 01F51063 		add	r3, r1, #2304
+ 1447 0584 03EB4913 		add	r3, r3, r9, lsl #5
+ 1448 0588 0793     		str	r3, [sp, #28]
+ 1449              	.L146:
+ 1450 058a 079B     		ldr	r3, [sp, #28]
+ 1451 058c 0698     		ldr	r0, [sp, #24]
+ 1452 058e 9969     		ldr	r1, [r3, #24]
+ 1453 0590 FA6D     		ldr	r2, [r7, #92]
+ 1454 0592 89B2     		uxth	r1, r1
+ 1455 0594 7B6D     		ldr	r3, [r7, #84]
+ 1456 0596 8142     		cmp	r1, r0
+ 1457 0598 28D3     		bcc	.L147
+ 1458 059a 9A42     		cmp	r2, r3
+ 1459 059c 0CD3     		bcc	.L148
+ 1460              	.L149:
+ 1461 059e 059B     		ldr	r3, [sp, #20]
+ 1462 05a0 09F00F01 		and	r1, r9, #15
+ 1463 05a4 0120     		movs	r0, #1
+ 1464 05a6 D3F83428 		ldr	r2, [r3, #2100]
+ 1465 05aa 00FA01F1 		lsl	r1, r0, r1
+ 1466 05ae 22EA0102 		bic	r2, r2, r1
+ 1467 05b2 C3F83428 		str	r2, [r3, #2100]
+ 1468 05b6 1BE0     		b	.L135
+ 1469              	.L148:
+ 1470 05b8 A3EB0208 		sub	r8, r3, r2
+ 1471 05bc BB6C     		ldr	r3, [r7, #72]
+ 1472 05be 5A46     		mov	r2, fp
+ 1473 05c0 0598     		ldr	r0, [sp, #20]
+ 1474 05c2 9845     		cmp	r8, r3
+ 1475 05c4 28BF     		it	cs
+ 1476 05c6 9846     		movcs	r8, r3
+ 1477 05c8 08F10303 		add	r3, r8, #3
+ 1478 05cc 9B08     		lsrs	r3, r3, #2
+ 1479 05ce 0693     		str	r3, [sp, #24]
+ 1480 05d0 237C     		ldrb	r3, [r4, #16]	@ zero_extendqisi2
+ 1481 05d2 0093     		str	r3, [sp]
+ 1482 05d4 1FFA88F3 		uxth	r3, r8
+ 1483 05d8 F96C     		ldr	r1, [r7, #76]
+ 1484 05da FFF7FEFF 		bl	USB_WritePacket
+ARM GAS  /tmp/cc2VSDCt.s 			page 26
 
 
- 1489              		@ frame_needed = 0, uses_anonymous_args = 0
- 1490              		@ link register save eliminated.
- 1491 0000 90F8BD03 		ldrb	r0, [r0, #957]	@ zero_extendqisi2
- 1492 0004 7047     		bx	lr
- 1494              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccVz3jM7.s 			page 27
+ 1485 05de FB6C     		ldr	r3, [r7, #76]
+ 1486 05e0 4344     		add	r3, r3, r8
+ 1487 05e2 FB64     		str	r3, [r7, #76]
+ 1488 05e4 FB6D     		ldr	r3, [r7, #92]
+ 1489 05e6 4344     		add	r3, r3, r8
+ 1490 05e8 FB65     		str	r3, [r7, #92]
+ 1491 05ea CEE7     		b	.L146
+ 1492              	.L147:
+ 1493 05ec 9A42     		cmp	r2, r3
+ 1494 05ee D6D2     		bcs	.L149
+ 1495              	.L135:
+ 1496 05f0 049B     		ldr	r3, [sp, #16]
+ 1497 05f2 09F10109 		add	r9, r9, #1
+ 1498 05f6 2437     		adds	r7, r7, #36
+ 1499 05f8 0AF1200A 		add	r10, r10, #32
+ 1500 05fc 5B08     		lsrs	r3, r3, #1
+ 1501 05fe 0493     		str	r3, [sp, #16]
+ 1502 0600 68E5     		b	.L133
+ 1503              	.L151:
+ 1504 0602 2046     		mov	r0, r4
+ 1505 0604 FFF7FEFF 		bl	HAL_PCD_ResumeCallback
+ 1506 0608 7CE5     		b	.L152
+ 1507              	.L156:
+ 1508 060a 2046     		mov	r0, r4
+ 1509 060c FFF7FEFF 		bl	HAL_PCD_SuspendCallback
+ 1510 0610 A7E5     		b	.L155
+ 1511              	.L275:
+ 1512 0612 00BF     		.align	2
+ 1513              	.L274:
+ 1514 0614 0A30544F 		.word	1330917386
+ 1515 0618 0A31544F 		.word	1330917642
+ 1516              	.L159:
+ 1517 061c 9960     		str	r1, [r3, #8]
+ 1518 061e 2033     		adds	r3, r3, #32
+ 1519 0620 53F8202C 		ldr	r2, [r3, #-32]
+ 1520 0624 22F40012 		bic	r2, r2, #2097152
+ 1521 0628 43F8202C 		str	r2, [r3, #-32]
+ 1522 062c C3F8E811 		str	r1, [r3, #488]
+ 1523 0630 D3F8E021 		ldr	r2, [r3, #480]
+ 1524 0634 22F40012 		bic	r2, r2, #2097152
+ 1525 0638 C3F8E021 		str	r2, [r3, #480]
+ 1526 063c D3F8E021 		ldr	r2, [r3, #480]
+ 1527 0640 42F00062 		orr	r2, r2, #134217728
+ 1528 0644 C3F8E021 		str	r2, [r3, #480]
+ 1529 0648 039A     		ldr	r2, [sp, #12]
+ 1530 064a 0132     		adds	r2, r2, #1
+ 1531 064c 0392     		str	r2, [sp, #12]
+ 1532 064e 99E5     		b	.L158
+ 1533              	.L160:
+ 1534 0650 6B69     		ldr	r3, [r5, #20]
+ 1535 0652 43F40053 		orr	r3, r3, #8192
+ 1536 0656 43F02B03 		orr	r3, r3, #43
+ 1537 065a 6B61     		str	r3, [r5, #20]
+ 1538 065c 2B69     		ldr	r3, [r5, #16]
+ 1539 065e 43F00B03 		orr	r3, r3, #11
+ 1540 0662 2B61     		str	r3, [r5, #16]
+ 1541 0664 A5E5     		b	.L161
+ARM GAS  /tmp/cc2VSDCt.s 			page 27
+
+
+ 1542              	.L164:
+ 1543 0666 B369     		ldr	r3, [r6, #24]
+ 1544 0668 0127     		movs	r7, #1
+ 1545 066a 04F27F28 		addw	r8, r4, #639
+ 1546 066e 4FF02409 		mov	r9, #36
+ 1547 0672 23F08003 		bic	r3, r3, #128
+ 1548 0676 B361     		str	r3, [r6, #24]
+ 1549              	.L167:
+ 1550 0678 6368     		ldr	r3, [r4, #4]
+ 1551 067a BB42     		cmp	r3, r7
+ 1552 067c 7FF6D9AD 		bls	.L170
+ 1553 0680 09FB07F3 		mul	r3, r9, r7
+ 1554 0684 18F80330 		ldrb	r3, [r8, r3]	@ zero_extendqisi2
+ 1555 0688 012B     		cmp	r3, #1
+ 1556 068a 03D1     		bne	.L168
+ 1557 068c F9B2     		uxtb	r1, r7
+ 1558 068e 2046     		mov	r0, r4
+ 1559 0690 FFF7FEFF 		bl	HAL_PCD_EP_Abort
+ 1560              	.L168:
+ 1561 0694 0137     		adds	r7, r7, #1
+ 1562 0696 EFE7     		b	.L167
+ 1563              	.L172:
+ 1564 0698 98F86430 		ldrb	r3, [r8, #100]	@ zero_extendqisi2
+ 1565 069c D9F80020 		ldr	r2, [r9]
+ 1566 06a0 012B     		cmp	r3, #1
+ 1567 06a2 09D1     		bne	.L171
+ 1568 06a4 002A     		cmp	r2, #0
+ 1569 06a6 07DA     		bge	.L171
+ 1570 06a8 67F07F01 		orn	r1, r7, #127
+ 1571 06ac 2046     		mov	r0, r4
+ 1572 06ae 88F86330 		strb	r3, [r8, #99]
+ 1573 06b2 C9B2     		uxtb	r1, r1
+ 1574 06b4 FFF7FEFF 		bl	HAL_PCD_EP_Abort
+ 1575              	.L171:
+ 1576 06b8 0137     		adds	r7, r7, #1
+ 1577 06ba 08F12408 		add	r8, r8, #36
+ 1578 06be 09F12009 		add	r9, r9, #32
+ 1579 06c2 BFE5     		b	.L166
+ 1580              	.L175:
+ 1581 06c4 0131     		adds	r1, r1, #1
+ 1582 06c6 2433     		adds	r3, r3, #36
+ 1583 06c8 2030     		adds	r0, r0, #32
+ 1584 06ca CFE5     		b	.L174
+ 1586              		.section	.text.HAL_PCD_EP_Flush,"ax",%progbits
+ 1587              		.align	1
+ 1588              		.global	HAL_PCD_EP_Flush
+ 1589              		.syntax unified
+ 1590              		.thumb
+ 1591              		.thumb_func
+ 1592              		.fpu fpv5-sp-d16
+ 1594              	HAL_PCD_EP_Flush:
+ 1595              		@ args = 0, pretend = 0, frame = 0
+ 1596              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1597 0000 10B5     		push	{r4, lr}
+ 1598 0002 90F8BC34 		ldrb	r3, [r0, #1212]	@ zero_extendqisi2
+ 1599 0006 0446     		mov	r4, r0
+ 1600 0008 012B     		cmp	r3, #1
+ARM GAS  /tmp/cc2VSDCt.s 			page 28
+
+
+ 1601 000a 10D0     		beq	.L280
+ 1602 000c 0123     		movs	r3, #1
+ 1603 000e 80F8BC34 		strb	r3, [r0, #1212]
+ 1604 0012 0B06     		lsls	r3, r1, #24
+ 1605 0014 0068     		ldr	r0, [r0]
+ 1606 0016 07D5     		bpl	.L278
+ 1607 0018 01F00F01 		and	r1, r1, #15
+ 1608 001c FFF7FEFF 		bl	USB_FlushTxFifo
+ 1609              	.L279:
+ 1610 0020 0020     		movs	r0, #0
+ 1611 0022 84F8BC04 		strb	r0, [r4, #1212]
+ 1612              	.L277:
+ 1613 0026 10BD     		pop	{r4, pc}
+ 1614              	.L278:
+ 1615 0028 FFF7FEFF 		bl	USB_FlushRxFifo
+ 1616 002c F8E7     		b	.L279
+ 1617              	.L280:
+ 1618 002e 0220     		movs	r0, #2
+ 1619 0030 F9E7     		b	.L277
+ 1621              		.section	.text.HAL_PCD_ActivateRemoteWakeup,"ax",%progbits
+ 1622              		.align	1
+ 1623              		.global	HAL_PCD_ActivateRemoteWakeup
+ 1624              		.syntax unified
+ 1625              		.thumb
+ 1626              		.thumb_func
+ 1627              		.fpu fpv5-sp-d16
+ 1629              	HAL_PCD_ActivateRemoteWakeup:
+ 1630              		@ args = 0, pretend = 0, frame = 0
+ 1631              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1632              		@ link register save eliminated.
+ 1633 0000 0068     		ldr	r0, [r0]
+ 1634 0002 FFF7FEBF 		b	USB_ActivateRemoteWakeup
+ 1636              		.section	.text.HAL_PCD_DeActivateRemoteWakeup,"ax",%progbits
+ 1637              		.align	1
+ 1638              		.global	HAL_PCD_DeActivateRemoteWakeup
+ 1639              		.syntax unified
+ 1640              		.thumb
+ 1641              		.thumb_func
+ 1642              		.fpu fpv5-sp-d16
+ 1644              	HAL_PCD_DeActivateRemoteWakeup:
+ 1645              		@ args = 0, pretend = 0, frame = 0
+ 1646              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1647              		@ link register save eliminated.
+ 1648 0000 0068     		ldr	r0, [r0]
+ 1649 0002 FFF7FEBF 		b	USB_DeActivateRemoteWakeup
+ 1651              		.section	.text.HAL_PCD_GetState,"ax",%progbits
+ 1652              		.align	1
+ 1653              		.global	HAL_PCD_GetState
+ 1654              		.syntax unified
+ 1655              		.thumb
+ 1656              		.thumb_func
+ 1657              		.fpu fpv5-sp-d16
+ 1659              	HAL_PCD_GetState:
+ 1660              		@ args = 0, pretend = 0, frame = 0
+ 1661              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1662              		@ link register save eliminated.
+ 1663 0000 90F8BD04 		ldrb	r0, [r0, #1213]	@ zero_extendqisi2
+ARM GAS  /tmp/cc2VSDCt.s 			page 29
+
+
+ 1664 0004 7047     		bx	lr
+ 1666              		.section	.text.HAL_PCD_SetTestMode,"ax",%progbits
+ 1667              		.align	1
+ 1668              		.global	HAL_PCD_SetTestMode
+ 1669              		.syntax unified
+ 1670              		.thumb
+ 1671              		.thumb_func
+ 1672              		.fpu fpv5-sp-d16
+ 1674              	HAL_PCD_SetTestMode:
+ 1675              		@ args = 0, pretend = 0, frame = 0
+ 1676              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1677              		@ link register save eliminated.
+ 1678 0000 4B1E     		subs	r3, r1, #1
+ 1679 0002 042B     		cmp	r3, #4
+ 1680 0004 06D8     		bhi	.L285
+ 1681 0006 0368     		ldr	r3, [r0]
+ 1682 0008 D3F80428 		ldr	r2, [r3, #2052]
+ 1683 000c 42EA0111 		orr	r1, r2, r1, lsl #4
+ 1684 0010 C3F80418 		str	r1, [r3, #2052]
+ 1685              	.L285:
+ 1686 0014 0020     		movs	r0, #0
+ 1687 0016 7047     		bx	lr
+ 1689              		.ident	"GCC: (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+ARM GAS  /tmp/cc2VSDCt.s 			page 30
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f7xx_hal_pcd.c
-     /tmp/ccVz3jM7.s:15     .text.HAL_PCD_MspInit:0000000000000000 $t
-     /tmp/ccVz3jM7.s:23     .text.HAL_PCD_MspInit:0000000000000000 HAL_PCD_MspInit
-     /tmp/ccVz3jM7.s:30     .text.HAL_PCD_Init:0000000000000000 $t
-     /tmp/ccVz3jM7.s:37     .text.HAL_PCD_Init:0000000000000000 HAL_PCD_Init
-     /tmp/ccVz3jM7.s:152    .text.HAL_PCD_MspDeInit:0000000000000000 $t
-     /tmp/ccVz3jM7.s:159    .text.HAL_PCD_MspDeInit:0000000000000000 HAL_PCD_MspDeInit
-     /tmp/ccVz3jM7.s:166    .text.HAL_PCD_Start:0000000000000000 $t
-     /tmp/ccVz3jM7.s:173    .text.HAL_PCD_Start:0000000000000000 HAL_PCD_Start
-     /tmp/ccVz3jM7.s:196    .text.HAL_PCD_Stop:0000000000000000 $t
-     /tmp/ccVz3jM7.s:203    .text.HAL_PCD_Stop:0000000000000000 HAL_PCD_Stop
-     /tmp/ccVz3jM7.s:235    .text.HAL_PCD_DeInit:0000000000000000 $t
-     /tmp/ccVz3jM7.s:242    .text.HAL_PCD_DeInit:0000000000000000 HAL_PCD_DeInit
-     /tmp/ccVz3jM7.s:262    .text.HAL_PCD_DataOutStageCallback:0000000000000000 $t
-     /tmp/ccVz3jM7.s:269    .text.HAL_PCD_DataOutStageCallback:0000000000000000 HAL_PCD_DataOutStageCallback
-     /tmp/ccVz3jM7.s:276    .text.HAL_PCD_DataInStageCallback:0000000000000000 $t
-     /tmp/ccVz3jM7.s:283    .text.HAL_PCD_DataInStageCallback:0000000000000000 HAL_PCD_DataInStageCallback
-     /tmp/ccVz3jM7.s:290    .text.HAL_PCD_SetupStageCallback:0000000000000000 $t
-     /tmp/ccVz3jM7.s:297    .text.HAL_PCD_SetupStageCallback:0000000000000000 HAL_PCD_SetupStageCallback
-     /tmp/ccVz3jM7.s:304    .text.HAL_PCD_SOFCallback:0000000000000000 $t
-     /tmp/ccVz3jM7.s:311    .text.HAL_PCD_SOFCallback:0000000000000000 HAL_PCD_SOFCallback
-     /tmp/ccVz3jM7.s:318    .text.HAL_PCD_ResetCallback:0000000000000000 $t
-     /tmp/ccVz3jM7.s:325    .text.HAL_PCD_ResetCallback:0000000000000000 HAL_PCD_ResetCallback
-     /tmp/ccVz3jM7.s:332    .text.HAL_PCD_SuspendCallback:0000000000000000 $t
-     /tmp/ccVz3jM7.s:339    .text.HAL_PCD_SuspendCallback:0000000000000000 HAL_PCD_SuspendCallback
-     /tmp/ccVz3jM7.s:346    .text.HAL_PCD_ResumeCallback:0000000000000000 $t
-     /tmp/ccVz3jM7.s:353    .text.HAL_PCD_ResumeCallback:0000000000000000 HAL_PCD_ResumeCallback
-     /tmp/ccVz3jM7.s:360    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 $t
-     /tmp/ccVz3jM7.s:367    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 HAL_PCD_ISOOUTIncompleteCallback
-     /tmp/ccVz3jM7.s:374    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 $t
-     /tmp/ccVz3jM7.s:381    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 HAL_PCD_ISOINIncompleteCallback
-     /tmp/ccVz3jM7.s:388    .text.HAL_PCD_ConnectCallback:0000000000000000 $t
-     /tmp/ccVz3jM7.s:395    .text.HAL_PCD_ConnectCallback:0000000000000000 HAL_PCD_ConnectCallback
-     /tmp/ccVz3jM7.s:402    .text.HAL_PCD_DisconnectCallback:0000000000000000 $t
-     /tmp/ccVz3jM7.s:409    .text.HAL_PCD_DisconnectCallback:0000000000000000 HAL_PCD_DisconnectCallback
-     /tmp/ccVz3jM7.s:416    .text.HAL_PCD_IRQHandler:0000000000000000 $t
-     /tmp/ccVz3jM7.s:423    .text.HAL_PCD_IRQHandler:0000000000000000 HAL_PCD_IRQHandler
-     /tmp/ccVz3jM7.s:1009   .text.HAL_PCD_IRQHandler:0000000000000580 $d
-     /tmp/ccVz3jM7.s:1013   .text.HAL_PCD_DevConnect:0000000000000000 $t
-     /tmp/ccVz3jM7.s:1020   .text.HAL_PCD_DevConnect:0000000000000000 HAL_PCD_DevConnect
-     /tmp/ccVz3jM7.s:1041   .text.HAL_PCD_DevDisconnect:0000000000000000 $t
-     /tmp/ccVz3jM7.s:1048   .text.HAL_PCD_DevDisconnect:0000000000000000 HAL_PCD_DevDisconnect
-     /tmp/ccVz3jM7.s:1069   .text.HAL_PCD_SetAddress:0000000000000000 $t
-     /tmp/ccVz3jM7.s:1076   .text.HAL_PCD_SetAddress:0000000000000000 HAL_PCD_SetAddress
-     /tmp/ccVz3jM7.s:1098   .text.HAL_PCD_EP_Open:0000000000000000 $t
-     /tmp/ccVz3jM7.s:1105   .text.HAL_PCD_EP_Open:0000000000000000 HAL_PCD_EP_Open
-     /tmp/ccVz3jM7.s:1156   .text.HAL_PCD_EP_Close:0000000000000000 $t
-     /tmp/ccVz3jM7.s:1163   .text.HAL_PCD_EP_Close:0000000000000000 HAL_PCD_EP_Close
-     /tmp/ccVz3jM7.s:1204   .text.HAL_PCD_EP_Receive:0000000000000000 $t
-     /tmp/ccVz3jM7.s:1211   .text.HAL_PCD_EP_Receive:0000000000000000 HAL_PCD_EP_Receive
-     /tmp/ccVz3jM7.s:1242   .text.HAL_PCD_EP_GetRxCount:0000000000000000 $t
-     /tmp/ccVz3jM7.s:1249   .text.HAL_PCD_EP_GetRxCount:0000000000000000 HAL_PCD_EP_GetRxCount
-     /tmp/ccVz3jM7.s:1260   .text.HAL_PCD_EP_Transmit:0000000000000000 $t
-     /tmp/ccVz3jM7.s:1267   .text.HAL_PCD_EP_Transmit:0000000000000000 HAL_PCD_EP_Transmit
-     /tmp/ccVz3jM7.s:1299   .text.HAL_PCD_EP_SetStall:0000000000000000 $t
-     /tmp/ccVz3jM7.s:1306   .text.HAL_PCD_EP_SetStall:0000000000000000 HAL_PCD_EP_SetStall
-ARM GAS  /tmp/ccVz3jM7.s 			page 28
+     /tmp/cc2VSDCt.s:15     .text.HAL_PCD_MspInit:0000000000000000 $t
+     /tmp/cc2VSDCt.s:23     .text.HAL_PCD_MspInit:0000000000000000 HAL_PCD_MspInit
+     /tmp/cc2VSDCt.s:30     .text.HAL_PCD_Init:0000000000000000 $t
+     /tmp/cc2VSDCt.s:37     .text.HAL_PCD_Init:0000000000000000 HAL_PCD_Init
+     /tmp/cc2VSDCt.s:152    .text.HAL_PCD_MspDeInit:0000000000000000 $t
+     /tmp/cc2VSDCt.s:159    .text.HAL_PCD_MspDeInit:0000000000000000 HAL_PCD_MspDeInit
+     /tmp/cc2VSDCt.s:166    .text.HAL_PCD_DeInit:0000000000000000 $t
+     /tmp/cc2VSDCt.s:173    .text.HAL_PCD_DeInit:0000000000000000 HAL_PCD_DeInit
+     /tmp/cc2VSDCt.s:198    .text.HAL_PCD_Start:0000000000000000 $t
+     /tmp/cc2VSDCt.s:205    .text.HAL_PCD_Start:0000000000000000 HAL_PCD_Start
+     /tmp/cc2VSDCt.s:228    .text.HAL_PCD_Stop:0000000000000000 $t
+     /tmp/cc2VSDCt.s:235    .text.HAL_PCD_Stop:0000000000000000 HAL_PCD_Stop
+     /tmp/cc2VSDCt.s:261    .text.HAL_PCD_WKUP_IRQHandler:0000000000000000 $t
+     /tmp/cc2VSDCt.s:268    .text.HAL_PCD_WKUP_IRQHandler:0000000000000000 HAL_PCD_WKUP_IRQHandler
+     /tmp/cc2VSDCt.s:284    .text.HAL_PCD_WKUP_IRQHandler:0000000000000018 $d
+     /tmp/cc2VSDCt.s:287    .text.HAL_PCD_DataOutStageCallback:0000000000000000 $t
+     /tmp/cc2VSDCt.s:294    .text.HAL_PCD_DataOutStageCallback:0000000000000000 HAL_PCD_DataOutStageCallback
+     /tmp/cc2VSDCt.s:301    .text.HAL_PCD_DataInStageCallback:0000000000000000 $t
+     /tmp/cc2VSDCt.s:308    .text.HAL_PCD_DataInStageCallback:0000000000000000 HAL_PCD_DataInStageCallback
+     /tmp/cc2VSDCt.s:315    .text.HAL_PCD_SetupStageCallback:0000000000000000 $t
+     /tmp/cc2VSDCt.s:322    .text.HAL_PCD_SetupStageCallback:0000000000000000 HAL_PCD_SetupStageCallback
+     /tmp/cc2VSDCt.s:329    .text.HAL_PCD_SOFCallback:0000000000000000 $t
+     /tmp/cc2VSDCt.s:336    .text.HAL_PCD_SOFCallback:0000000000000000 HAL_PCD_SOFCallback
+     /tmp/cc2VSDCt.s:343    .text.HAL_PCD_ResetCallback:0000000000000000 $t
+     /tmp/cc2VSDCt.s:350    .text.HAL_PCD_ResetCallback:0000000000000000 HAL_PCD_ResetCallback
+     /tmp/cc2VSDCt.s:357    .text.HAL_PCD_SuspendCallback:0000000000000000 $t
+     /tmp/cc2VSDCt.s:364    .text.HAL_PCD_SuspendCallback:0000000000000000 HAL_PCD_SuspendCallback
+     /tmp/cc2VSDCt.s:371    .text.HAL_PCD_ResumeCallback:0000000000000000 $t
+     /tmp/cc2VSDCt.s:378    .text.HAL_PCD_ResumeCallback:0000000000000000 HAL_PCD_ResumeCallback
+     /tmp/cc2VSDCt.s:385    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 $t
+     /tmp/cc2VSDCt.s:392    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 HAL_PCD_ISOOUTIncompleteCallback
+     /tmp/cc2VSDCt.s:399    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 $t
+     /tmp/cc2VSDCt.s:406    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 HAL_PCD_ISOINIncompleteCallback
+     /tmp/cc2VSDCt.s:413    .text.HAL_PCD_ConnectCallback:0000000000000000 $t
+     /tmp/cc2VSDCt.s:420    .text.HAL_PCD_ConnectCallback:0000000000000000 HAL_PCD_ConnectCallback
+     /tmp/cc2VSDCt.s:427    .text.HAL_PCD_DisconnectCallback:0000000000000000 $t
+     /tmp/cc2VSDCt.s:434    .text.HAL_PCD_DisconnectCallback:0000000000000000 HAL_PCD_DisconnectCallback
+     /tmp/cc2VSDCt.s:441    .text.HAL_PCD_DevConnect:0000000000000000 $t
+     /tmp/cc2VSDCt.s:448    .text.HAL_PCD_DevConnect:0000000000000000 HAL_PCD_DevConnect
+     /tmp/cc2VSDCt.s:469    .text.HAL_PCD_DevDisconnect:0000000000000000 $t
+     /tmp/cc2VSDCt.s:476    .text.HAL_PCD_DevDisconnect:0000000000000000 HAL_PCD_DevDisconnect
+     /tmp/cc2VSDCt.s:497    .text.HAL_PCD_SetAddress:0000000000000000 $t
+     /tmp/cc2VSDCt.s:504    .text.HAL_PCD_SetAddress:0000000000000000 HAL_PCD_SetAddress
+     /tmp/cc2VSDCt.s:526    .text.HAL_PCD_EP_Open:0000000000000000 $t
+     /tmp/cc2VSDCt.s:533    .text.HAL_PCD_EP_Open:0000000000000000 HAL_PCD_EP_Open
+     /tmp/cc2VSDCt.s:584    .text.HAL_PCD_EP_Close:0000000000000000 $t
+     /tmp/cc2VSDCt.s:591    .text.HAL_PCD_EP_Close:0000000000000000 HAL_PCD_EP_Close
+     /tmp/cc2VSDCt.s:632    .text.HAL_PCD_EP_Receive:0000000000000000 $t
+     /tmp/cc2VSDCt.s:639    .text.HAL_PCD_EP_Receive:0000000000000000 HAL_PCD_EP_Receive
+     /tmp/cc2VSDCt.s:670    .text.HAL_PCD_EP_GetRxCount:0000000000000000 $t
+     /tmp/cc2VSDCt.s:677    .text.HAL_PCD_EP_GetRxCount:0000000000000000 HAL_PCD_EP_GetRxCount
+     /tmp/cc2VSDCt.s:688    .text.HAL_PCD_EP_Transmit:0000000000000000 $t
+     /tmp/cc2VSDCt.s:695    .text.HAL_PCD_EP_Transmit:0000000000000000 HAL_PCD_EP_Transmit
+     /tmp/cc2VSDCt.s:727    .text.HAL_PCD_EP_SetStall:0000000000000000 $t
+     /tmp/cc2VSDCt.s:734    .text.HAL_PCD_EP_SetStall:0000000000000000 HAL_PCD_EP_SetStall
+ARM GAS  /tmp/cc2VSDCt.s 			page 31
 
 
-     /tmp/ccVz3jM7.s:1359   .text.HAL_PCD_EP_ClrStall:0000000000000000 $t
-     /tmp/ccVz3jM7.s:1366   .text.HAL_PCD_EP_ClrStall:0000000000000000 HAL_PCD_EP_ClrStall
-     /tmp/ccVz3jM7.s:1415   .text.HAL_PCD_EP_Flush:0000000000000000 $t
-     /tmp/ccVz3jM7.s:1422   .text.HAL_PCD_EP_Flush:0000000000000000 HAL_PCD_EP_Flush
-     /tmp/ccVz3jM7.s:1450   .text.HAL_PCD_ActivateRemoteWakeup:0000000000000000 $t
-     /tmp/ccVz3jM7.s:1457   .text.HAL_PCD_ActivateRemoteWakeup:0000000000000000 HAL_PCD_ActivateRemoteWakeup
-     /tmp/ccVz3jM7.s:1465   .text.HAL_PCD_DeActivateRemoteWakeup:0000000000000000 $t
-     /tmp/ccVz3jM7.s:1472   .text.HAL_PCD_DeActivateRemoteWakeup:0000000000000000 HAL_PCD_DeActivateRemoteWakeup
-     /tmp/ccVz3jM7.s:1480   .text.HAL_PCD_GetState:0000000000000000 $t
-     /tmp/ccVz3jM7.s:1487   .text.HAL_PCD_GetState:0000000000000000 HAL_PCD_GetState
+     /tmp/cc2VSDCt.s:786    .text.HAL_PCD_EP_ClrStall:0000000000000000 $t
+     /tmp/cc2VSDCt.s:793    .text.HAL_PCD_EP_ClrStall:0000000000000000 HAL_PCD_EP_ClrStall
+     /tmp/cc2VSDCt.s:842    .text.HAL_PCD_EP_Abort:0000000000000000 $t
+     /tmp/cc2VSDCt.s:849    .text.HAL_PCD_EP_Abort:0000000000000000 HAL_PCD_EP_Abort
+     /tmp/cc2VSDCt.s:865    .text.HAL_PCD_IRQHandler:0000000000000000 $t
+     /tmp/cc2VSDCt.s:872    .text.HAL_PCD_IRQHandler:0000000000000000 HAL_PCD_IRQHandler
+     /tmp/cc2VSDCt.s:1514   .text.HAL_PCD_IRQHandler:0000000000000614 $d
+     /tmp/cc2VSDCt.s:1517   .text.HAL_PCD_IRQHandler:000000000000061c $t
+     /tmp/cc2VSDCt.s:1587   .text.HAL_PCD_EP_Flush:0000000000000000 $t
+     /tmp/cc2VSDCt.s:1594   .text.HAL_PCD_EP_Flush:0000000000000000 HAL_PCD_EP_Flush
+     /tmp/cc2VSDCt.s:1622   .text.HAL_PCD_ActivateRemoteWakeup:0000000000000000 $t
+     /tmp/cc2VSDCt.s:1629   .text.HAL_PCD_ActivateRemoteWakeup:0000000000000000 HAL_PCD_ActivateRemoteWakeup
+     /tmp/cc2VSDCt.s:1637   .text.HAL_PCD_DeActivateRemoteWakeup:0000000000000000 $t
+     /tmp/cc2VSDCt.s:1644   .text.HAL_PCD_DeActivateRemoteWakeup:0000000000000000 HAL_PCD_DeActivateRemoteWakeup
+     /tmp/cc2VSDCt.s:1652   .text.HAL_PCD_GetState:0000000000000000 $t
+     /tmp/cc2VSDCt.s:1659   .text.HAL_PCD_GetState:0000000000000000 HAL_PCD_GetState
+     /tmp/cc2VSDCt.s:1667   .text.HAL_PCD_SetTestMode:0000000000000000 $t
+     /tmp/cc2VSDCt.s:1674   .text.HAL_PCD_SetTestMode:0000000000000000 HAL_PCD_SetTestMode
 
 UNDEFINED SYMBOLS
 USB_DisableGlobalInt
@@ -1587,16 +1793,24 @@ USB_SetCurrentMode
 USB_DevInit
 HAL_PCDEx_ActivateLPM
 USB_DevDisconnect
-USB_DevConnect
-USB_EnableGlobalInt
 USB_StopDevice
+USB_EnableGlobalInt
+USB_DevConnect
+USB_FlushTxFifo
+USB_SetDevAddress
+USB_ActivateEndpoint
+USB_DeactivateEndpoint
+USB_EP0StartXfer
+USB_EPStartXfer
+USB_EPSetStall
+USB_EP0_OutStart
+USB_EPClearStall
+USB_EPStopXfer
 USB_GetMode
 USB_ReadInterrupts
 USB_ReadPacket
 USB_ReadDevAllInEpInterrupt
 HAL_PCDEx_LPM_Callback
-USB_FlushTxFifo
-USB_EP0_OutStart
 USB_ActivateSetup
 USB_GetDevSpeed
 HAL_RCC_GetHCLKFreq
@@ -1605,13 +1819,6 @@ USB_ReadDevAllOutEpInterrupt
 USB_ReadDevOutEPInterrupt
 USB_ReadDevInEPInterrupt
 USB_WritePacket
-USB_SetDevAddress
-USB_ActivateEndpoint
-USB_DeactivateEndpoint
-USB_EP0StartXfer
-USB_EPStartXfer
-USB_EPSetStall
-USB_EPClearStall
 USB_FlushRxFifo
 USB_ActivateRemoteWakeup
 USB_DeActivateRemoteWakeup

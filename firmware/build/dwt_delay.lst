@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccjjGszB.s 			page 1
+ARM GAS  /tmp/cccZlLKE.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -26,83 +26,80 @@ ARM GAS  /tmp/ccjjGszB.s 			page 1
   24              		@ args = 0, pretend = 0, frame = 0
   25              		@ frame_needed = 0, uses_anonymous_args = 0
   26              		@ link register save eliminated.
-  27 0000 074A     		ldr	r2, .L3
-  28 0002 D368     		ldr	r3, [r2, #12]
-  29 0004 13F08073 		ands	r3, r3, #16777216
-  30 0008 09D1     		bne	.L1
-  31 000a D168     		ldr	r1, [r2, #12]
-  32 000c 41F08071 		orr	r1, r1, #16777216
-  33 0010 D160     		str	r1, [r2, #12]
-  34 0012 044A     		ldr	r2, .L3+4
-  35 0014 5360     		str	r3, [r2, #4]
-  36 0016 1368     		ldr	r3, [r2]
-  37 0018 43F00103 		orr	r3, r3, #1
-  38 001c 1360     		str	r3, [r2]
+  27 0000 094A     		ldr	r2, .L3
+  28 0002 D2F8FC30 		ldr	r3, [r2, #252]
+  29 0006 13F08073 		ands	r3, r3, #16777216
+  30 000a 0CD1     		bne	.L1
+  31 000c D2F8FC10 		ldr	r1, [r2, #252]
+  32 0010 41F08071 		orr	r1, r1, #16777216
+  33 0014 C2F8FC10 		str	r1, [r2, #252]
+  34 0018 A2F55D42 		sub	r2, r2, #56576
+  35 001c 5360     		str	r3, [r2, #4]
+  36 001e 1368     		ldr	r3, [r2]
+  37 0020 43F00103 		orr	r3, r3, #1
+  38 0024 1360     		str	r3, [r2]
   39              	.L1:
-  40 001e 7047     		bx	lr
+  40 0026 7047     		bx	lr
   41              	.L4:
   42              		.align	2
   43              	.L3:
-  44 0020 F0ED00E0 		.word	-536810000
-  45 0024 001000E0 		.word	-536866816
-  47              		.section	.text.dwt_delay_us,"ax",%progbits
-  48              		.align	1
-  49              		.global	dwt_delay_us
-  50              		.syntax unified
-  51              		.thumb
-  52              		.thumb_func
-  53              		.fpu fpv5-sp-d16
-  55              	dwt_delay_us:
-  56              		@ args = 0, pretend = 0, frame = 0
-  57              		@ frame_needed = 0, uses_anonymous_args = 0
-  58 0000 0B4B     		ldr	r3, .L14
-  59 0002 0C4A     		ldr	r2, .L14+4
-  60 0004 1B68     		ldr	r3, [r3]
-ARM GAS  /tmp/ccjjGszB.s 			page 2
+  44 0028 00ED00E0 		.word	-536810240
+  46              		.section	.text.dwt_delay_us,"ax",%progbits
+  47              		.align	1
+  48              		.global	dwt_delay_us
+  49              		.syntax unified
+  50              		.thumb
+  51              		.thumb_func
+  52              		.fpu fpv5-sp-d16
+  54              	dwt_delay_us:
+  55              		@ args = 0, pretend = 0, frame = 0
+  56              		@ frame_needed = 0, uses_anonymous_args = 0
+  57 0000 0B49     		ldr	r1, .L14
+  58 0002 0C4A     		ldr	r2, .L14+4
+  59 0004 0968     		ldr	r1, [r1]
+  60 0006 30B5     		push	{r4, r5, lr}
+ARM GAS  /tmp/cccZlLKE.s 			page 2
 
 
-  61 0006 5168     		ldr	r1, [r2, #4]
-  62 0008 30B5     		push	{r4, r5, lr}
-  63 000a 0B4D     		ldr	r5, .L14+8
-  64 000c 5468     		ldr	r4, [r2, #4]
-  65 000e B3FBF5F3 		udiv	r3, r3, r5
-  66 0012 00FB0340 		mla	r0, r0, r3, r4
-  67 0016 8142     		cmp	r1, r0
-  68 0018 03D2     		bcs	.L9
-  69              	.L7:
-  70 001a 5368     		ldr	r3, [r2, #4]
-  71 001c 8342     		cmp	r3, r0
-  72 001e FCD3     		bcc	.L7
-  73              	.L5:
-  74 0020 30BD     		pop	{r4, r5, pc}
-  75              	.L9:
-  76 0022 5368     		ldr	r3, [r2, #4]
-  77 0024 8B42     		cmp	r3, r1
-  78 0026 FCD8     		bhi	.L9
-  79 0028 5368     		ldr	r3, [r2, #4]
-  80 002a 8342     		cmp	r3, r0
-  81 002c F9D3     		bcc	.L9
-  82 002e F7E7     		b	.L5
-  83              	.L15:
-  84              		.align	2
-  85              	.L14:
-  86 0030 00000000 		.word	SystemCoreClock
-  87 0034 001000E0 		.word	-536866816
-  88 0038 40420F00 		.word	1000000
-  90              		.comm	odom,1,1
-  91              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccjjGszB.s 			page 3
+  61 0008 0B4D     		ldr	r5, .L14+8
+  62 000a 5468     		ldr	r4, [r2, #4]
+  63 000c 5368     		ldr	r3, [r2, #4]
+  64 000e B1FBF5F1 		udiv	r1, r1, r5
+  65 0012 00FB0130 		mla	r0, r0, r1, r3
+  66 0016 8442     		cmp	r4, r0
+  67 0018 03D2     		bcs	.L9
+  68              	.L7:
+  69 001a 5368     		ldr	r3, [r2, #4]
+  70 001c 8342     		cmp	r3, r0
+  71 001e FCD3     		bcc	.L7
+  72              	.L5:
+  73 0020 30BD     		pop	{r4, r5, pc}
+  74              	.L9:
+  75 0022 5368     		ldr	r3, [r2, #4]
+  76 0024 A342     		cmp	r3, r4
+  77 0026 FCD8     		bhi	.L9
+  78 0028 5368     		ldr	r3, [r2, #4]
+  79 002a 8342     		cmp	r3, r0
+  80 002c F9D3     		bcc	.L9
+  81 002e F7E7     		b	.L5
+  82              	.L15:
+  83              		.align	2
+  84              	.L14:
+  85 0030 00000000 		.word	SystemCoreClock
+  86 0034 001000E0 		.word	-536866816
+  87 0038 40420F00 		.word	1000000
+  89              		.ident	"GCC: (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+ARM GAS  /tmp/cccZlLKE.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 dwt_delay.c
-     /tmp/ccjjGszB.s:15     .text.dwt_delay_init:0000000000000000 $t
-     /tmp/ccjjGszB.s:23     .text.dwt_delay_init:0000000000000000 dwt_delay_init
-     /tmp/ccjjGszB.s:44     .text.dwt_delay_init:0000000000000020 $d
-     /tmp/ccjjGszB.s:48     .text.dwt_delay_us:0000000000000000 $t
-     /tmp/ccjjGszB.s:55     .text.dwt_delay_us:0000000000000000 dwt_delay_us
-     /tmp/ccjjGszB.s:86     .text.dwt_delay_us:0000000000000030 $d
-                            *COM*:0000000000000001 odom
+     /tmp/cccZlLKE.s:15     .text.dwt_delay_init:0000000000000000 $t
+     /tmp/cccZlLKE.s:23     .text.dwt_delay_init:0000000000000000 dwt_delay_init
+     /tmp/cccZlLKE.s:44     .text.dwt_delay_init:0000000000000028 $d
+     /tmp/cccZlLKE.s:47     .text.dwt_delay_us:0000000000000000 $t
+     /tmp/cccZlLKE.s:54     .text.dwt_delay_us:0000000000000000 dwt_delay_us
+     /tmp/cccZlLKE.s:85     .text.dwt_delay_us:0000000000000030 $d
 
 UNDEFINED SYMBOLS
 SystemCoreClock

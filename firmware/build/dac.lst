@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccca4FXZ.s 			page 1
+ARM GAS  /tmp/ccxH3MBv.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -25,70 +25,67 @@ ARM GAS  /tmp/ccca4FXZ.s 			page 1
   23              	MX_DAC_Init:
   24              		@ args = 0, pretend = 0, frame = 48
   25              		@ frame_needed = 0, uses_anonymous_args = 0
-  26 0000 10B5     		push	{r4, lr}
-  27 0002 1024     		movs	r4, #16
-  28 0004 8CB0     		sub	sp, sp, #48
+  26 0000 00B5     		push	{lr}
+  27 0002 8DB0     		sub	sp, sp, #52
+  28 0004 1022     		movs	r2, #16
   29 0006 0021     		movs	r1, #0
-  30 0008 2246     		mov	r2, r4
-  31 000a 02A8     		add	r0, sp, #8
-  32 000c FFF7FEFF 		bl	memset
-  33 0010 2246     		mov	r2, r4
-  34 0012 0021     		movs	r1, #0
-  35 0014 08A8     		add	r0, sp, #32
-  36 0016 FFF7FEFF 		bl	memset
-  37 001a 134B     		ldr	r3, .L2
-  38 001c 06A9     		add	r1, sp, #24
-  39 001e 1348     		ldr	r0, .L2+4
-  40 0020 1A6C     		ldr	r2, [r3, #64]
-  41 0022 42F00052 		orr	r2, r2, #536870912
-  42 0026 1A64     		str	r2, [r3, #64]
-  43 0028 1A6C     		ldr	r2, [r3, #64]
-  44 002a 02F00052 		and	r2, r2, #536870912
-  45 002e 0192     		str	r2, [sp, #4]
-  46 0030 019A     		ldr	r2, [sp, #4]
-  47 0032 1A6B     		ldr	r2, [r3, #48]
-  48 0034 42F00102 		orr	r2, r2, #1
-  49 0038 1A63     		str	r2, [r3, #48]
-  50 003a 2022     		movs	r2, #32
-  51 003c 1B6B     		ldr	r3, [r3, #48]
-  52 003e 03F00103 		and	r3, r3, #1
-  53 0042 0093     		str	r3, [sp]
-  54 0044 009B     		ldr	r3, [sp]
-  55 0046 0323     		movs	r3, #3
-  56 0048 CDE90623 		strd	r2, r3, [sp, #24]
-  57 004c FFF7FEFF 		bl	LL_GPIO_Init
-  58 0050 0023     		movs	r3, #0
-ARM GAS  /tmp/ccca4FXZ.s 			page 2
+  30 0008 02A8     		add	r0, sp, #8
+  31 000a FFF7FEFF 		bl	memset
+  32 000e 1022     		movs	r2, #16
+  33 0010 0021     		movs	r1, #0
+  34 0012 08A8     		add	r0, sp, #32
+  35 0014 FFF7FEFF 		bl	memset
+  36 0018 134B     		ldr	r3, .L2
+  37 001a 06A9     		add	r1, sp, #24
+  38 001c 1348     		ldr	r0, .L2+4
+  39 001e 1A6C     		ldr	r2, [r3, #64]
+  40 0020 42F00052 		orr	r2, r2, #536870912
+  41 0024 1A64     		str	r2, [r3, #64]
+  42 0026 1A6C     		ldr	r2, [r3, #64]
+  43 0028 02F00052 		and	r2, r2, #536870912
+  44 002c 0192     		str	r2, [sp, #4]
+  45 002e 019A     		ldr	r2, [sp, #4]
+  46 0030 1A6B     		ldr	r2, [r3, #48]
+  47 0032 42F00102 		orr	r2, r2, #1
+  48 0036 1A63     		str	r2, [r3, #48]
+  49 0038 2022     		movs	r2, #32
+  50 003a 1B6B     		ldr	r3, [r3, #48]
+  51 003c 03F00103 		and	r3, r3, #1
+  52 0040 0093     		str	r3, [sp]
+  53 0042 009B     		ldr	r3, [sp]
+  54 0044 0323     		movs	r3, #3
+  55 0046 CDE90623 		strd	r2, r3, [sp, #24]
+  56 004a FFF7FEFF 		bl	LL_GPIO_Init
+  57 004e 0023     		movs	r3, #0
+  58 0050 3821     		movs	r1, #56
+ARM GAS  /tmp/ccxH3MBv.s 			page 2
 
 
-  59 0052 3821     		movs	r1, #56
-  60 0054 02AA     		add	r2, sp, #8
-  61 0056 0648     		ldr	r0, .L2+8
-  62 0058 0593     		str	r3, [sp, #20]
-  63 005a CDE90213 		strd	r1, r3, [sp, #8]
-  64 005e 0549     		ldr	r1, .L2+12
-  65 0060 FFF7FEFF 		bl	LL_DAC_Init
-  66 0064 0CB0     		add	sp, sp, #48
-  67              		@ sp needed
-  68 0066 10BD     		pop	{r4, pc}
-  69              	.L3:
-  70              		.align	2
-  71              	.L2:
-  72 0068 00380240 		.word	1073887232
-  73 006c 00000240 		.word	1073872896
-  74 0070 00740040 		.word	1073771520
-  75 0074 12004315 		.word	356712466
-  77              		.comm	odom,1,1
-  78              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccca4FXZ.s 			page 3
+  59 0052 02AA     		add	r2, sp, #8
+  60 0054 0648     		ldr	r0, .L2+8
+  61 0056 0593     		str	r3, [sp, #20]
+  62 0058 CDE90213 		strd	r1, r3, [sp, #8]
+  63 005c 0549     		ldr	r1, .L2+12
+  64 005e FFF7FEFF 		bl	LL_DAC_Init
+  65 0062 0DB0     		add	sp, sp, #52
+  66              		@ sp needed
+  67 0064 5DF804FB 		ldr	pc, [sp], #4
+  68              	.L3:
+  69              		.align	2
+  70              	.L2:
+  71 0068 00380240 		.word	1073887232
+  72 006c 00000240 		.word	1073872896
+  73 0070 00740040 		.word	1073771520
+  74 0074 12004315 		.word	356712466
+  76              		.ident	"GCC: (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+ARM GAS  /tmp/ccxH3MBv.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 dac.c
-     /tmp/ccca4FXZ.s:15     .text.MX_DAC_Init:0000000000000000 $t
-     /tmp/ccca4FXZ.s:23     .text.MX_DAC_Init:0000000000000000 MX_DAC_Init
-     /tmp/ccca4FXZ.s:72     .text.MX_DAC_Init:0000000000000068 $d
-                            *COM*:0000000000000001 odom
+     /tmp/ccxH3MBv.s:15     .text.MX_DAC_Init:0000000000000000 $t
+     /tmp/ccxH3MBv.s:23     .text.MX_DAC_Init:0000000000000000 MX_DAC_Init
+     /tmp/ccxH3MBv.s:71     .text.MX_DAC_Init:0000000000000068 $d
 
 UNDEFINED SYMBOLS
 memset

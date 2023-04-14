@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccyZDALa.s 			page 1
+ARM GAS  /tmp/ccsybChh.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -53,12 +53,12 @@ ARM GAS  /tmp/ccyZDALa.s 			page 1
   51              	.L4:
   52              		.align	2
   53              	.L3:
-  54 0048 00000000 		.word	hspi2
+  54 0048 00000000 		.word	.LANCHOR0
   55 004c 00380040 		.word	1073756160
   57              		.section	.text.MX_SPI3_Init,"ax",%progbits
   58              		.align	1
   59              		.global	MX_SPI3_Init
-ARM GAS  /tmp/ccyZDALa.s 			page 2
+ARM GAS  /tmp/ccsybChh.s 			page 2
 
 
   60              		.syntax unified
@@ -96,7 +96,7 @@ ARM GAS  /tmp/ccyZDALa.s 			page 1
   93              	.L8:
   94              		.align	2
   95              	.L7:
-  96 0048 00000000 		.word	hspi3
+  96 0048 00000000 		.word	.LANCHOR1
   97 004c 003C0040 		.word	1073757184
   99              		.section	.text.HAL_SPI_MspInit,"ax",%progbits
  100              		.align	1
@@ -108,17 +108,17 @@ ARM GAS  /tmp/ccyZDALa.s 			page 1
  107              	HAL_SPI_MspInit:
  108              		@ args = 0, pretend = 0, frame = 40
  109              		@ frame_needed = 0, uses_anonymous_args = 0
- 110 0000 F0B5     		push	{r4, r5, r6, r7, lr}
- 111 0002 1422     		movs	r2, #20
- 112 0004 8BB0     		sub	sp, sp, #44
- 113 0006 0646     		mov	r6, r0
- 114 0008 0021     		movs	r1, #0
+ 110 0000 1422     		movs	r2, #20
+ 111 0002 0021     		movs	r1, #0
+ 112 0004 F0B5     		push	{r4, r5, r6, r7, lr}
+ 113 0006 8BB0     		sub	sp, sp, #44
+ 114 0008 0646     		mov	r6, r0
  115 000a 0DEB0200 		add	r0, sp, r2
  116 000e FFF7FEFF 		bl	memset
  117 0012 3368     		ldr	r3, [r6]
  118 0014 414A     		ldr	r2, .L23
  119 0016 9342     		cmp	r3, r2
-ARM GAS  /tmp/ccyZDALa.s 			page 3
+ARM GAS  /tmp/ccsybChh.s 			page 3
 
 
  120 0018 38D1     		bne	.L10
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccyZDALa.s 			page 1
  174 009a 1A6C     		ldr	r2, [r3, #64]
  175 009c 05A9     		add	r1, sp, #20
  176 009e 2548     		ldr	r0, .L23+24
-ARM GAS  /tmp/ccyZDALa.s 			page 4
+ARM GAS  /tmp/ccsybChh.s 			page 4
 
 
  177 00a0 42F40042 		orr	r2, r2, #32768
@@ -228,17 +228,17 @@ ARM GAS  /tmp/ccyZDALa.s 			page 1
  221 011c 00380040 		.word	1073756160
  222 0120 00380240 		.word	1073887232
  223 0124 00040240 		.word	1073873920
- 224 0128 00000000 		.word	hdma_spi2_rx
+ 224 0128 00000000 		.word	.LANCHOR2
  225 012c 58600240 		.word	1073897560
  226 0130 003C0040 		.word	1073757184
  227 0134 00000240 		.word	1073872896
  228 0138 00080240 		.word	1073874944
- 229 013c 00000000 		.word	hdma_spi3_rx
+ 229 013c 00000000 		.word	.LANCHOR3
  230 0140 10600240 		.word	1073897488
  232              		.section	.text.HAL_SPI_MspDeInit,"ax",%progbits
  233              		.align	1
  234              		.global	HAL_SPI_MspDeInit
-ARM GAS  /tmp/ccyZDALa.s 			page 5
+ARM GAS  /tmp/ccsybChh.s 			page 5
 
 
  235              		.syntax unified
@@ -289,34 +289,75 @@ ARM GAS  /tmp/ccyZDALa.s 			page 1
  281 005c 003C0040 		.word	1073757184
  282 0060 00000240 		.word	1073872896
  283 0064 00080240 		.word	1073874944
- 285              		.comm	hdma_spi3_rx,96,4
- 286              		.comm	hdma_spi2_rx,96,4
- 287              		.comm	hspi3,100,4
- 288              		.comm	hspi2,100,4
- 289              		.comm	odom,1,1
- 290              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccyZDALa.s 			page 6
+ 285              		.global	hdma_spi3_rx
+ 286              		.global	hdma_spi2_rx
+ 287              		.global	hspi3
+ 288              		.global	hspi2
+ 289              		.section	.bss.hdma_spi2_rx,"aw",%nobits
+ 290              		.align	2
+ 291              		.set	.LANCHOR2,. + 0
+ 294              	hdma_spi2_rx:
+ 295 0000 00000000 		.space	96
+ARM GAS  /tmp/ccsybChh.s 			page 6
+
+
+ 295      00000000 
+ 295      00000000 
+ 295      00000000 
+ 295      00000000 
+ 296              		.section	.bss.hdma_spi3_rx,"aw",%nobits
+ 297              		.align	2
+ 298              		.set	.LANCHOR3,. + 0
+ 301              	hdma_spi3_rx:
+ 302 0000 00000000 		.space	96
+ 302      00000000 
+ 302      00000000 
+ 302      00000000 
+ 302      00000000 
+ 303              		.section	.bss.hspi2,"aw",%nobits
+ 304              		.align	2
+ 305              		.set	.LANCHOR0,. + 0
+ 308              	hspi2:
+ 309 0000 00000000 		.space	100
+ 309      00000000 
+ 309      00000000 
+ 309      00000000 
+ 309      00000000 
+ 310              		.section	.bss.hspi3,"aw",%nobits
+ 311              		.align	2
+ 312              		.set	.LANCHOR1,. + 0
+ 315              	hspi3:
+ 316 0000 00000000 		.space	100
+ 316      00000000 
+ 316      00000000 
+ 316      00000000 
+ 316      00000000 
+ 317              		.ident	"GCC: (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+ARM GAS  /tmp/ccsybChh.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 spi.c
-     /tmp/ccyZDALa.s:15     .text.MX_SPI2_Init:0000000000000000 $t
-     /tmp/ccyZDALa.s:23     .text.MX_SPI2_Init:0000000000000000 MX_SPI2_Init
-     /tmp/ccyZDALa.s:54     .text.MX_SPI2_Init:0000000000000048 $d
-                            *COM*:0000000000000064 hspi2
-     /tmp/ccyZDALa.s:58     .text.MX_SPI3_Init:0000000000000000 $t
-     /tmp/ccyZDALa.s:65     .text.MX_SPI3_Init:0000000000000000 MX_SPI3_Init
-     /tmp/ccyZDALa.s:96     .text.MX_SPI3_Init:0000000000000048 $d
-                            *COM*:0000000000000064 hspi3
-     /tmp/ccyZDALa.s:100    .text.HAL_SPI_MspInit:0000000000000000 $t
-     /tmp/ccyZDALa.s:107    .text.HAL_SPI_MspInit:0000000000000000 HAL_SPI_MspInit
-     /tmp/ccyZDALa.s:221    .text.HAL_SPI_MspInit:000000000000011c $d
-                            *COM*:0000000000000060 hdma_spi2_rx
-                            *COM*:0000000000000060 hdma_spi3_rx
-     /tmp/ccyZDALa.s:233    .text.HAL_SPI_MspDeInit:0000000000000000 $t
-     /tmp/ccyZDALa.s:240    .text.HAL_SPI_MspDeInit:0000000000000000 HAL_SPI_MspDeInit
-     /tmp/ccyZDALa.s:279    .text.HAL_SPI_MspDeInit:0000000000000054 $d
-                            *COM*:0000000000000001 odom
+     /tmp/ccsybChh.s:15     .text.MX_SPI2_Init:0000000000000000 $t
+     /tmp/ccsybChh.s:23     .text.MX_SPI2_Init:0000000000000000 MX_SPI2_Init
+     /tmp/ccsybChh.s:54     .text.MX_SPI2_Init:0000000000000048 $d
+     /tmp/ccsybChh.s:58     .text.MX_SPI3_Init:0000000000000000 $t
+     /tmp/ccsybChh.s:65     .text.MX_SPI3_Init:0000000000000000 MX_SPI3_Init
+     /tmp/ccsybChh.s:96     .text.MX_SPI3_Init:0000000000000048 $d
+     /tmp/ccsybChh.s:100    .text.HAL_SPI_MspInit:0000000000000000 $t
+     /tmp/ccsybChh.s:107    .text.HAL_SPI_MspInit:0000000000000000 HAL_SPI_MspInit
+     /tmp/ccsybChh.s:221    .text.HAL_SPI_MspInit:000000000000011c $d
+     /tmp/ccsybChh.s:233    .text.HAL_SPI_MspDeInit:0000000000000000 $t
+     /tmp/ccsybChh.s:240    .text.HAL_SPI_MspDeInit:0000000000000000 HAL_SPI_MspDeInit
+     /tmp/ccsybChh.s:279    .text.HAL_SPI_MspDeInit:0000000000000054 $d
+     /tmp/ccsybChh.s:301    .bss.hdma_spi3_rx:0000000000000000 hdma_spi3_rx
+     /tmp/ccsybChh.s:294    .bss.hdma_spi2_rx:0000000000000000 hdma_spi2_rx
+     /tmp/ccsybChh.s:315    .bss.hspi3:0000000000000000 hspi3
+     /tmp/ccsybChh.s:308    .bss.hspi2:0000000000000000 hspi2
+     /tmp/ccsybChh.s:290    .bss.hdma_spi2_rx:0000000000000000 $d
+     /tmp/ccsybChh.s:297    .bss.hdma_spi3_rx:0000000000000000 $d
+     /tmp/ccsybChh.s:304    .bss.hspi2:0000000000000000 $d
+     /tmp/ccsybChh.s:311    .bss.hspi3:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_SPI_Init

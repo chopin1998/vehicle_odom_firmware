@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc8BE3hF.s 			page 1
+ARM GAS  /tmp/ccxIvICv.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc8BE3hF.s 			page 1
   56 004c FFF7FEFF 		bl	HAL_NVIC_SetPriority
   57 0050 1120     		movs	r0, #17
   58 0052 03B0     		add	sp, sp, #12
-ARM GAS  /tmp/cc8BE3hF.s 			page 2
+ARM GAS  /tmp/ccxIvICv.s 			page 2
 
 
   59              		@ sp needed
@@ -68,17 +68,15 @@ ARM GAS  /tmp/cc8BE3hF.s 			page 1
   63              		.align	2
   64              	.L2:
   65 005c 00380240 		.word	1073887232
-  67              		.comm	odom,1,1
-  68              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/cc8BE3hF.s 			page 3
+  67              		.ident	"GCC: (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+ARM GAS  /tmp/ccxIvICv.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 dma.c
-     /tmp/cc8BE3hF.s:15     .text.MX_DMA_Init:0000000000000000 $t
-     /tmp/cc8BE3hF.s:23     .text.MX_DMA_Init:0000000000000000 MX_DMA_Init
-     /tmp/cc8BE3hF.s:65     .text.MX_DMA_Init:000000000000005c $d
-                            *COM*:0000000000000001 odom
+     /tmp/ccxIvICv.s:15     .text.MX_DMA_Init:0000000000000000 $t
+     /tmp/ccxIvICv.s:23     .text.MX_DMA_Init:0000000000000000 MX_DMA_Init
+     /tmp/ccxIvICv.s:65     .text.MX_DMA_Init:000000000000005c $d
 
 UNDEFINED SYMBOLS
 HAL_NVIC_SetPriority

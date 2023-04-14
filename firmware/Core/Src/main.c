@@ -73,8 +73,12 @@ void SystemClock_Config(void);
   * @brief  The application entry point.
   * @retval int
   */
+
+ODOM_t odom;
+
 int main(void)
-{
+{   
+    
   /* USER CODE BEGIN 1 */
   /* USER CODE END 1 */
 

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccz0w3S2.s 			page 1
+ARM GAS  /tmp/ccetUawV.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccz0w3S2.s 			page 1
   58              	.L5:
   59 000c 084B     		ldr	r3, .L8+4
   60 000e 0122     		movs	r2, #1
-ARM GAS  /tmp/ccz0w3S2.s 			page 2
+ARM GAS  /tmp/ccetUawV.s 			page 2
 
 
   61 0010 1A70     		strb	r2, [r3]
@@ -79,7 +79,7 @@ ARM GAS  /tmp/ccz0w3S2.s 			page 1
   76 002c 00000000 		.word	.LANCHOR0
   77 0030 00000000 		.word	.LANCHOR1
   78 0034 06000000 		.word	.LANCHOR0+6
-  79 0038 00000000 		.word	ser_imu_last_data
+  79 0038 00000000 		.word	.LANCHOR2
   81              		.section	.text.ser_imu_get,"ax",%progbits
   82              		.align	1
   83              		.global	ser_imu_get
@@ -90,65 +90,71 @@ ARM GAS  /tmp/ccz0w3S2.s 			page 1
   89              	ser_imu_get:
   90              		@ args = 0, pretend = 0, frame = 0
   91              		@ frame_needed = 0, uses_anonymous_args = 0
-  92 0000 084B     		ldr	r3, .L11
+  92 0000 094B     		ldr	r3, .L11
   93 0002 10B5     		push	{r4, lr}
-  94 0004 1C68     		ldr	r4, [r3]	@ unaligned
-  95 0006 0460     		str	r4, [r0]	@ unaligned
-  96 0008 9C88     		ldrh	r4, [r3, #4]	@ unaligned
-  97 000a 8480     		strh	r4, [r0, #4]	@ unaligned
-  98 000c 1846     		mov	r0, r3
-  99 000e 50F8074F 		ldr	r4, [r0, #7]!	@ unaligned
- 100 0012 0C60     		str	r4, [r1]	@ unaligned
- 101 0014 8088     		ldrh	r0, [r0, #4]	@ unaligned
- 102 0016 8880     		strh	r0, [r1, #4]	@ unaligned
- 103 0018 53F80E1F 		ldr	r1, [r3, #14]!	@ unaligned
- 104 001c 1160     		str	r1, [r2]	@ unaligned
- 105 001e 9B88     		ldrh	r3, [r3, #4]	@ unaligned
- 106 0020 9380     		strh	r3, [r2, #4]	@ unaligned
- 107 0022 10BD     		pop	{r4, pc}
- 108              	.L12:
- 109              		.align	2
- 110              	.L11:
- 111 0024 01000000 		.word	ser_imu_last_data+1
- 113              		.global	ser_imu_frame_flag
- 114              		.comm	ser_imu_last_data,32,1
- 115              		.comm	odom,1,1
- 116              		.section	.bss.ser_imu_frame_flag,"aw",%nobits
- 117              		.set	.LANCHOR1,. + 0
- 120              	ser_imu_frame_flag:
- 121 0000 00       		.space	1
- 122              		.section	.bss.ser_imu_rx_buff,"aw",%nobits
-ARM GAS  /tmp/ccz0w3S2.s 			page 3
+  94 0004 D3F80140 		ldr	r4, [r3, #1]	@ unaligned
+  95 0008 0460     		str	r4, [r0]	@ unaligned
+  96 000a B3F80540 		ldrh	r4, [r3, #5]	@ unaligned
+  97 000e 8480     		strh	r4, [r0, #4]	@ unaligned
+  98 0010 9868     		ldr	r0, [r3, #8]	@ unaligned
+  99 0012 0860     		str	r0, [r1]	@ unaligned
+ 100 0014 9889     		ldrh	r0, [r3, #12]	@ unaligned
+ 101 0016 8880     		strh	r0, [r1, #4]	@ unaligned
+ 102 0018 D3F80F10 		ldr	r1, [r3, #15]	@ unaligned
+ 103 001c 1160     		str	r1, [r2]	@ unaligned
+ 104 001e B3F81330 		ldrh	r3, [r3, #19]	@ unaligned
+ 105 0022 9380     		strh	r3, [r2, #4]	@ unaligned
+ 106 0024 10BD     		pop	{r4, pc}
+ 107              	.L12:
+ 108 0026 00BF     		.align	2
+ 109              	.L11:
+ 110 0028 00000000 		.word	.LANCHOR2
+ 112              		.global	ser_imu_frame_flag
+ 113              		.global	ser_imu_last_data
+ 114              		.section	.bss.ser_imu_frame_flag,"aw",%nobits
+ 115              		.set	.LANCHOR1,. + 0
+ 118              	ser_imu_frame_flag:
+ 119 0000 00       		.space	1
+ 120              		.section	.bss.ser_imu_last_data,"aw",%nobits
+ 121              		.set	.LANCHOR2,. + 0
+ 124              	ser_imu_last_data:
+ARM GAS  /tmp/ccetUawV.s 			page 3
 
 
- 123              		.set	.LANCHOR0,. + 0
- 126              	ser_imu_rx_buff:
- 127 0000 00000000 		.space	128
- 127      00000000 
- 127      00000000 
- 127      00000000 
- 127      00000000 
- 128              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccz0w3S2.s 			page 4
+ 125 0000 00000000 		.space	32
+ 125      00000000 
+ 125      00000000 
+ 125      00000000 
+ 125      00000000 
+ 126              		.section	.bss.ser_imu_rx_buff,"aw",%nobits
+ 127              		.set	.LANCHOR0,. + 0
+ 130              	ser_imu_rx_buff:
+ 131 0000 00000000 		.space	128
+ 131      00000000 
+ 131      00000000 
+ 131      00000000 
+ 131      00000000 
+ 132              		.ident	"GCC: (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+ARM GAS  /tmp/ccetUawV.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 ser_imu.c
-     /tmp/ccz0w3S2.s:15     .text.ser_imu_enable:0000000000000000 $t
-     /tmp/ccz0w3S2.s:23     .text.ser_imu_enable:0000000000000000 ser_imu_enable
-     /tmp/ccz0w3S2.s:38     .text.ser_imu_enable:0000000000000014 $d
-     /tmp/ccz0w3S2.s:42     .text.ser_imu_callback:0000000000000000 $t
-     /tmp/ccz0w3S2.s:49     .text.ser_imu_callback:0000000000000000 ser_imu_callback
-     /tmp/ccz0w3S2.s:76     .text.ser_imu_callback:000000000000002c $d
-                            *COM*:0000000000000020 ser_imu_last_data
-     /tmp/ccz0w3S2.s:82     .text.ser_imu_get:0000000000000000 $t
-     /tmp/ccz0w3S2.s:89     .text.ser_imu_get:0000000000000000 ser_imu_get
-     /tmp/ccz0w3S2.s:111    .text.ser_imu_get:0000000000000024 $d
-     /tmp/ccz0w3S2.s:120    .bss.ser_imu_frame_flag:0000000000000000 ser_imu_frame_flag
-                            *COM*:0000000000000001 odom
-     /tmp/ccz0w3S2.s:121    .bss.ser_imu_frame_flag:0000000000000000 $d
-     /tmp/ccz0w3S2.s:126    .bss.ser_imu_rx_buff:0000000000000000 ser_imu_rx_buff
-     /tmp/ccz0w3S2.s:127    .bss.ser_imu_rx_buff:0000000000000000 $d
+     /tmp/ccetUawV.s:15     .text.ser_imu_enable:0000000000000000 $t
+     /tmp/ccetUawV.s:23     .text.ser_imu_enable:0000000000000000 ser_imu_enable
+     /tmp/ccetUawV.s:38     .text.ser_imu_enable:0000000000000014 $d
+     /tmp/ccetUawV.s:42     .text.ser_imu_callback:0000000000000000 $t
+     /tmp/ccetUawV.s:49     .text.ser_imu_callback:0000000000000000 ser_imu_callback
+     /tmp/ccetUawV.s:76     .text.ser_imu_callback:000000000000002c $d
+     /tmp/ccetUawV.s:82     .text.ser_imu_get:0000000000000000 $t
+     /tmp/ccetUawV.s:89     .text.ser_imu_get:0000000000000000 ser_imu_get
+     /tmp/ccetUawV.s:110    .text.ser_imu_get:0000000000000028 $d
+     /tmp/ccetUawV.s:118    .bss.ser_imu_frame_flag:0000000000000000 ser_imu_frame_flag
+     /tmp/ccetUawV.s:124    .bss.ser_imu_last_data:0000000000000000 ser_imu_last_data
+     /tmp/ccetUawV.s:119    .bss.ser_imu_frame_flag:0000000000000000 $d
+     /tmp/ccetUawV.s:125    .bss.ser_imu_last_data:0000000000000000 $d
+     /tmp/ccetUawV.s:130    .bss.ser_imu_rx_buff:0000000000000000 ser_imu_rx_buff
+     /tmp/ccetUawV.s:131    .bss.ser_imu_rx_buff:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_UART_Receive_DMA

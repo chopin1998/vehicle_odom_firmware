@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccya0g6W.s 			page 1
+ARM GAS  /tmp/ccynadf5.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -14,135 +14,140 @@ ARM GAS  /tmp/ccya0g6W.s 			page 1
   11              		.eabi_attribute 18, 4
   12              		.file	"cmd_proc.c"
   13              		.text
-  14              		.section	.text.cmd_proc,"ax",%progbits
-  15              		.align	1
-  16              		.global	cmd_proc
-  17              		.arch armv7e-m
-  18              		.syntax unified
-  19              		.thumb
-  20              		.thumb_func
-  21              		.fpu fpv5-sp-d16
-  23              	cmd_proc:
-  24              		@ args = 0, pretend = 0, frame = 64
-  25              		@ frame_needed = 0, uses_anonymous_args = 0
-  26 0000 30B5     		push	{r4, r5, lr}
-  27 0002 0422     		movs	r2, #4
-  28 0004 91B0     		sub	sp, sp, #68
-  29 0006 0D46     		mov	r5, r1
-  30 0008 2349     		ldr	r1, .L10
-  31 000a 0446     		mov	r4, r0
-  32 000c FFF7FEFF 		bl	strncmp
-  33 0010 C8B9     		cbnz	r0, .L2
-  34 0012 042D     		cmp	r5, #4
-  35 0014 214D     		ldr	r5, .L10+4
-  36 0016 0AD1     		bne	.L3
-  37 0018 4021     		movs	r1, #64
-  38 001a 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
-  39 001c 204A     		ldr	r2, .L10+8
-  40 001e 6846     		mov	r0, sp
-  41 0020 FFF7FEFF 		bl	snprintf
-  42 0024 81B2     		uxth	r1, r0
-  43 0026 6846     		mov	r0, sp
-  44              	.L8:
-  45 0028 FFF7FEFF 		bl	CDC_Transmit_FS
-  46 002c 09E0     		b	.L1
-  47              	.L3:
-  48 002e 1D48     		ldr	r0, .L10+12
-  49 0030 FFF7FEFF 		bl	adns3080_reset
-  50 0034 1C48     		ldr	r0, .L10+16
-  51 0036 FFF7FEFF 		bl	adns3080_reset
-  52 003a 2379     		ldrb	r3, [r4, #4]	@ zero_extendqisi2
-  53 003c 303B     		subs	r3, r3, #48
-  54 003e DBB2     		uxtb	r3, r3
-  55 0040 2B70     		strb	r3, [r5]
+  14              		.section	.rodata.cmd_proc.str1.1,"aMS",%progbits,1
+  15              	.LC0:
+  16 0000 6D6F6465 		.ascii	"mode\000"
+  16      00
+  17              	.LC1:
+  18 0005 6D6F6465 		.ascii	"mode: %d\012\000"
+  18      3A202564 
+  18      0A00
+  19              	.LC2:
+  20 000f 63617032 		.ascii	"cap2\000"
+  20      00
+  21              	.LC3:
+  22 0014 63617000 		.ascii	"cap\000"
+  23              	.LC4:
+  24 0018 415400   		.ascii	"AT\000"
+  25              		.section	.text.cmd_proc,"ax",%progbits
+  26              		.align	1
+  27              		.global	cmd_proc
+  28              		.arch armv7e-m
+  29              		.syntax unified
+  30              		.thumb
+  31              		.thumb_func
+  32              		.fpu fpv5-sp-d16
+  34              	cmd_proc:
+  35              		@ args = 0, pretend = 0, frame = 72
+  36              		@ frame_needed = 0, uses_anonymous_args = 0
+  37 0000 30B5     		push	{r4, r5, lr}
+  38 0002 0422     		movs	r2, #4
+  39 0004 93B0     		sub	sp, sp, #76
+  40 0006 0D46     		mov	r5, r1
+  41 0008 2849     		ldr	r1, .L9
+  42 000a 0446     		mov	r4, r0
+  43 000c FFF7FEFF 		bl	strncmp
+  44 0010 C8B9     		cbnz	r0, .L2
+  45 0012 042D     		cmp	r5, #4
+  46 0014 264D     		ldr	r5, .L9+4
+  47 0016 0BD1     		bne	.L3
+  48 0018 4021     		movs	r1, #64
+  49 001a 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+  50 001c 254A     		ldr	r2, .L9+8
+  51 001e 02A8     		add	r0, sp, #8
+  52 0020 FFF7FEFF 		bl	snprintf
+  53 0024 81B2     		uxth	r1, r0
+  54 0026 02A8     		add	r0, sp, #8
+ARM GAS  /tmp/ccynadf5.s 			page 2
+
+
+  55 0028 FFF7FEFF 		bl	CDC_Transmit_FS
   56              	.L1:
-  57 0042 11B0     		add	sp, sp, #68
+  57 002c 13B0     		add	sp, sp, #76
   58              		@ sp needed
-ARM GAS  /tmp/ccya0g6W.s 			page 2
+  59 002e 30BD     		pop	{r4, r5, pc}
+  60              	.L3:
+  61 0030 2148     		ldr	r0, .L9+12
+  62 0032 FFF7FEFF 		bl	adns3080_reset
+  63 0036 2148     		ldr	r0, .L9+16
+  64 0038 FFF7FEFF 		bl	adns3080_reset
+  65 003c 2379     		ldrb	r3, [r4, #4]	@ zero_extendqisi2
+  66 003e 303B     		subs	r3, r3, #48
+  67 0040 DBB2     		uxtb	r3, r3
+  68 0042 2B70     		strb	r3, [r5]
+  69 0044 F2E7     		b	.L1
+  70              	.L2:
+  71 0046 0422     		movs	r2, #4
+  72 0048 1D49     		ldr	r1, .L9+20
+  73 004a 2046     		mov	r0, r4
+  74 004c FFF7FEFF 		bl	strncmp
+  75 0050 28B9     		cbnz	r0, .L5
+  76 0052 1A48     		ldr	r0, .L9+16
+  77              	.L8:
+  78 0054 13B0     		add	sp, sp, #76
+  79              		@ sp needed
+  80 0056 BDE83040 		pop	{r4, r5, lr}
+  81 005a FFF7FEBF 		b	adns3080_capture
+  82              	.L5:
+  83 005e 0322     		movs	r2, #3
+  84 0060 1849     		ldr	r1, .L9+24
+  85 0062 2046     		mov	r0, r4
+  86 0064 FFF7FEFF 		bl	strncmp
+  87 0068 08B9     		cbnz	r0, .L6
+  88 006a 1348     		ldr	r0, .L9+12
+  89 006c F2E7     		b	.L8
+  90              	.L6:
+  91 006e 1649     		ldr	r1, .L9+28
+  92 0070 0222     		movs	r2, #2
+  93 0072 2046     		mov	r0, r4
+  94 0074 FFF7FEFF 		bl	strncmp
+  95 0078 A9B2     		uxth	r1, r5
+  96 007a 80B9     		cbnz	r0, .L7
+  97 007c 2046     		mov	r0, r4
+  98 007e 0191     		str	r1, [sp, #4]
+  99 0080 FFF7FEFF 		bl	CDC_Transmit_FS
+ 100 0084 0199     		ldr	r1, [sp, #4]
+ 101 0086 1148     		ldr	r0, .L9+32
+ 102 0088 0A46     		mov	r2, r1
+ 103 008a 2146     		mov	r1, r4
+ 104 008c FFF7FEFF 		bl	HAL_UART_Transmit_DMA
+ 105 0090 4021     		movs	r1, #64
+ 106 0092 0F48     		ldr	r0, .L9+36
+ 107 0094 13B0     		add	sp, sp, #76
+ 108              		@ sp needed
+ 109 0096 BDE83040 		pop	{r4, r5, lr}
+ 110 009a FFF7FEBF 		b	HAL_GPIO_TogglePin
+ 111              	.L7:
+ARM GAS  /tmp/ccynadf5.s 			page 3
 
 
-  59 0044 30BD     		pop	{r4, r5, pc}
-  60              	.L2:
-  61 0046 0422     		movs	r2, #4
-  62 0048 1849     		ldr	r1, .L10+20
-  63 004a 2046     		mov	r0, r4
-  64 004c FFF7FEFF 		bl	strncmp
-  65 0050 18B9     		cbnz	r0, .L5
-  66 0052 1548     		ldr	r0, .L10+16
-  67              	.L9:
-  68 0054 FFF7FEFF 		bl	adns3080_capture
-  69 0058 F3E7     		b	.L1
-  70              	.L5:
-  71 005a 0322     		movs	r2, #3
-  72 005c 1449     		ldr	r1, .L10+24
-  73 005e 2046     		mov	r0, r4
-  74 0060 FFF7FEFF 		bl	strncmp
-  75 0064 08B9     		cbnz	r0, .L6
-  76 0066 0F48     		ldr	r0, .L10+12
-  77 0068 F4E7     		b	.L9
-  78              	.L6:
-  79 006a ADB2     		uxth	r5, r5
-  80 006c 1149     		ldr	r1, .L10+28
-  81 006e 0222     		movs	r2, #2
-  82 0070 2046     		mov	r0, r4
-  83 0072 FFF7FEFF 		bl	strncmp
-  84 0076 2946     		mov	r1, r5
-  85 0078 60B9     		cbnz	r0, .L7
-  86 007a 2046     		mov	r0, r4
-  87 007c FFF7FEFF 		bl	CDC_Transmit_FS
-  88 0080 2146     		mov	r1, r4
-  89 0082 2A46     		mov	r2, r5
-  90 0084 0C48     		ldr	r0, .L10+32
-  91 0086 FFF7FEFF 		bl	HAL_UART_Transmit_DMA
-  92 008a 4021     		movs	r1, #64
-  93 008c 0B48     		ldr	r0, .L10+36
-  94 008e FFF7FEFF 		bl	HAL_GPIO_TogglePin
-  95 0092 D6E7     		b	.L1
-  96              	.L7:
-  97 0094 2046     		mov	r0, r4
-  98 0096 C7E7     		b	.L8
-  99              	.L11:
- 100              		.align	2
- 101              	.L10:
- 102 0098 00000000 		.word	.LC0
- 103 009c 00000000 		.word	odom
- 104 00a0 05000000 		.word	.LC1
- 105 00a4 00000000 		.word	hspi2
- 106 00a8 00000000 		.word	hspi3
- 107 00ac 0F000000 		.word	.LC2
- 108 00b0 14000000 		.word	.LC3
- 109 00b4 18000000 		.word	.LC4
- 110 00b8 00000000 		.word	huart2
- 111 00bc 00000240 		.word	1073872896
- 113              		.comm	odom,1,1
- 114              		.section	.rodata.cmd_proc.str1.1,"aMS",%progbits,1
- 115              	.LC0:
- 116 0000 6D6F6465 		.ascii	"mode\000"
-ARM GAS  /tmp/ccya0g6W.s 			page 3
-
-
- 116      00
- 117              	.LC1:
- 118 0005 6D6F6465 		.ascii	"mode: %d\012\000"
- 118      3A202564 
- 118      0A00
- 119              	.LC2:
- 120 000f 63617032 		.ascii	"cap2\000"
- 120      00
- 121              	.LC3:
- 122 0014 63617000 		.ascii	"cap\000"
- 123              	.LC4:
- 124 0018 415400   		.ascii	"AT\000"
- 125              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccya0g6W.s 			page 4
+ 112 009e 2046     		mov	r0, r4
+ 113 00a0 13B0     		add	sp, sp, #76
+ 114              		@ sp needed
+ 115 00a2 BDE83040 		pop	{r4, r5, lr}
+ 116 00a6 FFF7FEBF 		b	CDC_Transmit_FS
+ 117              	.L10:
+ 118 00aa 00BF     		.align	2
+ 119              	.L9:
+ 120 00ac 00000000 		.word	.LC0
+ 121 00b0 00000000 		.word	odom
+ 122 00b4 05000000 		.word	.LC1
+ 123 00b8 00000000 		.word	hspi2
+ 124 00bc 00000000 		.word	hspi3
+ 125 00c0 0F000000 		.word	.LC2
+ 126 00c4 14000000 		.word	.LC3
+ 127 00c8 18000000 		.word	.LC4
+ 128 00cc 00000000 		.word	huart2
+ 129 00d0 00000240 		.word	1073872896
+ 131              		.ident	"GCC: (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+ARM GAS  /tmp/ccynadf5.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 cmd_proc.c
-     /tmp/ccya0g6W.s:15     .text.cmd_proc:0000000000000000 $t
-     /tmp/ccya0g6W.s:23     .text.cmd_proc:0000000000000000 cmd_proc
-     /tmp/ccya0g6W.s:102    .text.cmd_proc:0000000000000098 $d
-                            *COM*:0000000000000001 odom
+     /tmp/ccynadf5.s:26     .text.cmd_proc:0000000000000000 $t
+     /tmp/ccynadf5.s:34     .text.cmd_proc:0000000000000000 cmd_proc
+     /tmp/ccynadf5.s:120    .text.cmd_proc:00000000000000ac $d
 
 UNDEFINED SYMBOLS
 strncmp
@@ -152,6 +157,7 @@ adns3080_reset
 adns3080_capture
 HAL_UART_Transmit_DMA
 HAL_GPIO_TogglePin
+odom
 hspi2
 hspi3
 huart2

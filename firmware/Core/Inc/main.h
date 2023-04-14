@@ -88,8 +88,8 @@ typedef struct
   volatile uint8_t mode;
 } ODOM_t;
 
-ODOM_t odom;
-
+extern ODOM_t odom;
+    
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

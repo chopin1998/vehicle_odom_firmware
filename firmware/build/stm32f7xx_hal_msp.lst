@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccxbmvuk.s 			page 1
+ARM GAS  /tmp/cc9ufcYB.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -49,16 +49,14 @@ ARM GAS  /tmp/ccxbmvuk.s 			page 1
   47              		.align	2
   48              	.L2:
   49 002c 00380240 		.word	1073887232
-  51              		.comm	odom,1,1
-  52              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccxbmvuk.s 			page 2
+  51              		.ident	"GCC: (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+ARM GAS  /tmp/cc9ufcYB.s 			page 2
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f7xx_hal_msp.c
-     /tmp/ccxbmvuk.s:15     .text.HAL_MspInit:0000000000000000 $t
-     /tmp/ccxbmvuk.s:23     .text.HAL_MspInit:0000000000000000 HAL_MspInit
-     /tmp/ccxbmvuk.s:49     .text.HAL_MspInit:000000000000002c $d
-                            *COM*:0000000000000001 odom
+     /tmp/cc9ufcYB.s:15     .text.HAL_MspInit:0000000000000000 $t
+     /tmp/cc9ufcYB.s:23     .text.HAL_MspInit:0000000000000000 HAL_MspInit
+     /tmp/cc9ufcYB.s:49     .text.HAL_MspInit:000000000000002c $d
 
 NO UNDEFINED SYMBOLS

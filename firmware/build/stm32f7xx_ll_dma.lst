@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccH1oLnV.s 			page 1
+ARM GAS  /tmp/ccX4IXHX.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccH1oLnV.s 			page 1
   56 0038 1A61     		str	r2, [r3, #16]
   57 003a 1A69     		ldr	r2, [r3, #16]
   58 003c 22F48002 		bic	r2, r2, #4194304
-ARM GAS  /tmp/ccH1oLnV.s 			page 2
+ARM GAS  /tmp/ccX4IXHX.s 			page 2
 
 
   59 0040 EEE7     		b	.L34
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccH1oLnV.s 			page 1
  113 00a2 D8E7     		b	.L8
  114              	.L12:
  115 00a4 0329     		cmp	r1, #3
-ARM GAS  /tmp/ccH1oLnV.s 			page 3
+ARM GAS  /tmp/ccX4IXHX.s 			page 3
 
 
  116 00a6 05D1     		bne	.L14
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccH1oLnV.s 			page 1
  170              	.L35:
  171 0100 9360     		str	r3, [r2, #8]
  172 0102 94E7     		b	.L4
-ARM GAS  /tmp/ccH1oLnV.s 			page 4
+ARM GAS  /tmp/ccX4IXHX.s 			page 4
 
 
  173              	.L22:
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccH1oLnV.s 			page 1
  228              		.section	.text.LL_DMA_Init,"ax",%progbits
  229              		.align	1
  230              		.global	LL_DMA_Init
-ARM GAS  /tmp/ccH1oLnV.s 			page 5
+ARM GAS  /tmp/ccX4IXHX.s 			page 5
 
 
  231              		.syntax unified
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccH1oLnV.s 			page 1
  286 0068 1B0C     		lsrs	r3, r3, #16
  287 006a 1B04     		lsls	r3, r3, #16
  288 006c 2B43     		orrs	r3, r3, r5
-ARM GAS  /tmp/ccH1oLnV.s 			page 6
+ARM GAS  /tmp/ccX4IXHX.s 			page 6
 
 
  289 006e 6360     		str	r3, [r4, #4]
@@ -336,28 +336,22 @@ ARM GAS  /tmp/ccH1oLnV.s 			page 1
  324              		.section	.rodata.STREAM_OFFSET_TAB,"a"
  325              		.set	.LANCHOR0,. + 0
  328              	STREAM_OFFSET_TAB:
- 329 0000 10       		.byte	16
- 330 0001 28       		.byte	40
- 331 0002 40       		.byte	64
- 332 0003 58       		.byte	88
- 333 0004 70       		.byte	112
- 334 0005 88       		.byte	-120
- 335 0006 A0       		.byte	-96
- 336 0007 B8       		.byte	-72
- 337              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccH1oLnV.s 			page 7
+ 329 0000 10284058 		.ascii	"\020(@Xp\210\240\270"
+ 329      7088A0B8 
+ 330              		.ident	"GCC: (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+ARM GAS  /tmp/ccX4IXHX.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f7xx_ll_dma.c
-     /tmp/ccH1oLnV.s:15     .text.LL_DMA_DeInit:0000000000000000 $t
-     /tmp/ccH1oLnV.s:23     .text.LL_DMA_DeInit:0000000000000000 LL_DMA_DeInit
-     /tmp/ccH1oLnV.s:208    .text.LL_DMA_DeInit:0000000000000144 $d
-     /tmp/ccH1oLnV.s:229    .text.LL_DMA_Init:0000000000000000 $t
-     /tmp/ccH1oLnV.s:236    .text.LL_DMA_Init:0000000000000000 LL_DMA_Init
-     /tmp/ccH1oLnV.s:299    .text.LL_DMA_Init:0000000000000080 $d
-     /tmp/ccH1oLnV.s:302    .text.LL_DMA_StructInit:0000000000000000 $t
-     /tmp/ccH1oLnV.s:309    .text.LL_DMA_StructInit:0000000000000000 LL_DMA_StructInit
-     /tmp/ccH1oLnV.s:328    .rodata.STREAM_OFFSET_TAB:0000000000000000 STREAM_OFFSET_TAB
+     /tmp/ccX4IXHX.s:15     .text.LL_DMA_DeInit:0000000000000000 $t
+     /tmp/ccX4IXHX.s:23     .text.LL_DMA_DeInit:0000000000000000 LL_DMA_DeInit
+     /tmp/ccX4IXHX.s:208    .text.LL_DMA_DeInit:0000000000000144 $d
+     /tmp/ccX4IXHX.s:229    .text.LL_DMA_Init:0000000000000000 $t
+     /tmp/ccX4IXHX.s:236    .text.LL_DMA_Init:0000000000000000 LL_DMA_Init
+     /tmp/ccX4IXHX.s:299    .text.LL_DMA_Init:0000000000000080 $d
+     /tmp/ccX4IXHX.s:302    .text.LL_DMA_StructInit:0000000000000000 $t
+     /tmp/ccX4IXHX.s:309    .text.LL_DMA_StructInit:0000000000000000 LL_DMA_StructInit
+     /tmp/ccX4IXHX.s:328    .rodata.STREAM_OFFSET_TAB:0000000000000000 STREAM_OFFSET_TAB
 
 NO UNDEFINED SYMBOLS

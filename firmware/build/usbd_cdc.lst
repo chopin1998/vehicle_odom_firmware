@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cccFiTzH.s 			page 1
+ARM GAS  /tmp/cceTJcsD.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -24,840 +24,751 @@ ARM GAS  /tmp/cccFiTzH.s 			page 1
   22              	USBD_CDC_EP0_RxReady:
   23              		@ args = 0, pretend = 0, frame = 0
   24              		@ frame_needed = 0, uses_anonymous_args = 0
-  25 0000 D0F8C032 		ldr	r3, [r0, #704]
-  26 0004 10B5     		push	{r4, lr}
-  27 0006 6BB1     		cbz	r3, .L2
-  28 0008 D0F8BC42 		ldr	r4, [r0, #700]
-  29 000c 94F80002 		ldrb	r0, [r4, #512]	@ zero_extendqisi2
-  30 0010 FF28     		cmp	r0, #255
-  31 0012 07D0     		beq	.L2
-  32 0014 9B68     		ldr	r3, [r3, #8]
-  33 0016 2146     		mov	r1, r4
-  34 0018 94F80122 		ldrb	r2, [r4, #513]	@ zero_extendqisi2
-  35 001c 9847     		blx	r3
-  36 001e FF23     		movs	r3, #255
-  37 0020 84F80032 		strb	r3, [r4, #512]
-  38              	.L2:
-  39 0024 0020     		movs	r0, #0
-  40 0026 10BD     		pop	{r4, pc}
-  42              		.section	.text.USBD_CDC_GetFSCfgDesc,"ax",%progbits
-  43              		.align	1
-  44              		.syntax unified
-  45              		.thumb
-  46              		.thumb_func
-  47              		.fpu fpv5-sp-d16
-  49              	USBD_CDC_GetFSCfgDesc:
-  50              		@ args = 0, pretend = 0, frame = 0
-  51              		@ frame_needed = 0, uses_anonymous_args = 0
-  52              		@ link register save eliminated.
-  53 0000 4323     		movs	r3, #67
-  54 0002 0380     		strh	r3, [r0]	@ movhi
-  55 0004 0048     		ldr	r0, .L10
-  56 0006 7047     		bx	lr
-  57              	.L11:
-  58              		.align	2
-  59              	.L10:
-  60 0008 00000000 		.word	.LANCHOR0
-ARM GAS  /tmp/cccFiTzH.s 			page 2
+  25 0000 D0F8D432 		ldr	r3, [r0, #724]
+  26 0004 00EB8300 		add	r0, r0, r3, lsl #2
+  27 0008 10B5     		push	{r4, lr}
+  28 000a D0F8C042 		ldr	r4, [r0, #704]
+  29 000e 84B1     		cbz	r4, .L3
+  30 0010 D0F8C432 		ldr	r3, [r0, #708]
+  31 0014 5BB1     		cbz	r3, .L5
+  32 0016 94F80002 		ldrb	r0, [r4, #512]	@ zero_extendqisi2
+  33 001a FF28     		cmp	r0, #255
+  34 001c 07D0     		beq	.L5
+  35 001e 9B68     		ldr	r3, [r3, #8]
+  36 0020 2146     		mov	r1, r4
+  37 0022 94F80122 		ldrb	r2, [r4, #513]	@ zero_extendqisi2
+  38 0026 9847     		blx	r3
+  39 0028 FF23     		movs	r3, #255
+  40 002a 84F80032 		strb	r3, [r4, #512]
+  41              	.L5:
+  42 002e 0020     		movs	r0, #0
+  43 0030 00E0     		b	.L2
+  44              	.L3:
+  45 0032 0320     		movs	r0, #3
+  46              	.L2:
+  47 0034 10BD     		pop	{r4, pc}
+  49              		.section	.text.USBD_CDC_GetDeviceQualifierDescriptor,"ax",%progbits
+  50              		.align	1
+  51              		.global	USBD_CDC_GetDeviceQualifierDescriptor
+  52              		.syntax unified
+  53              		.thumb
+  54              		.thumb_func
+  55              		.fpu fpv5-sp-d16
+  57              	USBD_CDC_GetDeviceQualifierDescriptor:
+  58              		@ args = 0, pretend = 0, frame = 0
+  59              		@ frame_needed = 0, uses_anonymous_args = 0
+  60              		@ link register save eliminated.
+ARM GAS  /tmp/cceTJcsD.s 			page 2
 
 
-  62              		.section	.text.USBD_CDC_GetHSCfgDesc,"ax",%progbits
-  63              		.align	1
-  64              		.syntax unified
-  65              		.thumb
-  66              		.thumb_func
-  67              		.fpu fpv5-sp-d16
-  69              	USBD_CDC_GetHSCfgDesc:
-  70              		@ args = 0, pretend = 0, frame = 0
-  71              		@ frame_needed = 0, uses_anonymous_args = 0
-  72              		@ link register save eliminated.
-  73 0000 4323     		movs	r3, #67
-  74 0002 0380     		strh	r3, [r0]	@ movhi
-  75 0004 0048     		ldr	r0, .L13
-  76 0006 7047     		bx	lr
-  77              	.L14:
-  78              		.align	2
-  79              	.L13:
-  80 0008 00000000 		.word	.LANCHOR1
-  82              		.section	.text.USBD_CDC_GetOtherSpeedCfgDesc,"ax",%progbits
-  83              		.align	1
-  84              		.syntax unified
-  85              		.thumb
-  86              		.thumb_func
-  87              		.fpu fpv5-sp-d16
-  89              	USBD_CDC_GetOtherSpeedCfgDesc:
-  90              		@ args = 0, pretend = 0, frame = 0
-  91              		@ frame_needed = 0, uses_anonymous_args = 0
-  92              		@ link register save eliminated.
-  93 0000 4323     		movs	r3, #67
-  94 0002 0380     		strh	r3, [r0]	@ movhi
-  95 0004 0048     		ldr	r0, .L16
-  96 0006 7047     		bx	lr
-  97              	.L17:
-  98              		.align	2
-  99              	.L16:
- 100 0008 00000000 		.word	.LANCHOR2
- 102              		.section	.text.USBD_CDC_GetDeviceQualifierDescriptor,"ax",%progbits
- 103              		.align	1
- 104              		.global	USBD_CDC_GetDeviceQualifierDescriptor
- 105              		.syntax unified
- 106              		.thumb
- 107              		.thumb_func
- 108              		.fpu fpv5-sp-d16
- 110              	USBD_CDC_GetDeviceQualifierDescriptor:
- 111              		@ args = 0, pretend = 0, frame = 0
- 112              		@ frame_needed = 0, uses_anonymous_args = 0
- 113              		@ link register save eliminated.
- 114 0000 0A23     		movs	r3, #10
- 115 0002 0380     		strh	r3, [r0]	@ movhi
- 116 0004 0048     		ldr	r0, .L19
- 117 0006 7047     		bx	lr
- 118              	.L20:
- 119              		.align	2
- 120              	.L19:
- 121 0008 00000000 		.word	.LANCHOR3
- 123              		.section	.text.USBD_CDC_DataOut,"ax",%progbits
- 124              		.align	1
-ARM GAS  /tmp/cccFiTzH.s 			page 3
+  61 0000 0A23     		movs	r3, #10
+  62 0002 0380     		strh	r3, [r0]	@ movhi
+  63 0004 0048     		ldr	r0, .L7
+  64 0006 7047     		bx	lr
+  65              	.L8:
+  66              		.align	2
+  67              	.L7:
+  68 0008 00000000 		.word	.LANCHOR0
+  70              		.section	.text.USBD_CDC_GetFSCfgDesc,"ax",%progbits
+  71              		.align	1
+  72              		.syntax unified
+  73              		.thumb
+  74              		.thumb_func
+  75              		.fpu fpv5-sp-d16
+  77              	USBD_CDC_GetFSCfgDesc:
+  78              		@ args = 0, pretend = 0, frame = 0
+  79              		@ frame_needed = 0, uses_anonymous_args = 0
+  80 0000 70B5     		push	{r4, r5, r6, lr}
+  81 0002 8221     		movs	r1, #130
+  82 0004 0646     		mov	r6, r0
+  83 0006 0F48     		ldr	r0, .L22
+  84 0008 FFF7FEFF 		bl	USBD_GetEpDesc
+  85 000c 0121     		movs	r1, #1
+  86 000e 0546     		mov	r5, r0
+  87 0010 0C48     		ldr	r0, .L22
+  88 0012 FFF7FEFF 		bl	USBD_GetEpDesc
+  89 0016 8121     		movs	r1, #129
+  90 0018 0446     		mov	r4, r0
+  91 001a 0A48     		ldr	r0, .L22
+  92 001c FFF7FEFF 		bl	USBD_GetEpDesc
+  93 0020 0DB1     		cbz	r5, .L10
+  94 0022 1022     		movs	r2, #16
+  95 0024 AA71     		strb	r2, [r5, #6]
+  96              	.L10:
+  97 0026 1CB1     		cbz	r4, .L11
+  98 0028 4022     		movs	r2, #64
+  99 002a 2271     		strb	r2, [r4, #4]
+ 100 002c 0022     		movs	r2, #0
+ 101 002e 6271     		strb	r2, [r4, #5]
+ 102              	.L11:
+ 103 0030 18B1     		cbz	r0, .L12
+ 104 0032 4022     		movs	r2, #64
+ 105 0034 0271     		strb	r2, [r0, #4]
+ 106 0036 0022     		movs	r2, #0
+ 107 0038 4271     		strb	r2, [r0, #5]
+ 108              	.L12:
+ 109 003a 4323     		movs	r3, #67
+ 110 003c 0148     		ldr	r0, .L22
+ 111 003e 3380     		strh	r3, [r6]	@ movhi
+ 112 0040 70BD     		pop	{r4, r5, r6, pc}
+ 113              	.L23:
+ 114 0042 00BF     		.align	2
+ 115              	.L22:
+ 116 0044 00000000 		.word	.LANCHOR1
+ 118              		.section	.text.USBD_CDC_GetOtherSpeedCfgDesc,"ax",%progbits
+ 119              		.align	1
+ 120              		.syntax unified
+ARM GAS  /tmp/cceTJcsD.s 			page 3
 
 
- 125              		.syntax unified
- 126              		.thumb
- 127              		.thumb_func
- 128              		.fpu fpv5-sp-d16
- 130              	USBD_CDC_DataOut:
- 131              		@ args = 0, pretend = 0, frame = 0
- 132              		@ frame_needed = 0, uses_anonymous_args = 0
- 133 0000 38B5     		push	{r3, r4, r5, lr}
- 134 0002 D0F8BC42 		ldr	r4, [r0, #700]
- 135 0006 0546     		mov	r5, r0
- 136 0008 6CB1     		cbz	r4, .L23
- 137 000a FFF7FEFF 		bl	USBD_LL_GetRxDataSize
- 138 000e D5F8C032 		ldr	r3, [r5, #704]
- 139 0012 C4F80C02 		str	r0, [r4, #524]
- 140 0016 04F50371 		add	r1, r4, #524
- 141 001a DB68     		ldr	r3, [r3, #12]
- 142 001c D4F80402 		ldr	r0, [r4, #516]
- 143 0020 9847     		blx	r3
- 144 0022 0020     		movs	r0, #0
- 145              	.L22:
- 146 0024 38BD     		pop	{r3, r4, r5, pc}
- 147              	.L23:
- 148 0026 0320     		movs	r0, #3
- 149 0028 FCE7     		b	.L22
- 151              		.section	.text.USBD_CDC_DataIn,"ax",%progbits
- 152              		.align	1
- 153              		.syntax unified
- 154              		.thumb
- 155              		.thumb_func
- 156              		.fpu fpv5-sp-d16
- 158              	USBD_CDC_DataIn:
- 159              		@ args = 0, pretend = 0, frame = 0
- 160              		@ frame_needed = 0, uses_anonymous_args = 0
- 161 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 162 0002 D0F8BC32 		ldr	r3, [r0, #700]
- 163 0006 0546     		mov	r5, r0
- 164 0008 0A46     		mov	r2, r1
- 165 000a 23B3     		cbz	r3, .L27
- 166 000c 1426     		movs	r6, #20
- 167 000e 06FB0106 		mla	r6, r6, r1, r0
- 168 0012 B769     		ldr	r7, [r6, #24]
- 169 0014 9FB1     		cbz	r7, .L26
- 170 0016 4FF01C0C 		mov	ip, #28
- 171 001a D0F8C442 		ldr	r4, [r0, #708]
- 172 001e 0CFB0144 		mla	r4, ip, r1, r4
- 173 0022 D4F844C0 		ldr	ip, [r4, #68]
- 174 0026 B7FBFCF4 		udiv	r4, r7, ip
- 175 002a 0CFB1474 		mls	r4, ip, r4, r7
- 176 002e 34B9     		cbnz	r4, .L26
- 177 0030 B461     		str	r4, [r6, #24]
- 178 0032 2346     		mov	r3, r4
- 179 0034 2246     		mov	r2, r4
- 180 0036 FFF7FEFF 		bl	USBD_LL_Transmit
- 181              	.L31:
- 182 003a 2046     		mov	r0, r4
- 183              	.L25:
- 184 003c F8BD     		pop	{r3, r4, r5, r6, r7, pc}
-ARM GAS  /tmp/cccFiTzH.s 			page 4
+ 121              		.thumb
+ 122              		.thumb_func
+ 123              		.fpu fpv5-sp-d16
+ 125              	USBD_CDC_GetOtherSpeedCfgDesc:
+ 126              		@ args = 0, pretend = 0, frame = 0
+ 127              		@ frame_needed = 0, uses_anonymous_args = 0
+ 128              		@ link register save eliminated.
+ 129 0000 FFF7FEBF 		b	USBD_CDC_GetFSCfgDesc
+ 131              		.section	.text.USBD_CDC_GetHSCfgDesc,"ax",%progbits
+ 132              		.align	1
+ 133              		.syntax unified
+ 134              		.thumb
+ 135              		.thumb_func
+ 136              		.fpu fpv5-sp-d16
+ 138              	USBD_CDC_GetHSCfgDesc:
+ 139              		@ args = 0, pretend = 0, frame = 0
+ 140              		@ frame_needed = 0, uses_anonymous_args = 0
+ 141 0000 70B5     		push	{r4, r5, r6, lr}
+ 142 0002 8221     		movs	r1, #130
+ 143 0004 0646     		mov	r6, r0
+ 144 0006 0F48     		ldr	r0, .L38
+ 145 0008 FFF7FEFF 		bl	USBD_GetEpDesc
+ 146 000c 0121     		movs	r1, #1
+ 147 000e 0546     		mov	r5, r0
+ 148 0010 0C48     		ldr	r0, .L38
+ 149 0012 FFF7FEFF 		bl	USBD_GetEpDesc
+ 150 0016 8121     		movs	r1, #129
+ 151 0018 0446     		mov	r4, r0
+ 152 001a 0A48     		ldr	r0, .L38
+ 153 001c FFF7FEFF 		bl	USBD_GetEpDesc
+ 154 0020 0DB1     		cbz	r5, .L26
+ 155 0022 1022     		movs	r2, #16
+ 156 0024 AA71     		strb	r2, [r5, #6]
+ 157              	.L26:
+ 158 0026 1CB1     		cbz	r4, .L27
+ 159 0028 0022     		movs	r2, #0
+ 160 002a 2271     		strb	r2, [r4, #4]
+ 161 002c 0222     		movs	r2, #2
+ 162 002e 6271     		strb	r2, [r4, #5]
+ 163              	.L27:
+ 164 0030 18B1     		cbz	r0, .L28
+ 165 0032 0022     		movs	r2, #0
+ 166 0034 0271     		strb	r2, [r0, #4]
+ 167 0036 0222     		movs	r2, #2
+ 168 0038 4271     		strb	r2, [r0, #5]
+ 169              	.L28:
+ 170 003a 4323     		movs	r3, #67
+ 171 003c 0148     		ldr	r0, .L38
+ 172 003e 3380     		strh	r3, [r6]	@ movhi
+ 173 0040 70BD     		pop	{r4, r5, r6, pc}
+ 174              	.L39:
+ 175 0042 00BF     		.align	2
+ 176              	.L38:
+ 177 0044 00000000 		.word	.LANCHOR1
+ 179              		.section	.text.USBD_CDC_DataOut,"ax",%progbits
+ 180              		.align	1
+ 181              		.syntax unified
+ARM GAS  /tmp/cceTJcsD.s 			page 4
 
 
- 185              	.L26:
- 186 003e 0024     		movs	r4, #0
- 187 0040 D5F8C012 		ldr	r1, [r5, #704]
- 188 0044 D3F80802 		ldr	r0, [r3, #520]
- 189 0048 0D69     		ldr	r5, [r1, #16]
- 190 004a 03F50471 		add	r1, r3, #528
- 191 004e C3F81442 		str	r4, [r3, #532]
- 192 0052 A847     		blx	r5
- 193 0054 F1E7     		b	.L31
- 194              	.L27:
- 195 0056 0320     		movs	r0, #3
- 196 0058 F0E7     		b	.L25
- 198              		.section	.text.USBD_CDC_Setup,"ax",%progbits
- 199              		.align	1
- 200              		.syntax unified
- 201              		.thumb
- 202              		.thumb_func
- 203              		.fpu fpv5-sp-d16
- 205              	USBD_CDC_Setup:
- 206              		@ args = 0, pretend = 0, frame = 8
- 207              		@ frame_needed = 0, uses_anonymous_args = 0
- 208 0000 2DE9F743 		push	{r0, r1, r2, r4, r5, r6, r7, r8, r9, lr}
- 209 0004 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
- 210 0006 4FF00008 		mov	r8, #0
- 211 000a 0546     		mov	r5, r0
- 212 000c 0E46     		mov	r6, r1
- 213 000e 12F06003 		ands	r3, r2, #96
- 214 0012 D0F8BC72 		ldr	r7, [r0, #700]
- 215 0016 8DF80580 		strb	r8, [sp, #5]
- 216 001a ADF80680 		strh	r8, [sp, #6]	@ movhi
- 217 001e 25D0     		beq	.L33
- 218 0020 202B     		cmp	r3, #32
- 219 0022 55D1     		bne	.L34
- 220 0024 CC88     		ldrh	r4, [r1, #6]
- 221 0026 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
- 222 0028 CCB1     		cbz	r4, .L35
- 223 002a 1206     		lsls	r2, r2, #24
- 224 002c 0DD5     		bpl	.L36
- 225 002e D0F8C022 		ldr	r2, [r0, #704]
- 226 0032 3946     		mov	r1, r7
- 227 0034 1846     		mov	r0, r3
- 228 0036 D2F80890 		ldr	r9, [r2, #8]
- 229 003a 2246     		mov	r2, r4
- 230 003c C847     		blx	r9
- 231 003e F288     		ldrh	r2, [r6, #6]
- 232 0040 3946     		mov	r1, r7
- 233              	.L44:
- 234 0042 2846     		mov	r0, r5
- 235 0044 FFF7FEFF 		bl	USBD_CtlSendData
- 236 0048 07E0     		b	.L43
- 237              	.L36:
- 238 004a 87F80032 		strb	r3, [r7, #512]
- 239 004e 2246     		mov	r2, r4
- 240 0050 87F80142 		strb	r4, [r7, #513]
- 241 0054 3946     		mov	r1, r7
- 242 0056 FFF7FEFF 		bl	USBD_CtlPrepareRx
- 243              	.L43:
-ARM GAS  /tmp/cccFiTzH.s 			page 5
+ 182              		.thumb
+ 183              		.thumb_func
+ 184              		.fpu fpv5-sp-d16
+ 186              	USBD_CDC_DataOut:
+ 187              		@ args = 0, pretend = 0, frame = 0
+ 188              		@ frame_needed = 0, uses_anonymous_args = 0
+ 189 0000 38B5     		push	{r3, r4, r5, lr}
+ 190 0002 D0F8D432 		ldr	r3, [r0, #724]
+ 191 0006 0446     		mov	r4, r0
+ 192 0008 B033     		adds	r3, r3, #176
+ 193 000a 50F82350 		ldr	r5, [r0, r3, lsl #2]
+ 194 000e 8DB1     		cbz	r5, .L42
+ 195 0010 FFF7FEFF 		bl	USBD_LL_GetRxDataSize
+ 196 0014 C5F80C02 		str	r0, [r5, #524]
+ 197 0018 D4F8D402 		ldr	r0, [r4, #724]
+ 198 001c 05F50371 		add	r1, r5, #524
+ 199 0020 04EB8004 		add	r4, r4, r0, lsl #2
+ 200 0024 D5F80402 		ldr	r0, [r5, #516]
+ 201 0028 D4F8C432 		ldr	r3, [r4, #708]
+ 202 002c DB68     		ldr	r3, [r3, #12]
+ 203 002e 9847     		blx	r3
+ 204 0030 0020     		movs	r0, #0
+ 205              	.L41:
+ 206 0032 38BD     		pop	{r3, r4, r5, pc}
+ 207              	.L42:
+ 208 0034 0320     		movs	r0, #3
+ 209 0036 FCE7     		b	.L41
+ 211              		.section	.text.USBD_CDC_DataIn,"ax",%progbits
+ 212              		.align	1
+ 213              		.syntax unified
+ 214              		.thumb
+ 215              		.thumb_func
+ 216              		.fpu fpv5-sp-d16
+ 218              	USBD_CDC_DataIn:
+ 219              		@ args = 0, pretend = 0, frame = 0
+ 220              		@ frame_needed = 0, uses_anonymous_args = 0
+ 221 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 222 0002 D0F8D462 		ldr	r6, [r0, #724]
+ 223 0006 0A46     		mov	r2, r1
+ 224 0008 00EB8606 		add	r6, r0, r6, lsl #2
+ 225 000c D6F8C052 		ldr	r5, [r6, #704]
+ 226 0010 45B3     		cbz	r5, .L46
+ 227 0012 01F00F0C 		and	ip, r1, #15
+ 228 0016 1427     		movs	r7, #20
+ 229 0018 07FB0C07 		mla	r7, r7, ip, r0
+ 230 001c BC69     		ldr	r4, [r7, #24]
+ 231 001e 94B1     		cbz	r4, .L45
+ 232 0020 D0F8C832 		ldr	r3, [r0, #712]
+ 233 0024 4FF0240E 		mov	lr, #36
+ 234 0028 0EFB0C33 		mla	r3, lr, ip, r3
+ 235 002c 9B6C     		ldr	r3, [r3, #72]
+ 236 002e B4FBF3FC 		udiv	ip, r4, r3
+ 237 0032 03FB1C44 		mls	r4, r3, ip, r4
+ 238 0036 34B9     		cbnz	r4, .L45
+ 239 0038 2346     		mov	r3, r4
+ 240 003a 2246     		mov	r2, r4
+ 241 003c BC61     		str	r4, [r7, #24]
+ARM GAS  /tmp/cceTJcsD.s 			page 5
 
 
- 244 005a 0020     		movs	r0, #0
- 245 005c 3DE0     		b	.L37
- 246              	.L35:
- 247 005e D0F8C022 		ldr	r2, [r0, #704]
- 248 0062 1846     		mov	r0, r3
- 249 0064 9568     		ldr	r5, [r2, #8]
- 250 0066 2246     		mov	r2, r4
- 251 0068 A847     		blx	r5
- 252 006a F6E7     		b	.L43
- 253              	.L33:
- 254 006c 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
- 255 006e 0B2B     		cmp	r3, #11
- 256 0070 2ED8     		bhi	.L34
- 257 0072 01A2     		adr	r2, .L39
- 258 0074 52F823F0 		ldr	pc, [r2, r3, lsl #2]
- 259              		.p2align 2
- 260              	.L39:
- 261 0078 A9000000 		.word	.L41+1
- 262 007c 5B000000 		.word	.L43+1
- 263 0080 D1000000 		.word	.L34+1
- 264 0084 D1000000 		.word	.L34+1
- 265 0088 D1000000 		.word	.L34+1
- 266 008c D1000000 		.word	.L34+1
- 267 0090 D1000000 		.word	.L34+1
- 268 0094 D1000000 		.word	.L34+1
- 269 0098 D1000000 		.word	.L34+1
- 270 009c D1000000 		.word	.L34+1
- 271 00a0 B9000000 		.word	.L40+1
- 272 00a4 C9000000 		.word	.L38+1
- 273              		.p2align 1
- 274              	.L41:
- 275 00a8 90F89C32 		ldrb	r3, [r0, #668]	@ zero_extendqisi2
- 276 00ac 032B     		cmp	r3, #3
- 277 00ae 0FD1     		bne	.L34
- 278 00b0 0222     		movs	r2, #2
- 279 00b2 0DF10601 		add	r1, sp, #6
- 280 00b6 C4E7     		b	.L44
- 281              	.L40:
- 282 00b8 90F89C32 		ldrb	r3, [r0, #668]	@ zero_extendqisi2
- 283 00bc 032B     		cmp	r3, #3
- 284 00be 07D1     		bne	.L34
- 285 00c0 0122     		movs	r2, #1
- 286 00c2 0DF10501 		add	r1, sp, #5
- 287 00c6 BCE7     		b	.L44
- 288              	.L38:
- 289 00c8 90F89C32 		ldrb	r3, [r0, #668]	@ zero_extendqisi2
- 290 00cc 032B     		cmp	r3, #3
- 291 00ce C4D0     		beq	.L43
- 292              	.L34:
- 293 00d0 2846     		mov	r0, r5
- 294 00d2 3146     		mov	r1, r6
- 295 00d4 FFF7FEFF 		bl	USBD_CtlError
- 296 00d8 0320     		movs	r0, #3
- 297              	.L37:
- 298 00da 03B0     		add	sp, sp, #12
- 299              		@ sp needed
- 300 00dc BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
-ARM GAS  /tmp/cccFiTzH.s 			page 6
+ 242 003e FFF7FEFF 		bl	USBD_LL_Transmit
+ 243              	.L47:
+ 244 0042 2046     		mov	r0, r4
+ 245 0044 0DE0     		b	.L44
+ 246              	.L45:
+ 247 0046 D6F8C432 		ldr	r3, [r6, #708]
+ 248 004a 0027     		movs	r7, #0
+ 249 004c 1C69     		ldr	r4, [r3, #16]
+ 250 004e C5F81472 		str	r7, [r5, #532]
+ 251 0052 002C     		cmp	r4, #0
+ 252 0054 F5D0     		beq	.L47
+ 253 0056 05F50471 		add	r1, r5, #528
+ 254 005a D5F80802 		ldr	r0, [r5, #520]
+ 255 005e A047     		blx	r4
+ 256 0060 3846     		mov	r0, r7
+ 257              	.L44:
+ 258 0062 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 259              	.L46:
+ 260 0064 0320     		movs	r0, #3
+ 261 0066 FCE7     		b	.L44
+ 263              		.section	.text.USBD_CDC_Setup,"ax",%progbits
+ 264              		.align	1
+ 265              		.syntax unified
+ 266              		.thumb
+ 267              		.thumb_func
+ 268              		.fpu fpv5-sp-d16
+ 270              	USBD_CDC_Setup:
+ 271              		@ args = 0, pretend = 0, frame = 8
+ 272              		@ frame_needed = 0, uses_anonymous_args = 0
+ 273 0000 D0F8D432 		ldr	r3, [r0, #724]
+ 274 0004 00EB8303 		add	r3, r0, r3, lsl #2
+ 275 0008 2DE9F341 		push	{r0, r1, r4, r5, r6, r7, r8, lr}
+ 276 000c 4FF00008 		mov	r8, #0
+ 277 0010 D3F8C072 		ldr	r7, [r3, #704]
+ 278 0014 0546     		mov	r5, r0
+ 279 0016 0E46     		mov	r6, r1
+ 280 0018 8DF80580 		strb	r8, [sp, #5]
+ 281 001c ADF80680 		strh	r8, [sp, #6]	@ movhi
+ 282 0020 002F     		cmp	r7, #0
+ 283 0022 6ED0     		beq	.L63
+ 284 0024 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
+ 285 0026 12F06004 		ands	r4, r2, #96
+ 286 002a 2ED0     		beq	.L53
+ 287 002c 202C     		cmp	r4, #32
+ 288 002e 64D1     		bne	.L54
+ 289 0030 CC88     		ldrh	r4, [r1, #6]
+ 290 0032 91F801C0 		ldrb	ip, [r1, #1]	@ zero_extendqisi2
+ 291 0036 0CB3     		cbz	r4, .L55
+ 292 0038 1206     		lsls	r2, r2, #24
+ 293 003a 13D5     		bpl	.L56
+ 294 003c D3F8C432 		ldr	r3, [r3, #708]
+ 295 0040 2246     		mov	r2, r4
+ 296 0042 3946     		mov	r1, r7
+ 297 0044 6046     		mov	r0, ip
+ 298 0046 9B68     		ldr	r3, [r3, #8]
+ 299 0048 9847     		blx	r3
+ 300 004a F288     		ldrh	r2, [r6, #6]
+ARM GAS  /tmp/cceTJcsD.s 			page 6
 
 
- 302              		.section	.text.USBD_CDC_DeInit,"ax",%progbits
- 303              		.align	1
- 304              		.syntax unified
- 305              		.thumb
- 306              		.thumb_func
- 307              		.fpu fpv5-sp-d16
- 309              	USBD_CDC_DeInit:
- 310              		@ args = 0, pretend = 0, frame = 0
- 311              		@ frame_needed = 0, uses_anonymous_args = 0
- 312 0000 38B5     		push	{r3, r4, r5, lr}
- 313 0002 0446     		mov	r4, r0
- 314 0004 0025     		movs	r5, #0
- 315 0006 8121     		movs	r1, #129
- 316 0008 FFF7FEFF 		bl	USBD_LL_CloseEP
- 317 000c 0121     		movs	r1, #1
- 318 000e 2587     		strh	r5, [r4, #56]	@ movhi
- 319 0010 2046     		mov	r0, r4
- 320 0012 FFF7FEFF 		bl	USBD_LL_CloseEP
- 321 0016 A4F87851 		strh	r5, [r4, #376]	@ movhi
- 322 001a 8221     		movs	r1, #130
- 323 001c 2046     		mov	r0, r4
- 324 001e FFF7FEFF 		bl	USBD_LL_CloseEP
- 325 0022 D4F8BC32 		ldr	r3, [r4, #700]
- 326 0026 E564     		str	r5, [r4, #76]
- 327 0028 4BB1     		cbz	r3, .L46
- 328 002a D4F8C032 		ldr	r3, [r4, #704]
- 329 002e 5B68     		ldr	r3, [r3, #4]
- 330 0030 9847     		blx	r3
- 331 0032 D4F8BC02 		ldr	r0, [r4, #700]
- 332 0036 FFF7FEFF 		bl	free
- 333 003a C4F8BC52 		str	r5, [r4, #700]
- 334              	.L46:
- 335 003e 0020     		movs	r0, #0
- 336 0040 38BD     		pop	{r3, r4, r5, pc}
- 338              		.section	.text.USBD_CDC_Init,"ax",%progbits
- 339              		.align	1
- 340              		.syntax unified
- 341              		.thumb
- 342              		.thumb_func
- 343              		.fpu fpv5-sp-d16
- 345              	USBD_CDC_Init:
- 346              		@ args = 0, pretend = 0, frame = 0
- 347              		@ frame_needed = 0, uses_anonymous_args = 0
- 348 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 349 0004 0446     		mov	r4, r0
- 350 0006 4FF40770 		mov	r0, #540
- 351 000a FFF7FEFF 		bl	malloc
- 352 000e 0646     		mov	r6, r0
- 353 0010 C4F8BC02 		str	r0, [r4, #700]
- 354 0014 10B9     		cbnz	r0, .L51
- 355 0016 0220     		movs	r0, #2
- 356              	.L52:
- 357 0018 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 358              	.L51:
- 359 001c 237C     		ldrb	r3, [r4, #16]	@ zero_extendqisi2
- 360 001e ABBB     		cbnz	r3, .L53
- 361 0020 4FF40073 		mov	r3, #512
-ARM GAS  /tmp/cccFiTzH.s 			page 7
+ 301 004c 3946     		mov	r1, r7
+ 302 004e 2846     		mov	r0, r5
+ 303 0050 072A     		cmp	r2, #7
+ 304 0052 28BF     		it	cs
+ 305 0054 0722     		movcs	r2, #7
+ 306 0056 FFF7FEFF 		bl	USBD_CtlSendData
+ 307              	.L65:
+ 308 005a 4446     		mov	r4, r8
+ 309              	.L52:
+ 310 005c 2046     		mov	r0, r4
+ 311 005e 02B0     		add	sp, sp, #8
+ 312              		@ sp needed
+ 313 0060 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 314              	.L56:
+ 315 0064 402C     		cmp	r4, #64
+ 316 0066 3946     		mov	r1, r7
+ 317 0068 87F800C2 		strb	ip, [r7, #512]
+ 318 006c 28BF     		it	cs
+ 319 006e 4024     		movcs	r4, #64
+ 320 0070 2246     		mov	r2, r4
+ 321 0072 87F80142 		strb	r4, [r7, #513]
+ 322 0076 FFF7FEFF 		bl	USBD_CtlPrepareRx
+ 323 007a EEE7     		b	.L65
+ 324              	.L55:
+ 325 007c D3F8C432 		ldr	r3, [r3, #708]
+ 326 0080 2246     		mov	r2, r4
+ 327 0082 6046     		mov	r0, ip
+ 328 0084 9B68     		ldr	r3, [r3, #8]
+ 329 0086 9847     		blx	r3
+ 330 0088 E8E7     		b	.L52
+ 331              	.L53:
+ 332 008a 4F78     		ldrb	r7, [r1, #1]	@ zero_extendqisi2
+ 333 008c 0B2F     		cmp	r7, #11
+ 334 008e 34D8     		bhi	.L54
+ 335 0090 01A3     		adr	r3, .L59
+ 336 0092 53F827F0 		ldr	pc, [r3, r7, lsl #2]
+ 337 0096 00BF     		.p2align 2
+ 338              	.L59:
+ 339 0098 C9000000 		.word	.L61+1
+ 340 009c 5D000000 		.word	.L52+1
+ 341 00a0 FB000000 		.word	.L54+1
+ 342 00a4 FB000000 		.word	.L54+1
+ 343 00a8 FB000000 		.word	.L54+1
+ 344 00ac FB000000 		.word	.L54+1
+ 345 00b0 FB000000 		.word	.L54+1
+ 346 00b4 FB000000 		.word	.L54+1
+ 347 00b8 FB000000 		.word	.L54+1
+ 348 00bc FB000000 		.word	.L54+1
+ 349 00c0 DF000000 		.word	.L60+1
+ 350 00c4 F3000000 		.word	.L58+1
+ 351              		.p2align 1
+ 352              	.L61:
+ 353 00c8 90F89C32 		ldrb	r3, [r0, #668]	@ zero_extendqisi2
+ 354 00cc 032B     		cmp	r3, #3
+ 355 00ce 14D1     		bne	.L54
+ 356 00d0 0222     		movs	r2, #2
+ 357 00d2 0DF10601 		add	r1, sp, #6
+ARM GAS  /tmp/cceTJcsD.s 			page 7
 
 
- 362 0024 0222     		movs	r2, #2
- 363 0026 8121     		movs	r1, #129
- 364 0028 2046     		mov	r0, r4
- 365 002a FFF7FEFF 		bl	USBD_LL_OpenEP
- 366 002e 0125     		movs	r5, #1
- 367 0030 4FF40073 		mov	r3, #512
- 368 0034 2587     		strh	r5, [r4, #56]	@ movhi
- 369              	.L56:
- 370 0036 2946     		mov	r1, r5
- 371 0038 0222     		movs	r2, #2
- 372 003a 2046     		mov	r0, r4
- 373 003c 0127     		movs	r7, #1
- 374 003e FFF7FEFF 		bl	USBD_LL_OpenEP
- 375 0042 1023     		movs	r3, #16
- 376 0044 A4F87851 		strh	r5, [r4, #376]	@ movhi
- 377 0048 0322     		movs	r2, #3
- 378 004a A4F84E30 		strh	r3, [r4, #78]	@ movhi
- 379 004e 8221     		movs	r1, #130
- 380 0050 0823     		movs	r3, #8
- 381 0052 2046     		mov	r0, r4
- 382 0054 FFF7FEFF 		bl	USBD_LL_OpenEP
- 383 0058 D4F8C032 		ldr	r3, [r4, #704]
- 384 005c A4F84C70 		strh	r7, [r4, #76]	@ movhi
- 385 0060 0025     		movs	r5, #0
- 386 0062 1B68     		ldr	r3, [r3]
- 387 0064 9847     		blx	r3
- 388 0066 94F81080 		ldrb	r8, [r4, #16]	@ zero_extendqisi2
- 389 006a C6F81452 		str	r5, [r6, #532]
- 390 006e C6F81852 		str	r5, [r6, #536]
- 391 0072 B8F1000F 		cmp	r8, #0
- 392 0076 13D1     		bne	.L55
- 393 0078 4FF40073 		mov	r3, #512
- 394 007c D6F80422 		ldr	r2, [r6, #516]
- 395 0080 3946     		mov	r1, r7
- 396 0082 2046     		mov	r0, r4
- 397 0084 FFF7FEFF 		bl	USBD_LL_PrepareReceive
- 398 0088 4046     		mov	r0, r8
- 399 008a C5E7     		b	.L52
- 400              	.L53:
- 401 008c 0125     		movs	r5, #1
- 402 008e 4023     		movs	r3, #64
- 403 0090 0222     		movs	r2, #2
- 404 0092 8121     		movs	r1, #129
- 405 0094 2046     		mov	r0, r4
- 406 0096 FFF7FEFF 		bl	USBD_LL_OpenEP
- 407 009a 2587     		strh	r5, [r4, #56]	@ movhi
- 408 009c 4023     		movs	r3, #64
- 409 009e CAE7     		b	.L56
- 410              	.L55:
- 411 00a0 4023     		movs	r3, #64
- 412 00a2 D6F80422 		ldr	r2, [r6, #516]
- 413 00a6 3946     		mov	r1, r7
- 414 00a8 2046     		mov	r0, r4
- 415 00aa FFF7FEFF 		bl	USBD_LL_PrepareReceive
- 416 00ae 2846     		mov	r0, r5
- 417 00b0 B2E7     		b	.L52
- 419              		.section	.text.USBD_CDC_RegisterInterface,"ax",%progbits
-ARM GAS  /tmp/cccFiTzH.s 			page 8
+ 358 00d6 3C46     		mov	r4, r7
+ 359 00d8 FFF7FEFF 		bl	USBD_CtlSendData
+ 360 00dc BEE7     		b	.L52
+ 361              	.L60:
+ 362 00de 90F89C32 		ldrb	r3, [r0, #668]	@ zero_extendqisi2
+ 363 00e2 032B     		cmp	r3, #3
+ 364 00e4 09D1     		bne	.L54
+ 365 00e6 0122     		movs	r2, #1
+ 366 00e8 0DF10501 		add	r1, sp, #5
+ 367 00ec FFF7FEFF 		bl	USBD_CtlSendData
+ 368 00f0 B4E7     		b	.L52
+ 369              	.L58:
+ 370 00f2 90F89C32 		ldrb	r3, [r0, #668]	@ zero_extendqisi2
+ 371 00f6 032B     		cmp	r3, #3
+ 372 00f8 B0D0     		beq	.L52
+ 373              	.L54:
+ 374 00fa 3146     		mov	r1, r6
+ 375 00fc 2846     		mov	r0, r5
+ 376 00fe FFF7FEFF 		bl	USBD_CtlError
+ 377              	.L63:
+ 378 0102 0324     		movs	r4, #3
+ 379 0104 AAE7     		b	.L52
+ 381 0106 00BF     		.section	.text.USBD_CDC_DeInit,"ax",%progbits
+ 382              		.align	1
+ 383              		.syntax unified
+ 384              		.thumb
+ 385              		.thumb_func
+ 386              		.fpu fpv5-sp-d16
+ 388              	USBD_CDC_DeInit:
+ 389              		@ args = 0, pretend = 0, frame = 0
+ 390              		@ frame_needed = 0, uses_anonymous_args = 0
+ 391 0000 38B5     		push	{r3, r4, r5, lr}
+ 392 0002 0446     		mov	r4, r0
+ 393 0004 0025     		movs	r5, #0
+ 394 0006 8121     		movs	r1, #129
+ 395 0008 FFF7FEFF 		bl	USBD_LL_CloseEP
+ 396 000c 0121     		movs	r1, #1
+ 397 000e 2046     		mov	r0, r4
+ 398 0010 2587     		strh	r5, [r4, #56]	@ movhi
+ 399 0012 FFF7FEFF 		bl	USBD_LL_CloseEP
+ 400 0016 8221     		movs	r1, #130
+ 401 0018 2046     		mov	r0, r4
+ 402 001a A4F87851 		strh	r5, [r4, #376]	@ movhi
+ 403 001e FFF7FEFF 		bl	USBD_LL_CloseEP
+ 404 0022 D4F8D432 		ldr	r3, [r4, #724]
+ 405 0026 E564     		str	r5, [r4, #76]
+ 406 0028 04EB8303 		add	r3, r4, r3, lsl #2
+ 407 002c D3F8C022 		ldr	r2, [r3, #704]
+ 408 0030 8AB1     		cbz	r2, .L67
+ 409 0032 D3F8C432 		ldr	r3, [r3, #708]
+ 410 0036 5B68     		ldr	r3, [r3, #4]
+ 411 0038 9847     		blx	r3
+ 412 003a D4F8D432 		ldr	r3, [r4, #724]
+ 413 003e B033     		adds	r3, r3, #176
+ 414 0040 54F82300 		ldr	r0, [r4, r3, lsl #2]
+ 415 0044 FFF7FEFF 		bl	free
+ 416 0048 D4F8D432 		ldr	r3, [r4, #724]
+ARM GAS  /tmp/cceTJcsD.s 			page 8
 
 
- 420              		.align	1
- 421              		.global	USBD_CDC_RegisterInterface
- 422              		.syntax unified
- 423              		.thumb
- 424              		.thumb_func
- 425              		.fpu fpv5-sp-d16
- 427              	USBD_CDC_RegisterInterface:
- 428              		@ args = 0, pretend = 0, frame = 0
- 429              		@ frame_needed = 0, uses_anonymous_args = 0
- 430              		@ link register save eliminated.
- 431 0000 19B1     		cbz	r1, .L59
- 432 0002 C0F8C012 		str	r1, [r0, #704]
- 433 0006 0020     		movs	r0, #0
- 434 0008 7047     		bx	lr
- 435              	.L59:
- 436 000a 0320     		movs	r0, #3
- 437 000c 7047     		bx	lr
- 439              		.section	.text.USBD_CDC_SetTxBuffer,"ax",%progbits
- 440              		.align	1
- 441              		.global	USBD_CDC_SetTxBuffer
- 442              		.syntax unified
- 443              		.thumb
- 444              		.thumb_func
- 445              		.fpu fpv5-sp-d16
- 447              	USBD_CDC_SetTxBuffer:
- 448              		@ args = 0, pretend = 0, frame = 0
- 449              		@ frame_needed = 0, uses_anonymous_args = 0
- 450              		@ link register save eliminated.
- 451 0000 D0F8BC32 		ldr	r3, [r0, #700]
- 452 0004 0020     		movs	r0, #0
- 453 0006 C3F80812 		str	r1, [r3, #520]
- 454 000a C3F81022 		str	r2, [r3, #528]
- 455 000e 7047     		bx	lr
- 457              		.section	.text.USBD_CDC_SetRxBuffer,"ax",%progbits
- 458              		.align	1
- 459              		.global	USBD_CDC_SetRxBuffer
- 460              		.syntax unified
- 461              		.thumb
- 462              		.thumb_func
- 463              		.fpu fpv5-sp-d16
- 465              	USBD_CDC_SetRxBuffer:
- 466              		@ args = 0, pretend = 0, frame = 0
- 467              		@ frame_needed = 0, uses_anonymous_args = 0
- 468              		@ link register save eliminated.
- 469 0000 D0F8BC32 		ldr	r3, [r0, #700]
- 470 0004 0020     		movs	r0, #0
- 471 0006 C3F80412 		str	r1, [r3, #516]
- 472 000a 7047     		bx	lr
- 474              		.section	.text.USBD_CDC_TransmitPacket,"ax",%progbits
- 475              		.align	1
- 476              		.global	USBD_CDC_TransmitPacket
- 477              		.syntax unified
- 478              		.thumb
- 479              		.thumb_func
- 480              		.fpu fpv5-sp-d16
- 482              	USBD_CDC_TransmitPacket:
- 483              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/cccFiTzH.s 			page 9
+ 417 004c B033     		adds	r3, r3, #176
+ 418 004e 44F82350 		str	r5, [r4, r3, lsl #2]
+ 419 0052 C4F8BC52 		str	r5, [r4, #700]
+ 420              	.L67:
+ 421 0056 0020     		movs	r0, #0
+ 422 0058 38BD     		pop	{r3, r4, r5, pc}
+ 424              		.section	.text.USBD_CDC_Init,"ax",%progbits
+ 425              		.align	1
+ 426              		.syntax unified
+ 427              		.thumb
+ 428              		.thumb_func
+ 429              		.fpu fpv5-sp-d16
+ 431              	USBD_CDC_Init:
+ 432              		@ args = 0, pretend = 0, frame = 0
+ 433              		@ frame_needed = 0, uses_anonymous_args = 0
+ 434 0000 70B5     		push	{r4, r5, r6, lr}
+ 435 0002 0446     		mov	r4, r0
+ 436 0004 4FF40770 		mov	r0, #540
+ 437 0008 FFF7FEFF 		bl	malloc
+ 438 000c 0546     		mov	r5, r0
+ 439 000e 30B9     		cbnz	r0, .L72
+ 440 0010 D4F8D432 		ldr	r3, [r4, #724]
+ 441 0014 B033     		adds	r3, r3, #176
+ 442 0016 44F82300 		str	r0, [r4, r3, lsl #2]
+ 443              	.L77:
+ 444 001a 0225     		movs	r5, #2
+ 445 001c 47E0     		b	.L73
+ 446              	.L72:
+ 447 001e 4FF40772 		mov	r2, #540
+ 448 0022 0021     		movs	r1, #0
+ 449 0024 FFF7FEFF 		bl	memset
+ 450 0028 D4F8D432 		ldr	r3, [r4, #724]
+ 451 002c B033     		adds	r3, r3, #176
+ 452 002e 44F82350 		str	r5, [r4, r3, lsl #2]
+ 453 0032 237C     		ldrb	r3, [r4, #16]	@ zero_extendqisi2
+ 454 0034 C4F8BC52 		str	r5, [r4, #700]
+ 455 0038 002B     		cmp	r3, #0
+ 456 003a 3AD1     		bne	.L74
+ 457 003c 4FF40073 		mov	r3, #512
+ 458 0040 0222     		movs	r2, #2
+ 459 0042 8121     		movs	r1, #129
+ 460 0044 2046     		mov	r0, r4
+ 461 0046 FFF7FEFF 		bl	USBD_LL_OpenEP
+ 462 004a 0126     		movs	r6, #1
+ 463 004c 4FF40073 		mov	r3, #512
+ 464 0050 2687     		strh	r6, [r4, #56]	@ movhi
+ 465              	.L78:
+ 466 0052 3146     		mov	r1, r6
+ 467 0054 0222     		movs	r2, #2
+ 468 0056 2046     		mov	r0, r4
+ 469 0058 FFF7FEFF 		bl	USBD_LL_OpenEP
+ 470 005c 1023     		movs	r3, #16
+ 471 005e 0322     		movs	r2, #3
+ 472 0060 8221     		movs	r1, #130
+ 473 0062 A4F87861 		strh	r6, [r4, #376]	@ movhi
+ 474 0066 2046     		mov	r0, r4
+ 475 0068 A4F84E30 		strh	r3, [r4, #78]	@ movhi
+ARM GAS  /tmp/cceTJcsD.s 			page 9
 
 
- 484              		@ frame_needed = 0, uses_anonymous_args = 0
- 485 0000 D0F8BC22 		ldr	r2, [r0, #700]
- 486 0004 10B5     		push	{r4, lr}
- 487 0006 7AB1     		cbz	r2, .L64
- 488 0008 D2F81442 		ldr	r4, [r2, #532]
- 489 000c 0123     		movs	r3, #1
- 490 000e 6CB9     		cbnz	r4, .L65
- 491 0010 C2F81432 		str	r3, [r2, #532]
- 492 0014 8121     		movs	r1, #129
- 493 0016 D2F81032 		ldr	r3, [r2, #528]
- 494 001a D2F80822 		ldr	r2, [r2, #520]
- 495 001e C362     		str	r3, [r0, #44]
- 496 0020 FFF7FEFF 		bl	USBD_LL_Transmit
- 497 0024 2046     		mov	r0, r4
- 498              	.L63:
- 499 0026 10BD     		pop	{r4, pc}
- 500              	.L64:
- 501 0028 0320     		movs	r0, #3
- 502 002a FCE7     		b	.L63
- 503              	.L65:
- 504 002c 1846     		mov	r0, r3
- 505 002e FAE7     		b	.L63
- 507              		.section	.text.USBD_CDC_ReceivePacket,"ax",%progbits
- 508              		.align	1
- 509              		.global	USBD_CDC_ReceivePacket
- 510              		.syntax unified
- 511              		.thumb
- 512              		.thumb_func
- 513              		.fpu fpv5-sp-d16
- 515              	USBD_CDC_ReceivePacket:
- 516              		@ args = 0, pretend = 0, frame = 0
- 517              		@ frame_needed = 0, uses_anonymous_args = 0
- 518 0000 D0F8BC22 		ldr	r2, [r0, #700]
- 519 0004 10B5     		push	{r4, lr}
- 520 0006 62B1     		cbz	r2, .L69
- 521 0008 047C     		ldrb	r4, [r0, #16]	@ zero_extendqisi2
- 522 000a D2F80422 		ldr	r2, [r2, #516]
- 523 000e 34B9     		cbnz	r4, .L68
- 524 0010 4FF40073 		mov	r3, #512
- 525              	.L70:
- 526 0014 0121     		movs	r1, #1
- 527 0016 FFF7FEFF 		bl	USBD_LL_PrepareReceive
- 528 001a 0020     		movs	r0, #0
- 529              	.L67:
- 530 001c 10BD     		pop	{r4, pc}
- 531              	.L68:
- 532 001e 4023     		movs	r3, #64
- 533 0020 F8E7     		b	.L70
- 534              	.L69:
- 535 0022 0320     		movs	r0, #3
- 536 0024 FAE7     		b	.L67
- 538              		.global	USBD_CDC
- 539              		.comm	odom,1,1
- 540              		.section	.data.USBD_CDC,"aw"
- 541              		.align	2
- 544              	USBD_CDC:
- 545 0000 00000000 		.word	USBD_CDC_Init
-ARM GAS  /tmp/cccFiTzH.s 			page 10
+ 476 006c 0823     		movs	r3, #8
+ 477 006e FFF7FEFF 		bl	USBD_LL_OpenEP
+ 478 0072 D4F8D432 		ldr	r3, [r4, #724]
+ 479 0076 0026     		movs	r6, #0
+ 480 0078 0121     		movs	r1, #1
+ 481 007a 04EB8303 		add	r3, r4, r3, lsl #2
+ 482 007e A4F84C10 		strh	r1, [r4, #76]	@ movhi
+ 483 0082 D3F8C432 		ldr	r3, [r3, #708]
+ 484 0086 C5F80462 		str	r6, [r5, #516]
+ 485 008a 1B68     		ldr	r3, [r3]
+ 486 008c 9847     		blx	r3
+ 487 008e D5F80422 		ldr	r2, [r5, #516]
+ 488 0092 C5F81462 		str	r6, [r5, #532]
+ 489 0096 C5F81862 		str	r6, [r5, #536]
+ 490 009a 002A     		cmp	r2, #0
+ 491 009c BDD0     		beq	.L77
+ 492 009e 257C     		ldrb	r5, [r4, #16]	@ zero_extendqisi2
+ 493 00a0 0121     		movs	r1, #1
+ 494 00a2 85B9     		cbnz	r5, .L76
+ 495 00a4 4FF40073 		mov	r3, #512
+ 496 00a8 2046     		mov	r0, r4
+ 497 00aa FFF7FEFF 		bl	USBD_LL_PrepareReceive
+ 498              	.L73:
+ 499 00ae 2846     		mov	r0, r5
+ 500 00b0 70BD     		pop	{r4, r5, r6, pc}
+ 501              	.L74:
+ 502 00b2 0126     		movs	r6, #1
+ 503 00b4 4023     		movs	r3, #64
+ 504 00b6 0222     		movs	r2, #2
+ 505 00b8 8121     		movs	r1, #129
+ 506 00ba 2046     		mov	r0, r4
+ 507 00bc FFF7FEFF 		bl	USBD_LL_OpenEP
+ 508 00c0 4023     		movs	r3, #64
+ 509 00c2 2687     		strh	r6, [r4, #56]	@ movhi
+ 510 00c4 C5E7     		b	.L78
+ 511              	.L76:
+ 512 00c6 4023     		movs	r3, #64
+ 513 00c8 2046     		mov	r0, r4
+ 514 00ca 3546     		mov	r5, r6
+ 515 00cc FFF7FEFF 		bl	USBD_LL_PrepareReceive
+ 516 00d0 EDE7     		b	.L73
+ 518              		.section	.text.USBD_CDC_RegisterInterface,"ax",%progbits
+ 519              		.align	1
+ 520              		.global	USBD_CDC_RegisterInterface
+ 521              		.syntax unified
+ 522              		.thumb
+ 523              		.thumb_func
+ 524              		.fpu fpv5-sp-d16
+ 526              	USBD_CDC_RegisterInterface:
+ 527              		@ args = 0, pretend = 0, frame = 0
+ 528              		@ frame_needed = 0, uses_anonymous_args = 0
+ 529              		@ link register save eliminated.
+ 530 0000 39B1     		cbz	r1, .L81
+ 531 0002 D0F8D432 		ldr	r3, [r0, #724]
+ 532 0006 00EB8300 		add	r0, r0, r3, lsl #2
+ 533 000a C0F8C412 		str	r1, [r0, #708]
+ 534 000e 0020     		movs	r0, #0
+ARM GAS  /tmp/cceTJcsD.s 			page 10
 
 
- 546 0004 00000000 		.word	USBD_CDC_DeInit
- 547 0008 00000000 		.word	USBD_CDC_Setup
- 548 000c 00000000 		.word	0
- 549 0010 00000000 		.word	USBD_CDC_EP0_RxReady
- 550 0014 00000000 		.word	USBD_CDC_DataIn
- 551 0018 00000000 		.word	USBD_CDC_DataOut
- 552 001c 00000000 		.word	0
- 553 0020 00000000 		.word	0
- 554 0024 00000000 		.word	0
- 555 0028 00000000 		.word	USBD_CDC_GetHSCfgDesc
- 556 002c 00000000 		.word	USBD_CDC_GetFSCfgDesc
- 557 0030 00000000 		.word	USBD_CDC_GetOtherSpeedCfgDesc
- 558 0034 00000000 		.word	USBD_CDC_GetDeviceQualifierDescriptor
- 559              		.section	.data.USBD_CDC_CfgFSDesc,"aw"
- 560              		.align	2
- 561              		.set	.LANCHOR0,. + 0
- 564              	USBD_CDC_CfgFSDesc:
- 565 0000 09       		.byte	9
- 566 0001 02       		.byte	2
- 567 0002 43       		.byte	67
- 568 0003 00       		.byte	0
- 569 0004 02       		.byte	2
- 570 0005 01       		.byte	1
- 571 0006 00       		.byte	0
- 572 0007 C0       		.byte	-64
- 573 0008 32       		.byte	50
- 574 0009 09       		.byte	9
- 575 000a 04       		.byte	4
- 576 000b 00       		.byte	0
- 577 000c 00       		.byte	0
- 578 000d 01       		.byte	1
- 579 000e 02       		.byte	2
- 580 000f 02       		.byte	2
- 581 0010 01       		.byte	1
- 582 0011 00       		.byte	0
- 583 0012 05       		.byte	5
- 584 0013 24       		.byte	36
- 585 0014 00       		.byte	0
- 586 0015 10       		.byte	16
- 587 0016 01       		.byte	1
- 588 0017 05       		.byte	5
- 589 0018 24       		.byte	36
- 590 0019 01       		.byte	1
- 591 001a 00       		.byte	0
- 592 001b 01       		.byte	1
- 593 001c 04       		.byte	4
- 594 001d 24       		.byte	36
- 595 001e 02       		.byte	2
- 596 001f 02       		.byte	2
- 597 0020 05       		.byte	5
- 598 0021 24       		.byte	36
- 599 0022 06       		.byte	6
- 600 0023 00       		.byte	0
- 601 0024 01       		.byte	1
- 602 0025 07       		.byte	7
- 603 0026 05       		.byte	5
- 604 0027 82       		.byte	-126
-ARM GAS  /tmp/cccFiTzH.s 			page 11
+ 535 0010 7047     		bx	lr
+ 536              	.L81:
+ 537 0012 0320     		movs	r0, #3
+ 538 0014 7047     		bx	lr
+ 540              		.section	.text.USBD_CDC_SetTxBuffer,"ax",%progbits
+ 541              		.align	1
+ 542              		.global	USBD_CDC_SetTxBuffer
+ 543              		.syntax unified
+ 544              		.thumb
+ 545              		.thumb_func
+ 546              		.fpu fpv5-sp-d16
+ 548              	USBD_CDC_SetTxBuffer:
+ 549              		@ args = 0, pretend = 0, frame = 0
+ 550              		@ frame_needed = 0, uses_anonymous_args = 0
+ 551              		@ link register save eliminated.
+ 552 0000 D0F8D432 		ldr	r3, [r0, #724]
+ 553 0004 B033     		adds	r3, r3, #176
+ 554 0006 50F82330 		ldr	r3, [r0, r3, lsl #2]
+ 555 000a 2BB1     		cbz	r3, .L84
+ 556 000c 0020     		movs	r0, #0
+ 557 000e C3F80812 		str	r1, [r3, #520]
+ 558 0012 C3F81022 		str	r2, [r3, #528]
+ 559 0016 7047     		bx	lr
+ 560              	.L84:
+ 561 0018 0320     		movs	r0, #3
+ 562 001a 7047     		bx	lr
+ 564              		.section	.text.USBD_CDC_SetRxBuffer,"ax",%progbits
+ 565              		.align	1
+ 566              		.global	USBD_CDC_SetRxBuffer
+ 567              		.syntax unified
+ 568              		.thumb
+ 569              		.thumb_func
+ 570              		.fpu fpv5-sp-d16
+ 572              	USBD_CDC_SetRxBuffer:
+ 573              		@ args = 0, pretend = 0, frame = 0
+ 574              		@ frame_needed = 0, uses_anonymous_args = 0
+ 575              		@ link register save eliminated.
+ 576 0000 D0F8D432 		ldr	r3, [r0, #724]
+ 577 0004 B033     		adds	r3, r3, #176
+ 578 0006 50F82330 		ldr	r3, [r0, r3, lsl #2]
+ 579 000a 1BB1     		cbz	r3, .L87
+ 580 000c 0020     		movs	r0, #0
+ 581 000e C3F80412 		str	r1, [r3, #516]
+ 582 0012 7047     		bx	lr
+ 583              	.L87:
+ 584 0014 0320     		movs	r0, #3
+ 585 0016 7047     		bx	lr
+ 587              		.section	.text.USBD_CDC_TransmitPacket,"ax",%progbits
+ 588              		.align	1
+ 589              		.global	USBD_CDC_TransmitPacket
+ 590              		.syntax unified
+ 591              		.thumb
+ 592              		.thumb_func
+ 593              		.fpu fpv5-sp-d16
+ 595              	USBD_CDC_TransmitPacket:
+ 596              		@ args = 0, pretend = 0, frame = 0
+ 597              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/cceTJcsD.s 			page 11
 
 
- 605 0028 03       		.byte	3
- 606 0029 08       		.byte	8
- 607 002a 00       		.byte	0
- 608 002b 10       		.byte	16
- 609 002c 09       		.byte	9
- 610 002d 04       		.byte	4
- 611 002e 01       		.byte	1
- 612 002f 00       		.byte	0
- 613 0030 02       		.byte	2
- 614 0031 0A       		.byte	10
- 615 0032 00       		.byte	0
- 616 0033 00       		.byte	0
- 617 0034 00       		.byte	0
- 618 0035 07       		.byte	7
- 619 0036 05       		.byte	5
- 620 0037 01       		.byte	1
- 621 0038 02       		.byte	2
- 622 0039 40       		.byte	64
- 623 003a 00       		.byte	0
- 624 003b 00       		.byte	0
- 625 003c 07       		.byte	7
- 626 003d 05       		.byte	5
- 627 003e 81       		.byte	-127
- 628 003f 02       		.byte	2
- 629 0040 40       		.byte	64
- 630 0041 00       		.byte	0
- 631 0042 00       		.byte	0
- 632              		.section	.data.USBD_CDC_CfgHSDesc,"aw"
- 633              		.align	2
- 634              		.set	.LANCHOR1,. + 0
- 637              	USBD_CDC_CfgHSDesc:
- 638 0000 09       		.byte	9
- 639 0001 02       		.byte	2
- 640 0002 43       		.byte	67
- 641 0003 00       		.byte	0
- 642 0004 02       		.byte	2
- 643 0005 01       		.byte	1
- 644 0006 00       		.byte	0
- 645 0007 C0       		.byte	-64
- 646 0008 32       		.byte	50
- 647 0009 09       		.byte	9
- 648 000a 04       		.byte	4
- 649 000b 00       		.byte	0
- 650 000c 00       		.byte	0
- 651 000d 01       		.byte	1
- 652 000e 02       		.byte	2
- 653 000f 02       		.byte	2
- 654 0010 01       		.byte	1
- 655 0011 00       		.byte	0
- 656 0012 05       		.byte	5
- 657 0013 24       		.byte	36
- 658 0014 00       		.byte	0
- 659 0015 10       		.byte	16
- 660 0016 01       		.byte	1
- 661 0017 05       		.byte	5
- 662 0018 24       		.byte	36
- 663 0019 01       		.byte	1
-ARM GAS  /tmp/cccFiTzH.s 			page 12
+ 598 0000 D0F8D432 		ldr	r3, [r0, #724]
+ 599 0004 B033     		adds	r3, r3, #176
+ 600 0006 50F82320 		ldr	r2, [r0, r3, lsl #2]
+ 601 000a 10B5     		push	{r4, lr}
+ 602 000c 7AB1     		cbz	r2, .L90
+ 603 000e D2F81442 		ldr	r4, [r2, #532]
+ 604 0012 0123     		movs	r3, #1
+ 605 0014 6CB9     		cbnz	r4, .L91
+ 606 0016 C2F81432 		str	r3, [r2, #532]
+ 607 001a 8121     		movs	r1, #129
+ 608 001c D2F81032 		ldr	r3, [r2, #528]
+ 609 0020 D2F80822 		ldr	r2, [r2, #520]
+ 610 0024 C362     		str	r3, [r0, #44]
+ 611 0026 FFF7FEFF 		bl	USBD_LL_Transmit
+ 612 002a 2046     		mov	r0, r4
+ 613              	.L89:
+ 614 002c 10BD     		pop	{r4, pc}
+ 615              	.L90:
+ 616 002e 0320     		movs	r0, #3
+ 617 0030 FCE7     		b	.L89
+ 618              	.L91:
+ 619 0032 1846     		mov	r0, r3
+ 620 0034 FAE7     		b	.L89
+ 622              		.section	.text.USBD_CDC_ReceivePacket,"ax",%progbits
+ 623              		.align	1
+ 624              		.global	USBD_CDC_ReceivePacket
+ 625              		.syntax unified
+ 626              		.thumb
+ 627              		.thumb_func
+ 628              		.fpu fpv5-sp-d16
+ 630              	USBD_CDC_ReceivePacket:
+ 631              		@ args = 0, pretend = 0, frame = 0
+ 632              		@ frame_needed = 0, uses_anonymous_args = 0
+ 633 0000 D0F8D422 		ldr	r2, [r0, #724]
+ 634 0004 B032     		adds	r2, r2, #176
+ 635 0006 50F82220 		ldr	r2, [r0, r2, lsl #2]
+ 636 000a 10B5     		push	{r4, lr}
+ 637 000c 82B1     		cbz	r2, .L95
+ 638 000e 047C     		ldrb	r4, [r0, #16]	@ zero_extendqisi2
+ 639 0010 D2F80422 		ldr	r2, [r2, #516]
+ 640 0014 34B9     		cbnz	r4, .L94
+ 641 0016 4FF40073 		mov	r3, #512
+ 642 001a 0121     		movs	r1, #1
+ 643 001c FFF7FEFF 		bl	USBD_LL_PrepareReceive
+ 644              	.L93:
+ 645 0020 2046     		mov	r0, r4
+ 646 0022 10BD     		pop	{r4, pc}
+ 647              	.L94:
+ 648 0024 4023     		movs	r3, #64
+ 649 0026 0121     		movs	r1, #1
+ 650 0028 0024     		movs	r4, #0
+ 651 002a FFF7FEFF 		bl	USBD_LL_PrepareReceive
+ 652 002e F7E7     		b	.L93
+ 653              	.L95:
+ 654 0030 0324     		movs	r4, #3
+ 655 0032 F5E7     		b	.L93
+ 657              		.global	USBD_CDC
+ARM GAS  /tmp/cceTJcsD.s 			page 12
 
 
- 664 001a 00       		.byte	0
- 665 001b 01       		.byte	1
- 666 001c 04       		.byte	4
- 667 001d 24       		.byte	36
- 668 001e 02       		.byte	2
- 669 001f 02       		.byte	2
- 670 0020 05       		.byte	5
- 671 0021 24       		.byte	36
- 672 0022 06       		.byte	6
- 673 0023 00       		.byte	0
- 674 0024 01       		.byte	1
- 675 0025 07       		.byte	7
- 676 0026 05       		.byte	5
- 677 0027 82       		.byte	-126
- 678 0028 03       		.byte	3
- 679 0029 08       		.byte	8
- 680 002a 00       		.byte	0
- 681 002b 10       		.byte	16
- 682 002c 09       		.byte	9
- 683 002d 04       		.byte	4
- 684 002e 01       		.byte	1
- 685 002f 00       		.byte	0
- 686 0030 02       		.byte	2
- 687 0031 0A       		.byte	10
- 688 0032 00       		.byte	0
- 689 0033 00       		.byte	0
- 690 0034 00       		.byte	0
- 691 0035 07       		.byte	7
- 692 0036 05       		.byte	5
- 693 0037 01       		.byte	1
- 694 0038 02       		.byte	2
- 695 0039 00       		.byte	0
- 696 003a 02       		.byte	2
- 697 003b 00       		.byte	0
- 698 003c 07       		.byte	7
- 699 003d 05       		.byte	5
- 700 003e 81       		.byte	-127
- 701 003f 02       		.byte	2
- 702 0040 00       		.byte	0
- 703 0041 02       		.byte	2
- 704 0042 00       		.byte	0
- 705              		.section	.data.USBD_CDC_DeviceQualifierDesc,"aw"
- 706              		.align	2
- 707              		.set	.LANCHOR3,. + 0
- 710              	USBD_CDC_DeviceQualifierDesc:
- 711 0000 0A       		.byte	10
- 712 0001 06       		.byte	6
- 713 0002 00       		.byte	0
- 714 0003 02       		.byte	2
- 715 0004 00       		.byte	0
- 716 0005 00       		.byte	0
- 717 0006 00       		.byte	0
- 718 0007 40       		.byte	64
- 719 0008 01       		.byte	1
- 720 0009 00       		.byte	0
- 721              		.section	.data.USBD_CDC_OtherSpeedCfgDesc,"aw"
- 722              		.align	2
-ARM GAS  /tmp/cccFiTzH.s 			page 13
-
-
- 723              		.set	.LANCHOR2,. + 0
- 726              	USBD_CDC_OtherSpeedCfgDesc:
- 727 0000 09       		.byte	9
- 728 0001 07       		.byte	7
- 729 0002 43       		.byte	67
- 730 0003 00       		.byte	0
- 731 0004 02       		.byte	2
- 732 0005 01       		.byte	1
- 733 0006 04       		.byte	4
- 734 0007 C0       		.byte	-64
- 735 0008 32       		.byte	50
- 736 0009 09       		.byte	9
- 737 000a 04       		.byte	4
- 738 000b 00       		.byte	0
- 739 000c 00       		.byte	0
- 740 000d 01       		.byte	1
- 741 000e 02       		.byte	2
- 742 000f 02       		.byte	2
- 743 0010 01       		.byte	1
- 744 0011 00       		.byte	0
- 745 0012 05       		.byte	5
- 746 0013 24       		.byte	36
- 747 0014 00       		.byte	0
- 748 0015 10       		.byte	16
- 749 0016 01       		.byte	1
- 750 0017 05       		.byte	5
- 751 0018 24       		.byte	36
- 752 0019 01       		.byte	1
- 753 001a 00       		.byte	0
- 754 001b 01       		.byte	1
- 755 001c 04       		.byte	4
- 756 001d 24       		.byte	36
- 757 001e 02       		.byte	2
- 758 001f 02       		.byte	2
- 759 0020 05       		.byte	5
- 760 0021 24       		.byte	36
- 761 0022 06       		.byte	6
- 762 0023 00       		.byte	0
- 763 0024 01       		.byte	1
- 764 0025 07       		.byte	7
- 765 0026 05       		.byte	5
- 766 0027 82       		.byte	-126
- 767 0028 03       		.byte	3
- 768 0029 08       		.byte	8
- 769 002a 00       		.byte	0
- 770 002b 10       		.byte	16
- 771 002c 09       		.byte	9
- 772 002d 04       		.byte	4
- 773 002e 01       		.byte	1
- 774 002f 00       		.byte	0
- 775 0030 02       		.byte	2
- 776 0031 0A       		.byte	10
- 777 0032 00       		.byte	0
- 778 0033 00       		.byte	0
- 779 0034 00       		.byte	0
- 780 0035 07       		.byte	7
- 781 0036 05       		.byte	5
-ARM GAS  /tmp/cccFiTzH.s 			page 14
-
-
- 782 0037 01       		.byte	1
- 783 0038 02       		.byte	2
- 784 0039 40       		.byte	64
- 785 003a 00       		.byte	0
- 786 003b 00       		.byte	0
- 787 003c 07       		.byte	7
- 788 003d 05       		.byte	5
- 789 003e 81       		.byte	-127
- 790 003f 02       		.byte	2
- 791 0040 40       		.byte	64
- 792 0041 00       		.byte	0
- 793 0042 00       		.byte	0
- 794              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/cccFiTzH.s 			page 15
+ 658              		.section	.data.USBD_CDC,"aw"
+ 659              		.align	2
+ 662              	USBD_CDC:
+ 663 0000 00000000 		.word	USBD_CDC_Init
+ 664 0004 00000000 		.word	USBD_CDC_DeInit
+ 665 0008 00000000 		.word	USBD_CDC_Setup
+ 666 000c 00000000 		.word	0
+ 667 0010 00000000 		.word	USBD_CDC_EP0_RxReady
+ 668 0014 00000000 		.word	USBD_CDC_DataIn
+ 669 0018 00000000 		.word	USBD_CDC_DataOut
+ 670 001c 00000000 		.word	0
+ 671 0020 00000000 		.word	0
+ 672 0024 00000000 		.word	0
+ 673 0028 00000000 		.word	USBD_CDC_GetHSCfgDesc
+ 674 002c 00000000 		.word	USBD_CDC_GetFSCfgDesc
+ 675 0030 00000000 		.word	USBD_CDC_GetOtherSpeedCfgDesc
+ 676 0034 00000000 		.word	USBD_CDC_GetDeviceQualifierDescriptor
+ 677              		.section	.data.USBD_CDC_CfgDesc,"aw"
+ 678              		.align	2
+ 679              		.set	.LANCHOR1,. + 0
+ 682              	USBD_CDC_CfgDesc:
+ 683 0000 09024300 		.ascii	"\011\002C\000\002\001\000\2002\011\004\000\000\001\002"
+ 683      02010080 
+ 683      32090400 
+ 683      000102
+ 684 000f 02010005 		.ascii	"\002\001\000\005$\000\020\001\005$\001\000\001\004$"
+ 684      24001001 
+ 684      05240100 
+ 684      010424
+ 685 001e 02020524 		.ascii	"\002\002\005$\006\000\001\007\005\202\003\010\000\020"
+ 685      06000107 
+ 685      05820308 
+ 685      0010
+ 686 002c 09040100 		.ascii	"\011\004\001\000\002\012\000\000\000\007\005\001\002"
+ 686      020A0000 
+ 686      00070501 
+ 686      02
+ 687 0039 40000007 		.ascii	"@\000\000\007\005\201\002@\000\000"
+ 687      05810240 
+ 687      0000
+ 688              		.section	.data.USBD_CDC_DeviceQualifierDesc,"aw"
+ 689              		.align	2
+ 690              		.set	.LANCHOR0,. + 0
+ 693              	USBD_CDC_DeviceQualifierDesc:
+ 694 0000 0A060002 		.ascii	"\012\006\000\002\000\000\000@\001\000"
+ 694      00000040 
+ 694      0100
+ 695              		.ident	"GCC: (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+ARM GAS  /tmp/cceTJcsD.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 usbd_cdc.c
-     /tmp/cccFiTzH.s:15     .text.USBD_CDC_EP0_RxReady:0000000000000000 $t
-     /tmp/cccFiTzH.s:22     .text.USBD_CDC_EP0_RxReady:0000000000000000 USBD_CDC_EP0_RxReady
-     /tmp/cccFiTzH.s:43     .text.USBD_CDC_GetFSCfgDesc:0000000000000000 $t
-     /tmp/cccFiTzH.s:49     .text.USBD_CDC_GetFSCfgDesc:0000000000000000 USBD_CDC_GetFSCfgDesc
-     /tmp/cccFiTzH.s:60     .text.USBD_CDC_GetFSCfgDesc:0000000000000008 $d
-     /tmp/cccFiTzH.s:63     .text.USBD_CDC_GetHSCfgDesc:0000000000000000 $t
-     /tmp/cccFiTzH.s:69     .text.USBD_CDC_GetHSCfgDesc:0000000000000000 USBD_CDC_GetHSCfgDesc
-     /tmp/cccFiTzH.s:80     .text.USBD_CDC_GetHSCfgDesc:0000000000000008 $d
-     /tmp/cccFiTzH.s:83     .text.USBD_CDC_GetOtherSpeedCfgDesc:0000000000000000 $t
-     /tmp/cccFiTzH.s:89     .text.USBD_CDC_GetOtherSpeedCfgDesc:0000000000000000 USBD_CDC_GetOtherSpeedCfgDesc
-     /tmp/cccFiTzH.s:100    .text.USBD_CDC_GetOtherSpeedCfgDesc:0000000000000008 $d
-     /tmp/cccFiTzH.s:103    .text.USBD_CDC_GetDeviceQualifierDescriptor:0000000000000000 $t
-     /tmp/cccFiTzH.s:110    .text.USBD_CDC_GetDeviceQualifierDescriptor:0000000000000000 USBD_CDC_GetDeviceQualifierDescriptor
-     /tmp/cccFiTzH.s:121    .text.USBD_CDC_GetDeviceQualifierDescriptor:0000000000000008 $d
-     /tmp/cccFiTzH.s:124    .text.USBD_CDC_DataOut:0000000000000000 $t
-     /tmp/cccFiTzH.s:130    .text.USBD_CDC_DataOut:0000000000000000 USBD_CDC_DataOut
-     /tmp/cccFiTzH.s:152    .text.USBD_CDC_DataIn:0000000000000000 $t
-     /tmp/cccFiTzH.s:158    .text.USBD_CDC_DataIn:0000000000000000 USBD_CDC_DataIn
-     /tmp/cccFiTzH.s:199    .text.USBD_CDC_Setup:0000000000000000 $t
-     /tmp/cccFiTzH.s:205    .text.USBD_CDC_Setup:0000000000000000 USBD_CDC_Setup
-     /tmp/cccFiTzH.s:261    .text.USBD_CDC_Setup:0000000000000078 $d
-     /tmp/cccFiTzH.s:273    .text.USBD_CDC_Setup:00000000000000a8 $t
-     /tmp/cccFiTzH.s:303    .text.USBD_CDC_DeInit:0000000000000000 $t
-     /tmp/cccFiTzH.s:309    .text.USBD_CDC_DeInit:0000000000000000 USBD_CDC_DeInit
-     /tmp/cccFiTzH.s:339    .text.USBD_CDC_Init:0000000000000000 $t
-     /tmp/cccFiTzH.s:345    .text.USBD_CDC_Init:0000000000000000 USBD_CDC_Init
-     /tmp/cccFiTzH.s:420    .text.USBD_CDC_RegisterInterface:0000000000000000 $t
-     /tmp/cccFiTzH.s:427    .text.USBD_CDC_RegisterInterface:0000000000000000 USBD_CDC_RegisterInterface
-     /tmp/cccFiTzH.s:440    .text.USBD_CDC_SetTxBuffer:0000000000000000 $t
-     /tmp/cccFiTzH.s:447    .text.USBD_CDC_SetTxBuffer:0000000000000000 USBD_CDC_SetTxBuffer
-     /tmp/cccFiTzH.s:458    .text.USBD_CDC_SetRxBuffer:0000000000000000 $t
-     /tmp/cccFiTzH.s:465    .text.USBD_CDC_SetRxBuffer:0000000000000000 USBD_CDC_SetRxBuffer
-     /tmp/cccFiTzH.s:475    .text.USBD_CDC_TransmitPacket:0000000000000000 $t
-     /tmp/cccFiTzH.s:482    .text.USBD_CDC_TransmitPacket:0000000000000000 USBD_CDC_TransmitPacket
-     /tmp/cccFiTzH.s:508    .text.USBD_CDC_ReceivePacket:0000000000000000 $t
-     /tmp/cccFiTzH.s:515    .text.USBD_CDC_ReceivePacket:0000000000000000 USBD_CDC_ReceivePacket
-     /tmp/cccFiTzH.s:544    .data.USBD_CDC:0000000000000000 USBD_CDC
-                            *COM*:0000000000000001 odom
-     /tmp/cccFiTzH.s:541    .data.USBD_CDC:0000000000000000 $d
-     /tmp/cccFiTzH.s:560    .data.USBD_CDC_CfgFSDesc:0000000000000000 $d
-     /tmp/cccFiTzH.s:564    .data.USBD_CDC_CfgFSDesc:0000000000000000 USBD_CDC_CfgFSDesc
-     /tmp/cccFiTzH.s:633    .data.USBD_CDC_CfgHSDesc:0000000000000000 $d
-     /tmp/cccFiTzH.s:637    .data.USBD_CDC_CfgHSDesc:0000000000000000 USBD_CDC_CfgHSDesc
-     /tmp/cccFiTzH.s:706    .data.USBD_CDC_DeviceQualifierDesc:0000000000000000 $d
-     /tmp/cccFiTzH.s:710    .data.USBD_CDC_DeviceQualifierDesc:0000000000000000 USBD_CDC_DeviceQualifierDesc
-     /tmp/cccFiTzH.s:722    .data.USBD_CDC_OtherSpeedCfgDesc:0000000000000000 $d
-     /tmp/cccFiTzH.s:726    .data.USBD_CDC_OtherSpeedCfgDesc:0000000000000000 USBD_CDC_OtherSpeedCfgDesc
+     /tmp/cceTJcsD.s:15     .text.USBD_CDC_EP0_RxReady:0000000000000000 $t
+     /tmp/cceTJcsD.s:22     .text.USBD_CDC_EP0_RxReady:0000000000000000 USBD_CDC_EP0_RxReady
+     /tmp/cceTJcsD.s:50     .text.USBD_CDC_GetDeviceQualifierDescriptor:0000000000000000 $t
+     /tmp/cceTJcsD.s:57     .text.USBD_CDC_GetDeviceQualifierDescriptor:0000000000000000 USBD_CDC_GetDeviceQualifierDescriptor
+     /tmp/cceTJcsD.s:68     .text.USBD_CDC_GetDeviceQualifierDescriptor:0000000000000008 $d
+     /tmp/cceTJcsD.s:71     .text.USBD_CDC_GetFSCfgDesc:0000000000000000 $t
+     /tmp/cceTJcsD.s:77     .text.USBD_CDC_GetFSCfgDesc:0000000000000000 USBD_CDC_GetFSCfgDesc
+     /tmp/cceTJcsD.s:116    .text.USBD_CDC_GetFSCfgDesc:0000000000000044 $d
+     /tmp/cceTJcsD.s:119    .text.USBD_CDC_GetOtherSpeedCfgDesc:0000000000000000 $t
+     /tmp/cceTJcsD.s:125    .text.USBD_CDC_GetOtherSpeedCfgDesc:0000000000000000 USBD_CDC_GetOtherSpeedCfgDesc
+     /tmp/cceTJcsD.s:132    .text.USBD_CDC_GetHSCfgDesc:0000000000000000 $t
+     /tmp/cceTJcsD.s:138    .text.USBD_CDC_GetHSCfgDesc:0000000000000000 USBD_CDC_GetHSCfgDesc
+     /tmp/cceTJcsD.s:177    .text.USBD_CDC_GetHSCfgDesc:0000000000000044 $d
+     /tmp/cceTJcsD.s:180    .text.USBD_CDC_DataOut:0000000000000000 $t
+     /tmp/cceTJcsD.s:186    .text.USBD_CDC_DataOut:0000000000000000 USBD_CDC_DataOut
+     /tmp/cceTJcsD.s:212    .text.USBD_CDC_DataIn:0000000000000000 $t
+     /tmp/cceTJcsD.s:218    .text.USBD_CDC_DataIn:0000000000000000 USBD_CDC_DataIn
+     /tmp/cceTJcsD.s:264    .text.USBD_CDC_Setup:0000000000000000 $t
+     /tmp/cceTJcsD.s:270    .text.USBD_CDC_Setup:0000000000000000 USBD_CDC_Setup
+     /tmp/cceTJcsD.s:339    .text.USBD_CDC_Setup:0000000000000098 $d
+     /tmp/cceTJcsD.s:351    .text.USBD_CDC_Setup:00000000000000c8 $t
+     /tmp/cceTJcsD.s:382    .text.USBD_CDC_DeInit:0000000000000000 $t
+     /tmp/cceTJcsD.s:388    .text.USBD_CDC_DeInit:0000000000000000 USBD_CDC_DeInit
+     /tmp/cceTJcsD.s:425    .text.USBD_CDC_Init:0000000000000000 $t
+     /tmp/cceTJcsD.s:431    .text.USBD_CDC_Init:0000000000000000 USBD_CDC_Init
+     /tmp/cceTJcsD.s:519    .text.USBD_CDC_RegisterInterface:0000000000000000 $t
+     /tmp/cceTJcsD.s:526    .text.USBD_CDC_RegisterInterface:0000000000000000 USBD_CDC_RegisterInterface
+     /tmp/cceTJcsD.s:541    .text.USBD_CDC_SetTxBuffer:0000000000000000 $t
+     /tmp/cceTJcsD.s:548    .text.USBD_CDC_SetTxBuffer:0000000000000000 USBD_CDC_SetTxBuffer
+     /tmp/cceTJcsD.s:565    .text.USBD_CDC_SetRxBuffer:0000000000000000 $t
+     /tmp/cceTJcsD.s:572    .text.USBD_CDC_SetRxBuffer:0000000000000000 USBD_CDC_SetRxBuffer
+     /tmp/cceTJcsD.s:588    .text.USBD_CDC_TransmitPacket:0000000000000000 $t
+     /tmp/cceTJcsD.s:595    .text.USBD_CDC_TransmitPacket:0000000000000000 USBD_CDC_TransmitPacket
+     /tmp/cceTJcsD.s:623    .text.USBD_CDC_ReceivePacket:0000000000000000 $t
+     /tmp/cceTJcsD.s:630    .text.USBD_CDC_ReceivePacket:0000000000000000 USBD_CDC_ReceivePacket
+     /tmp/cceTJcsD.s:662    .data.USBD_CDC:0000000000000000 USBD_CDC
+     /tmp/cceTJcsD.s:659    .data.USBD_CDC:0000000000000000 $d
+     /tmp/cceTJcsD.s:678    .data.USBD_CDC_CfgDesc:0000000000000000 $d
+     /tmp/cceTJcsD.s:682    .data.USBD_CDC_CfgDesc:0000000000000000 USBD_CDC_CfgDesc
+     /tmp/cceTJcsD.s:689    .data.USBD_CDC_DeviceQualifierDesc:0000000000000000 $d
+     /tmp/cceTJcsD.s:693    .data.USBD_CDC_DeviceQualifierDesc:0000000000000000 USBD_CDC_DeviceQualifierDesc
 
 UNDEFINED SYMBOLS
+USBD_GetEpDesc
 USBD_LL_GetRxDataSize
 USBD_LL_Transmit
 USBD_CtlSendData
 USBD_CtlPrepareRx
 USBD_CtlError
 USBD_LL_CloseEP
-ARM GAS  /tmp/cccFiTzH.s 			page 16
-
-
 free
 malloc
+memset
 USBD_LL_OpenEP
 USBD_LL_PrepareReceive
+ARM GAS  /tmp/cceTJcsD.s 			page 14
+
+

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccFEQfui.s 			page 1
+ARM GAS  /tmp/ccsMVcda.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -23,475 +23,472 @@ ARM GAS  /tmp/ccFEQfui.s 			page 1
   20              		.thumb_func
   21              		.fpu fpv5-sp-d16
   23              	HAL_GPIO_Init:
-  24              		@ args = 0, pretend = 0, frame = 16
+  24              		@ args = 0, pretend = 0, frame = 8
   25              		@ frame_needed = 0, uses_anonymous_args = 0
-  26 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
-  27 0004 0B68     		ldr	r3, [r1]
-  28 0006 85B0     		sub	sp, sp, #20
-  29 0008 DFF8A481 		ldr	r8, .L29+8
-  30 000c 0193     		str	r3, [sp, #4]
-  31 000e 0023     		movs	r3, #0
-  32 0010 654A     		ldr	r2, .L29
-  33 0012 DFF8A091 		ldr	r9, .L29+12
-  34              	.L16:
-  35 0016 0124     		movs	r4, #1
-  36 0018 019D     		ldr	r5, [sp, #4]
-  37 001a 9C40     		lsls	r4, r4, r3
-  38 001c 2540     		ands	r5, r5, r4
-  39 001e AC42     		cmp	r4, r5
-  40 0020 40F0AC80 		bne	.L3
-  41 0024 4C68     		ldr	r4, [r1, #4]
-  42 0026 4FEA430E 		lsl	lr, r3, #1
-  43 002a 0326     		movs	r6, #3
-  44 002c 24F0100C 		bic	ip, r4, #16
-  45 0030 06FA0EF6 		lsl	r6, r6, lr
-  46 0034 0CF1FF37 		add	r7, ip, #-1
-  47 0038 F643     		mvns	r6, r6
-  48 003a 012F     		cmp	r7, #1
-  49 003c 11D8     		bhi	.L4
-  50 003e 8768     		ldr	r7, [r0, #8]
-  51 0040 07EA060A 		and	r10, r7, r6
-  52 0044 CF68     		ldr	r7, [r1, #12]
-  53 0046 07FA0EF7 		lsl	r7, r7, lr
-  54 004a 47EA0A07 		orr	r7, r7, r10
-  55 004e 8760     		str	r7, [r0, #8]
-  56 0050 4768     		ldr	r7, [r0, #4]
-  57 0052 27EA050A 		bic	r10, r7, r5
-  58 0056 C4F30017 		ubfx	r7, r4, #4, #1
-ARM GAS  /tmp/ccFEQfui.s 			page 2
+  26 0000 2DE9F74F 		push	{r0, r1, r2, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+  27 0004 0023     		movs	r3, #0
+  28 0006 DFF8A491 		ldr	r9, .L31+8
+  29 000a 664A     		ldr	r2, .L31
+  30              	.L18:
+  31 000c 0124     		movs	r4, #1
+  32 000e 0D68     		ldr	r5, [r1]
+  33 0010 9C40     		lsls	r4, r4, r3
+  34 0012 04EA050C 		and	ip, r4, r5
+  35 0016 AC43     		bics	r4, r4, r5
+  36 0018 40F0AE80 		bne	.L3
+  37 001c 4D68     		ldr	r5, [r1, #4]
+  38 001e 4FEA4308 		lsl	r8, r3, #1
+  39 0022 0326     		movs	r6, #3
+  40 0024 05F00304 		and	r4, r5, #3
+  41 0028 06FA08F6 		lsl	r6, r6, r8
+  42 002c 671E     		subs	r7, r4, #1
+  43 002e F643     		mvns	r6, r6
+  44 0030 012F     		cmp	r7, #1
+  45 0032 34D8     		bhi	.L4
+  46 0034 8768     		ldr	r7, [r0, #8]
+  47 0036 07EA060E 		and	lr, r7, r6
+  48 003a CF68     		ldr	r7, [r1, #12]
+  49 003c 07FA08F7 		lsl	r7, r7, r8
+  50 0040 47EA0E07 		orr	r7, r7, lr
+  51 0044 8760     		str	r7, [r0, #8]
+  52 0046 4768     		ldr	r7, [r0, #4]
+  53 0048 27EA0C0E 		bic	lr, r7, ip
+  54 004c C5F30017 		ubfx	r7, r5, #4, #1
+  55 0050 9F40     		lsls	r7, r7, r3
+  56 0052 47EA0E07 		orr	r7, r7, lr
+  57 0056 4760     		str	r7, [r0, #4]
+  58              	.L5:
+ARM GAS  /tmp/ccsMVcda.s 			page 2
 
 
-  59 005a 9F40     		lsls	r7, r7, r3
-  60 005c 47EA0A07 		orr	r7, r7, r10
-  61 0060 4760     		str	r7, [r0, #4]
-  62              	.L4:
-  63 0062 C768     		ldr	r7, [r0, #12]
-  64 0064 BCF1020F 		cmp	ip, #2
-  65 0068 07EA060A 		and	r10, r7, r6
-  66 006c 8F68     		ldr	r7, [r1, #8]
-  67 006e 07FA0EF7 		lsl	r7, r7, lr
-  68 0072 47EA0A07 		orr	r7, r7, r10
-  69 0076 C760     		str	r7, [r0, #12]
-  70 0078 16D1     		bne	.L5
-  71 007a 4FEAD30A 		lsr	r10, r3, #3
-  72 007e 03F0070B 		and	fp, r3, #7
-  73 0082 4FF00F0C 		mov	ip, #15
-  74 0086 00EB8A0A 		add	r10, r0, r10, lsl #2
-  75 008a 4FEA8B0B 		lsl	fp, fp, #2
-  76 008e DAF82070 		ldr	r7, [r10, #32]
-  77 0092 0CFA0BFC 		lsl	ip, ip, fp
-  78 0096 27EA0C0C 		bic	ip, r7, ip
-  79 009a 0F69     		ldr	r7, [r1, #16]
-  80 009c 07FA0BF7 		lsl	r7, r7, fp
-  81 00a0 47EA0C07 		orr	r7, r7, ip
-  82 00a4 CAF82070 		str	r7, [r10, #32]
-  83              	.L5:
-  84 00a8 0768     		ldr	r7, [r0]
-  85 00aa 3E40     		ands	r6, r6, r7
-  86 00ac 04F00307 		and	r7, r4, #3
-  87 00b0 07FA0EFE 		lsl	lr, r7, lr
-  88 00b4 4EEA0606 		orr	r6, lr, r6
-  89 00b8 0660     		str	r6, [r0]
-  90 00ba E600     		lsls	r6, r4, #3
-  91 00bc 5ED5     		bpl	.L3
-  92 00be D8F84460 		ldr	r6, [r8, #68]
-  93 00c2 23F00307 		bic	r7, r3, #3
-  94 00c6 03F0030C 		and	ip, r3, #3
-  95 00ca 4FF00F0E 		mov	lr, #15
-  96 00ce 46F48046 		orr	r6, r6, #16384
-  97 00d2 07F18047 		add	r7, r7, #1073741824
-  98 00d6 4FEA8C0C 		lsl	ip, ip, #2
-  99 00da C8F84460 		str	r6, [r8, #68]
- 100 00de 07F59C37 		add	r7, r7, #79872
- 101 00e2 D8F84460 		ldr	r6, [r8, #68]
- 102 00e6 06F48046 		and	r6, r6, #16384
- 103 00ea 0396     		str	r6, [sp, #12]
- 104 00ec 039E     		ldr	r6, [sp, #12]
- 105 00ee 0EFA0CF6 		lsl	r6, lr, ip
- 106 00f2 D7F808A0 		ldr	r10, [r7, #8]
- 107 00f6 2AEA060E 		bic	lr, r10, r6
- 108 00fa 2C4E     		ldr	r6, .L29+4
- 109 00fc B042     		cmp	r0, r6
- 110 00fe 44D0     		beq	.L17
- 111 0100 06F58066 		add	r6, r6, #1024
- 112 0104 B042     		cmp	r0, r6
- 113 0106 42D0     		beq	.L18
- 114 0108 06F58066 		add	r6, r6, #1024
- 115 010c B042     		cmp	r0, r6
-ARM GAS  /tmp/ccFEQfui.s 			page 3
+  59 0058 C768     		ldr	r7, [r0, #12]
+  60 005a 022C     		cmp	r4, #2
+  61 005c 07EA060E 		and	lr, r7, r6
+  62 0060 8F68     		ldr	r7, [r1, #8]
+  63 0062 07FA08F7 		lsl	r7, r7, r8
+  64 0066 47EA0E07 		orr	r7, r7, lr
+  65 006a C760     		str	r7, [r0, #12]
+  66 006c 19D1     		bne	.L6
+  67 006e 4FEAD30A 		lsr	r10, r3, #3
+  68 0072 03F0070B 		and	fp, r3, #7
+  69 0076 4FF00F0E 		mov	lr, #15
+  70 007a 00EB8A0A 		add	r10, r0, r10, lsl #2
+  71 007e 4FEA8B0B 		lsl	fp, fp, #2
+  72 0082 DAF82070 		ldr	r7, [r10, #32]
+  73 0086 0EFA0BFE 		lsl	lr, lr, fp
+  74 008a 27EA0E0E 		bic	lr, r7, lr
+  75 008e 0F69     		ldr	r7, [r1, #16]
+  76 0090 07FA0BF7 		lsl	r7, r7, fp
+  77 0094 47EA0E07 		orr	r7, r7, lr
+  78 0098 CAF82070 		str	r7, [r10, #32]
+  79 009c 01E0     		b	.L6
+  80              	.L4:
+  81 009e 032C     		cmp	r4, #3
+  82 00a0 DAD1     		bne	.L5
+  83              	.L6:
+  84 00a2 0768     		ldr	r7, [r0]
+  85 00a4 04FA08F4 		lsl	r4, r4, r8
+  86 00a8 15F4403F 		tst	r5, #196608
+  87 00ac 06EA0706 		and	r6, r6, r7
+  88 00b0 46EA0406 		orr	r6, r6, r4
+  89 00b4 0660     		str	r6, [r0]
+  90 00b6 5FD0     		beq	.L3
+  91 00b8 D9F84440 		ldr	r4, [r9, #68]
+  92 00bc 23F00306 		bic	r6, r3, #3
+  93 00c0 03F00307 		and	r7, r3, #3
+  94 00c4 4FF00F0E 		mov	lr, #15
+  95 00c8 44F48044 		orr	r4, r4, #16384
+  96 00cc 06F18046 		add	r6, r6, #1073741824
+  97 00d0 BF00     		lsls	r7, r7, #2
+  98 00d2 C9F84440 		str	r4, [r9, #68]
+  99 00d6 06F59C36 		add	r6, r6, #79872
+ 100 00da D9F84440 		ldr	r4, [r9, #68]
+ 101 00de 04F48044 		and	r4, r4, #16384
+ 102 00e2 0194     		str	r4, [sp, #4]
+ 103 00e4 019C     		ldr	r4, [sp, #4]
+ 104 00e6 0EFA07F4 		lsl	r4, lr, r7
+ 105 00ea D6F80880 		ldr	r8, [r6, #8]
+ 106 00ee 28EA040E 		bic	lr, r8, r4
+ 107 00f2 2D4C     		ldr	r4, .L31+4
+ 108 00f4 A042     		cmp	r0, r4
+ 109 00f6 46D0     		beq	.L19
+ 110 00f8 04F58064 		add	r4, r4, #1024
+ 111 00fc A042     		cmp	r0, r4
+ 112 00fe 44D0     		beq	.L20
+ 113 0100 04F58064 		add	r4, r4, #1024
+ 114 0104 A042     		cmp	r0, r4
+ 115 0106 42D0     		beq	.L21
+ARM GAS  /tmp/ccsMVcda.s 			page 3
 
 
- 116 010e 40D0     		beq	.L19
- 117 0110 06F58066 		add	r6, r6, #1024
- 118 0114 B042     		cmp	r0, r6
- 119 0116 3ED0     		beq	.L20
- 120 0118 06F58066 		add	r6, r6, #1024
- 121 011c B042     		cmp	r0, r6
- 122 011e 3CD0     		beq	.L21
- 123 0120 4845     		cmp	r0, r9
- 124 0122 3CD0     		beq	.L22
- 125 0124 06F50066 		add	r6, r6, #2048
- 126 0128 B042     		cmp	r0, r6
- 127 012a 3AD0     		beq	.L23
- 128 012c 06F58066 		add	r6, r6, #1024
- 129 0130 B042     		cmp	r0, r6
- 130 0132 0CBF     		ite	eq
- 131 0134 0726     		moveq	r6, #7
- 132 0136 0826     		movne	r6, #8
- 133              	.L7:
- 134 0138 06FA0CF6 		lsl	r6, r6, ip
- 135 013c 14F4803F 		tst	r4, #65536
- 136 0140 46EA0E06 		orr	r6, r6, lr
- 137 0144 BE60     		str	r6, [r7, #8]
- 138 0146 6FEA0507 		mvn	r7, r5
- 139 014a 1668     		ldr	r6, [r2]
- 140 014c 0CBF     		ite	eq
- 141 014e 3E40     		andeq	r6, r6, r7
- 142 0150 2E43     		orrne	r6, r6, r5
- 143 0152 14F4003F 		tst	r4, #131072
- 144 0156 1660     		str	r6, [r2]
- 145 0158 5668     		ldr	r6, [r2, #4]
- 146 015a 0CBF     		ite	eq
- 147 015c 3E40     		andeq	r6, r6, r7
- 148 015e 2E43     		orrne	r6, r6, r5
- 149 0160 14F4801F 		tst	r4, #1048576
- 150 0164 5660     		str	r6, [r2, #4]
- 151 0166 9668     		ldr	r6, [r2, #8]
- 152 0168 0CBF     		ite	eq
- 153 016a 3E40     		andeq	r6, r6, r7
- 154 016c 2E43     		orrne	r6, r6, r5
- 155 016e A402     		lsls	r4, r4, #10
- 156 0170 9660     		str	r6, [r2, #8]
- 157 0172 D668     		ldr	r6, [r2, #12]
- 158 0174 54BF     		ite	pl
- 159 0176 3E40     		andpl	r6, r6, r7
- 160 0178 2E43     		orrmi	r6, r6, r5
- 161 017a D660     		str	r6, [r2, #12]
+ 116 0108 04F58064 		add	r4, r4, #1024
+ 117 010c A042     		cmp	r0, r4
+ 118 010e 40D0     		beq	.L22
+ 119 0110 04F58064 		add	r4, r4, #1024
+ 120 0114 A042     		cmp	r0, r4
+ 121 0116 3ED0     		beq	.L23
+ 122 0118 04F58064 		add	r4, r4, #1024
+ 123 011c A042     		cmp	r0, r4
+ 124 011e 3CD0     		beq	.L24
+ 125 0120 04F58064 		add	r4, r4, #1024
+ 126 0124 A042     		cmp	r0, r4
+ 127 0126 3AD0     		beq	.L25
+ 128 0128 04F58064 		add	r4, r4, #1024
+ 129 012c A042     		cmp	r0, r4
+ 130 012e 0CBF     		ite	eq
+ 131 0130 0724     		moveq	r4, #7
+ 132 0132 0824     		movne	r4, #8
+ 133              	.L9:
+ 134 0134 BC40     		lsls	r4, r4, r7
+ 135 0136 EF02     		lsls	r7, r5, #11
+ 136 0138 44EA0E04 		orr	r4, r4, lr
+ 137 013c B460     		str	r4, [r6, #8]
+ 138 013e 6FEA0C06 		mvn	r6, ip
+ 139 0142 9468     		ldr	r4, [r2, #8]
+ 140 0144 54BF     		ite	pl
+ 141 0146 3440     		andpl	r4, r4, r6
+ 142 0148 4CEA0404 		orrmi	r4, ip, r4
+ 143 014c AF02     		lsls	r7, r5, #10
+ 144 014e 9460     		str	r4, [r2, #8]
+ 145 0150 D468     		ldr	r4, [r2, #12]
+ 146 0152 54BF     		ite	pl
+ 147 0154 3440     		andpl	r4, r4, r6
+ 148 0156 4CEA0404 		orrmi	r4, ip, r4
+ 149 015a AF03     		lsls	r7, r5, #14
+ 150 015c D460     		str	r4, [r2, #12]
+ 151 015e 5468     		ldr	r4, [r2, #4]
+ 152 0160 54BF     		ite	pl
+ 153 0162 3440     		andpl	r4, r4, r6
+ 154 0164 4CEA0404 		orrmi	r4, ip, r4
+ 155 0168 ED03     		lsls	r5, r5, #15
+ 156 016a 5460     		str	r4, [r2, #4]
+ 157 016c 1468     		ldr	r4, [r2]
+ 158 016e 54BF     		ite	pl
+ 159 0170 3440     		andpl	r4, r4, r6
+ 160 0172 4CEA0404 		orrmi	r4, ip, r4
+ 161 0176 1460     		str	r4, [r2]
  162              	.L3:
- 163 017c 0133     		adds	r3, r3, #1
- 164 017e 102B     		cmp	r3, #16
- 165 0180 7FF449AF 		bne	.L16
- 166 0184 05B0     		add	sp, sp, #20
+ 163 0178 0133     		adds	r3, r3, #1
+ 164 017a 102B     		cmp	r3, #16
+ 165 017c 7FF446AF 		bne	.L18
+ 166 0180 03B0     		add	sp, sp, #12
  167              		@ sp needed
- 168 0186 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
- 169              	.L17:
- 170 018a 0026     		movs	r6, #0
- 171 018c D4E7     		b	.L7
- 172              	.L18:
-ARM GAS  /tmp/ccFEQfui.s 			page 4
+ 168 0182 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 169              	.L19:
+ 170 0186 0024     		movs	r4, #0
+ 171 0188 D4E7     		b	.L9
+ 172              	.L20:
+ARM GAS  /tmp/ccsMVcda.s 			page 4
 
 
- 173 018e 0126     		movs	r6, #1
- 174 0190 D2E7     		b	.L7
- 175              	.L19:
- 176 0192 0226     		movs	r6, #2
- 177 0194 D0E7     		b	.L7
- 178              	.L20:
- 179 0196 0326     		movs	r6, #3
- 180 0198 CEE7     		b	.L7
- 181              	.L21:
- 182 019a 0426     		movs	r6, #4
- 183 019c CCE7     		b	.L7
- 184              	.L22:
- 185 019e 0526     		movs	r6, #5
- 186 01a0 CAE7     		b	.L7
- 187              	.L23:
- 188 01a2 0626     		movs	r6, #6
- 189 01a4 C8E7     		b	.L7
- 190              	.L30:
- 191 01a6 00BF     		.align	2
- 192              	.L29:
- 193 01a8 003C0140 		.word	1073822720
- 194 01ac 00000240 		.word	1073872896
- 195 01b0 00380240 		.word	1073887232
- 196 01b4 00140240 		.word	1073878016
- 198              		.section	.text.HAL_GPIO_DeInit,"ax",%progbits
- 199              		.align	1
- 200              		.global	HAL_GPIO_DeInit
- 201              		.syntax unified
- 202              		.thumb
- 203              		.thumb_func
- 204              		.fpu fpv5-sp-d16
- 206              	HAL_GPIO_DeInit:
- 207              		@ args = 0, pretend = 0, frame = 0
- 208              		@ frame_needed = 0, uses_anonymous_args = 0
- 209 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
- 210 0004 0022     		movs	r2, #0
- 211 0006 404D     		ldr	r5, .L45
- 212 0008 DFF80491 		ldr	r9, .L45+8
- 213 000c DFF804A1 		ldr	r10, .L45+12
- 214 0010 DFF804B1 		ldr	fp, .L45+16
- 215              	.L35:
- 216 0014 0123     		movs	r3, #1
- 217 0016 03FA02FE 		lsl	lr, r3, r2
- 218 001a 0EEA0104 		and	r4, lr, r1
- 219 001e A645     		cmp	lr, r4
- 220 0020 5FD1     		bne	.L32
- 221 0022 22F00306 		bic	r6, r2, #3
- 222 0026 02F0030C 		and	ip, r2, #3
- 223 002a 0F27     		movs	r7, #15
- 224 002c 374B     		ldr	r3, .L45+4
- 225 002e 06F18046 		add	r6, r6, #1073741824
- 226 0032 4FEA8C0C 		lsl	ip, ip, #2
- 227 0036 9842     		cmp	r0, r3
- 228 0038 06F59C36 		add	r6, r6, #79872
- 229 003c 07FA0CF7 		lsl	r7, r7, ip
- 230 0040 D6F80880 		ldr	r8, [r6, #8]
- 231 0044 07EA0808 		and	r8, r7, r8
-ARM GAS  /tmp/ccFEQfui.s 			page 5
+ 173 018a 0124     		movs	r4, #1
+ 174 018c D2E7     		b	.L9
+ 175              	.L21:
+ 176 018e 0224     		movs	r4, #2
+ 177 0190 D0E7     		b	.L9
+ 178              	.L22:
+ 179 0192 0324     		movs	r4, #3
+ 180 0194 CEE7     		b	.L9
+ 181              	.L23:
+ 182 0196 0424     		movs	r4, #4
+ 183 0198 CCE7     		b	.L9
+ 184              	.L24:
+ 185 019a 0524     		movs	r4, #5
+ 186 019c CAE7     		b	.L9
+ 187              	.L25:
+ 188 019e 0624     		movs	r4, #6
+ 189 01a0 C8E7     		b	.L9
+ 190              	.L32:
+ 191 01a2 00BF     		.align	2
+ 192              	.L31:
+ 193 01a4 003C0140 		.word	1073822720
+ 194 01a8 00000240 		.word	1073872896
+ 195 01ac 00380240 		.word	1073887232
+ 197              		.section	.text.HAL_GPIO_DeInit,"ax",%progbits
+ 198              		.align	1
+ 199              		.global	HAL_GPIO_DeInit
+ 200              		.syntax unified
+ 201              		.thumb
+ 202              		.thumb_func
+ 203              		.fpu fpv5-sp-d16
+ 205              	HAL_GPIO_DeInit:
+ 206              		@ args = 0, pretend = 0, frame = 0
+ 207              		@ frame_needed = 0, uses_anonymous_args = 0
+ 208 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 209 0004 0022     		movs	r2, #0
+ 210 0006 444C     		ldr	r4, .L47
+ 211 0008 DFF81491 		ldr	r9, .L47+8
+ 212 000c DFF814A1 		ldr	r10, .L47+12
+ 213 0010 DFF814B1 		ldr	fp, .L47+16
+ 214              	.L37:
+ 215 0014 0123     		movs	r3, #1
+ 216 0016 03FA02FE 		lsl	lr, r3, r2
+ 217 001a 3EEA0103 		bics	r3, lr, r1
+ 218 001e 0EEA0107 		and	r7, lr, r1
+ 219 0022 66D1     		bne	.L34
+ 220 0024 22F00305 		bic	r5, r2, #3
+ 221 0028 02F0030C 		and	ip, r2, #3
+ 222 002c 0F26     		movs	r6, #15
+ 223 002e 3B4B     		ldr	r3, .L47+4
+ 224 0030 05F18045 		add	r5, r5, #1073741824
+ 225 0034 4FEA8C0C 		lsl	ip, ip, #2
+ 226 0038 9842     		cmp	r0, r3
+ 227 003a 05F59C35 		add	r5, r5, #79872
+ 228 003e 06FA0CF6 		lsl	r6, r6, ip
+ 229 0042 D5F80880 		ldr	r8, [r5, #8]
+ 230 0046 06EA0808 		and	r8, r6, r8
+ 231 004a 57D0     		beq	.L38
+ARM GAS  /tmp/ccsMVcda.s 			page 5
 
 
- 232 0048 50D0     		beq	.L36
- 233 004a 03F58063 		add	r3, r3, #1024
- 234 004e 9842     		cmp	r0, r3
- 235 0050 4ED0     		beq	.L37
- 236 0052 03F58063 		add	r3, r3, #1024
- 237 0056 9842     		cmp	r0, r3
- 238 0058 4CD0     		beq	.L38
- 239 005a 03F58063 		add	r3, r3, #1024
- 240 005e 9842     		cmp	r0, r3
- 241 0060 4AD0     		beq	.L39
- 242 0062 03F58063 		add	r3, r3, #1024
- 243 0066 9842     		cmp	r0, r3
- 244 0068 48D0     		beq	.L40
- 245 006a 4845     		cmp	r0, r9
- 246 006c 48D0     		beq	.L41
- 247 006e 5045     		cmp	r0, r10
- 248 0070 48D0     		beq	.L42
- 249 0072 5845     		cmp	r0, fp
- 250 0074 0CBF     		ite	eq
- 251 0076 0723     		moveq	r3, #7
- 252 0078 0823     		movne	r3, #8
- 253              	.L33:
- 254 007a 03FA0CF3 		lsl	r3, r3, ip
- 255 007e 4345     		cmp	r3, r8
- 256 0080 10D1     		bne	.L34
- 257 0082 2B68     		ldr	r3, [r5]
- 258 0084 E443     		mvns	r4, r4
- 259 0086 2340     		ands	r3, r3, r4
- 260 0088 2B60     		str	r3, [r5]
- 261 008a 6B68     		ldr	r3, [r5, #4]
- 262 008c 2340     		ands	r3, r3, r4
- 263 008e 6B60     		str	r3, [r5, #4]
- 264 0090 AB68     		ldr	r3, [r5, #8]
- 265 0092 2340     		ands	r3, r3, r4
- 266 0094 AB60     		str	r3, [r5, #8]
- 267 0096 EB68     		ldr	r3, [r5, #12]
- 268 0098 1C40     		ands	r4, r4, r3
- 269 009a EC60     		str	r4, [r5, #12]
- 270 009c B368     		ldr	r3, [r6, #8]
- 271 009e 23EA0707 		bic	r7, r3, r7
- 272 00a2 B760     		str	r7, [r6, #8]
- 273              	.L34:
- 274 00a4 5600     		lsls	r6, r2, #1
- 275 00a6 0323     		movs	r3, #3
- 276 00a8 0468     		ldr	r4, [r0]
- 277 00aa 02F0070C 		and	ip, r2, #7
- 278 00ae B340     		lsls	r3, r3, r6
- 279 00b0 0F27     		movs	r7, #15
- 280 00b2 4FEA8C0C 		lsl	ip, ip, #2
- 281 00b6 DB43     		mvns	r3, r3
- 282 00b8 07FA0CF7 		lsl	r7, r7, ip
- 283 00bc 1C40     		ands	r4, r4, r3
- 284 00be 0460     		str	r4, [r0]
- 285 00c0 D408     		lsrs	r4, r2, #3
- 286 00c2 00EB8404 		add	r4, r0, r4, lsl #2
- 287 00c6 266A     		ldr	r6, [r4, #32]
- 288 00c8 26EA0707 		bic	r7, r6, r7
-ARM GAS  /tmp/ccFEQfui.s 			page 6
+ 232 004c 03F58063 		add	r3, r3, #1024
+ 233 0050 9842     		cmp	r0, r3
+ 234 0052 55D0     		beq	.L39
+ 235 0054 03F58063 		add	r3, r3, #1024
+ 236 0058 9842     		cmp	r0, r3
+ 237 005a 53D0     		beq	.L40
+ 238 005c 03F58063 		add	r3, r3, #1024
+ 239 0060 9842     		cmp	r0, r3
+ 240 0062 51D0     		beq	.L41
+ 241 0064 03F58063 		add	r3, r3, #1024
+ 242 0068 9842     		cmp	r0, r3
+ 243 006a 4FD0     		beq	.L42
+ 244 006c 4845     		cmp	r0, r9
+ 245 006e 4FD0     		beq	.L43
+ 246 0070 5045     		cmp	r0, r10
+ 247 0072 4FD0     		beq	.L44
+ 248 0074 5845     		cmp	r0, fp
+ 249 0076 0CBF     		ite	eq
+ 250 0078 0723     		moveq	r3, #7
+ 251 007a 0823     		movne	r3, #8
+ 252              	.L35:
+ 253 007c 03FA0CF3 		lsl	r3, r3, ip
+ 254 0080 4345     		cmp	r3, r8
+ 255 0082 13D1     		bne	.L36
+ 256 0084 2368     		ldr	r3, [r4]
+ 257 0086 23EA0703 		bic	r3, r3, r7
+ 258 008a 2360     		str	r3, [r4]
+ 259 008c 6368     		ldr	r3, [r4, #4]
+ 260 008e 23EA0703 		bic	r3, r3, r7
+ 261 0092 6360     		str	r3, [r4, #4]
+ 262 0094 E368     		ldr	r3, [r4, #12]
+ 263 0096 23EA0703 		bic	r3, r3, r7
+ 264 009a E360     		str	r3, [r4, #12]
+ 265 009c A368     		ldr	r3, [r4, #8]
+ 266 009e 23EA0703 		bic	r3, r3, r7
+ 267 00a2 A360     		str	r3, [r4, #8]
+ 268 00a4 AB68     		ldr	r3, [r5, #8]
+ 269 00a6 23EA0603 		bic	r3, r3, r6
+ 270 00aa AB60     		str	r3, [r5, #8]
+ 271              	.L36:
+ 272 00ac 0326     		movs	r6, #3
+ 273 00ae 5300     		lsls	r3, r2, #1
+ 274 00b0 0568     		ldr	r5, [r0]
+ 275 00b2 02F0070C 		and	ip, r2, #7
+ 276 00b6 06FA03F3 		lsl	r3, r6, r3
+ 277 00ba 0F27     		movs	r7, #15
+ 278 00bc 4FEA8C0C 		lsl	ip, ip, #2
+ 279 00c0 25EA0305 		bic	r5, r5, r3
+ 280 00c4 07FA0CF7 		lsl	r7, r7, ip
+ 281 00c8 0560     		str	r5, [r0]
+ 282 00ca 22FA06F5 		lsr	r5, r2, r6
+ 283 00ce 00EB8505 		add	r5, r0, r5, lsl #2
+ 284 00d2 2E6A     		ldr	r6, [r5, #32]
+ 285 00d4 26EA0707 		bic	r7, r6, r7
+ 286 00d8 2F62     		str	r7, [r5, #32]
+ 287 00da C568     		ldr	r5, [r0, #12]
+ 288 00dc 25EA0305 		bic	r5, r5, r3
+ARM GAS  /tmp/ccsMVcda.s 			page 6
 
 
- 289 00cc 2762     		str	r7, [r4, #32]
- 290 00ce C468     		ldr	r4, [r0, #12]
- 291 00d0 1C40     		ands	r4, r4, r3
- 292 00d2 C460     		str	r4, [r0, #12]
- 293 00d4 4468     		ldr	r4, [r0, #4]
- 294 00d6 24EA0E04 		bic	r4, r4, lr
- 295 00da 4460     		str	r4, [r0, #4]
- 296 00dc 8468     		ldr	r4, [r0, #8]
- 297 00de 2340     		ands	r3, r3, r4
- 298 00e0 8360     		str	r3, [r0, #8]
- 299              	.L32:
- 300 00e2 0132     		adds	r2, r2, #1
- 301 00e4 102A     		cmp	r2, #16
- 302 00e6 95D1     		bne	.L35
- 303 00e8 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
- 304              	.L36:
- 305 00ec 0023     		movs	r3, #0
- 306 00ee C4E7     		b	.L33
- 307              	.L37:
- 308 00f0 0123     		movs	r3, #1
- 309 00f2 C2E7     		b	.L33
- 310              	.L38:
- 311 00f4 0223     		movs	r3, #2
- 312 00f6 C0E7     		b	.L33
- 313              	.L39:
- 314 00f8 0323     		movs	r3, #3
- 315 00fa BEE7     		b	.L33
- 316              	.L40:
- 317 00fc 0423     		movs	r3, #4
- 318 00fe BCE7     		b	.L33
- 319              	.L41:
- 320 0100 0523     		movs	r3, #5
- 321 0102 BAE7     		b	.L33
- 322              	.L42:
- 323 0104 0623     		movs	r3, #6
- 324 0106 B8E7     		b	.L33
- 325              	.L46:
- 326              		.align	2
- 327              	.L45:
- 328 0108 003C0140 		.word	1073822720
- 329 010c 00000240 		.word	1073872896
- 330 0110 00140240 		.word	1073878016
- 331 0114 00180240 		.word	1073879040
- 332 0118 001C0240 		.word	1073880064
- 334              		.section	.text.HAL_GPIO_ReadPin,"ax",%progbits
- 335              		.align	1
- 336              		.global	HAL_GPIO_ReadPin
- 337              		.syntax unified
- 338              		.thumb
- 339              		.thumb_func
- 340              		.fpu fpv5-sp-d16
- 342              	HAL_GPIO_ReadPin:
- 343              		@ args = 0, pretend = 0, frame = 0
- 344              		@ frame_needed = 0, uses_anonymous_args = 0
- 345              		@ link register save eliminated.
- 346 0000 0369     		ldr	r3, [r0, #16]
- 347 0002 1942     		tst	r1, r3
-ARM GAS  /tmp/ccFEQfui.s 			page 7
+ 289 00e0 C560     		str	r5, [r0, #12]
+ 290 00e2 4568     		ldr	r5, [r0, #4]
+ 291 00e4 25EA0E05 		bic	r5, r5, lr
+ 292 00e8 4560     		str	r5, [r0, #4]
+ 293 00ea 8568     		ldr	r5, [r0, #8]
+ 294 00ec 25EA0303 		bic	r3, r5, r3
+ 295 00f0 8360     		str	r3, [r0, #8]
+ 296              	.L34:
+ 297 00f2 0132     		adds	r2, r2, #1
+ 298 00f4 102A     		cmp	r2, #16
+ 299 00f6 8DD1     		bne	.L37
+ 300 00f8 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 301              	.L38:
+ 302 00fc 0023     		movs	r3, #0
+ 303 00fe BDE7     		b	.L35
+ 304              	.L39:
+ 305 0100 0123     		movs	r3, #1
+ 306 0102 BBE7     		b	.L35
+ 307              	.L40:
+ 308 0104 0223     		movs	r3, #2
+ 309 0106 B9E7     		b	.L35
+ 310              	.L41:
+ 311 0108 0323     		movs	r3, #3
+ 312 010a B7E7     		b	.L35
+ 313              	.L42:
+ 314 010c 0423     		movs	r3, #4
+ 315 010e B5E7     		b	.L35
+ 316              	.L43:
+ 317 0110 0523     		movs	r3, #5
+ 318 0112 B3E7     		b	.L35
+ 319              	.L44:
+ 320 0114 0623     		movs	r3, #6
+ 321 0116 B1E7     		b	.L35
+ 322              	.L48:
+ 323              		.align	2
+ 324              	.L47:
+ 325 0118 003C0140 		.word	1073822720
+ 326 011c 00000240 		.word	1073872896
+ 327 0120 00140240 		.word	1073878016
+ 328 0124 00180240 		.word	1073879040
+ 329 0128 001C0240 		.word	1073880064
+ 331              		.section	.text.HAL_GPIO_ReadPin,"ax",%progbits
+ 332              		.align	1
+ 333              		.global	HAL_GPIO_ReadPin
+ 334              		.syntax unified
+ 335              		.thumb
+ 336              		.thumb_func
+ 337              		.fpu fpv5-sp-d16
+ 339              	HAL_GPIO_ReadPin:
+ 340              		@ args = 0, pretend = 0, frame = 0
+ 341              		@ frame_needed = 0, uses_anonymous_args = 0
+ 342              		@ link register save eliminated.
+ 343 0000 0369     		ldr	r3, [r0, #16]
+ 344 0002 1942     		tst	r1, r3
+ 345 0004 14BF     		ite	ne
+ 346 0006 0120     		movne	r0, #1
+ 347 0008 0020     		moveq	r0, #0
+ARM GAS  /tmp/ccsMVcda.s 			page 7
 
 
- 348 0004 14BF     		ite	ne
- 349 0006 0120     		movne	r0, #1
- 350 0008 0020     		moveq	r0, #0
- 351 000a 7047     		bx	lr
- 353              		.section	.text.HAL_GPIO_WritePin,"ax",%progbits
- 354              		.align	1
- 355              		.global	HAL_GPIO_WritePin
- 356              		.syntax unified
- 357              		.thumb
- 358              		.thumb_func
- 359              		.fpu fpv5-sp-d16
- 361              	HAL_GPIO_WritePin:
- 362              		@ args = 0, pretend = 0, frame = 0
- 363              		@ frame_needed = 0, uses_anonymous_args = 0
- 364              		@ link register save eliminated.
- 365 0000 0AB1     		cbz	r2, .L49
+ 348 000a 7047     		bx	lr
+ 350              		.section	.text.HAL_GPIO_WritePin,"ax",%progbits
+ 351              		.align	1
+ 352              		.global	HAL_GPIO_WritePin
+ 353              		.syntax unified
+ 354              		.thumb
+ 355              		.thumb_func
+ 356              		.fpu fpv5-sp-d16
+ 358              	HAL_GPIO_WritePin:
+ 359              		@ args = 0, pretend = 0, frame = 0
+ 360              		@ frame_needed = 0, uses_anonymous_args = 0
+ 361              		@ link register save eliminated.
+ 362 0000 0AB1     		cbz	r2, .L51
+ 363              	.L53:
+ 364 0002 8161     		str	r1, [r0, #24]
+ 365 0004 7047     		bx	lr
  366              	.L51:
- 367 0002 8161     		str	r1, [r0, #24]
- 368 0004 7047     		bx	lr
- 369              	.L49:
- 370 0006 0904     		lsls	r1, r1, #16
- 371 0008 FBE7     		b	.L51
- 373              		.section	.text.HAL_GPIO_TogglePin,"ax",%progbits
- 374              		.align	1
- 375              		.global	HAL_GPIO_TogglePin
- 376              		.syntax unified
- 377              		.thumb
- 378              		.thumb_func
- 379              		.fpu fpv5-sp-d16
- 381              	HAL_GPIO_TogglePin:
- 382              		@ args = 0, pretend = 0, frame = 0
- 383              		@ frame_needed = 0, uses_anonymous_args = 0
- 384              		@ link register save eliminated.
- 385 0000 4369     		ldr	r3, [r0, #20]
- 386 0002 0B42     		tst	r3, r1
- 387 0004 18BF     		it	ne
- 388 0006 0904     		lslne	r1, r1, #16
- 389 0008 8161     		str	r1, [r0, #24]
- 390 000a 7047     		bx	lr
- 392              		.section	.text.HAL_GPIO_LockPin,"ax",%progbits
- 393              		.align	1
- 394              		.global	HAL_GPIO_LockPin
- 395              		.syntax unified
- 396              		.thumb
- 397              		.thumb_func
- 398              		.fpu fpv5-sp-d16
- 400              	HAL_GPIO_LockPin:
- 401              		@ args = 0, pretend = 0, frame = 8
- 402              		@ frame_needed = 0, uses_anonymous_args = 0
- 403              		@ link register save eliminated.
- 404 0000 82B0     		sub	sp, sp, #8
- 405 0002 4FF48033 		mov	r3, #65536
- 406 0006 0193     		str	r3, [sp, #4]
- 407 0008 019B     		ldr	r3, [sp, #4]
- 408 000a 0B43     		orrs	r3, r3, r1
- 409 000c 0193     		str	r3, [sp, #4]
- 410 000e 019B     		ldr	r3, [sp, #4]
-ARM GAS  /tmp/ccFEQfui.s 			page 8
+ 367 0006 0904     		lsls	r1, r1, #16
+ 368 0008 FBE7     		b	.L53
+ 370              		.section	.text.HAL_GPIO_TogglePin,"ax",%progbits
+ 371              		.align	1
+ 372              		.global	HAL_GPIO_TogglePin
+ 373              		.syntax unified
+ 374              		.thumb
+ 375              		.thumb_func
+ 376              		.fpu fpv5-sp-d16
+ 378              	HAL_GPIO_TogglePin:
+ 379              		@ args = 0, pretend = 0, frame = 0
+ 380              		@ frame_needed = 0, uses_anonymous_args = 0
+ 381              		@ link register save eliminated.
+ 382 0000 4369     		ldr	r3, [r0, #20]
+ 383 0002 01EA0302 		and	r2, r1, r3
+ 384 0006 21EA0301 		bic	r1, r1, r3
+ 385 000a 41EA0241 		orr	r1, r1, r2, lsl #16
+ 386 000e 8161     		str	r1, [r0, #24]
+ 387 0010 7047     		bx	lr
+ 389              		.section	.text.HAL_GPIO_LockPin,"ax",%progbits
+ 390              		.align	1
+ 391              		.global	HAL_GPIO_LockPin
+ 392              		.syntax unified
+ 393              		.thumb
+ 394              		.thumb_func
+ 395              		.fpu fpv5-sp-d16
+ 397              	HAL_GPIO_LockPin:
+ 398              		@ args = 0, pretend = 0, frame = 8
+ 399              		@ frame_needed = 0, uses_anonymous_args = 0
+ 400              		@ link register save eliminated.
+ 401 0000 82B0     		sub	sp, sp, #8
+ 402 0002 4FF48033 		mov	r3, #65536
+ 403 0006 0193     		str	r3, [sp, #4]
+ 404 0008 019B     		ldr	r3, [sp, #4]
+ 405 000a 0B43     		orrs	r3, r3, r1
+ 406 000c 0193     		str	r3, [sp, #4]
+ 407 000e 019B     		ldr	r3, [sp, #4]
+ 408 0010 C361     		str	r3, [r0, #28]
+ 409 0012 C161     		str	r1, [r0, #28]
+ 410 0014 019B     		ldr	r3, [sp, #4]
+ARM GAS  /tmp/ccsMVcda.s 			page 8
 
 
- 411 0010 C361     		str	r3, [r0, #28]
- 412 0012 C161     		str	r1, [r0, #28]
- 413 0014 019B     		ldr	r3, [sp, #4]
- 414 0016 C361     		str	r3, [r0, #28]
- 415 0018 C369     		ldr	r3, [r0, #28]
- 416 001a 0193     		str	r3, [sp, #4]
- 417 001c C069     		ldr	r0, [r0, #28]
- 418 001e 80F48030 		eor	r0, r0, #65536
- 419 0022 C0F30040 		ubfx	r0, r0, #16, #1
- 420 0026 02B0     		add	sp, sp, #8
- 421              		@ sp needed
- 422 0028 7047     		bx	lr
- 424              		.section	.text.HAL_GPIO_EXTI_Callback,"ax",%progbits
- 425              		.align	1
- 426              		.weak	HAL_GPIO_EXTI_Callback
- 427              		.syntax unified
- 428              		.thumb
- 429              		.thumb_func
- 430              		.fpu fpv5-sp-d16
- 432              	HAL_GPIO_EXTI_Callback:
- 433              		@ args = 0, pretend = 0, frame = 0
- 434              		@ frame_needed = 0, uses_anonymous_args = 0
- 435              		@ link register save eliminated.
- 436 0000 7047     		bx	lr
- 438              		.section	.text.HAL_GPIO_EXTI_IRQHandler,"ax",%progbits
- 439              		.align	1
- 440              		.global	HAL_GPIO_EXTI_IRQHandler
- 441              		.syntax unified
- 442              		.thumb
- 443              		.thumb_func
- 444              		.fpu fpv5-sp-d16
- 446              	HAL_GPIO_EXTI_IRQHandler:
- 447              		@ args = 0, pretend = 0, frame = 0
- 448              		@ frame_needed = 0, uses_anonymous_args = 0
- 449 0000 08B5     		push	{r3, lr}
- 450 0002 044B     		ldr	r3, .L62
- 451 0004 5969     		ldr	r1, [r3, #20]
- 452 0006 0142     		tst	r1, r0
- 453 0008 02D0     		beq	.L57
- 454 000a 5861     		str	r0, [r3, #20]
- 455 000c FFF7FEFF 		bl	HAL_GPIO_EXTI_Callback
- 456              	.L57:
- 457 0010 08BD     		pop	{r3, pc}
- 458              	.L63:
- 459 0012 00BF     		.align	2
- 460              	.L62:
- 461 0014 003C0140 		.word	1073822720
- 463              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccFEQfui.s 			page 9
+ 411 0016 C361     		str	r3, [r0, #28]
+ 412 0018 C369     		ldr	r3, [r0, #28]
+ 413 001a 0193     		str	r3, [sp, #4]
+ 414 001c C069     		ldr	r0, [r0, #28]
+ 415 001e 80F48030 		eor	r0, r0, #65536
+ 416 0022 C0F30040 		ubfx	r0, r0, #16, #1
+ 417 0026 02B0     		add	sp, sp, #8
+ 418              		@ sp needed
+ 419 0028 7047     		bx	lr
+ 421              		.section	.text.HAL_GPIO_EXTI_Callback,"ax",%progbits
+ 422              		.align	1
+ 423              		.weak	HAL_GPIO_EXTI_Callback
+ 424              		.syntax unified
+ 425              		.thumb
+ 426              		.thumb_func
+ 427              		.fpu fpv5-sp-d16
+ 429              	HAL_GPIO_EXTI_Callback:
+ 430              		@ args = 0, pretend = 0, frame = 0
+ 431              		@ frame_needed = 0, uses_anonymous_args = 0
+ 432              		@ link register save eliminated.
+ 433 0000 7047     		bx	lr
+ 435              		.section	.text.HAL_GPIO_EXTI_IRQHandler,"ax",%progbits
+ 436              		.align	1
+ 437              		.global	HAL_GPIO_EXTI_IRQHandler
+ 438              		.syntax unified
+ 439              		.thumb
+ 440              		.thumb_func
+ 441              		.fpu fpv5-sp-d16
+ 443              	HAL_GPIO_EXTI_IRQHandler:
+ 444              		@ args = 0, pretend = 0, frame = 0
+ 445              		@ frame_needed = 0, uses_anonymous_args = 0
+ 446 0000 044A     		ldr	r2, .L62
+ 447 0002 5169     		ldr	r1, [r2, #20]
+ 448 0004 0142     		tst	r1, r0
+ 449 0006 08B5     		push	{r3, lr}
+ 450 0008 02D0     		beq	.L57
+ 451 000a 5061     		str	r0, [r2, #20]
+ 452 000c FFF7FEFF 		bl	HAL_GPIO_EXTI_Callback
+ 453              	.L57:
+ 454 0010 08BD     		pop	{r3, pc}
+ 455              	.L63:
+ 456 0012 00BF     		.align	2
+ 457              	.L62:
+ 458 0014 003C0140 		.word	1073822720
+ 460              		.ident	"GCC: (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+ARM GAS  /tmp/ccsMVcda.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f7xx_hal_gpio.c
-     /tmp/ccFEQfui.s:15     .text.HAL_GPIO_Init:0000000000000000 $t
-     /tmp/ccFEQfui.s:23     .text.HAL_GPIO_Init:0000000000000000 HAL_GPIO_Init
-     /tmp/ccFEQfui.s:193    .text.HAL_GPIO_Init:00000000000001a8 $d
-     /tmp/ccFEQfui.s:199    .text.HAL_GPIO_DeInit:0000000000000000 $t
-     /tmp/ccFEQfui.s:206    .text.HAL_GPIO_DeInit:0000000000000000 HAL_GPIO_DeInit
-     /tmp/ccFEQfui.s:328    .text.HAL_GPIO_DeInit:0000000000000108 $d
-     /tmp/ccFEQfui.s:335    .text.HAL_GPIO_ReadPin:0000000000000000 $t
-     /tmp/ccFEQfui.s:342    .text.HAL_GPIO_ReadPin:0000000000000000 HAL_GPIO_ReadPin
-     /tmp/ccFEQfui.s:354    .text.HAL_GPIO_WritePin:0000000000000000 $t
-     /tmp/ccFEQfui.s:361    .text.HAL_GPIO_WritePin:0000000000000000 HAL_GPIO_WritePin
-     /tmp/ccFEQfui.s:374    .text.HAL_GPIO_TogglePin:0000000000000000 $t
-     /tmp/ccFEQfui.s:381    .text.HAL_GPIO_TogglePin:0000000000000000 HAL_GPIO_TogglePin
-     /tmp/ccFEQfui.s:393    .text.HAL_GPIO_LockPin:0000000000000000 $t
-     /tmp/ccFEQfui.s:400    .text.HAL_GPIO_LockPin:0000000000000000 HAL_GPIO_LockPin
-     /tmp/ccFEQfui.s:425    .text.HAL_GPIO_EXTI_Callback:0000000000000000 $t
-     /tmp/ccFEQfui.s:432    .text.HAL_GPIO_EXTI_Callback:0000000000000000 HAL_GPIO_EXTI_Callback
-     /tmp/ccFEQfui.s:439    .text.HAL_GPIO_EXTI_IRQHandler:0000000000000000 $t
-     /tmp/ccFEQfui.s:446    .text.HAL_GPIO_EXTI_IRQHandler:0000000000000000 HAL_GPIO_EXTI_IRQHandler
-     /tmp/ccFEQfui.s:461    .text.HAL_GPIO_EXTI_IRQHandler:0000000000000014 $d
+     /tmp/ccsMVcda.s:15     .text.HAL_GPIO_Init:0000000000000000 $t
+     /tmp/ccsMVcda.s:23     .text.HAL_GPIO_Init:0000000000000000 HAL_GPIO_Init
+     /tmp/ccsMVcda.s:193    .text.HAL_GPIO_Init:00000000000001a4 $d
+     /tmp/ccsMVcda.s:198    .text.HAL_GPIO_DeInit:0000000000000000 $t
+     /tmp/ccsMVcda.s:205    .text.HAL_GPIO_DeInit:0000000000000000 HAL_GPIO_DeInit
+     /tmp/ccsMVcda.s:325    .text.HAL_GPIO_DeInit:0000000000000118 $d
+     /tmp/ccsMVcda.s:332    .text.HAL_GPIO_ReadPin:0000000000000000 $t
+     /tmp/ccsMVcda.s:339    .text.HAL_GPIO_ReadPin:0000000000000000 HAL_GPIO_ReadPin
+     /tmp/ccsMVcda.s:351    .text.HAL_GPIO_WritePin:0000000000000000 $t
+     /tmp/ccsMVcda.s:358    .text.HAL_GPIO_WritePin:0000000000000000 HAL_GPIO_WritePin
+     /tmp/ccsMVcda.s:371    .text.HAL_GPIO_TogglePin:0000000000000000 $t
+     /tmp/ccsMVcda.s:378    .text.HAL_GPIO_TogglePin:0000000000000000 HAL_GPIO_TogglePin
+     /tmp/ccsMVcda.s:390    .text.HAL_GPIO_LockPin:0000000000000000 $t
+     /tmp/ccsMVcda.s:397    .text.HAL_GPIO_LockPin:0000000000000000 HAL_GPIO_LockPin
+     /tmp/ccsMVcda.s:422    .text.HAL_GPIO_EXTI_Callback:0000000000000000 $t
+     /tmp/ccsMVcda.s:429    .text.HAL_GPIO_EXTI_Callback:0000000000000000 HAL_GPIO_EXTI_Callback
+     /tmp/ccsMVcda.s:436    .text.HAL_GPIO_EXTI_IRQHandler:0000000000000000 $t
+     /tmp/ccsMVcda.s:443    .text.HAL_GPIO_EXTI_IRQHandler:0000000000000000 HAL_GPIO_EXTI_IRQHandler
+     /tmp/ccsMVcda.s:458    .text.HAL_GPIO_EXTI_IRQHandler:0000000000000014 $d
 
 NO UNDEFINED SYMBOLS

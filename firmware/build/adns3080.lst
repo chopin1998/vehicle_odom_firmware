@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccBynLNh.s 			page 1
+ARM GAS  /tmp/ccwCkhfT.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -26,24 +26,24 @@ ARM GAS  /tmp/ccBynLNh.s 			page 1
   24              		@ args = 0, pretend = 0, frame = 8
   25              		@ frame_needed = 0, uses_anonymous_args = 0
   26 0000 30B5     		push	{r4, r5, lr}
-  27 0002 0A24     		movs	r4, #10
+  27 0002 0A25     		movs	r5, #10
   28 0004 85B0     		sub	sp, sp, #20
   29 0006 0123     		movs	r3, #1
-  30 0008 0546     		mov	r5, r0
+  30 0008 0446     		mov	r4, r0
   31 000a 03AA     		add	r2, sp, #12
   32 000c 8DF80810 		strb	r1, [sp, #8]
-  33 0010 0094     		str	r4, [sp]
+  33 0010 0095     		str	r5, [sp]
   34 0012 02A9     		add	r1, sp, #8
   35 0014 FFF7FEFF 		bl	HAL_SPI_TransmitReceive
   36 0018 3220     		movs	r0, #50
   37 001a FFF7FEFF 		bl	dwt_delay_us
   38 001e 0023     		movs	r3, #0
-  39 0020 0094     		str	r4, [sp]
-  40 0022 03AA     		add	r2, sp, #12
+  39 0020 03AA     		add	r2, sp, #12
+  40 0022 02A9     		add	r1, sp, #8
   41 0024 8DF80830 		strb	r3, [sp, #8]
-  42 0028 02A9     		add	r1, sp, #8
+  42 0028 2046     		mov	r0, r4
   43 002a 0123     		movs	r3, #1
-  44 002c 2846     		mov	r0, r5
+  44 002c 0095     		str	r5, [sp]
   45 002e FFF7FEFF 		bl	HAL_SPI_TransmitReceive
   46 0032 9DF80C00 		ldrb	r0, [sp, #12]	@ zero_extendqisi2
   47 0036 05B0     		add	sp, sp, #20
@@ -58,29 +58,29 @@ ARM GAS  /tmp/ccBynLNh.s 			page 1
   57              		.fpu fpv5-sp-d16
   59              	adns3080_write_reg:
   60              		@ args = 0, pretend = 0, frame = 8
-ARM GAS  /tmp/ccBynLNh.s 			page 2
+ARM GAS  /tmp/ccwCkhfT.s 			page 2
 
 
   61              		@ frame_needed = 0, uses_anonymous_args = 0
   62 0000 7FB5     		push	{r0, r1, r2, r3, r4, r5, r6, lr}
-  63 0002 0A24     		movs	r4, #10
+  63 0002 0A26     		movs	r6, #10
   64 0004 61F07F01 		orn	r1, r1, #127
-  65 0008 1646     		mov	r6, r2
+  65 0008 1546     		mov	r5, r2
   66 000a 0123     		movs	r3, #1
   67 000c 03AA     		add	r2, sp, #12
   68 000e 8DF80810 		strb	r1, [sp, #8]
-  69 0012 0094     		str	r4, [sp]
+  69 0012 0096     		str	r6, [sp]
   70 0014 02A9     		add	r1, sp, #8
-  71 0016 0546     		mov	r5, r0
+  71 0016 0446     		mov	r4, r0
   72 0018 FFF7FEFF 		bl	HAL_SPI_TransmitReceive
   73 001c 3220     		movs	r0, #50
   74 001e FFF7FEFF 		bl	dwt_delay_us
   75 0022 0123     		movs	r3, #1
   76 0024 03AA     		add	r2, sp, #12
   77 0026 02A9     		add	r1, sp, #8
-  78 0028 0094     		str	r4, [sp]
-  79 002a 2846     		mov	r0, r5
-  80 002c 8DF80860 		strb	r6, [sp, #8]
+  78 0028 2046     		mov	r0, r4
+  79 002a 0096     		str	r6, [sp]
+  80 002c 8DF80850 		strb	r5, [sp, #8]
   81 0030 FFF7FEFF 		bl	HAL_SPI_TransmitReceive
   82 0034 04B0     		add	sp, sp, #16
   83              		@ sp needed
@@ -105,20 +105,20 @@ ARM GAS  /tmp/ccBynLNh.s 			page 1
  104 0010 4021     		movs	r1, #64
  105 0012 1248     		ldr	r0, .L7+4
  106 0014 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 107 0018 4020     		movs	r0, #64
+ 107 0018 8020     		movs	r0, #128
  108 001a FFF7FEFF 		bl	dwt_delay_us
  109 001e 0022     		movs	r2, #0
  110 0020 4021     		movs	r1, #64
  111 0022 0E48     		ldr	r0, .L7+4
  112              	.L6:
  113 0024 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 114 0028 2420     		movs	r0, #36
- 115 002a FFF7FEFF 		bl	HAL_Delay
+ 114 0028 8020     		movs	r0, #128
+ 115 002a FFF7FEFF 		bl	dwt_delay_us
  116 002e 2046     		mov	r0, r4
  117 0030 1922     		movs	r2, #25
  118 0032 0A21     		movs	r1, #10
  119 0034 BDE81040 		pop	{r4, lr}
-ARM GAS  /tmp/ccBynLNh.s 			page 3
+ARM GAS  /tmp/ccwCkhfT.s 			page 3
 
 
  120 0038 FFF7FEBF 		b	adns3080_write_reg
@@ -126,7 +126,7 @@ ARM GAS  /tmp/ccBynLNh.s 			page 1
  122 003c 4FF48041 		mov	r1, #16384
  123 0040 0748     		ldr	r0, .L7+8
  124 0042 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 125 0046 4020     		movs	r0, #64
+ 125 0046 8020     		movs	r0, #128
  126 0048 FFF7FEFF 		bl	dwt_delay_us
  127 004c 0022     		movs	r2, #0
  128 004e 4FF48041 		mov	r1, #16384
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccBynLNh.s 			page 1
  178 000a 0546     		mov	r5, r0
  179 000c 04AA     		add	r2, sp, #16
  180 000e 03A9     		add	r1, sp, #12
-ARM GAS  /tmp/ccBynLNh.s 			page 4
+ARM GAS  /tmp/ccwCkhfT.s 			page 4
 
 
  181 0010 8DF80C30 		strb	r3, [sp, #12]
@@ -205,151 +205,148 @@ ARM GAS  /tmp/ccBynLNh.s 			page 1
  202 0048 06B0     		add	sp, sp, #24
  203              		@ sp needed
  204 004a 70BD     		pop	{r4, r5, r6, pc}
- 206              		.section	.text.adns3080_capture,"ax",%progbits
- 207              		.align	1
- 208              		.global	adns3080_capture
- 209              		.syntax unified
- 210              		.thumb
- 211              		.thumb_func
- 212              		.fpu fpv5-sp-d16
- 214              	adns3080_capture:
- 215              		@ args = 0, pretend = 0, frame = 1032
- 216              		@ frame_needed = 0, uses_anonymous_args = 0
- 217 0000 0268     		ldr	r2, [r0]
- 218 0002 1368     		ldr	r3, [r2]
- 219 0004 23F04003 		bic	r3, r3, #64
- 220 0008 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
- 221 000c 0446     		mov	r4, r0
- 222 000e ADF5826D 		sub	sp, sp, #1040
- 223 0012 1360     		str	r3, [r2]
- 224 0014 0120     		movs	r0, #1
- 225 0016 FFF7FEFF 		bl	dwt_delay_us
- 226 001a 2268     		ldr	r2, [r4]
- 227 001c 0120     		movs	r0, #1
- 228 001e 0025     		movs	r5, #0
- 229 0020 1368     		ldr	r3, [r2]
- 230 0022 0A27     		movs	r7, #10
- 231 0024 2E46     		mov	r6, r5
- 232 0026 A946     		mov	r9, r5
- 233 0028 43F04003 		orr	r3, r3, #64
- 234 002c A846     		mov	r8, r5
- 235 002e 1360     		str	r3, [r2]
- 236 0030 FFF7FEFF 		bl	dwt_delay_us
- 237 0034 1321     		movs	r1, #19
- 238 0036 8322     		movs	r2, #131
- 239 0038 2046     		mov	r0, r4
-ARM GAS  /tmp/ccBynLNh.s 			page 5
+ 206              		.section	.rodata.adns3080_capture.str1.1,"aMS",%progbits,1
+ 207              	.LC0:
+ 208 0000 6661696C 		.ascii	"failed to find header\012\000"
+ 208      65642074 
+ 208      6F206669 
+ 208      6E642068 
+ 208      65616465 
+ 209              		.section	.text.adns3080_capture,"ax",%progbits
+ 210              		.align	1
+ 211              		.global	adns3080_capture
+ 212              		.syntax unified
+ 213              		.thumb
+ 214              		.thumb_func
+ 215              		.fpu fpv5-sp-d16
+ 217              	adns3080_capture:
+ 218              		@ args = 0, pretend = 0, frame = 1032
+ 219              		@ frame_needed = 0, uses_anonymous_args = 0
+ 220 0000 0268     		ldr	r2, [r0]
+ 221 0002 1368     		ldr	r3, [r2]
+ 222 0004 23F04003 		bic	r3, r3, #64
+ 223 0008 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 224 000c 0446     		mov	r4, r0
+ 225 000e ADF5826D 		sub	sp, sp, #1040
+ 226 0012 1360     		str	r3, [r2]
+ 227 0014 0120     		movs	r0, #1
+ 228 0016 FFF7FEFF 		bl	dwt_delay_us
+ 229 001a 2268     		ldr	r2, [r4]
+ 230 001c 0120     		movs	r0, #1
+ 231 001e 0025     		movs	r5, #0
+ 232 0020 1368     		ldr	r3, [r2]
+ 233 0022 0A27     		movs	r7, #10
+ 234 0024 2E46     		mov	r6, r5
+ 235 0026 A946     		mov	r9, r5
+ARM GAS  /tmp/ccwCkhfT.s 			page 5
 
 
- 240 003a FFF7FEFF 		bl	adns3080_write_reg
- 241 003e 2268     		ldr	r2, [r4]
- 242 0040 4FF48060 		mov	r0, #1024
- 243 0044 1368     		ldr	r3, [r2]
- 244 0046 23F04003 		bic	r3, r3, #64
- 245 004a 1360     		str	r3, [r2]
- 246 004c FFF7FEFF 		bl	dwt_delay_us
- 247 0050 4023     		movs	r3, #64
- 248 0052 03AA     		add	r2, sp, #12
- 249 0054 02A9     		add	r1, sp, #8
- 250 0056 8DF80830 		strb	r3, [sp, #8]
- 251 005a 2046     		mov	r0, r4
- 252 005c 0123     		movs	r3, #1
- 253 005e 0097     		str	r7, [sp]
- 254 0060 FFF7FEFF 		bl	HAL_SPI_TransmitReceive
- 255 0064 3C20     		movs	r0, #60
- 256 0066 FFF7FEFF 		bl	dwt_delay_us
- 257              	.L19:
- 258 006a 0123     		movs	r3, #1
- 259 006c 0097     		str	r7, [sp]
- 260 006e 03AA     		add	r2, sp, #12
- 261 0070 02A9     		add	r1, sp, #8
- 262 0072 2046     		mov	r0, r4
- 263 0074 8DF80880 		strb	r8, [sp, #8]
- 264 0078 FFF7FEFF 		bl	HAL_SPI_TransmitReceive
- 265 007c 9DF80C30 		ldrb	r3, [sp, #12]	@ zero_extendqisi2
- 266 0080 B9F1000F 		cmp	r9, #0
- 267 0084 0BD1     		bne	.L14
- 268 0086 1906     		lsls	r1, r3, #24
- 269 0088 1FD5     		bpl	.L15
- 270 008a 5A06     		lsls	r2, r3, #25
- 271 008c 1DD5     		bpl	.L15
- 272 008e 9B00     		lsls	r3, r3, #2
- 273 0090 04AA     		add	r2, sp, #16
- 274 0092 4FF00109 		mov	r9, #1
- 275 0096 9355     		strb	r3, [r2, r6]
- 276 0098 0136     		adds	r6, r6, #1
- 277              	.L16:
- 278 009a 0135     		adds	r5, r5, #1
- 279 009c E5E7     		b	.L19
- 280              	.L14:
- 281 009e 0DF1100A 		add	r10, sp, #16
- 282 00a2 9B00     		lsls	r3, r3, #2
- 283 00a4 B5F5617F 		cmp	r5, #900
- 284 00a8 0AF80630 		strb	r3, [r10, r6]
- 285 00ac 06F10106 		add	r6, r6, #1
- 286 00b0 F3D3     		bcc	.L16
- 287 00b2 2268     		ldr	r2, [r4]
- 288 00b4 0A20     		movs	r0, #10
- 289 00b6 1368     		ldr	r3, [r2]
- 290 00b8 23F04003 		bic	r3, r3, #64
- 291 00bc 1360     		str	r3, [r2]
- 292 00be FFF7FEFF 		bl	dwt_delay_us
- 293 00c2 4FF46171 		mov	r1, #900
- 294 00c6 5046     		mov	r0, r10
- 295 00c8 03E0     		b	.L23
- 296              	.L15:
-ARM GAS  /tmp/ccBynLNh.s 			page 6
+ 236 0028 43F04003 		orr	r3, r3, #64
+ 237 002c A846     		mov	r8, r5
+ 238 002e 1360     		str	r3, [r2]
+ 239 0030 FFF7FEFF 		bl	dwt_delay_us
+ 240 0034 1321     		movs	r1, #19
+ 241 0036 8322     		movs	r2, #131
+ 242 0038 2046     		mov	r0, r4
+ 243 003a FFF7FEFF 		bl	adns3080_write_reg
+ 244 003e 2268     		ldr	r2, [r4]
+ 245 0040 4FF48060 		mov	r0, #1024
+ 246 0044 1368     		ldr	r3, [r2]
+ 247 0046 23F04003 		bic	r3, r3, #64
+ 248 004a 1360     		str	r3, [r2]
+ 249 004c FFF7FEFF 		bl	dwt_delay_us
+ 250 0050 4023     		movs	r3, #64
+ 251 0052 03AA     		add	r2, sp, #12
+ 252 0054 02A9     		add	r1, sp, #8
+ 253 0056 8DF80830 		strb	r3, [sp, #8]
+ 254 005a 2046     		mov	r0, r4
+ 255 005c 0123     		movs	r3, #1
+ 256 005e 0097     		str	r7, [sp]
+ 257 0060 FFF7FEFF 		bl	HAL_SPI_TransmitReceive
+ 258 0064 3C20     		movs	r0, #60
+ 259 0066 FFF7FEFF 		bl	dwt_delay_us
+ 260              	.L19:
+ 261 006a 0123     		movs	r3, #1
+ 262 006c 03AA     		add	r2, sp, #12
+ 263 006e 02A9     		add	r1, sp, #8
+ 264 0070 2046     		mov	r0, r4
+ 265 0072 0097     		str	r7, [sp]
+ 266 0074 8DF80880 		strb	r8, [sp, #8]
+ 267 0078 FFF7FEFF 		bl	HAL_SPI_TransmitReceive
+ 268 007c 9DF80C30 		ldrb	r3, [sp, #12]	@ zero_extendqisi2
+ 269 0080 B9F1000F 		cmp	r9, #0
+ 270 0084 0BD1     		bne	.L14
+ 271 0086 1906     		lsls	r1, r3, #24
+ 272 0088 1FD5     		bpl	.L15
+ 273 008a 5A06     		lsls	r2, r3, #25
+ 274 008c 1DD5     		bpl	.L15
+ 275 008e 9B00     		lsls	r3, r3, #2
+ 276 0090 04AA     		add	r2, sp, #16
+ 277 0092 4FF00109 		mov	r9, #1
+ 278 0096 9355     		strb	r3, [r2, r6]
+ 279 0098 0136     		adds	r6, r6, #1
+ 280              	.L16:
+ 281 009a 0135     		adds	r5, r5, #1
+ 282 009c E5E7     		b	.L19
+ 283              	.L14:
+ 284 009e 0DF1100A 		add	r10, sp, #16
+ 285 00a2 9B00     		lsls	r3, r3, #2
+ 286 00a4 B5F5617F 		cmp	r5, #900
+ 287 00a8 0AF80630 		strb	r3, [r10, r6]
+ 288 00ac 06F10106 		add	r6, r6, #1
+ 289 00b0 F3D3     		bcc	.L16
+ 290 00b2 2268     		ldr	r2, [r4]
+ 291 00b4 0A20     		movs	r0, #10
+ 292 00b6 1368     		ldr	r3, [r2]
+ARM GAS  /tmp/ccwCkhfT.s 			page 6
 
 
- 297 00ca 402D     		cmp	r5, #64
- 298 00cc E5D9     		bls	.L16
- 299 00ce 1621     		movs	r1, #22
- 300 00d0 0348     		ldr	r0, .L24
- 301              	.L23:
- 302 00d2 FFF7FEFF 		bl	CDC_Transmit_FS
- 303 00d6 0DF5826D 		add	sp, sp, #1040
- 304              		@ sp needed
- 305 00da BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
- 306              	.L25:
- 307 00de 00BF     		.align	2
- 308              	.L24:
- 309 00e0 00000000 		.word	.LC0
- 311              		.comm	odom,1,1
- 312              		.section	.rodata.adns3080_capture.str1.1,"aMS",%progbits,1
- 313              	.LC0:
- 314 0000 6661696C 		.ascii	"failed to find header\012\000"
- 314      65642074 
- 314      6F206669 
- 314      6E642068 
- 314      65616465 
- 315              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccBynLNh.s 			page 7
+ 293 00b8 23F04003 		bic	r3, r3, #64
+ 294 00bc 1360     		str	r3, [r2]
+ 295 00be FFF7FEFF 		bl	dwt_delay_us
+ 296 00c2 4FF46171 		mov	r1, #900
+ 297 00c6 5046     		mov	r0, r10
+ 298 00c8 03E0     		b	.L23
+ 299              	.L15:
+ 300 00ca 402D     		cmp	r5, #64
+ 301 00cc E5D9     		bls	.L16
+ 302 00ce 1621     		movs	r1, #22
+ 303 00d0 0348     		ldr	r0, .L24
+ 304              	.L23:
+ 305 00d2 FFF7FEFF 		bl	CDC_Transmit_FS
+ 306 00d6 0DF5826D 		add	sp, sp, #1040
+ 307              		@ sp needed
+ 308 00da BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 309              	.L25:
+ 310 00de 00BF     		.align	2
+ 311              	.L24:
+ 312 00e0 00000000 		.word	.LC0
+ 314              		.ident	"GCC: (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+ARM GAS  /tmp/ccwCkhfT.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 adns3080.c
-     /tmp/ccBynLNh.s:15     .text.adns3080_read_reg:0000000000000000 $t
-     /tmp/ccBynLNh.s:23     .text.adns3080_read_reg:0000000000000000 adns3080_read_reg
-     /tmp/ccBynLNh.s:52     .text.adns3080_write_reg:0000000000000000 $t
-     /tmp/ccBynLNh.s:59     .text.adns3080_write_reg:0000000000000000 adns3080_write_reg
-     /tmp/ccBynLNh.s:87     .text.adns3080_reset:0000000000000000 $t
-     /tmp/ccBynLNh.s:94     .text.adns3080_reset:0000000000000000 adns3080_reset
-     /tmp/ccBynLNh.s:134    .text.adns3080_reset:0000000000000058 $d
-     /tmp/ccBynLNh.s:139    .text.adns3080_init:0000000000000000 $t
-     /tmp/ccBynLNh.s:146    .text.adns3080_init:0000000000000000 adns3080_init
-     /tmp/ccBynLNh.s:159    .text.adns3080_init:0000000000000018 $d
-     /tmp/ccBynLNh.s:163    .text.adns3080_motion:0000000000000000 $t
-     /tmp/ccBynLNh.s:170    .text.adns3080_motion:0000000000000000 adns3080_motion
-     /tmp/ccBynLNh.s:207    .text.adns3080_capture:0000000000000000 $t
-     /tmp/ccBynLNh.s:214    .text.adns3080_capture:0000000000000000 adns3080_capture
-     /tmp/ccBynLNh.s:309    .text.adns3080_capture:00000000000000e0 $d
-                            *COM*:0000000000000001 odom
+     /tmp/ccwCkhfT.s:15     .text.adns3080_read_reg:0000000000000000 $t
+     /tmp/ccwCkhfT.s:23     .text.adns3080_read_reg:0000000000000000 adns3080_read_reg
+     /tmp/ccwCkhfT.s:52     .text.adns3080_write_reg:0000000000000000 $t
+     /tmp/ccwCkhfT.s:59     .text.adns3080_write_reg:0000000000000000 adns3080_write_reg
+     /tmp/ccwCkhfT.s:87     .text.adns3080_reset:0000000000000000 $t
+     /tmp/ccwCkhfT.s:94     .text.adns3080_reset:0000000000000000 adns3080_reset
+     /tmp/ccwCkhfT.s:134    .text.adns3080_reset:0000000000000058 $d
+     /tmp/ccwCkhfT.s:139    .text.adns3080_init:0000000000000000 $t
+     /tmp/ccwCkhfT.s:146    .text.adns3080_init:0000000000000000 adns3080_init
+     /tmp/ccwCkhfT.s:159    .text.adns3080_init:0000000000000018 $d
+     /tmp/ccwCkhfT.s:163    .text.adns3080_motion:0000000000000000 $t
+     /tmp/ccwCkhfT.s:170    .text.adns3080_motion:0000000000000000 adns3080_motion
+     /tmp/ccwCkhfT.s:210    .text.adns3080_capture:0000000000000000 $t
+     /tmp/ccwCkhfT.s:217    .text.adns3080_capture:0000000000000000 adns3080_capture
+     /tmp/ccwCkhfT.s:312    .text.adns3080_capture:00000000000000e0 $d
 
 UNDEFINED SYMBOLS
 HAL_SPI_TransmitReceive
 dwt_delay_us
 HAL_GPIO_WritePin
-HAL_Delay
 dwt_delay_init
 hspi2
 hspi3

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccFMiBNO.s 			page 1
+ARM GAS  /tmp/ccH9chTB.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -49,7 +49,7 @@ ARM GAS  /tmp/ccFMiBNO.s 			page 1
   47              	.L4:
   48 003a 00BF     		.align	2
   49              	.L3:
-  50 003c 00000000 		.word	huart2
+  50 003c 00000000 		.word	.LANCHOR0
   51 0040 00440040 		.word	1073759232
   53              		.section	.text.HAL_UART_MspInit,"ax",%progbits
   54              		.align	1
@@ -58,174 +58,219 @@ ARM GAS  /tmp/ccFMiBNO.s 			page 1
   57              		.thumb
   58              		.thumb_func
   59              		.fpu fpv5-sp-d16
-ARM GAS  /tmp/ccFMiBNO.s 			page 2
+ARM GAS  /tmp/ccH9chTB.s 			page 2
 
 
   61              	HAL_UART_MspInit:
-  62              		@ args = 0, pretend = 0, frame = 32
+  62              		@ args = 0, pretend = 0, frame = 160
   63              		@ frame_needed = 0, uses_anonymous_args = 0
-  64 0000 30B5     		push	{r4, r5, lr}
-  65 0002 89B0     		sub	sp, sp, #36
-  66 0004 0546     		mov	r5, r0
-  67 0006 1422     		movs	r2, #20
-  68 0008 0021     		movs	r1, #0
-  69 000a 03A8     		add	r0, sp, #12
-  70 000c FFF7FEFF 		bl	memset
-  71 0010 2A68     		ldr	r2, [r5]
-  72 0012 324B     		ldr	r3, .L15
-  73 0014 9A42     		cmp	r2, r3
-  74 0016 5ED1     		bne	.L5
-  75 0018 03F5FA33 		add	r3, r3, #128000
-  76 001c 0C21     		movs	r1, #12
-  77 001e 0320     		movs	r0, #3
-  78 0020 2F4C     		ldr	r4, .L15+4
-  79 0022 1A6C     		ldr	r2, [r3, #64]
-  80 0024 42F40032 		orr	r2, r2, #131072
-  81 0028 1A64     		str	r2, [r3, #64]
-  82 002a 1A6C     		ldr	r2, [r3, #64]
-  83 002c 02F40032 		and	r2, r2, #131072
-  84 0030 0192     		str	r2, [sp, #4]
-  85 0032 019A     		ldr	r2, [sp, #4]
-  86 0034 1A6B     		ldr	r2, [r3, #48]
-  87 0036 42F00102 		orr	r2, r2, #1
-  88 003a 1A63     		str	r2, [r3, #48]
-  89 003c 1B6B     		ldr	r3, [r3, #48]
-  90 003e 03F00103 		and	r3, r3, #1
-  91 0042 0293     		str	r3, [sp, #8]
-  92 0044 029B     		ldr	r3, [sp, #8]
-  93 0046 0223     		movs	r3, #2
-  94 0048 CDE90313 		strd	r1, r3, [sp, #12]
-  95 004c 0723     		movs	r3, #7
-  96 004e 03A9     		add	r1, sp, #12
-  97 0050 CDE90603 		strd	r0, r3, [sp, #24]
-  98 0054 2348     		ldr	r0, .L15+8
-  99 0056 FFF7FEFF 		bl	HAL_GPIO_Init
- 100 005a 4FF00063 		mov	r3, #134217728
- 101 005e DFF890C0 		ldr	ip, .L15+20
- 102 0062 4FF0400E 		mov	lr, #64
- 103 0066 4FF48062 		mov	r2, #1024
- 104 006a 2046     		mov	r0, r4
- 105 006c C4E900C3 		strd	ip, r3, [r4]
- 106 0070 0023     		movs	r3, #0
- 107 0072 C4E902E3 		strd	lr, r3, [r4, #8]
- 108 0076 C4E90423 		strd	r2, r3, [r4, #16]
- 109 007a C4E90633 		strd	r3, r3, [r4, #24]
- 110 007e C4E90833 		strd	r3, r3, [r4, #32]
- 111 0082 FFF7FEFF 		bl	HAL_DMA_Init
- 112 0086 08B1     		cbz	r0, .L7
- 113 0088 FFF7FEFF 		bl	Error_Handler
- 114              	.L7:
- 115 008c 164A     		ldr	r2, .L15+12
- 116 008e 4FF00063 		mov	r3, #134217728
- 117 0092 AC66     		str	r4, [r5, #104]
-ARM GAS  /tmp/ccFMiBNO.s 			page 3
+  64 0000 70B5     		push	{r4, r5, r6, lr}
+  65 0002 A8B0     		sub	sp, sp, #160
+  66 0004 8024     		movs	r4, #128
+  67 0006 0546     		mov	r5, r0
+  68 0008 1422     		movs	r2, #20
+  69 000a 0021     		movs	r1, #0
+  70 000c 03A8     		add	r0, sp, #12
+  71 000e FFF7FEFF 		bl	memset
+  72 0012 2246     		mov	r2, r4
+  73 0014 0021     		movs	r1, #0
+  74 0016 08A8     		add	r0, sp, #32
+  75 0018 FFF7FEFF 		bl	memset
+  76 001c 2A68     		ldr	r2, [r5]
+  77 001e 344B     		ldr	r3, .L19
+  78 0020 9A42     		cmp	r2, r3
+  79 0022 63D1     		bne	.L5
+  80 0024 08A8     		add	r0, sp, #32
+  81 0026 0894     		str	r4, [sp, #32]
+  82 0028 FFF7FEFF 		bl	HAL_RCCEx_PeriphCLKConfig
+  83 002c 08B1     		cbz	r0, .L7
+  84 002e FFF7FEFF 		bl	Error_Handler
+  85              	.L7:
+  86 0032 304B     		ldr	r3, .L19+4
+  87 0034 0C21     		movs	r1, #12
+  88 0036 0026     		movs	r6, #0
+  89 0038 2F48     		ldr	r0, .L19+8
+  90 003a 1A6C     		ldr	r2, [r3, #64]
+  91 003c 2F4C     		ldr	r4, .L19+12
+  92 003e 42F40032 		orr	r2, r2, #131072
+  93 0042 1A64     		str	r2, [r3, #64]
+  94 0044 1A6C     		ldr	r2, [r3, #64]
+  95 0046 02F40032 		and	r2, r2, #131072
+  96 004a 0192     		str	r2, [sp, #4]
+  97 004c 019A     		ldr	r2, [sp, #4]
+  98 004e 1A6B     		ldr	r2, [r3, #48]
+  99 0050 42F00102 		orr	r2, r2, #1
+ 100 0054 1A63     		str	r2, [r3, #48]
+ 101 0056 1B6B     		ldr	r3, [r3, #48]
+ 102 0058 03F00103 		and	r3, r3, #1
+ 103 005c 0293     		str	r3, [sp, #8]
+ 104 005e 029B     		ldr	r3, [sp, #8]
+ 105 0060 0223     		movs	r3, #2
+ 106 0062 CDE90313 		strd	r1, r3, [sp, #12]
+ 107 0066 0323     		movs	r3, #3
+ 108 0068 03A9     		add	r1, sp, #12
+ 109 006a CDE90563 		strd	r6, r3, [sp, #20]
+ 110 006e 0723     		movs	r3, #7
+ 111 0070 0793     		str	r3, [sp, #28]
+ 112 0072 FFF7FEFF 		bl	HAL_GPIO_Init
+ 113 0076 2248     		ldr	r0, .L19+16
+ 114 0078 4FF00063 		mov	r3, #134217728
+ 115 007c C4E90003 		strd	r0, r3, [r4]
+ 116 0080 4023     		movs	r3, #64
+ 117 0082 2046     		mov	r0, r4
+ARM GAS  /tmp/ccH9chTB.s 			page 3
 
 
- 118 0094 A563     		str	r5, [r4, #56]
- 119 0096 154C     		ldr	r4, .L15+16
- 120 0098 C4E90023 		strd	r2, r3, [r4]
- 121 009c 0023     		movs	r3, #0
- 122 009e 4FF48062 		mov	r2, #1024
- 123 00a2 2046     		mov	r0, r4
- 124 00a4 C4E90423 		strd	r2, r3, [r4, #16]
- 125 00a8 4FF48032 		mov	r2, #65536
- 126 00ac C4E90233 		strd	r3, r3, [r4, #8]
- 127 00b0 C4E90633 		strd	r3, r3, [r4, #24]
- 128 00b4 C4E90823 		strd	r2, r3, [r4, #32]
- 129 00b8 FFF7FEFF 		bl	HAL_DMA_Init
- 130 00bc 08B1     		cbz	r0, .L8
- 131 00be FFF7FEFF 		bl	Error_Handler
- 132              	.L8:
- 133 00c2 0022     		movs	r2, #0
- 134 00c4 2620     		movs	r0, #38
- 135 00c6 EC66     		str	r4, [r5, #108]
- 136 00c8 1146     		mov	r1, r2
- 137 00ca A563     		str	r5, [r4, #56]
- 138 00cc FFF7FEFF 		bl	HAL_NVIC_SetPriority
- 139 00d0 2620     		movs	r0, #38
- 140 00d2 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
- 141              	.L5:
- 142 00d6 09B0     		add	sp, sp, #36
- 143              		@ sp needed
- 144 00d8 30BD     		pop	{r4, r5, pc}
- 145              	.L16:
- 146 00da 00BF     		.align	2
- 147              	.L15:
- 148 00dc 00440040 		.word	1073759232
- 149 00e0 00000000 		.word	hdma_usart2_tx
- 150 00e4 00000240 		.word	1073872896
- 151 00e8 88600240 		.word	1073897608
- 152 00ec 00000000 		.word	hdma_usart2_rx
- 153 00f0 A0600240 		.word	1073897632
- 155              		.section	.text.HAL_UART_MspDeInit,"ax",%progbits
- 156              		.align	1
- 157              		.global	HAL_UART_MspDeInit
- 158              		.syntax unified
- 159              		.thumb
- 160              		.thumb_func
- 161              		.fpu fpv5-sp-d16
- 163              	HAL_UART_MspDeInit:
- 164              		@ args = 0, pretend = 0, frame = 0
- 165              		@ frame_needed = 0, uses_anonymous_args = 0
- 166 0000 0268     		ldr	r2, [r0]
- 167 0002 0D4B     		ldr	r3, .L19
- 168 0004 9A42     		cmp	r2, r3
- 169 0006 10B5     		push	{r4, lr}
- 170 0008 0446     		mov	r4, r0
- 171 000a 13D1     		bne	.L17
- 172 000c 0B4A     		ldr	r2, .L19+4
- 173 000e 0C21     		movs	r1, #12
- 174 0010 0B48     		ldr	r0, .L19+8
- 175 0012 136C     		ldr	r3, [r2, #64]
- 176 0014 23F40033 		bic	r3, r3, #131072
-ARM GAS  /tmp/ccFMiBNO.s 			page 4
+ 118 0084 C4E90236 		strd	r3, r6, [r4, #8]
+ 119 0088 4FF48063 		mov	r3, #1024
+ 120 008c C4E90666 		strd	r6, r6, [r4, #24]
+ 121 0090 C4E90436 		strd	r3, r6, [r4, #16]
+ 122 0094 C4E90866 		strd	r6, r6, [r4, #32]
+ 123 0098 FFF7FEFF 		bl	HAL_DMA_Init
+ 124 009c 08B1     		cbz	r0, .L8
+ 125 009e FFF7FEFF 		bl	Error_Handler
+ 126              	.L8:
+ 127 00a2 184A     		ldr	r2, .L19+20
+ 128 00a4 4FF00063 		mov	r3, #134217728
+ 129 00a8 2C67     		str	r4, [r5, #112]
+ 130 00aa A563     		str	r5, [r4, #56]
+ 131 00ac 164C     		ldr	r4, .L19+24
+ 132 00ae C4E90023 		strd	r2, r3, [r4]
+ 133 00b2 0023     		movs	r3, #0
+ 134 00b4 4FF48062 		mov	r2, #1024
+ 135 00b8 2046     		mov	r0, r4
+ 136 00ba C4E90423 		strd	r2, r3, [r4, #16]
+ 137 00be 4FF48032 		mov	r2, #65536
+ 138 00c2 C4E90233 		strd	r3, r3, [r4, #8]
+ 139 00c6 C4E90633 		strd	r3, r3, [r4, #24]
+ 140 00ca C4E90823 		strd	r2, r3, [r4, #32]
+ 141 00ce FFF7FEFF 		bl	HAL_DMA_Init
+ 142 00d2 08B1     		cbz	r0, .L9
+ 143 00d4 FFF7FEFF 		bl	Error_Handler
+ 144              	.L9:
+ 145 00d8 0022     		movs	r2, #0
+ 146 00da 2620     		movs	r0, #38
+ 147 00dc 6C67     		str	r4, [r5, #116]
+ 148 00de 1146     		mov	r1, r2
+ 149 00e0 A563     		str	r5, [r4, #56]
+ 150 00e2 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 151 00e6 2620     		movs	r0, #38
+ 152 00e8 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 153              	.L5:
+ 154 00ec 28B0     		add	sp, sp, #160
+ 155              		@ sp needed
+ 156 00ee 70BD     		pop	{r4, r5, r6, pc}
+ 157              	.L20:
+ 158              		.align	2
+ 159              	.L19:
+ 160 00f0 00440040 		.word	1073759232
+ 161 00f4 00380240 		.word	1073887232
+ 162 00f8 00000240 		.word	1073872896
+ 163 00fc 00000000 		.word	.LANCHOR1
+ 164 0100 A0600240 		.word	1073897632
+ 165 0104 88600240 		.word	1073897608
+ 166 0108 00000000 		.word	.LANCHOR2
+ 168              		.section	.text.HAL_UART_MspDeInit,"ax",%progbits
+ 169              		.align	1
+ 170              		.global	HAL_UART_MspDeInit
+ 171              		.syntax unified
+ 172              		.thumb
+ 173              		.thumb_func
+ 174              		.fpu fpv5-sp-d16
+ 176              	HAL_UART_MspDeInit:
+ARM GAS  /tmp/ccH9chTB.s 			page 4
 
 
- 177 0018 1364     		str	r3, [r2, #64]
- 178 001a FFF7FEFF 		bl	HAL_GPIO_DeInit
- 179 001e A06E     		ldr	r0, [r4, #104]
- 180 0020 FFF7FEFF 		bl	HAL_DMA_DeInit
- 181 0024 E06E     		ldr	r0, [r4, #108]
- 182 0026 FFF7FEFF 		bl	HAL_DMA_DeInit
- 183 002a 2620     		movs	r0, #38
- 184 002c BDE81040 		pop	{r4, lr}
- 185 0030 FFF7FEBF 		b	HAL_NVIC_DisableIRQ
- 186              	.L17:
- 187 0034 10BD     		pop	{r4, pc}
- 188              	.L20:
- 189 0036 00BF     		.align	2
- 190              	.L19:
- 191 0038 00440040 		.word	1073759232
- 192 003c 00380240 		.word	1073887232
- 193 0040 00000240 		.word	1073872896
- 195              		.comm	hdma_usart2_rx,96,4
- 196              		.comm	hdma_usart2_tx,96,4
- 197              		.comm	huart2,128,4
- 198              		.comm	odom,1,1
- 199              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccFMiBNO.s 			page 5
+ 177              		@ args = 0, pretend = 0, frame = 0
+ 178              		@ frame_needed = 0, uses_anonymous_args = 0
+ 179 0000 0268     		ldr	r2, [r0]
+ 180 0002 0D4B     		ldr	r3, .L23
+ 181 0004 9A42     		cmp	r2, r3
+ 182 0006 10B5     		push	{r4, lr}
+ 183 0008 0446     		mov	r4, r0
+ 184 000a 13D1     		bne	.L21
+ 185 000c 0B4A     		ldr	r2, .L23+4
+ 186 000e 0C21     		movs	r1, #12
+ 187 0010 0B48     		ldr	r0, .L23+8
+ 188 0012 136C     		ldr	r3, [r2, #64]
+ 189 0014 23F40033 		bic	r3, r3, #131072
+ 190 0018 1364     		str	r3, [r2, #64]
+ 191 001a FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 192 001e 206F     		ldr	r0, [r4, #112]
+ 193 0020 FFF7FEFF 		bl	HAL_DMA_DeInit
+ 194 0024 606F     		ldr	r0, [r4, #116]
+ 195 0026 FFF7FEFF 		bl	HAL_DMA_DeInit
+ 196 002a 2620     		movs	r0, #38
+ 197 002c BDE81040 		pop	{r4, lr}
+ 198 0030 FFF7FEBF 		b	HAL_NVIC_DisableIRQ
+ 199              	.L21:
+ 200 0034 10BD     		pop	{r4, pc}
+ 201              	.L24:
+ 202 0036 00BF     		.align	2
+ 203              	.L23:
+ 204 0038 00440040 		.word	1073759232
+ 205 003c 00380240 		.word	1073887232
+ 206 0040 00000240 		.word	1073872896
+ 208              		.global	hdma_usart2_rx
+ 209              		.global	hdma_usart2_tx
+ 210              		.global	huart2
+ 211              		.section	.bss.hdma_usart2_rx,"aw",%nobits
+ 212              		.align	2
+ 213              		.set	.LANCHOR2,. + 0
+ 216              	hdma_usart2_rx:
+ 217 0000 00000000 		.space	96
+ 217      00000000 
+ 217      00000000 
+ 217      00000000 
+ 217      00000000 
+ 218              		.section	.bss.hdma_usart2_tx,"aw",%nobits
+ 219              		.align	2
+ 220              		.set	.LANCHOR1,. + 0
+ 223              	hdma_usart2_tx:
+ 224 0000 00000000 		.space	96
+ 224      00000000 
+ 224      00000000 
+ 224      00000000 
+ 224      00000000 
+ 225              		.section	.bss.huart2,"aw",%nobits
+ 226              		.align	2
+ 227              		.set	.LANCHOR0,. + 0
+ 230              	huart2:
+ 231 0000 00000000 		.space	136
+ 231      00000000 
+ARM GAS  /tmp/ccH9chTB.s 			page 5
+
+
+ 231      00000000 
+ 231      00000000 
+ 231      00000000 
+ 232              		.ident	"GCC: (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+ARM GAS  /tmp/ccH9chTB.s 			page 6
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 usart.c
-     /tmp/ccFMiBNO.s:15     .text.MX_USART2_UART_Init:0000000000000000 $t
-     /tmp/ccFMiBNO.s:23     .text.MX_USART2_UART_Init:0000000000000000 MX_USART2_UART_Init
-     /tmp/ccFMiBNO.s:50     .text.MX_USART2_UART_Init:000000000000003c $d
-                            *COM*:0000000000000080 huart2
-     /tmp/ccFMiBNO.s:54     .text.HAL_UART_MspInit:0000000000000000 $t
-     /tmp/ccFMiBNO.s:61     .text.HAL_UART_MspInit:0000000000000000 HAL_UART_MspInit
-     /tmp/ccFMiBNO.s:148    .text.HAL_UART_MspInit:00000000000000dc $d
-                            *COM*:0000000000000060 hdma_usart2_tx
-                            *COM*:0000000000000060 hdma_usart2_rx
-     /tmp/ccFMiBNO.s:156    .text.HAL_UART_MspDeInit:0000000000000000 $t
-     /tmp/ccFMiBNO.s:163    .text.HAL_UART_MspDeInit:0000000000000000 HAL_UART_MspDeInit
-     /tmp/ccFMiBNO.s:191    .text.HAL_UART_MspDeInit:0000000000000038 $d
-                            *COM*:0000000000000001 odom
+     /tmp/ccH9chTB.s:15     .text.MX_USART2_UART_Init:0000000000000000 $t
+     /tmp/ccH9chTB.s:23     .text.MX_USART2_UART_Init:0000000000000000 MX_USART2_UART_Init
+     /tmp/ccH9chTB.s:50     .text.MX_USART2_UART_Init:000000000000003c $d
+     /tmp/ccH9chTB.s:54     .text.HAL_UART_MspInit:0000000000000000 $t
+     /tmp/ccH9chTB.s:61     .text.HAL_UART_MspInit:0000000000000000 HAL_UART_MspInit
+     /tmp/ccH9chTB.s:160    .text.HAL_UART_MspInit:00000000000000f0 $d
+     /tmp/ccH9chTB.s:169    .text.HAL_UART_MspDeInit:0000000000000000 $t
+     /tmp/ccH9chTB.s:176    .text.HAL_UART_MspDeInit:0000000000000000 HAL_UART_MspDeInit
+     /tmp/ccH9chTB.s:204    .text.HAL_UART_MspDeInit:0000000000000038 $d
+     /tmp/ccH9chTB.s:216    .bss.hdma_usart2_rx:0000000000000000 hdma_usart2_rx
+     /tmp/ccH9chTB.s:223    .bss.hdma_usart2_tx:0000000000000000 hdma_usart2_tx
+     /tmp/ccH9chTB.s:230    .bss.huart2:0000000000000000 huart2
+     /tmp/ccH9chTB.s:212    .bss.hdma_usart2_rx:0000000000000000 $d
+     /tmp/ccH9chTB.s:219    .bss.hdma_usart2_tx:0000000000000000 $d
+     /tmp/ccH9chTB.s:226    .bss.huart2:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_UART_Init
 Error_Handler
 memset
+HAL_RCCEx_PeriphCLKConfig
 HAL_GPIO_Init
 HAL_DMA_Init
 HAL_NVIC_SetPriority

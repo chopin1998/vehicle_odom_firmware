@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccpOIy8z.s 			page 1
+ARM GAS  /tmp/cceRXxHP.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -58,20 +58,20 @@ ARM GAS  /tmp/ccpOIy8z.s 			page 1
   61              		.thumb_func
   62              		.fpu fpv5-sp-d16
   64              	CDC_Receive_FS:
-ARM GAS  /tmp/ccpOIy8z.s 			page 2
+ARM GAS  /tmp/cceRXxHP.s 			page 2
 
 
   65              		@ args = 0, pretend = 0, frame = 0
   66              		@ frame_needed = 0, uses_anonymous_args = 0
   67 0000 38B5     		push	{r3, r4, r5, lr}
-  68 0002 074C     		ldr	r4, .L5
-  69 0004 0D46     		mov	r5, r1
+  68 0002 074D     		ldr	r5, .L5
+  69 0004 0C46     		mov	r4, r1
   70 0006 0146     		mov	r1, r0
-  71 0008 2046     		mov	r0, r4
+  71 0008 2846     		mov	r0, r5
   72 000a FFF7FEFF 		bl	USBD_CDC_SetRxBuffer
-  73 000e 2046     		mov	r0, r4
+  73 000e 2846     		mov	r0, r5
   74 0010 FFF7FEFF 		bl	USBD_CDC_ReceivePacket
-  75 0014 2A68     		ldr	r2, [r5]
+  75 0014 2268     		ldr	r2, [r4]
   76 0016 034B     		ldr	r3, .L5+4
   77 0018 0020     		movs	r0, #0
   78 001a 1A60     		str	r2, [r3]
@@ -105,8 +105,8 @@ ARM GAS  /tmp/ccpOIy8z.s 			page 1
  108 001a 00BF     		.align	2
  109              	.L8:
  110 001c 00000000 		.word	hUsbDeviceFS
- 111 0020 00000000 		.word	UserTxBufferFS
- 112 0024 00000000 		.word	UserRxBufferFS
+ 111 0020 00000000 		.word	.LANCHOR1
+ 112 0024 00000000 		.word	.LANCHOR2
  114              		.section	.text.CDC_Transmit_FS,"ax",%progbits
  115              		.align	1
  116              		.global	CDC_Transmit_FS
@@ -118,20 +118,20 @@ ARM GAS  /tmp/ccpOIy8z.s 			page 1
  123              		@ args = 0, pretend = 0, frame = 0
  124              		@ frame_needed = 0, uses_anonymous_args = 0
  125 0000 0C4B     		ldr	r3, .L18
-ARM GAS  /tmp/ccpOIy8z.s 			page 3
+ARM GAS  /tmp/cceRXxHP.s 			page 3
 
 
  126 0002 0A46     		mov	r2, r1
- 127 0004 10B5     		push	{r4, lr}
- 128 0006 D3F8BC42 		ldr	r4, [r3, #700]
- 129 000a 4FF48053 		mov	r3, #4096
+ 127 0004 D3F8BC12 		ldr	r1, [r3, #700]
+ 128 0008 4FF48053 		mov	r3, #4096
+ 129 000c 10B5     		push	{r4, lr}
  130              	.L12:
- 131 000e D4F81412 		ldr	r1, [r4, #532]
- 132 0012 09B1     		cbz	r1, .L11
+ 131 000e D1F81442 		ldr	r4, [r1, #532]
+ 132 0012 0CB1     		cbz	r4, .L11
  133 0014 013B     		subs	r3, r3, #1
  134 0016 FAD1     		bne	.L12
  135              	.L11:
- 136 0018 D4F81432 		ldr	r3, [r4, #532]
+ 136 0018 D1F81432 		ldr	r3, [r1, #532]
  137 001c 43B9     		cbnz	r3, .L13
  138 001e 0146     		mov	r1, r0
  139 0020 0448     		ldr	r0, .L18
@@ -170,58 +170,74 @@ ARM GAS  /tmp/ccpOIy8z.s 			page 1
  174              		.align	2
  175              	.L25:
  176 0014 00000000 		.word	.LANCHOR0
- 177 0018 00000000 		.word	UserRxBufferFS
+ 177 0018 00000000 		.word	.LANCHOR2
  179              		.global	USBD_Interface_fops_FS
- 180              		.comm	UserTxBufferFS,2048,1
- 181              		.comm	UserRxBufferFS,2048,1
- 182              		.comm	odom,1,1
- 183              		.section	.bss._rx_recv_flag,"aw",%nobits
- 184              		.align	2
- 185              		.set	.LANCHOR0,. + 0
-ARM GAS  /tmp/ccpOIy8z.s 			page 4
+ 180              		.global	UserTxBufferFS
+ 181              		.global	UserRxBufferFS
+ 182              		.section	.bss.UserRxBufferFS,"aw",%nobits
+ 183              		.set	.LANCHOR2,. + 0
+ 186              	UserRxBufferFS:
+ 187 0000 00000000 		.space	2048
+ARM GAS  /tmp/cceRXxHP.s 			page 4
 
 
- 188              	_rx_recv_flag:
- 189 0000 00000000 		.space	4
- 190              		.section	.data.USBD_Interface_fops_FS,"aw"
- 191              		.align	2
- 194              	USBD_Interface_fops_FS:
- 195 0000 00000000 		.word	CDC_Init_FS
- 196 0004 00000000 		.word	CDC_DeInit_FS
- 197 0008 00000000 		.word	CDC_Control_FS
- 198 000c 00000000 		.word	CDC_Receive_FS
- 199 0010 00000000 		.word	CDC_TransmitCplt_FS
- 200              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccpOIy8z.s 			page 5
+ 187      00000000 
+ 187      00000000 
+ 187      00000000 
+ 187      00000000 
+ 188              		.section	.bss.UserTxBufferFS,"aw",%nobits
+ 189              		.set	.LANCHOR1,. + 0
+ 192              	UserTxBufferFS:
+ 193 0000 00000000 		.space	2048
+ 193      00000000 
+ 193      00000000 
+ 193      00000000 
+ 193      00000000 
+ 194              		.section	.bss._rx_recv_flag,"aw",%nobits
+ 195              		.align	2
+ 196              		.set	.LANCHOR0,. + 0
+ 199              	_rx_recv_flag:
+ 200 0000 00000000 		.space	4
+ 201              		.section	.data.USBD_Interface_fops_FS,"aw"
+ 202              		.align	2
+ 205              	USBD_Interface_fops_FS:
+ 206 0000 00000000 		.word	CDC_Init_FS
+ 207 0004 00000000 		.word	CDC_DeInit_FS
+ 208 0008 00000000 		.word	CDC_Control_FS
+ 209 000c 00000000 		.word	CDC_Receive_FS
+ 210 0010 00000000 		.word	CDC_TransmitCplt_FS
+ 211              		.ident	"GCC: (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+ARM GAS  /tmp/cceRXxHP.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 usbd_cdc_if.c
-     /tmp/ccpOIy8z.s:15     .text.CDC_DeInit_FS:0000000000000000 $t
-     /tmp/ccpOIy8z.s:22     .text.CDC_DeInit_FS:0000000000000000 CDC_DeInit_FS
-     /tmp/ccpOIy8z.s:30     .text.CDC_Control_FS:0000000000000000 $t
-     /tmp/ccpOIy8z.s:36     .text.CDC_Control_FS:0000000000000000 CDC_Control_FS
-     /tmp/ccpOIy8z.s:44     .text.CDC_TransmitCplt_FS:0000000000000000 $t
-     /tmp/ccpOIy8z.s:50     .text.CDC_TransmitCplt_FS:0000000000000000 CDC_TransmitCplt_FS
-     /tmp/ccpOIy8z.s:58     .text.CDC_Receive_FS:0000000000000000 $t
-     /tmp/ccpOIy8z.s:64     .text.CDC_Receive_FS:0000000000000000 CDC_Receive_FS
-     /tmp/ccpOIy8z.s:83     .text.CDC_Receive_FS:0000000000000020 $d
-     /tmp/ccpOIy8z.s:87     .text.CDC_Init_FS:0000000000000000 $t
-     /tmp/ccpOIy8z.s:93     .text.CDC_Init_FS:0000000000000000 CDC_Init_FS
-     /tmp/ccpOIy8z.s:110    .text.CDC_Init_FS:000000000000001c $d
-                            *COM*:0000000000000800 UserTxBufferFS
-                            *COM*:0000000000000800 UserRxBufferFS
-     /tmp/ccpOIy8z.s:115    .text.CDC_Transmit_FS:0000000000000000 $t
-     /tmp/ccpOIy8z.s:122    .text.CDC_Transmit_FS:0000000000000000 CDC_Transmit_FS
-     /tmp/ccpOIy8z.s:150    .text.CDC_Transmit_FS:0000000000000034 $d
-     /tmp/ccpOIy8z.s:153    .text.cdc_rx_tick:0000000000000000 $t
-     /tmp/ccpOIy8z.s:160    .text.cdc_rx_tick:0000000000000000 cdc_rx_tick
-     /tmp/ccpOIy8z.s:176    .text.cdc_rx_tick:0000000000000014 $d
-     /tmp/ccpOIy8z.s:194    .data.USBD_Interface_fops_FS:0000000000000000 USBD_Interface_fops_FS
-                            *COM*:0000000000000001 odom
-     /tmp/ccpOIy8z.s:184    .bss._rx_recv_flag:0000000000000000 $d
-     /tmp/ccpOIy8z.s:188    .bss._rx_recv_flag:0000000000000000 _rx_recv_flag
-     /tmp/ccpOIy8z.s:191    .data.USBD_Interface_fops_FS:0000000000000000 $d
+     /tmp/cceRXxHP.s:15     .text.CDC_DeInit_FS:0000000000000000 $t
+     /tmp/cceRXxHP.s:22     .text.CDC_DeInit_FS:0000000000000000 CDC_DeInit_FS
+     /tmp/cceRXxHP.s:30     .text.CDC_Control_FS:0000000000000000 $t
+     /tmp/cceRXxHP.s:36     .text.CDC_Control_FS:0000000000000000 CDC_Control_FS
+     /tmp/cceRXxHP.s:44     .text.CDC_TransmitCplt_FS:0000000000000000 $t
+     /tmp/cceRXxHP.s:50     .text.CDC_TransmitCplt_FS:0000000000000000 CDC_TransmitCplt_FS
+     /tmp/cceRXxHP.s:58     .text.CDC_Receive_FS:0000000000000000 $t
+     /tmp/cceRXxHP.s:64     .text.CDC_Receive_FS:0000000000000000 CDC_Receive_FS
+     /tmp/cceRXxHP.s:83     .text.CDC_Receive_FS:0000000000000020 $d
+     /tmp/cceRXxHP.s:87     .text.CDC_Init_FS:0000000000000000 $t
+     /tmp/cceRXxHP.s:93     .text.CDC_Init_FS:0000000000000000 CDC_Init_FS
+     /tmp/cceRXxHP.s:110    .text.CDC_Init_FS:000000000000001c $d
+     /tmp/cceRXxHP.s:115    .text.CDC_Transmit_FS:0000000000000000 $t
+     /tmp/cceRXxHP.s:122    .text.CDC_Transmit_FS:0000000000000000 CDC_Transmit_FS
+     /tmp/cceRXxHP.s:150    .text.CDC_Transmit_FS:0000000000000034 $d
+     /tmp/cceRXxHP.s:153    .text.cdc_rx_tick:0000000000000000 $t
+     /tmp/cceRXxHP.s:160    .text.cdc_rx_tick:0000000000000000 cdc_rx_tick
+     /tmp/cceRXxHP.s:176    .text.cdc_rx_tick:0000000000000014 $d
+     /tmp/cceRXxHP.s:205    .data.USBD_Interface_fops_FS:0000000000000000 USBD_Interface_fops_FS
+     /tmp/cceRXxHP.s:192    .bss.UserTxBufferFS:0000000000000000 UserTxBufferFS
+     /tmp/cceRXxHP.s:186    .bss.UserRxBufferFS:0000000000000000 UserRxBufferFS
+     /tmp/cceRXxHP.s:187    .bss.UserRxBufferFS:0000000000000000 $d
+     /tmp/cceRXxHP.s:193    .bss.UserTxBufferFS:0000000000000000 $d
+     /tmp/cceRXxHP.s:195    .bss._rx_recv_flag:0000000000000000 $d
+     /tmp/cceRXxHP.s:199    .bss._rx_recv_flag:0000000000000000 _rx_recv_flag
+     /tmp/cceRXxHP.s:202    .data.USBD_Interface_fops_FS:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 USBD_CDC_SetRxBuffer

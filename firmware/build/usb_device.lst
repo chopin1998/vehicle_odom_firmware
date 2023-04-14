@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccic5jXq.s 			page 1
+ARM GAS  /tmp/ccZ2OjfW.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -56,25 +56,33 @@ ARM GAS  /tmp/ccic5jXq.s 			page 1
   54              		.align	2
   55              	.L15:
   56 0040 00000000 		.word	FS_Desc
-  57 0044 00000000 		.word	hUsbDeviceFS
+  57 0044 00000000 		.word	.LANCHOR0
   58 0048 00000000 		.word	USBD_CDC
-ARM GAS  /tmp/ccic5jXq.s 			page 2
+ARM GAS  /tmp/ccZ2OjfW.s 			page 2
 
 
   59 004c 00000000 		.word	USBD_Interface_fops_FS
-  61              		.comm	hUsbDeviceFS,720,4
-  62              		.comm	odom,1,1
-  63              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccic5jXq.s 			page 3
+  61              		.global	hUsbDeviceFS
+  62              		.section	.bss.hUsbDeviceFS,"aw",%nobits
+  63              		.align	2
+  64              		.set	.LANCHOR0,. + 0
+  67              	hUsbDeviceFS:
+  68 0000 00000000 		.space	732
+  68      00000000 
+  68      00000000 
+  68      00000000 
+  68      00000000 
+  69              		.ident	"GCC: (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+ARM GAS  /tmp/ccZ2OjfW.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 usb_device.c
-     /tmp/ccic5jXq.s:15     .text.MX_USB_DEVICE_Init:0000000000000000 $t
-     /tmp/ccic5jXq.s:23     .text.MX_USB_DEVICE_Init:0000000000000000 MX_USB_DEVICE_Init
-     /tmp/ccic5jXq.s:56     .text.MX_USB_DEVICE_Init:0000000000000040 $d
-                            *COM*:00000000000002d0 hUsbDeviceFS
-                            *COM*:0000000000000001 odom
+     /tmp/ccZ2OjfW.s:15     .text.MX_USB_DEVICE_Init:0000000000000000 $t
+     /tmp/ccZ2OjfW.s:23     .text.MX_USB_DEVICE_Init:0000000000000000 MX_USB_DEVICE_Init
+     /tmp/ccZ2OjfW.s:56     .text.MX_USB_DEVICE_Init:0000000000000040 $d
+     /tmp/ccZ2OjfW.s:67     .bss.hUsbDeviceFS:0000000000000000 hUsbDeviceFS
+     /tmp/ccZ2OjfW.s:63     .bss.hUsbDeviceFS:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 USBD_Init
