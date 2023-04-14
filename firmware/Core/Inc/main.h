@@ -29,8 +29,8 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f7xx_hal.h"
+
 #include "stm32f7xx_ll_dac.h"
-#include "stm32f7xx_hal.h"
 #include "stm32f7xx_ll_bus.h"
 #include "stm32f7xx_ll_cortex.h"
 #include "stm32f7xx_ll_rcc.h"
@@ -78,6 +78,7 @@ void Error_Handler(void);
 #define SPI2_RST_GPIO_Port GPIOC
 #define SPI3_RST_Pin GPIO_PIN_14
 #define SPI3_RST_GPIO_Port GPIOA
+
 /* USER CODE BEGIN Private defines */
 
 enum {MODE_IDLE=0, MODE_ODOM};
@@ -96,5 +97,3 @@ ODOM_t odom;
 #endif
 
 #endif /* __MAIN_H */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
